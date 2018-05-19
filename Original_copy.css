@@ -4,7 +4,11 @@ body { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 3
 p    { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; margin-top: 10px; margin-bottom: 0px; }
 
 /* size of footer */
+<<<<<<< HEAD
 p.footer { font-size: 12px; font-style: italic; }
+=======
+p.footer { font-size: 12px; font-style; italic; }
+>>>>>>> 71bfbcc77de057ad0bbf8891f1dc2e3d366cae74
 
 /* size of footer hyperlink */
 a.footer { font-size: 12px; }
@@ -153,7 +157,11 @@ text-decoration: none;
 }
 
 /* white on black headings */
+<<<<<<< HEAD
 #menu a.title { color: #fff; background: #565050; }
+=======
+#menu a.title { color: #fff; background: #cccccc; }
+>>>>>>> 71bfbcc77de057ad0bbf8891f1dc2e3d366cae74
 #menu a.ex_easy {  color: #000; background: #cccccc;}
 #menu a.ex_medium {  color: #000; background: #cccccc;}
 #menu a.ex_hard {  color: #000; background: #cccccc;}
@@ -243,7 +251,10 @@ img {
     height:50px;
 }
 
+<<<<<<< HEAD
 pre{
   font-family: Consolas, monaco, monospace;
 }
+=======
+>>>>>>> 71bfbcc77de057ad0bbf8891f1dc2e3d366cae74
 
