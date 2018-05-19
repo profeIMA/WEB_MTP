@@ -191,6 +191,10 @@ left: 0;
 
 #menu li {position: relative;}
 
+li.dropdown ul {
+    display : block;
+}
+
 #menu ul ul ul {
 position: absolute;
 top: 0;
@@ -246,4 +250,3 @@ img {
 pre{
   font-family: Consolas, monaco, monospace;
 }
-

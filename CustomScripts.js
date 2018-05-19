@@ -14,8 +14,3 @@ $(function() {
     }, 100);
 
 });
-
-// $('li.title').click(function() {
-//     $('li.title').not(this).find('ul').hide();
-//     $(this).find('ul').toggle();
-//  });
