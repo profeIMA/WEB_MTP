@@ -18,13 +18,14 @@ p.blurb { font-size: 16px; font-style: italic; font-weight: 350; line-height: 14
 li {  font-size: 15px; margin-top: 6px;}
 
 hr   { height:1px; color:#444444; }
-code { font-family: "courier new", courier, mono; font-size: 14px; }
-tt   { font-family: "courier new", courier, mono; font-size: 14px; }
+code { font-family: Consolas, monaco, monospace; font-size: 14px; }
+tt   { font-family: Consolas, monaco, monospace; font-size: 14px; }
 blockquote { margin-left: 40px; margin-right: 0px; }
-blockquote pre { font-family: "courier new", courier, mono; font-size: 13px; background-color:#ebebeb; padding: 10px 15px 10px 15px; }
-blockquote pre.small { font-family: "courier new", courier, mono; font-size: 11px; background-color:#ebebeb;}
-blockquote pre.tiny { font-family: "courier new", courier, mono; font-size: 10px; background-color:#ebebeb;}
-pre { margin-left: 0px; font-family: "courier new", courier, mono; font-size: 13px; background-color:#ebebeb; padding: 10px 10px 10px 15px; }
+blockquote pre { font-family: Consolas, monaco, monospace; font-size: 13px; background-color:#ebebeb; padding: 10px 15px 10px 15px; }
+blockquote pre.small { font-family: Consolas, monaco, monospace; font-size: 11px; background-color:#ebebeb;}
+blockquote pre.tiny { font-family: Consolas, monaco, monospace; font-size: 10px; background-color:#ebebeb;}
+pre { margin-left: 0px; font-family: Consolas, monaco, monospace; font-size: 13px; background-color:#ebebeb; padding: 10px 10px 10px 15px; }
+
 
 em { font-style: italic; }
 
@@ -34,7 +35,7 @@ td { font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300
 th a { font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif; line-height: 1.5; font-weight: bold;  background-color: #666666; color:#ffffff; }
 td a { font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; margin-top: 20px;}
 
-td tt { font-family: "courier new", courier, mono; font-size: 13px; }
+td tt { font-family: Consolas, monaco, monospace; font-size: 13px; }
 
 h1 { font-size: 22px; font-weight:normal; font-variant:small-caps; 
      background-color:#4e6994;   /* 221e1f = textbook black */
@@ -134,8 +135,8 @@ line-height: 180%;
 
 #menu a.booksite {  
 line-height: 180%;
-# margin: 0;
-# padding: 0px 0px;
+margin: 0;
+padding: 0px 0px;
 }
 
 #menu h2 {
@@ -153,7 +154,7 @@ text-decoration: none;
 }
 
 /* white on black headings */
-#menu a.title { color: #fff; background: #565050; }
+#menu a.title { color: #fff; background: #565050; cursor: pointer;}
 #menu a.ex_easy {  color: #000; background: #cccccc;}
 #menu a.ex_medium {  color: #000; background: #cccccc;}
 #menu a.ex_hard {  color: #000; background: #cccccc;}
@@ -247,6 +248,12 @@ img {
     height:50px;
 }
 
-pre{
-  font-family: Consolas, monaco, monospace;
+.menucontent{
+    display: none;
+}
+[id^=collapse-input-] {
+    display: none;
+}
+input:checked ~ .menucontent {
+    display:block;
 }
