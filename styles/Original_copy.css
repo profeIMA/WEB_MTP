@@ -1,6 +1,6 @@
 @import url("https://www.cs.princeton.edu/courses/archive/spring18/cos226/css/link-icons.css");
 
-body { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; }
+body { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; background: #E9EEE7}
 p    { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; margin-top: 10px; margin-bottom: 0px; }
 
 /* size of footer */
@@ -38,7 +38,7 @@ td a { font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 3
 td tt { font-family: Consolas, monaco, monospace; font-size: 13px; }
 
 h1 { font-size: 22px; font-weight:normal; font-variant:small-caps; 
-     background-color:#4e6994;   /* 221e1f = textbook black */
+     background-color:#307D75;/*#4e6994 color antic*/   /* 221e1f = textbook black */
      /* background-color:#0b5fb9; */  /* 221e1f = textbook black */
      color:#FFFFFF; text-align: left; padding-right:15px; padding-left:20px;
      padding-top:6px;padding-bottom:6px;}
@@ -47,7 +47,7 @@ h1.center {text-align:center; }
 
 h2 { font-size: 15px; display: inline; text-align: left; font-weight: bold; }
 h3 { font-size: 15px; display: inline; font-weight: bold; }
-h4 { font-size: 22px; font-weight: bold; color:#7c927b; }     /* shade of green */
+h4 { font-size: 22px; font-weight: bold; color:#1B6059; }     /* shade of green */
 h4 a { font-size: 22px; font-weight: bold; color:#7c927b; }   /* for a name tages 00cc66 */
 
 ol li        { list-style: decimal;     }
@@ -137,12 +137,12 @@ background: #000;
 #menu a {
 color: #000;
 /* background: #efefef; */
-background: #cccccc;
+background: #729FBA;
 text-decoration: none;
 }
 
 /* white on black headings */
-#menu a.title { color: #fff; background: #565050; cursor: pointer;}
+#menu a.title { color: #fff; background: #204962; cursor: pointer;}
 #menu a.ex_easy {  color: #000; background: #cccccc;}
 #menu a.ex_medium {  color: #000; background: #cccccc;}
 #menu a.ex_hard {  color: #000; background: #cccccc;}
@@ -156,18 +156,18 @@ text-decoration: none;
 /* cover aqua   = 639397 */
 
 #menu a:hover {
-color: #fff;
-background: #7c927b;
+color: #204962;
+background: #9EC4DB;
 }
 
 #menu ul ul a:hover {
 color: #fff;
-background: #896e81;
+background: #356480;
 }
 
 #menu ul ul ul a:hover {
 color: #fff;
-background: #907669;
+background: #356480;
 }
 
 
