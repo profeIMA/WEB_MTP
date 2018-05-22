@@ -222,18 +222,18 @@ img {
 }
 
 .gran{
-    width:500px;
-    height:500px;
+    width:800px;
+    height:800px;
 }
 
 .mitjana{
-    width:300px; 
-    height:300px; 
+    width:500px; 
+    height:500px; 
 }
 
 .petita{
-    width:150px; 
-    height:150px;
+    width:300px; 
+    height:300px;
 }
 
 .menucontent{
@@ -244,4 +244,9 @@ img {
 }
 input:checked ~ .menucontent {
     display:block;
+}
+
+alerta{
+    color:crimson;
+    font-weight: bold;
 }

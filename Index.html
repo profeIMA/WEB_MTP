@@ -33,66 +33,69 @@
 <div id = "content">
   <center>
     <h1 class = "center">
-      Metodologia i Tecnologia de la Programació
+      TIPUS ELEMENTALS DE DADES I INSTRUCCIONS BÀSIQUES
     </h1>
   </center>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ullamcorper metus eget velit porttitor, nec euismod augue malesuada. Aliquam erat volutpat. Nullam rhoncus orci nulla, non mollis turpis imperdiet in. Suspendisse feugiat sapien eget porttitor consequat. Vestibulum a vestibulum risus. Etiam sit amet faucibus nisl. Sed sed condimentum nisi, ut ornare tortor. Praesent a est ante. Nunc tincidunt accumsan nunc id interdum. Donec erat quam, consequat ut fringilla a, consectetur sit amet nisi. Donec consectetur urna ut nunc varius ornare. Sed ac dignissim elit, in varius ante. Integer dapibus ante eget lorem placerat, at posuere metus faucibus.
-  <br>
-  Cras accumsan gravida tempus. Aenean sodales, sapien ac scelerisque interdum, tellus mauris egestas quam, non ornare lectus nibh vitae erat. Suspendisse maximus quis turpis nec dignissim. Suspendisse ligula purus, porta ut laoreet eget, pharetra sit amet sapien. Cras sit amet risus ut risus sagittis sollicitudin a semper arcu. Sed vestibulum cursus ullamcorper. Donec vel nisi velit. Nulla ipsum eros, eleifend eleifend iaculis posuere, fermentum vel ligula.
-  <br>
-  Donec tincidunt id neque sed tristique. Aliquam consectetur in urna ac pulvinar. Vivamus finibus elit non porta laoreet. Nulla quis pharetra nunc. Ut lobortis commodo sapien. Aliquam erat volutpat. Sed condimentum ex ac pharetra egestas. Donec interdum ex sed vehicula rhoncus. Cras pretium mi ac tempus lacinia.
-  <br>
-  Nunc in consequat lacus. Etiam quis commodo felis. Proin nec ex varius, pretium orci ut, ultricies nulla. Etiam dapibus bibendum sagittis. Ut ligula diam, tempus vel vestibulum et, ornare non nisl. Nullam vehicula hendrerit orci, sit amet aliquam odio aliquet dapibus. Nunc fringilla nibh in ipsum semper, nec eleifend odio pulvinar. Donec ac est et mauris tempor dictum. Sed lacus lectus, luctus non sem eu, porttitor ultricies est. Sed condimentum purus vestibulum, pretium metus in, aliquam sem.
-  <br>
-  Vivamus consequat, felis elementum porttitor maximus, erat purus gravida ex, sed suscipit ipsum risus sed velit. Suspendisse pellentesque sem ac orci auctor, et iaculis lacus condimentum. Quisque vel nunc in enim efficitur tempus. Vivamus odio magna, pellentesque vitae felis vitae, maximus ultricies libero. Integer dapibus mauris quam, vulputate efficitur nulla placerat in. Vestibulum enim risus, efficitur at urna non, laoreet congue tellus. Nam commodo, metus eu luctus aliquam, orci eros pulvinar turpis, a fringilla augue arcu sed sem. Sed sit amet arcu ultricies, tincidunt est at, ultrices magna. Ut nec purus orci. Duis eget orci dolor. Ut ut volutpat erat. Vivamus semper est nunc, sit amet molestie augue molestie in. Integer pretium pharetra mi, quis aliquet arcu condimentum eu. Mauris dui tortor, mattis eu lacinia nec, egestas nec sem. Proin at lacus lacus. Donec finibus ante non leo maximus pharetra sodales ut elit.
-  <br>
-  Duis rhoncus, velit a fermentum tincidunt, elit ligula commodo ante, vel ultrices massa felis at nunc. Aliquam gravida cursus mattis. Vestibulum at neque sodales, finibus nulla pharetra, cursus urna. Vivamus vulputate erat nec auctor lobortis. Aliquam erat volutpat. Pellentesque faucibus ex urna, vitae vulputate risus egestas sit amet. Nulla ante erat, fringilla sit amet sagittis sit amet, mollis volutpat dolor. Cras mauris nunc, suscipit a ipsum quis, suscipit rutrum lorem.
-  <br>
-  <pre><code class="c++">
-      /*
-      Entrada: Dos enters positius n i m on n&gt;m
-      Sortida: Enters entre els dos
-      */
-      #include &lt;iostream&gt;
-      
-      using namespace std;
-      
-      int seguentCapicua(int k){
-            /*
-            Pre: 2 enters positius (k i m) on k&lt;m i k es un capicua
-            Post: Escriu els capicues desde k fins a m
-            */
-      
-            if ((k== 9) or (k==99) or (k==999)) k=k+2;
-            else if (k&lt;9) k++;
-            else if (((k/1000)&lt;10) and ((k/1000)&gt;=1)) k = k+110;
-            else if ((k/100 == 0) or (((k%100)/10)==9) and (k/1000==0)) k=k+11;
-            else k=k+10;
-            return k;
-      }
-      int main()
-      {
-          cout &lt;&lt; &quot;ENTRAR NUMERO 1 :&quot; &lt;&lt; endl;
-          int n;
-          cin &gt;&gt; n;
-          cout &lt;&lt; &quot;ENTRAR NUMERO 2 :&quot; &lt;&lt; endl;
-          int m;
-          cin &gt;&gt; m;
-          int k = 0;
-          while (k&lt;n){
-              k = seguentCapicua(k);
-          }
-      
-          cout&lt;&lt;&quot;CAPICUES ENTRE &quot;&lt;&lt;n&lt;&lt; &quot; I &quot; &lt;&lt; m &lt;&lt; endl;
-          while (k&lt;m){
-              cout &lt;&lt; k &lt;&lt; endl;
-              k = seguentCapicua(k);
-          }
-      
-          return 0;
-      }
-      
-  </code></pre>
+    
+<!-- Contingut escrit -->
+<h4>Què és una variable?</h4>
+<teoria>
+     En C++ podem entendre una variable com un contenidor finit on podem emmagatzamar diferents dades. Aquestes dades necessiten tenir un format per tal d'entendre què estem tractant, no és el mateix emmagatzamar lletres, que emmagatzamar nombres decimals.<br><br>
+    Aquests contenidors tenen una mida finita, és a dir, no poden guardar qualsevol cosa i de qualsevol mida. Aquesta limitació s'ha de tenir en compte, per tal d'adecuar al màxim les nostre variables al que realment volem utilitzar. <br><br>
+    D'aquí és on neix la necessitat definir quins tipus de variables podem emmagatzamar. 
+</teoria>
+   
+<h1>
+   Tipus de Variables
+</h1>
+<teoria>
+<h4>Numèriques:</h4> 
+    Ens permet guardar valors numèrics, però hi ha diferents maneres de representar els nombres:
+    <ul>
+        <li>Naturals, només permeten valors positius i sense part decimal.</li>
+        <li>Enters, permeten tant positius i negatius però sense part decimal</li>
+        <li>Reals, permeten decimals positius i negatius. </li>
+    </ul>
+        
+    Com podem observar els reals són un comodí quan no saps quin tipus de dada estàs tractant, però cal tenir en compte que com més flexibilitat tenim, més memòria ocuparà al sistema, i això podria ser un inconvenient. 
+    <br><br>
+    <h2>Implementació en c++</h2>
+    <br><br>
+    Com declarem aquestes variables en c++? Com les utilizem? 
+    <pre><code class="c++">
+    int main(){
+        int e; //Declarem un enter ( int ), però no està inicialitzat, el seu valor és desconegut.
+        e = 10; //Asignem el valor 10 a la variable entera  " e " 
+        
+        unsigned int n; //Declarem un natural, observem que apareix el qualificatiu unsigned per definir que es un enter sense signe. 
+        n = 6; //Assignem el valor 6 a la varaible natural " n ";
+        
+        float f;//Declarem un real ( float ).
+        f = -2;//Assignem el valor -2 a la variable
+        
+        e = e+1;// Mètode 1: Incremetem el valor de e en 1; e = 11
+        e +=1; // Mètode 2: Incrementem el valor de e en 1; e = 12
+        e++; // Mètode 3: incrementem el valor de en 1; e = 13
+        cout&lt;&lt;"Valor de e ="&lt;&lt;e&lt;&lt;endl;
+        
+        n = n/2; //Mètode 1: Dividim el valor de n per 2; n=3;
+        n /= 2; //Mètode 1: Dividim el valor de n per 2; n=1.5 ??? ALERTA, N ES NATURAL, NO PERMET DECIMALS --> n = ?
+        cout&lt;&lt;"Valor de n ="&lt;&lt;n&lt;&lt;endl;
+        
+        f = *0.5; //Mètode 1: Multipliquem el valor de f per 0.5; f = -1;
+        f 9= 0.5; // Mètode 2: Multipliquem el valor de f per 0.5; f = -0.5;
+        cout&lt;&lt;"Valor de f ="&lt;&lt;f&lt;&lt;endl;
+        
+        
+        return 0;
+        
+    }
+    </code></pre>
+Ara hem vist com declarem i operem amb variables numèriques, però hi ha més tipus de variables numèriques que ens permeten afinar més amb quin contenidor volem. A continuació trobem la taula de variables numèriques amb el cost de memòria que tenen i quin rang de dades poden agafar.
+    <img class="mitjana" src="Recursos/Imatges/TaulaVariablesNumeriques.PNG">
+</teoria>
+ 
+
   <br><br>
 
   <p class = footer>
