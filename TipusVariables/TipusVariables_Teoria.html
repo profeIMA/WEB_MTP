@@ -8,21 +8,27 @@
 <link rel="shortcut icon"    href="https://introcs.cs.princeton.edu/favicon.ico"></link>
 
 
-<link rel="stylesheet"  href="../Original_copy.css" type="text/css" media="screen"></link>
+<link rel="stylesheet"  href="/styles/Original_copy.css" type="text/css" media="screen"></link>
+<link rel="stylesheet"  href="/styles/vs2015.min.css" type="text/css" media="screen"></link>
 <meta name="google-site-verification" content="nYspbl5bNBQrNZKguiAAFTMVM7sq2P1WQYc8Oi6Okl0" />
 <meta name="msvalidate.01" content="D4B7F6DF793EFF34DE96F611C2A367A5" />
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 <!-- scale font size for MathJax -->
+<!--
 <script type="text/x-mathjax-config"> 
     MathJax.Hub.Config({ 
         "HTML-CSS": { scale: 90, linebreaks: { automatic: true } }, 
         SVG: { linebreaks: { automatic:true } }, 
         displayAlign: "left" });
 </script>
+-->
 
 <title>
 MODEL DE WEB MTP</title>
@@ -38,8 +44,13 @@ MODEL DE WEB MTP</title>
 </head>
 
 
-
-
+<script>
+    $(document).ready(function() {
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 <body>
 
@@ -133,6 +144,18 @@ Nunc in consequat lacus. Etiam quis commodo felis. Proin nec ex varius, pretium 
 Vivamus consequat, felis elementum porttitor maximus, erat purus gravida ex, sed suscipit ipsum risus sed velit. Suspendisse pellentesque sem ac orci auctor, et iaculis lacus condimentum. Quisque vel nunc in enim efficitur tempus. Vivamus odio magna, pellentesque vitae felis vitae, maximus ultricies libero. Integer dapibus mauris quam, vulputate efficitur nulla placerat in. Vestibulum enim risus, efficitur at urna non, laoreet congue tellus. Nam commodo, metus eu luctus aliquam, orci eros pulvinar turpis, a fringilla augue arcu sed sem. Sed sit amet arcu ultricies, tincidunt est at, ultrices magna. Ut nec purus orci. Duis eget orci dolor. Ut ut volutpat erat. Vivamus semper est nunc, sit amet molestie augue molestie in. Integer pretium pharetra mi, quis aliquet arcu condimentum eu. Mauris dui tortor, mattis eu lacinia nec, egestas nec sem. Proin at lacus lacus. Donec finibus ante non leo maximus pharetra sodales ut elit.
 
 Duis rhoncus, velit a fermentum tincidunt, elit ligula commodo ante, vel ultrices massa felis at nunc. Aliquam gravida cursus mattis. Vestibulum at neque sodales, finibus nulla pharetra, cursus urna. Vivamus vulputate erat nec auctor lobortis. Aliquam erat volutpat. Pellentesque faucibus ex urna, vitae vulputate risus egestas sit amet. Nulla ante erat, fringilla sit amet sagittis sit amet, mollis volutpat dolor. Cras mauris nunc, suscipit a ipsum quis, suscipit rutrum lorem.
+</p>
+    
+<p>
+    <pre><code class ="cpp">
+        int main()
+        {
+            int a = 2; 
+            a += a;
+            return 0;
+        }
+    </code></pre>
+
 </p>
 <br><br>
 <p>

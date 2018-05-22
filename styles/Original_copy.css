@@ -67,18 +67,6 @@ a:link    { color: #0b5fb9; }  /* shade of blue on cover = 436994 */
 a:hover   { color: #aa3e3b; text-decoration: underline;  }
 
 
-/* google custom search */
-.gsc-search-button,.gsc-clear-button {
-    display: none;
-}
-.gsc-search-box .gsc-input {
-    margin-left: 15px;
-    width: 145px;
-    font-family: Arial, sans-serif;
-}
-
-table.gsc-completion-container {
- }
 
 
 #content  { margin-left: 204px;
@@ -244,8 +232,8 @@ img {
 }
 
 .petita{
-    width:50px; 
-    height:50px;
+    width:150px; 
+    height:150px;
 }
 
 .menucontent{
