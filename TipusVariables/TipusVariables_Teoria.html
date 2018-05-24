@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html lang="en">
 
@@ -8,172 +8,134 @@
 <link rel="shortcut icon"    href="https://introcs.cs.princeton.edu/favicon.ico"></link>
 
 
-<link rel="stylesheet"  href="/styles/Original_copy.css" type="text/css" media="screen"></link>
-<link rel="stylesheet"  href="/styles/vs2015.min.css" type="text/css" media="screen"></link>
-<meta name="google-site-verification" content="nYspbl5bNBQrNZKguiAAFTMVM7sq2P1WQYc8Oi6Okl0" />
-<meta name="msvalidate.01" content="D4B7F6DF793EFF34DE96F611C2A367A5" />
+<link rel="stylesheet"  href="../styles/Original_copy.css" type="text/css" media="screen"></link>
+<link rel="stylesheet" href="../styles/zenburn.css">
+<meta charset="utf-8">
 
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="CustomScripts.js"></script> 
+<!-- Pels blocks de codi -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
 
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
 <!-- scale font size for MathJax -->
-<!--
-<script type="text/x-mathjax-config"> 
-    MathJax.Hub.Config({ 
-        "HTML-CSS": { scale: 90, linebreaks: { automatic: true } }, 
-        SVG: { linebreaks: { automatic:true } }, 
-        displayAlign: "left" });
-</script>
--->
-
-<title>
-MODEL DE WEB MTP</title>
-<META HTTP-EQUIV="Content-Type" content="text/html; charset=iso-8859-1">
-<META NAME="AUTHOR" CONTENT="Robert Sedgewick and Kevin Wayne">
-<META NAME="KEYWORDS" CONTENT="MODEL DE WEB MTP">
-<META NAME="DESCRIPTION" CONTENT="Previsualitzacio del disseny de la web"objects-in-the-middle" approach that emphasizes data abstraction. A key feature of the book is the manner in which we motivate each programming concept by examining its impact on specific applications, taken from science, engineering, and commerce.">
-<META NAME="TITLE" CONTENT="Introduction to Programming in Java: An Interdisciplinary Approach. Introduction to Programming in Java by Sedgewick and Wayne">
-<META NAME="ROBOTS" CONTENT="INDEX,FOLLOW">
-<META name="verify-v1" content="D4o9ikkHbNKapHncCP8ZmiD9Z2DBbrJyaSV0lyce+3w=">
-
+<title>MODEL DE WEB MTP</title>
 
 </head>
 
-
-<script>
-    $(document).ready(function() {
-  $('pre code').each(function(i, block) {
-    hljs.highlightBlock(block);
-  });
-});
-</script>
-
 <body>
 
-<div id = "menu">
-
-<ul>
-  <li><a class = title href = "/java/home">GET STARTED</a>
-    <ul>
-
-      <li> <a href = "https://introcs.cs.princeton.edu/java/10elements">1.&nbsp;&nbsp;INTRO C++</a>
-        <ul>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/11hello">1.1&nbsp;&nbsp;Tipus variables</a>
-            <ul>
-                <li><a class = teoria href="">1.&nbsp;&nbsp; Teoria</a>
-                <li><a class = exemples href="">1.2&nbsp;&nbsp;Exemples</a></li>
-                <li><a class = exercicis href="">1.3&nbsp;&nbsp;Exercicis</a></li>
-            </ul>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/12types">1.2&nbsp;&nbsp;Assignació</a>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/13flow">1.3&nbsp;&nbsp;Alternatives</a>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/14array">1.4&nbsp;&nbsp;Bucles</a>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/15inout">1.5&nbsp;&nbsp;Matrius</a>
-
-        </ul>
-
-      <li> <a href = "https://introcs.cs.princeton.edu/java/20functions">2.&nbsp;&nbsp;Functions</a>
-        <ul>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/21function">2.1&nbsp;&nbsp;Static Methods</a>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/22library">2.2&nbsp;&nbsp;Libraries and Clients</a>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/23recursion">2.3&nbsp;&nbsp;Recursion</a>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/24percolation">2.4&nbsp;&nbsp;Case Study: Percolation</a>
-        </ul>
-
-      <li> <a href = "https://introcs.cs.princeton.edu/java/30oop">3.&nbsp;&nbsp;OOP</a>
-        <ul>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/31datatype">3.1&nbsp;&nbsp;Using Data Types</a>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/32class">3.2&nbsp;&nbsp;Creating Data Types</a>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/33design">3.3&nbsp;&nbsp;Designing Data Types</a>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/34nbody">3.4&nbsp;&nbsp;Case Study: N-Body</a>
-        </ul>
-
-      <li> <a href = "https://introcs.cs.princeton.edu/java/40algorithms">4.&nbsp;&nbsp;Data Structures</a>
-        <ul>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/41analysis">4.1&nbsp;&nbsp;Performance</a>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/42sort">4.2&nbsp;&nbsp;Sorting and Searching</a>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/43stack">4.3&nbsp;&nbsp;Stacks and Queues</a>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/44st">4.4&nbsp;&nbsp;Symbol Tables</a>
-          <li> <a href = "https://introcs.cs.princeton.edu/java/45graph">4.5&nbsp;&nbsp;Case Study: Small World</a>
-        </ul>
-    </ul>
-</ul>
-
-
-
-
-
-<p><br>
-
-
-<p><br>
-</div>
+<div id = "menu"></div>
 
 <div id = "content">
-<center>
+  <center>
     <h1 class = "center">
-        TIPUS DE DADES EN C++
+      TIPUS ELEMENTALS DE DADES I INSTRUCCIONS BÀSIQUES
     </h1>
-</center>
-
-<p><br>
-
-<p><br>
-<!-- Welcome to our website! -->
-
-<p>
+  </center>
+    
+<!-- Contingut escrit -->
+<h4>Què és una variable?</h4>
+<teoria>
+     En C++ podem entendre una variable com un contenidor finit on podem emmagatzamar diferents dades. Aquestes dades necessiten tenir un format per tal d'entendre què estem tractant, no és el mateix emmagatzamar lletres, que emmagatzamar nombres decimals.<br><br>
+    Aquests contenidors tenen una mida finita, és a dir, no poden guardar qualsevol cosa i de qualsevol mida. Aquesta limitació s'ha de tenir en compte, per tal d'adecuar al màxim les nostre variables al que realment volem utilitzar. <br><br>
+    D'aquí és on neix la necessitat definir quins tipus de variables podem emmagatzamar. 
+</teoria>
+   
+<h1>
+   Tipus de Variables
+</h1>
+<teoria>
+<h4>Numèriques:</h4> 
+    Ens permet guardar valors numèrics, però hi ha diferents maneres de representar els nombres:
     <ul>
-        <li><h2>INT32:</h2> <br> TEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIA</li>
-        <li><h2>FLOAT:</h2> <br> TEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIA</li>
-        <li><h2>BOOL:</h2> <br>TEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIATEORIA</li>
-        
+        <li>Naturals, només permeten valors positius i sense part decimal.</li>
+        <li>Enters, permeten tant positius i negatius però sense part decimal</li>
+        <li>Reals, permeten decimals positius i negatius. </li>
     </ul>
-    
-    <img class = gran src="/TipusVariables/taula_variables.PNG" alt="Taula de tipus de dades">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ullamcorper metus eget velit porttitor, nec euismod augue malesuada. Aliquam erat volutpat. Nullam rhoncus orci nulla, non mollis turpis imperdiet in. Suspendisse feugiat sapien eget porttitor consequat. Vestibulum a vestibulum risus. Etiam sit amet faucibus nisl. Sed sed condimentum nisi, ut ornare tortor. Praesent a est ante. Nunc tincidunt accumsan nunc id interdum. Donec erat quam, consequat ut fringilla a, consectetur sit amet nisi. Donec consectetur urna ut nunc varius ornare. Sed ac dignissim elit, in varius ante. Integer dapibus ante eget lorem placerat, at posuere metus faucibus.
+        
+    Com podem observar els reals són un comodí quan no saps quin tipus de dada estàs tractant, però cal tenir en compte que com més flexibilitat tenim, més memòria ocuparà al sistema, i això podria ser un inconvenient. 
+    <br><br>
+    <h2>Implementació en c++</h2>
+    <br><br>
+    Com declarem aquestes variables en c++? Com les utilizem? 
+        <pre><code class="c++">
+        int main(){
+            int e; //Declarem un enter ( int ), però no està inicialitzat, el seu valor és desconegut.
+            e = 10; //Asignem el valor 10 a la variable entera  " e " 
 
-Cras accumsan gravida tempus. Aenean sodales, sapien ac scelerisque interdum, tellus mauris egestas quam, non ornare lectus nibh vitae erat. Suspendisse maximus quis turpis nec dignissim. Suspendisse ligula purus, porta ut laoreet eget, pharetra sit amet sapien. Cras sit amet risus ut risus sagittis sollicitudin a semper arcu. Sed vestibulum cursus ullamcorper. Donec vel nisi velit. Nulla ipsum eros, eleifend eleifend iaculis posuere, fermentum vel ligula.
+            unsigned int n; //Declarem un natural, observem que apareix el qualificatiu unsigned per definir que es un enter sense signe. 
+            n = 6; //Assignem el valor 6 a la varaible natural " n ";
 
-Donec tincidunt id neque sed tristique. Aliquam consectetur in urna ac pulvinar. Vivamus finibus elit non porta laoreet. Nulla quis pharetra nunc. Ut lobortis commodo sapien. Aliquam erat volutpat. Sed condimentum ex ac pharetra egestas. Donec interdum ex sed vehicula rhoncus. Cras pretium mi ac tempus lacinia.
+            float f;//Declarem un real ( float ).
+            f = -2;//Assignem el valor -2 a la variable
 
-Nunc in consequat lacus. Etiam quis commodo felis. Proin nec ex varius, pretium orci ut, ultricies nulla. Etiam dapibus bibendum sagittis. Ut ligula diam, tempus vel vestibulum et, ornare non nisl. Nullam vehicula hendrerit orci, sit amet aliquam odio aliquet dapibus. Nunc fringilla nibh in ipsum semper, nec eleifend odio pulvinar. Donec ac est et mauris tempor dictum. Sed lacus lectus, luctus non sem eu, porttitor ultricies est. Sed condimentum purus vestibulum, pretium metus in, aliquam sem.
+            e = e+1;// Mètode 1: Incremetem el valor de e en 1; e = 11
+            e +=1; // Mètode 2: Incrementem el valor de e en 1; e = 12
+            e++; // Mètode 3: incrementem el valor de en 1; e = 13
+            cout&lt;&lt;"Valor de e ="&lt;&lt;e&lt;&lt;endl;
 
-Vivamus consequat, felis elementum porttitor maximus, erat purus gravida ex, sed suscipit ipsum risus sed velit. Suspendisse pellentesque sem ac orci auctor, et iaculis lacus condimentum. Quisque vel nunc in enim efficitur tempus. Vivamus odio magna, pellentesque vitae felis vitae, maximus ultricies libero. Integer dapibus mauris quam, vulputate efficitur nulla placerat in. Vestibulum enim risus, efficitur at urna non, laoreet congue tellus. Nam commodo, metus eu luctus aliquam, orci eros pulvinar turpis, a fringilla augue arcu sed sem. Sed sit amet arcu ultricies, tincidunt est at, ultrices magna. Ut nec purus orci. Duis eget orci dolor. Ut ut volutpat erat. Vivamus semper est nunc, sit amet molestie augue molestie in. Integer pretium pharetra mi, quis aliquet arcu condimentum eu. Mauris dui tortor, mattis eu lacinia nec, egestas nec sem. Proin at lacus lacus. Donec finibus ante non leo maximus pharetra sodales ut elit.
+            n = n/2; //Mètode 1: Dividim el valor de n per 2; n=3;
+            n /= 2; //Mètode 1: Dividim el valor de n per 2; n=1.5 ??? ALERTA, N ES NATURAL, NO PERMET DECIMALS --> n = ?
+            cout&lt;&lt;"Valor de n ="&lt;&lt;n&lt;&lt;endl;
 
-Duis rhoncus, velit a fermentum tincidunt, elit ligula commodo ante, vel ultrices massa felis at nunc. Aliquam gravida cursus mattis. Vestibulum at neque sodales, finibus nulla pharetra, cursus urna. Vivamus vulputate erat nec auctor lobortis. Aliquam erat volutpat. Pellentesque faucibus ex urna, vitae vulputate risus egestas sit amet. Nulla ante erat, fringilla sit amet sagittis sit amet, mollis volutpat dolor. Cras mauris nunc, suscipit a ipsum quis, suscipit rutrum lorem.
-</p>
-    
-<p>
-    <pre><code class ="cpp">
-        int main()
-        {
-            int a = 2; 
-            a += a;
+            f = f*0.5; //Mètode 1: Multipliquem el valor de f per 0.5; f = -1;
+            f *= 0.5; // Mètode 2: Multipliquem el valor de f per 0.5; f = -0.5;
+            cout&lt;&lt;"Valor de f ="&lt;&lt;f&lt;&lt;endl;
+
+
+            return 0;
+
+        }
+        </code></pre>
+    Ara hem vist com declarem i operem amb variables numèriques, però hi ha més tipus de variables numèriques que ens permeten afinar més amb quin contenidor volem. A continuació trobem la taula de variables numèriques amb el cost de memòria que tenen i quin rang de dades poden agafar.
+    <img class="mitjana" src="../Recursos/Imatges/TaulaVariablesNumeriques.PNG">
+</teoria>
+ <br><br>
+<h4>Lògiques:</h4>
+    Aquest tipus de variables està dissenyat per guardar valors com cert o fals, i permet fer diferents operacions lògiques amb aquestes operacions. En aquest cas, si entenem la variable booleà com un contenidor, aleshores simplement ocupariem un byte (8 bits). La raó per la qual ocupa 8 bits en comptes de 1, és perquè en c++ és necessàri que poguem referenciar el "contenidor" i el tamany mínim per això és un byte.
+    <br><br>
+    <h2>Taula d'operacions lògiques:</h2> <br>
+    <img src="../Recursos/Imatges/OperacionsLogiques.PNG">
+    <br> 
+    <h2>Implementació:</h2><br>
+    <pre><code class="cpp">
+        int main(){
+            bool a; //Declarem un boolea. El contingut és incert perquè no esta inicialitzat
+            a = false; //Assignem false a " a ".
+            
+            bool b = true;//Declarem i inicialitzem b a true. El contingut es True. 
+            
+            //Recordem que 0 = false i 1 = true
+            
+            bool c; //Declarem un boolea c. El contingut és incert.
+            
+            c = !a; // Assignem no " a "  a c. C = true;
+            cout&lt;&lt;c&lt;&lt;endl;
+            c = a || b; //Assignem " a " o " b " a " c ". Si un dels dos (a,b) és cert, aleshores C és cert.
+            cout&lt;&lt;c&lt;&lt;endl;
+            c = a && b;//Assignem " a " i " b " a " c". Si a i b són certs, aleshores C és cert.
+            cout&lt;&lt;c&lt;&lt;endl;
+            
             return 0;
         }
     </code></pre>
+  <br><br>
 
-</p>
-<br><br>
-<p>
-    <ul>
-    
-        <li><a class = h2 href="/TipusVariables/TipusVariables_Exemples.html">Més exemples</a></li>
-        <li><a class = h2 href="/TipusVariables/TipusVariables_Exemples.html">Exercicis</a></li>
-    </ul>
-</p>
-    
-<center>
-    <p class = footer>
-    <em>Last modified on February 19, 2018.</em><br><br>
-    Copyright &copy; 2000&ndash;2018
-    <a href = "htpp://www.udg.edu" class = footer>Universitat de Girona</a>
-    Tots els drets reservats.
-</center>
+  <p class = footer>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;2018
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
 </div>
+
+
 
 </body>
 

@@ -250,3 +250,11 @@ alerta{
     color:crimson;
     font-weight: bold;
 }
+
+exercici{
+    font-style: italic;
+}
+
+exercici::first-line{
+    font-weight: bold;
+}
