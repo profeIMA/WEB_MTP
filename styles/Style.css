@@ -221,6 +221,11 @@ img {
     width: 50%;
 }
 
+.codeGif{
+    width:300px;
+    height:150px;
+}
+
 .gran{
     width:800px;
     height:800px;
@@ -253,6 +258,11 @@ alerta{
 
 exercici{
     font-style: italic;
+}
+
+pseudocodi{
+    font-style: italic;
+    font-weight: bold;
 }
 
 exercici::first-line{

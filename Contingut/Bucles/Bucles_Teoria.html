@@ -5,7 +5,7 @@
 <head>
 
 
-<link rel="stylesheet"  href="../../styles/Original_copy.css" type="text/css" media="screen"></link>
+<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
 <link rel="stylesheet" href="../../styles/vs.min.css">
 <meta charset="utf-8">
 
@@ -30,50 +30,54 @@
 <div id = "content">
   <center>
     <h1 class = "center">
-      ESTRUCTURES ALTERNATIVES
+      BUCLES I ITERACIONS
     </h1>
   </center>
     
 <!-- Contingut escrit -->
-<h4>Presa de decisions</h4>
+<h4>Què és un bucle</h4>
 <teoria>
-     Sovint el programador necessita saber en quin estat es troba el programa, (valor de variables, iteracions que ha fet dins d'un bucle, comprovar dades d'entrada de l'usuari...), i actuar en conseqüència. Això comporta que ens podem trobar en diferents valors de variables i potser no hem de tractar-les de la mateixa manera. <h2>Per exemple: què passa si demanem a l'usuari que entri una lletra i ens entra un nombre?</h2> <br>
-    Així doncs, sovint és valora quin és l'estat de les variables i es prèn una decisió.
+    Anomanem bucle aquella estructura que repeteix una sèrie d'instruccions de forma consecutiva fins que es deixa de complir una condició. Aquestes condicions són els encarregats de controlar el flux de l'estructura i decidir quan se'n surt. Així doncs, és important establir condicions vàlides per evitar resultats indesitjats, o bé, que el programa es quedi atrapat dins del bucle. 
+    A continuació explicarem algunes estructures iteratives:
     <br><br>
     
 </teoria>
    
 <h1>
-   BOOLEANS
+   Mentre
 </h1>
 <teoria>
-    Com hem vist anteriorment en els <a href="../TipusVariables/TipusVariables_Teoria.html" >tipus de variables</a> sabem que existeix un tipus lògic o booleà, que ens permet guardar estats com cert o fals. Aquestes variables seràn les que utilitzarem per prendre decisions. Efectuarem una comprovació i si el resultat és cert farem un seguit de coses, i si és fals unes altres.<br><br>
-    <h2>Implementació en c++</h2>
-    <br><br>
-    Exemple senzil:
-        <pre><code class="c++">
-        #include &lt;iostream&gt;
-        using namespace std;
-        //Entrada: llegeix un nombre enter de l'usuari. 
-        //Sortida: Si cal, converteix l'enter en positiu, i el mostra per pantalla. 
-        int main(){
-            int a = 0; cout&lt;&lt;"Entra un nombre: ";//Demanem al usuari que entri un nombre qualsevol
-            cin&gt;&gt;a;
-            bool negatiu = a &lt; 0;
-            if (negatiu){//Si es negatiu ( a mes petit que 0) --> la expressió valdra cert i entrarà dins del "if"
-            
-                a*=-1;//Passem el nombre a positiu
-                cout&lt;&lt;"El teu nombre amb valor positiu es: " &lt;&lt; a &lt;&lt; endl;
-            }
-            else {//Si es positiu (a NO més petit que 0)--> la expressió valdra fals i entrarà dins del else 
-                cout &lt;&lt; "El teu nombre ja es positiu" &lt;&lt; endl;
-            }
-            return 0;
-
-        }
+    Entenem un "mentre" una estructura iterativa que MENTRE es compleix una condició va iterant sobre ella mateixa. En el moment que la condició no es compleix, aleshores es trenca el bucle i segueix executant el programa amb normalitat. Un cop la condició és falsa, <alerta> no es torna a executar el codi del bucle!</alerta>. Un exemple seria escriure nombres del 0 al 9 en format bucle. Mentre el nombre que ha d'escriure sigui menor que 9, escriure per pantalla i incrementar el nombre.<br>
+    <pseudocodi>
+        <pre><code class="nohighlight">
+            mentre n menor 9
+                escriurePantalla
+                incrementar n
+            fi mentre
         </code></pre>
-    En aquest exemple simple hem vist com evaluar l'estat d'una variable " a " i actuar d'una manera o una altre.
-    </teoria>    
+    </pseudocodi>
+    <h2>Repassem la execució d'aquest tall de codi:</h2> <br><br>
+    Per tal d'agilitzar l'execució, en comptes de fer fins a 9, hem il·lustrat fins a 2. El mecanisme és el mateix:
+    <ul>
+    <li>Primer evaluem la condició si es compleix.</li>
+        <li>Si es compleix, s'executen les instruccions de dins el mentre.</li>
+        <li>Si no es compleix, s'abandona el mentre.</li>
+    </ul>
+    <img class ="codeGif" src="../../Recursos/Gif/MentreTrasa.gif">
+    <br><br>
+    <h2>Implementació en c++</h2>
+    <br>
+    <pre><code class="c++">
+            int n = 0;
+        while(n &lt; 9)
+        {
+            cout&lt;&lt;"El valor de n es: "&lt;&lt;n&lt;&lt;endl;
+            n++;
+        }
+        cout&lt;&lt;"El valor de n es major de 9"&lt;&lt;endl;
+    </code></pre>
+
+</teoria>    
  <br><br>
     
 <h1>Cadena de condicionals:</h1>   
