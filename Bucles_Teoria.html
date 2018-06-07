@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
+<link rel="stylesheet" href="../../styles/vs.min.css">
+<meta charset="utf-8">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="../CustomScripts.js"></script> 
+<!-- Pels blocks de codi -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- scale font size for MathJax -->
+<title>METODOLOGIA I TECNOLOGIA DE LA PROGRAMACIÓ</title>
+
+</head>
+
+<body>
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      BUCLES I ITERACIONS
+    </h1>
+  </center>
+    
+<!-- Contingut escrit -->
+<h4>Què és un bucle</h4>
+<teoria>
+    Anomanem bucle aquella estructura que repeteix una sèrie d'instruccions de forma consecutiva fins que es deixa de complir una condició. Aquestes condicions són els encarregats de controlar el flux de l'estructura i decidir quan se'n surt. Així doncs, és important establir condicions vàlides per evitar resultats indesitjats, o bé, que el programa es quedi atrapat dins del bucle. 
+    A continuació explicarem algunes estructures iteratives:
+    <br><br>
+    
+</teoria>
+   
+<h1>
+   Mentre
+</h1>
+<teoria>
+    Entenem un "mentre" una estructura iterativa que MENTRE es compleix una condició va iterant sobre ella mateixa. En el moment que la condició no es compleix, aleshores es trenca el bucle i segueix executant el programa amb normalitat. Un cop la condició és falsa, <alerta> no es torna a executar el codi del bucle!</alerta>. Un exemple seria escriure nombres del 0 al 9 en format bucle. Mentre el nombre que ha d'escriure sigui menor que 9, escriure per pantalla i incrementar el nombre.<br>
+    <pseudocodi>
+        <pre><code class="nohighlight">
+            mentre n menor 9
+                escriurePantalla
+                incrementar n
+            fi mentre
+        </code></pre>
+    </pseudocodi>
+    <h2>Repassem la execució d'aquest tall de codi:</h2> <br><br>
+    Per tal d'agilitzar l'execució, en comptes de fer fins a 9, hem il·lustrat fins a 2. El mecanisme és el mateix:
+    <ul>
+    <li>Primer evaluem la condició si es compleix.</li>
+        <li>Si es compleix, s'executen les instruccions de dins el mentre.</li>
+        <li>Si no es compleix, s'abandona el mentre.</li>
+    </ul>
+    <img class ="codeGif" src="../../Recursos/Gif/MentreTrasa.gif">
+    <br><br>
+    <h2>Implementació en c++</h2>
+    <br>
+    <pre><code class="c++">
+            int n = 0;
+        while(n &lt; 9)
+        {
+            cout&lt;&lt;"El valor de n es: "&lt;&lt;n&lt;&lt;endl;
+            n++;
+        }
+        cout&lt;&lt;"El valor de n es major de 9"&lt;&lt;endl;
+    </code></pre>
+
+</teoria>    
+ <br><br>
+    
+<h1>Per:</h1>   
+    <br><br>
+<teoria>
+   El " per " és una altre esctructura iterativa on una variable de control, va modificant el seu valor fins a incumplir una condició, quan això passa es trenca el bucle. D'aquests paràmetres se'n diuen inicialitzacio, finalització i pas:
+    <ul>
+        <li><h2>Inicialitzacio:</h2> Quin es el valor inicial de la variable de control (n en el cas anterior).</li>
+        <li><h2>Finalització:</h2> Quina condició ha de complir. (n &lt; 9, en el cas anterior)</li>
+        <li><h2>El pas:</h2> Com es modificarà la variable de control en cada iteració.( n++ en el cas anterior)</li>
+    </ul>
+    <br>
+    En pseudocodi utilitzem la seguent expressio: 
+        <pseudocodi>
+        <pre><code class="nohighlight">
+            per var_control de valor_inicial fins valor_final pas +1 fer 
+                FerQuelcom();
+            fi per 
+        </code></pre>
+    </pseudocodi>
+    
+    Aquest codi el que fa és, la var_control s'inicialitza al valor_inicial. I fins que no hagi arribat al valor_final, augmenta el seu valor en 1. D'aquesta manera va iterant i executant les <a href="../AccionsFuncions/AccionsFuncions_Teoria.html">funcions i accions </a>que es trobin dins de l'estructura. 
+    <br>
+    
+    
+    
+    <h4> Operadors de condicionals</h4>
+    <br> 
+    En aquest cas utilitzarem els operadors condicionals que tenen un ús molt semblant a una porta lògica.<br> 
+    Calcularem i guardarem en una variable booleana si hem aprovat l'examen final <h2>i</h2> si tenim una mitjana igual o superior a 5. <br><br>
+    <h2>Implementació en c++</h2>
+    <pre><code class="c++">
+      
+            if(nota >= minExamen && mitjana >=5)//Si té l'examen aprovat i la mitjana aprovada
+            {
+                cout&lt;&lt;"Felicitats has aprovat"&lt;&lt;endl;
+            }
+            else 
+            {
+                cout&lt;&lt;"La mitjana o l'examen no arriben a la nota minima. "&lt;&lt;endl;
+            }
+    </code></pre>
+    En l'exemple anterior hem utilitzat els operadors " and "  i " or " per tal de determinar si una condició era certa o falsa. Aquesta metodologia té els seus avantatges i inconvenients: <br>
+    <h2>Avantatges: </h2>
+    <br>
+    <ul>
+        <li>Codi molt més net</li>
+        <li>Fàcil d'entendre per qualsevol persona</li>
+        <li>Fàcil de debugar</li>
+    </ul>
+    <h2>Inconvenients: </h2><br>
+    <ul>
+        <li>No es pot saber quina condició ha fallat: En el nostre exemple no podem saber si l'usuari suspèn per culpa de l'examen o de la mitjana</li>
+        <li>Si hi ha molts operadors dins d'una mateixa condició es torna illegible</li>
+    </ul>
+</teoria>
+  <br><br>
+    <h4>Estructures Encadenades</h4>
+    <br>
+<teoria>
+    A diferència del cas anterior, utilitzarem condicions unitàries però encadenades entre elles per aconseguir tenir condicions compostes. Aquesta pràctica no és la més recomenable per la seva càrrega directe al codi, però ens permet saber en tot moment què és el que està passant. 
+    <br>
+    <h2>Implementació en c++</h2>
+    
+        <pre><code class="c++">
+
+            if(nota >= minExamen)//Si té l'examen aprovat
+            {
+                if(mitjana >= 5)//Si té la mitjana aprovada
+                {
+                    cout&lt;&lt;"Felicitats has aprovat"&lt;&lt;endl;
+                }
+                else//Si té la mitjana suspesa
+                {
+                    cout&lt;&lt;"La mitjana no t'arriba al 5"&lt;&lt;endl;
+                }
+            }
+            else //Té l'examen suspès
+            {
+                cout&lt;&lt;"l'examen no arriba a la nota minima. "&lt;&lt;endl;
+            }
+
+        }
+    </code></pre>
+    Ara que hem vist com es fan les estructures encadenades podem veure quins avantatges i inconvenients té:<br>
+    <h2>Avantatges:</h2>
+    <br>
+    <ul>
+        <li>Permet conèixer en tot moment l'estat de les condicions i saber què és el que falla.</li>
+    </ul>
+    <br>
+    <h2>Inconvenients:</h2>
+    <br>
+    <ul>
+        <li>Carrega visual del codi</li>
+        <li>Es dificil de seguir per qualsevol altre persona</li>
+        <li>S'ha de controlar moltes branques, i és fàcil generar forats de codi o errors</li>
+        <li>Augment del tamany considerable del codi</li>
+  </ul>
+  <br>
+  
+</teoria>
+    <h1>CONSELLS</h1>
+    <br>
+<teoria>
+    Com hem vist, tenim diferents maneres de tractar amb les estructures alternatives, però si no es tracten bé poden ser una font de problemes. Per tal d'evitar que ens pugui passar, hi ha les següents directrius que poden ajudar a orientar el programador: <br>
+    <ul>
+        <li><h2>Utilitzar Operadors condicionals:</h2> sempre que es pugui, d'aquesta manera mantenim net el codi i ens permet descobrir errors amb molta més facilitat.</li>
+        <li><h2>No més de 3 condicions:</h2> Si necessitem fer una composició de més de 3 operadors, aleshores és que possiblement ens estem equivocant en alguna cosa. El més normal sol ser 1 operador o 2.</li>
+        <li><h2>Deixar les branques buides:</h2> Com hem vist abans, a vegades no volem implementar res quan no es compleix una condició, una bona pràctica és deixar la branca escrita i amb un comentari anotar que no es fa res. D'aquesta manera un dóna constància que ha tingut en comtpe aquella possibiltiat i que ha preferit no fer res.</li>
+    </ul>
+</teoria>
+    
+  <p class = footer>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;2018
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+</div>
+
+
+
+</body>
+
+</html>
+
