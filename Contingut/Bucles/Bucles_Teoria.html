@@ -80,17 +80,30 @@
 </teoria>    
  <br><br>
     
-<h1>Cadena de condicionals:</h1>   
+<h1>Per:</h1>   
     <br><br>
 <teoria>
-    En l'exemple anterior hem vist com fer una estructura alternativa, però molts cops necessitem fer múltiples comprovacions o bé evaluar diferents variables per determinar si una cosa és certa o és falsa. <br>
-    Per exemple, si volem saber si hem d'anar a recuperació d'una assignatura, hem de comprovar que la nostra mitjana sigui superior o igual a 5. I al mateix temps haver tret la nota mínima en l'examen. En aquest cas es plantejen dues condicions per saber si hem d'anar a recuperar o no. <br>
-    Per resoldre aquests problemes ho podem fer principalment de dues formes: 
+   El " per " és una altre esctructura iterativa on una variable de control, va modificant el seu valor fins a incumplir una condició, quan això passa es trenca el bucle. D'aquests paràmetres se'n diuen inicialitzacio, finalització i pas:
     <ul>
-        <li> Utilitzant operadors condicionals vists a en la seccio de <a href="../TipusVariables/TipusVariables_Teoria.html" >tipus de variables</a>.</li>
-        <li>Utilitzant estructures encadenades de condicionals</li>
+        <li><h2>Inicialitzacio:</h2> Quin es el valor inicial de la variable de control (n en el cas anterior).</li>
+        <li><h2>Finalització:</h2> Quina condició ha de complir. (n &lt; 9, en el cas anterior)</li>
+        <li><h2>El pas:</h2> Com es modificarà la variable de control en cada iteració.( n++ en el cas anterior)</li>
     </ul>
     <br>
+    En pseudocodi utilitzem la seguent expressio: 
+        <pseudocodi>
+        <pre><code class="nohighlight">
+            per var_control de valor_inicial fins valor_final pas +1 fer 
+                FerQuelcom();
+            fi per 
+        </code></pre>
+    </pseudocodi>
+    
+    Aquest codi el que fa és, la var_control s'inicialitza al valor_inicial. I fins que no hagi arribat al valor_final, augmenta el seu valor en 1. D'aquesta manera va iterant i executant les <a href="../AccionsFuncions/AccionsFuncions_Teoria.html">funcions i accions </a>que es trobin dins de l'estructura. 
+    <br>
+    
+    
+    
     <h4> Operadors de condicionals</h4>
     <br> 
     En aquest cas utilitzarem els operadors condicionals que tenen un ús molt semblant a una porta lògica.<br> 
