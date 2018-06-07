@@ -63,7 +63,7 @@
         <li>Si es compleix, s'executen les instruccions de dins el mentre.</li>
         <li>Si no es compleix, s'abandona el mentre.</li>
     </ul>
-    <img class ="codeGif" src="../../Recursos/Gif/MentreTrasa.gif">
+    <img class ="codeGif" src="../../Recursos/Gif/MentreTrasa.gif" alt="Gif del funcionament del mentre">
     <br><br>
     <h2>Implementació en c++</h2>
     <br>
@@ -99,97 +99,50 @@
         </code></pre>
     </pseudocodi>
     
+    <img class="codeGif" src="../../Recursos/Gif/BuclePer.gif" alt="Gif mostrant com funciona el per" >
+    
     Aquest codi el que fa és, la var_control s'inicialitza al valor_inicial. I fins que no hagi arribat al valor_final, augmenta el seu valor en 1. D'aquesta manera va iterant i executant les <a href="../AccionsFuncions/AccionsFuncions_Teoria.html">funcions i accions </a>que es trobin dins de l'estructura. 
     <br>
     
+    <h2>Informació adicional:</h2>
+    <ul>
+        <li>El pas pot ser qualsevol valor, tant positiu com negatiu.</li>
+        <li>La variable de control no s'hauria de modificar dins del per, pot donar lloc a resultats indesitjats.</li>
+        <li>En la major part dels casos, la variable de control deixa d'existir un cop hem sortit del per.</li>
+        <li>En pseudocodi, entenem el per, com una varible que va de valor A a valor B. En c++, hi ha més possibilitats
+            <ul>
+                <li>Anar de A B, igual que l'exemple amb pseudocodi.</li>
+                <li>Anar de A fins a "desconegut" mentre es compleixi una condició, per exemple: A sigui diferent de C.</li>
+            </ul>
+        </li>
+    </ul>
     
-    
-    <h4> Operadors de condicionals</h4>
-    <br> 
-    En aquest cas utilitzarem els operadors condicionals que tenen un ús molt semblant a una porta lògica.<br> 
-    Calcularem i guardarem en una variable booleana si hem aprovat l'examen final <h2>i</h2> si tenim una mitjana igual o superior a 5. <br><br>
-    <h2>Implementació en c++</h2>
+    <h2>Implementació en c++</h2><br>
+    Exemple: bucle "per" que fa 9 iteracions:<br>
     <pre><code class="c++">
-      
-            if(nota >= minExamen && mitjana >=5)//Si té l'examen aprovat i la mitjana aprovada
-            {
-                cout&lt;&lt;"Felicitats has aprovat"&lt;&lt;endl;
-            }
-            else 
-            {
-                cout&lt;&lt;"La mitjana o l'examen no arriben a la nota minima. "&lt;&lt;endl;
-            }
+    for(unsigned int x = 0; x &lt; 9; x++)
+    {
+        cout&lt;&lt;"El valor de x es: "&lt;&lt;x&lt;&lt;endl; 
+    }    
     </code></pre>
-    En l'exemple anterior hem utilitzat els operadors " and "  i " or " per tal de determinar si una condició era certa o falsa. Aquesta metodologia té els seus avantatges i inconvenients: <br>
-    <h2>Avantatges: </h2>
-    <br>
-    <ul>
-        <li>Codi molt més net</li>
-        <li>Fàcil d'entendre per qualsevol persona</li>
-        <li>Fàcil de debugar</li>
-    </ul>
-    <h2>Inconvenients: </h2><br>
-    <ul>
-        <li>No es pot saber quina condició ha fallat: En el nostre exemple no podem saber si l'usuari suspèn per culpa de l'examen o de la mitjana</li>
-        <li>Si hi ha molts operadors dins d'una mateixa condició es torna illegible</li>
-    </ul>
-</teoria>
-  <br><br>
-    <h4>Estructures Encadenades</h4>
-    <br>
-<teoria>
-    A diferència del cas anterior, utilitzarem condicions unitàries però encadenades entre elles per aconseguir tenir condicions compostes. Aquesta pràctica no és la més recomenable per la seva càrrega directe al codi, però ens permet saber en tot moment què és el que està passant. 
-    <br>
-    <h2>Implementació en c++</h2>
+        Exemple: bucle "per" que itera sempre que es compleixi una iteracio: <br>
+    <pre><code class="c++">
+    #include &lt;cstdlib&gt;
     
-        <pre><code class="c++">
-
-            if(nota >= minExamen)//Si té l'examen aprovat
-            {
-                if(mitjana >= 5)//Si té la mitjana aprovada
-                {
-                    cout&lt;&lt;"Felicitats has aprovat"&lt;&lt;endl;
-                }
-                else//Si té la mitjana suspesa
-                {
-                    cout&lt;&lt;"La mitjana no t'arriba al 5"&lt;&lt;endl;
-                }
-            }
-            else //Té l'examen suspès
-            {
-                cout&lt;&lt;"l'examen no arriba a la nota minima. "&lt;&lt;endl;
-            }
-
-        }
+    srand(5);
+    int i = rand()%100; 
+    for(unsigned int y = 0; y != i; y = (y+1)%100)
+    {
+        cout&lt;&lt;"No he encertat el nombre :" &lt;&lt;y&lt;&lt;" es diferent de "&lt;&lt;i&lt;&lt;endl;
+        i = rand()%100;
+    }
     </code></pre>
-    Ara que hem vist com es fan les estructures encadenades podem veure quins avantatges i inconvenients té:<br>
-    <h2>Avantatges:</h2>
-    <br>
-    <ul>
-        <li>Permet conèixer en tot moment l'estat de les condicions i saber què és el que falla.</li>
-    </ul>
-    <br>
-    <h2>Inconvenients:</h2>
-    <br>
-    <ul>
-        <li>Carrega visual del codi</li>
-        <li>Es dificil de seguir per qualsevol altre persona</li>
-        <li>S'ha de controlar moltes branques, i és fàcil generar forats de codi o errors</li>
-        <li>Augment del tamany considerable del codi</li>
-  </ul>
-  <br>
-  
-</teoria>
-    <h1>CONSELLS</h1>
-    <br>
-<teoria>
-    Com hem vist, tenim diferents maneres de tractar amb les estructures alternatives, però si no es tracten bé poden ser una font de problemes. Per tal d'evitar que ens pugui passar, hi ha les següents directrius que poden ajudar a orientar el programador: <br>
-    <ul>
-        <li><h2>Utilitzar Operadors condicionals:</h2> sempre que es pugui, d'aquesta manera mantenim net el codi i ens permet descobrir errors amb molta més facilitat.</li>
-        <li><h2>No més de 3 condicions:</h2> Si necessitem fer una composició de més de 3 operadors, aleshores és que possiblement ens estem equivocant en alguna cosa. El més normal sol ser 1 operador o 2.</li>
-        <li><h2>Deixar les branques buides:</h2> Com hem vist abans, a vegades no volem implementar res quan no es compleix una condició, una bona pràctica és deixar la branca escrita i amb un comentari anotar que no es fa res. D'aquesta manera un dóna constància que ha tingut en comtpe aquella possibiltiat i que ha preferit no fer res.</li>
-    </ul>
-</teoria>
+    
+    En aquest exemple, la variable y augmentant de forma cíclica (entre 0 i 99), fins que el valor de y sigui igual a i. Mentre que " i ", va canviant el seu valor per un aleatori comprès entre 0 i 99. 
+    En aquest cas, el nombre de iteracions que farà és indefinit. <br>
+    <alerta>Nota: sempre que usem un for, és perquè estem segurs que acabarà, ja que no tenim forma d'aturar-lo en cas de que tardi massa.</alerta>
+    </teoria>
+    
     
   <p class = footer>
   <center>
