@@ -76,7 +76,7 @@
         <li><h2>Funció:</h2> és aquell codi on calcula un valor específic, i el retorna. Un exemple clar és una funció que ens suma dos valors, el seu retorn serà el valor de la suma, i no modificarà el valor dels dos valors incials.</li>
     </ul>
     
-    Abans de seguir, cal que expliquem totes les parts de les accions i funcions, i entenguem que fa cada una d'elles. 
+    Abans de seguir, cal que expliquem totes les parts de les accions i funcions, i entenguem per a què serveix cada una d'elles. 
     <br>
     <h4>Capçalera</h4>
     <br>
@@ -84,104 +84,7 @@
     </teoria>    
  <br><br>
     
-<h1>Cadena de condicionals:</h1>   
-    <br><br>
-<teoria>
-    En l'exemple anterior hem vist com fer una estructura alternativa, però molts cops necessitem fer múltiples comprovacions o bé evaluar diferents variables per determinar si una cosa és certa o és falsa. <br>
-    Per exemple, si volem saber si hem d'anar a recuperació d'una assignatura, hem de comprovar que la nostra mitjana sigui superior o igual a 5. I al mateix temps haver tret la nota mínima en l'examen. En aquest cas es plantejen dues condicions per saber si hem d'anar a recuperar o no. <br>
-    Per resoldre aquests problemes ho podem fer principalment de dues formes: 
-    <ul>
-        <li> Utilitzant operadors condicionals vists a en la seccio de <a href="../TipusVariables/TipusVariables_Teoria.html" >tipus de variables</a>.</li>
-        <li>Utilitzant estructures encadenades de condicionals</li>
-    </ul>
-    <br>
-    <h4> Operadors de condicionals</h4>
-    <br> 
-    En aquest cas utilitzarem els operadors condicionals que tenen un ús molt semblant a una porta lògica.<br> 
-    Calcularem i guardarem en una variable booleana si hem aprovat l'examen final <h2>i</h2> si tenim una mitjana igual o superior a 5. <br><br>
-    <h2>Implementació en c++</h2>
-    <pre><code class="c++">
-      
-            if(nota >= minExamen && mitjana >=5)//Si té l'examen aprovat i la mitjana aprovada
-            {
-                cout&lt;&lt;"Felicitats has aprovat"&lt;&lt;endl;
-            }
-            else 
-            {
-                cout&lt;&lt;"La mitjana o l'examen no arriben a la nota minima. "&lt;&lt;endl;
-            }
-    </code></pre>
-    En l'exemple anterior hem utilitzat els operadors " and "  i " or " per tal de determinar si una condició era certa o falsa. Aquesta metodologia té els seus avantatges i inconvenients: <br>
-    <h2>Avantatges: </h2>
-    <br>
-    <ul>
-        <li>Codi molt més net</li>
-        <li>Fàcil d'entendre per qualsevol persona</li>
-        <li>Fàcil de debugar</li>
-    </ul>
-    <h2>Inconvenients: </h2><br>
-    <ul>
-        <li>No es pot saber quina condició ha fallat: En el nostre exemple no podem saber si l'usuari suspèn per culpa de l'examen o de la mitjana</li>
-        <li>Si hi ha molts operadors dins d'una mateixa condició es torna illegible</li>
-    </ul>
-</teoria>
-  <br><br>
-    <h4>Estructures Encadenades</h4>
-    <br>
-<teoria>
-    A diferència del cas anterior, utilitzarem condicions unitàries però encadenades entre elles per aconseguir tenir condicions compostes. Aquesta pràctica no és la més recomenable per la seva càrrega directe al codi, però ens permet saber en tot moment què és el que està passant. 
-    <br>
-    <h2>Implementació en c++</h2>
-    
-        <pre><code class="c++">
 
-            if(nota >= minExamen)//Si té l'examen aprovat
-            {
-                if(mitjana >= 5)//Si té la mitjana aprovada
-                {
-                    cout&lt;&lt;"Felicitats has aprovat"&lt;&lt;endl;
-                }
-                else//Si té la mitjana suspesa
-                {
-                    cout&lt;&lt;"La mitjana no t'arriba al 5"&lt;&lt;endl;
-                }
-            }
-            else //Té l'examen suspès
-            {
-                cout&lt;&lt;"l'examen no arriba a la nota minima. "&lt;&lt;endl;
-            }
-
-        }
-    </code></pre>
-    Ara que hem vist com es fan les estructures encadenades podem veure quins avantatges i inconvenients té:<br>
-    <h2>Avantatges:</h2>
-    <br>
-    <ul>
-        <li>Permet conèixer en tot moment l'estat de les condicions i saber què és el que falla.</li>
-    </ul>
-    <br>
-    <h2>Inconvenients:</h2>
-    <br>
-    <ul>
-        <li>Carrega visual del codi</li>
-        <li>Es dificil de seguir per qualsevol altre persona</li>
-        <li>S'ha de controlar moltes branques, i és fàcil generar forats de codi o errors</li>
-        <li>Augment del tamany considerable del codi</li>
-  </ul>
-  <br>
-  
-</teoria>
-    <h1>CONSELLS</h1>
-    <br>
-<teoria>
-    Com hem vist, tenim diferents maneres de tractar amb les estructures alternatives, però si no es tracten bé poden ser una font de problemes. Per tal d'evitar que ens pugui passar, hi ha les següents directrius que poden ajudar a orientar el programador: <br>
-    <ul>
-        <li><h2>Utilitzar Operadors condicionals:</h2> sempre que es pugui, d'aquesta manera mantenim net el codi i ens permet descobrir errors amb molta més facilitat.</li>
-        <li><h2>No més de 3 condicions:</h2> Si necessitem fer una composició de més de 3 operadors, aleshores és que possiblement ens estem equivocant en alguna cosa. El més normal sol ser 1 operador o 2.</li>
-        <li><h2>Deixar les branques buides:</h2> Com hem vist abans, a vegades no volem implementar res quan no es compleix una condició, una bona pràctica és deixar la branca escrita i amb un comentari anotar que no es fa res. D'aquesta manera un dóna constància que ha tingut en comtpe aquella possibiltiat i que ha preferit no fer res.</li>
-    </ul>
-</teoria>
-    
   <p class = footer>
   <center>
       <p class = footer>

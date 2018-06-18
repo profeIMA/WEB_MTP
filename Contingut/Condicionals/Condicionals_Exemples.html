@@ -45,7 +45,7 @@
         using namespace std;
         
         int main(){
-            unsigned int minExamen = 4;//La nota minima al examen es un 4;
+            unsigned int minExamen = 4;//La nota mínima al examen és un 4;
             
             unsigned int nota = 0; 
             cout&lt;&lt;"Entrala teva nota ";//Demanem al usuari que entri la seva nota
@@ -53,17 +53,17 @@
             
             unsigned int mitjana = 0;
             cout&lt;&lt;"Entrala teva mitjana ";//Demanem al usuari que entri la seva mitjana
-            cin&gt;&gt;mitjana; ///ALERTA, QUE PASSA SI L'USUARI ENTRA UNA NOTA NEGATIVA? 
+            cin&gt;&gt;mitjana; ///ALERTA, QUE PASSA SI L'USUARI ENTRA UNA MITJANA NEGATIVA? 
             
             if (nota > 10 || mitjana > 10){//Si la nota o la mitjana és superior a 10 es que l'usuari ens vol enganyar
-                cout&lt;&lt;"La teva nota o mitjana no és valida"&lt;&lt;endl;
+                cout&lt;&lt;"La teva nota o mitjana no es valida"&lt;&lt;endl;
                 return 0; //Acabem la execucio
             }
             else//Si la nota i la mitjana  es mes petita que 0
-            {}//No cal fer res, podriem suprimir aquest else. (tambe podriem fer tota la resta del codi dins del else, pero no es recomenable)
+            {}//No cal fer res, podríem suprimir aquest else. (també podríem fer tota la resta del codi dins del else, però no és recomenable)
             
-            //Comprovem que te l'examen aprovat
-            if(nota >= minExamen && mitjana >=5)//Si te l'examen aprovat i la mitjana aprovada
+            //Comprovem que té l'examen aprovat
+            if(nota >= minExamen && mitjana >=5)//Si té l'examen aprovat i la mitjana aprovada
             {
                 cout&lt;&lt;"Felicitats has aprovat"&lt;&lt;endl;
             }
@@ -80,10 +80,8 @@
   <br><br>
     <h4>Estructures Encadenades</h4>
     <br>
-<teoria>
-    A diferència del cas anterior, utilitzarem condicions unitàries però encadenades entre elles per aconseguir tenir condicions compostes. Aquesta pràctica no és la més recomenable per la seva càrrega directe al codi, però ens permet saber en tot moment què és el que està passant. 
+<exercici>Agafant l'exercici anterior, ens demanen que informem a l'alumne que ha suspès, per quin motiu ha suspès. Per fer-ho, cal que comprovem una a una les condicions de suspèns i identificar quina d'elles és la que falla. </exercici>
     <br>
-    <h2>Implementació en c++</h2>
     
         <pre><code class="c++">
         #include &lt;iostream&gt;
@@ -135,34 +133,7 @@
 
         }
     </code></pre>
-    Ara que hem vist com es fan les estructures encadenades podem veure quins avantatges i inconvenients té:<br>
-    <h2>Avantatges:</h2>
-    <br>
-    <ul>
-        <li>Permet conèixer en tot moment l'estat de les condicions i saber què és el que falla.</li>
-    </ul>
-    <br>
-    <h2>Inconvenients:</h2>
-    <br>
-    <ul>
-        <li>Carrega visual del codi</li>
-        <li>Es dificil de seguir per qualsevol altre persona</li>
-        <li>S'ha de controlar moltes branques, i és fàcil generar forats de codi o errors</li>
-        <li>Augment del tamany considerable del codi</li>
-  </ul>
-  <br>
-  
-</teoria>
-    <h1>CONSELLS</h1>
-    <br>
-<teoria>
-    Com hem vist, tenim diferents maneres de tractar amb les estructures alternatives, però si no es tracten bé poden ser una font de problemes. Per tal d'evitar que ens pugui passar, hi ha les següents directrius que poden ajudar a orientar el programador: <br>
-    <ul>
-        <li><h2>Utilitzar Operadors condicionals:</h2> sempre que es pugui, d'aquesta manera mantenim net el codi i ens permet descobrir errors amb molta més facilitat.</li>
-        <li><h2>No més de 3 condicions:</h2> Si necessitem fer una composició de més de 3 operadors, aleshores és que possiblement ens estem equivocant en alguna cosa. El més normal sol ser 1 operador o 2.</li>
-        <li><h2>Deixar les branques buides:</h2> Com hem vist abans, a vegades no volem implementar res quan no es compleix una condició, una bona pràctica és deixar la branca escrita i amb un comentari anotar que no es fa res. D'aquesta manera un dóna constància que ha tingut en comtpe aquella possibiltiat i que ha preferit no fer res.</li>
-    </ul>
-</teoria>
+
   <p class = footer>
   <center>
       <p class = footer>
