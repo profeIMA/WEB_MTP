@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
+<link rel="stylesheet" href="../../styles/vs.min.css">
+<meta charset="utf-8">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="/CustomScripts.js"></script> 
+<!-- Pels blocks de codi -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- scale font size for MathJax -->
+<title>MODEL DE WEB MTP</title>
+
+</head>
+
+<body>
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      TIPUS ELEMENTALS DE DADES I INSTRUCCIONS BÀSIQUES
+    </h1>
+  </center>
+    
+<!-- Contingut escrit -->
+<h1>PARTICULARITATS DEL C++</h1><br>
+<h4>Casting</h4><br>
+<teoria>
+    Hem vist que en C++ hi ha diferents tipus de variable i que cal escollir el tipus que més s'escau en el nostre programa, intentant aprofitar al màxim la memòria del nostre ordinador. Tot i això hi ha vegades que necessitem que una variable adopti un tipus diferent, i la volem transformar de forma momentània a un altre tipus. D'això se'n diu <h2>casting</h2>.<br> 
+    Ara bé, cal ser conscients dels problemes que pot ocasionar això, ja que per exemple: 
+    <ul> 
+    <li><h2> De float a int: </h2> en algun moment volem passar de float a int, això comporta perdre tota la informació dels decimals.</li>
+    <li><h2>De unsigned int a int: </h2> En el major part dels casos no suposa un problema, però hem de vigilar perquè el rang d'enters positius del unsigned int és el doble de gran que el int, i per tant podem fer un desbordament.</li>
+    </ul>
+    <br> 
+    Aquests són un parell d'exemples, però en podem trobar molts més. Així doncs, cal ser molt conscients de quin cast volem fer, i quins problemes poden aparèixer. 
+    
+    <h2>Implementació en c++</h2>
+    <pre><code class = "c++">
+        #include &lt;iostream&gt;
+        
+        int main(){
+            int diametre = 25; 
+            float radi = diametre/2; //Encara que sigui un float, la divisio entre dos enters, dóna un enter. 
+            cout&lt;&lt;"El radi val: "&lt;&lt;radi&lt;&lt;endl;
+            radi = (float)diametre/2;//Ara si que hi ha decimals. 
+            cout&lt;&lt;"El radi val: "&lt;&lt;radi&lt;&lt;endl;
+        }
+    </code></pre>
+    </teoria>
+
+    <h4>Infinits</h4>
+    <teoria>
+        En c++ no ens dóna la oportunitat de fer operacions on el resultat sigui infinit, com el cas de dividir per 0. És cert que hi ha maneres de tractar aquest fet i evitar que el programi aturi l'execució, però el millor dels casos és evitar que es pugui produir una situació com aquesta. 
+        
+        <pre><code class="c++">
+            int main(){
+                int a,b; 
+                
+                cout&lt;&lt;"Entra dos nombres enters"&lt;&lt;endl; 
+                cin&gt;&gt;a&gt;&gt;b;
+                
+                if(b!=0)
+            }
+        </code></pre>
+    </teoria>
+
+  <p class = footer>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;2018
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+</div>
+
+
+
+</body>
+
+</html>
+
