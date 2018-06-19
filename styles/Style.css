@@ -215,6 +215,7 @@ div#menu ul ul ul li:hover ul
 {display: block;}
 
 
+
 img {
     display: block;
     margin-left: auto;
@@ -278,4 +279,8 @@ exercici::first-line{
 
 strong {
     font-weight: bold;
+}
+
+example button:active{
+    display: none;
 }
