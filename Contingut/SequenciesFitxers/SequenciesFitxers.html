@@ -189,14 +189,95 @@
 	<br><br>
 	
 	Per poder treballar amb streams, cal incluir les llibreries fstream o iostream. C++ utilitza diferents streams:
+	<ul>
+		<li>
+			<strong>Streams d'entrada:</strong> 
+			<ul>
+			<li>istream: crea l'stream cin, connectat amb l'entrada per teclat.</li>
+			<li>ifstream: permet l'entrada desde fitxer, havent de crear una variable ifstream i associar-la al fitxer d'on es vol llegir.</li>
+			</ul>
+		</li>
+		<li>
+			<strong>Streams de sortida:</strong> 
+			<ul>
+			<li>ostream: crea l'stream cout, connectat amb la sortida per pantalla.</li>
+			<li>ofstream: permet la sortida a fitxer. Funciona igual que el ifstream.</li>
+			</ul>
+		</li>
+		<li>
+			<strong>Streams d'entrada/sortida:</strong> 
+			<ul>
+			<li>iostream: crea cin i cout com a variables globals i els conneta amb l'entrada per teclat i a sortida per pantalla, respectivament.</li>
+			<li>fstream: permet llegir i escriure a fitxer, cal declarar variables i associar-les a un fitxer.</li>
+			</ul>
+		</li>
+	</ul>
 	
 
+</teoria>
+<h1>
+SEQÜÈNCIES AMB FITXERS
+</h1>
+<teoria>
 
+	Per poder treballar amb un fitxer cal incloure la llibreria fstream, declarar una variable stream del tipus corresponent i associar-la a un fitxer, obrint-lo o associant-lo al declarar-lo.
+	En els següents exemples es pot veure les diferents maneres d'obrir un fitxer. 
+	<pre><code class="c++"> 
+	#include<fstream>
+	...
+	int main(){
+		...
+		ifstream f_entrada;
+		f_entrada.open("dades.dat"); //pot tenir qualsevol extensió
+		...								
+		ofstream f_sortida;
+		<strong>//El fitxer ha de estar en el mateix directori que el .cpp, si no hi és hem d'indicar el directori complet</strong>
+		f_sortida.open("C:\\prova\\out.txt"); /*les rutes en Windows porten el
+			símbol \, que en C++ es representa com a \\ (en UNIX s’usa /)*/
+		...
+		string nom_fitxer;
+		cin>>nom_fitxer;   
+		ifstream fitxer_in(nom_fitxer.c_str()); <strong>//cal usar .c_str() si tenim el nom en una variable.</strong>
+		...
+		fstream fitxer("dades.dat",fstream::in); //fstream de lectura. Al usar fstream cal activar lectura o escriptura (fstream::in o fstream::out)
+		...
+	}
+	</code></pre>
+</teoria>
+
+<h1>
+SEQÜÈNCIES D'ENTRADA I SEQÜÈNCIES DE SORTIDA 
+</h1>
+<teoria>
+<h4>Seqüències d'entrada: lectura</h4>
+
+Per llegir una seqüència es pot usar:
+<ul>
+	<li> <strong>L'operador d'extraccio >></strong> que llegeix amb format (d'acord amb el tipus de la variable). <br>
+	Exemple: 
+	<pre><code class="c++">ifstream fitxer("nom_fitxer.txt"); 
+	unsigned n;      fitxer>>n;        //cin>>n;
+	string paraula;  fitxer>>paraula;  //cin>>paraula;
+	char lletra;     fitxer>>lletra;   //cin>>lletra;
+	</code></pre>
+	Pels tipus numèrics i les strings, >> llegeix fins a trobar-se un white-space (ws) i converteix el valor llegit al tipus de la variable. Els white-spaces (WS) són els caràcters no visibles del codi ASCII. El C++ els empra en la lectura amb format. El més habituals són: ' '(espai) '\r'(enter) '\n'(salt de línia) '\t'(tabulador).
+	Si és un caràcter, llegeix només un caràcter, ometent els espais en blanc.
+	</li>
+	<li>
+	<strong>Lectura de caràcters:</strong>
+		<ul>
+		</ul>
+		
+	</li>
+
+</ul>
 
 
 
 
 </teoria>
+
+
 
   <p class = footer>
   <center>
