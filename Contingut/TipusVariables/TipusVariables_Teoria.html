@@ -98,7 +98,7 @@
     <h2>Taula d'operacions lògiques:</h2> <br>
     <img src="../../Recursos/Imatges/OperacionsLogiques.PNG">
     <br> 
-    <h2>Implementació:</h2><br>
+    <h2>Implementació en c++:</h2><br>
     <pre><code class="cpp">
         int main(){
             bool a; //Declarem un boolea. El contingut és incert perquè no esta inicialitzat
@@ -121,7 +121,56 @@
         }
     </code></pre>
   <br><br>
-
+    <teoria>
+    <h4>Caràcters:</h4>
+    Com el seu nom indica, serveix per guardar caràcters, trobem dos tipus de variables: <h2>Caràcter</h2> i la <h2>Cadena de caràcters</h2>: 
+    <ul>
+        <li><h2>Caràcter: </h2>serveix per guardar un únic caràcter. Pot ser qualsevol que es trobi a la taula ASCII, (veure a continuació).</li>
+        <li><h2>Cadena de caràcters: </h2>com el seu nom indica, serveix per guardar un nombre indeterminat de caràcters. D'aquesta manera podem guardar lletres, paraules, i oracions.</li>
+    </ul>
+        
+    En c++ podem usar operadors amb els caràcters, però no són massa intuitius, per veure més informació mireu les <a href = "TipusVariables_C.html">particularitats del c++</a>.<br>
+        
+    <h3>Taula ASCII</h3><br>
+    <img class = "mitjana" src="../../Recursos/Imatges/ASCIITable.PNG" alt="Taula ASCII">
+        
+    <h2>Implementació em c++</h2>
+        
+    <pre><code class="c++">
+    #include &lt;iostream&gt;
+    #include &lt;string&gt;//Necessari per poder utilitzar les strings
+    using namespace std;
+    int main(){
+        char c = 'a'; //Assignem el valor ( a ) a la variable c. UTILITZEM '' PER DECLARAR UN CARÀCTER
+        cout&lt;&lt;"El valor de c es: "&lt;&lt;c&lt;&lt;endl;
+        
+        string cadena = "Oracio de mostra";//Assignem "Oracio de mostra" a la variable cadena. UTILITZEM " " PER DELCARAR UNA CADENA DE CARACTERS
+        cout&lt;&lt;"El valor de cadena es: "&lt;&lt;cadena&lt;&lt;endl;
+     }
+    </code></pre>
+        
+    </teoria>
+    
+    <h1>Constants</h1>
+    <br> 
+    <teoria>
+    Fins ara hem vist les variables, però hi ha un altre conjunt que són les constants. Com el seu nom indica, no varien el valor, podríem dir que són variables fixes. <br> 
+        Tenim dos tipus de constants, <h2>sense nom</h2> i <h2>amb nom</h2>: 
+        <ul>
+        <li><h2>Sense nom: </h2>en C++ es permet introduir un nombre directament, i això és considerat una constant. Per exemple, quan fem un assignació de variable ( int a = 6;) , aquest ' 6 ' és una constant sense nom.</li>
+        <li><h2>Amb nom: </h2>Les constants amb nom, són variables on el seu valor no canvia. Per aconseguir això s'afageix <h2>const</h2> en la declaració de la variable. També s'ha establert un conveni: els noms de les constants seràn amb majúscules.</li>
+        </ul>
+    Les constants, siguin amb nom o sense nom, poden ser de qualsevol tipus que hem vist anteriorment: enters, naturals, caràcters, lògics... 
+        <br> 
+        <h2>Implementació en c++</h2>
+        <pre><code class = "c++">
+            cout&lt;&lt;6/8&lt;&lt;endl; //6 i 8 són constants enteres sense nom. 
+            const double PI = 3.1416;//PI es el nom de la constant de valor 3.1416. 
+            cout&lt;&lt;PI&lt;&lt;endl;
+        
+        </code></pre>
+    </teoria>
+    
   <p class = footer>
   <center>
       <p class = footer>
