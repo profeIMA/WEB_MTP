@@ -89,6 +89,7 @@ float: left;
 width: 190px;
 /* background: #eee; */
 background: #000;
+position:fixed;
 }
 
 #menu ul {
@@ -272,5 +273,9 @@ pseudocodi{
 }
 
 exercici::first-line{
+    font-weight: bold;
+}
+
+strong {
     font-weight: bold;
 }
