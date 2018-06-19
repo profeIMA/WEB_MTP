@@ -76,6 +76,30 @@
             }
         </code></pre>
     </teoria>
+    
+    <h4>Operadors de caràcters</h4>
+    <teoria>
+        Els caràcters també tenen els seus propis operadors, i podem sumar lletres entre elles. Però què com funciona això realment?.<br>
+        La base d'això està en el codi ASCII i el "casting", com podreu observar, en el codi ascii cada lletra té associat un nombre. Aquest nombre és l'identificador d'aquell caràcter, i és el que es guarda el c++.<br> 
+        Així doncs, quan operem amb caràcters, realment estem operant amb naturals. Ara bé, la cosa pot ser complicada, ja que la taula ASCII es finita, però els nombres naturals infinits, això ens pot provocar algun maldecap i resultat no desitjat. 
+        <br><br>
+        
+        <pre><code class ="c++">
+            const unsigned int MAX = 126;//El maxim de caràcters en ASCII es 126
+            const unsigned int MIN = 32;//El minim de caràcters en ASCII es 32. (de 0 a 32, són simbols de control)
+            char c = '('; // Recordem que segons la taula ASCII a = 97; 
+            char c2; 
+            cout&lt;&lt;"Entra un caracter"&lt;&lt;endl;
+            cin&gt;&gt;c2;
+            
+            char c3 = c+c2;
+            if((unsigned int)c3&gt;MAX)
+                cout&lt;&lt;"No et puc mostrar un caracter perque has sortit dels limits"&lt;&lt;endl;
+            else 
+                cout&lt;&lt;"El caracter resultant es: "&lt;&lt;c3&lt;&lt;endl;
+            
+        </code></pre>
+    </teoria>
 
   <p class = footer>
   <center>

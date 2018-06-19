@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
+<link rel="stylesheet" href="../../styles/vs.min.css">
+<meta charset="utf-8">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
+<script src="/CustomScripts.js"></script> 
+<!-- Pels blocks de codi -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- scale font size for MathJax -->
+<title>METODOLOGIA I TECNOLOGIA DE LA PROGRAMACIÓ</title>
+
+</head>
+
+<body>
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      EXEMPLES BUCLES I ITERACIONS
+    </h1>
+  </center>
+    
+<!-- Contingut escrit -->
+En aquesta secció trobem exemples per complementar el contingut teòric de <a src = "Bucles_Teoria.html">bucles</a>.<br>
+<h4>Programa 5</h4>    
+<exercici>
+    Ens demanen sumar els nombres naturals de 1 fins a n. On n és un valor entrat per l'usuari. Cal tenir present les següents consideracions: 
+    <ul>
+        <li>Hem de fer un bucle amb "n" iteracions. (Nombre fixat d'iteracions).</li>
+        <li>Cal que l'usuari entri el nombre "n", el qual ha de ser natural.</li>
+        <li>Cal tenir una variable que vagi guardant el valor del sumatori en cada iteració.</li>
+    </ul>
+    
+    <pre><code class = "c++">
+    #include &lt;iostream&gt; 
+    using namespace std;
+    int main(){
+        //Entrada de dades: 
+        unsigned int n; 
+        cout&lt;&lt;"Entra un nombre natural: ";
+        cin&gt;&gt;n; 
+        
+        
+        //Validació
+        if(n &lt; 0){//l'usuari no ha entrat un nombre natural. 
+            cout&lt;&lt;No has entrat un nombre natural&lt;&lt;endl;
+            return 0;//Acabem la execució
+        }
+        //Càlcul
+        unsigned int suma = 0; 
+        for(unsigned int i = 1; i &lt;=n ; i++)
+            suma+=i; 
+    
+        //Sortida
+        cout&lt;&lt;"El valor de la suma es: "&lt;&lt;suma&lt;&lt;endl;
+        
+        //Finalització
+        return 0;
+    }
+      
+    </code></pre>
+    
+</exercici>
+    
+    
+  <p class = footer>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;2018
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+</div>
+
+
+
+</body>
+
+</html>
+

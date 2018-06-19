@@ -47,7 +47,12 @@
         
         using namespace std; 
         
-        int suma(int a, int b); //CAPÇALERA:Declarem la acció i/o funció
+        int suma(int a, int b) //CAPÇALERA:Declarem la acció i/o funció
+        {//PRE: a i b dos enters
+        //POST: retorna la suma entre a i b
+            int c = a + b;//Instruccions a executar
+            return c;//RETORN: valor que ha de retornar (IMPORTANT: c és un enter igual que el retorn de la funcio )
+        }
         
         int main(){
             int x = 4; 
@@ -57,12 +62,7 @@
             cout&lt;&lt;"El valor de z es: "&lt;&lt;z&lt;&lt;endl;
         }
         
-        int suma(int a, int b )//IMPLEMENTACIO: de la funció
-        {//PRE: a i b dos enters
-        //POST: retorna la suma entre a i b
-            int c = a + b;//Instruccions a executar
-            return c;//RETORN: valor que ha de retornar (IMPORTANT: c és un enter igual que el retorn de la funcio )
-        }
+
     </code></pre>
     Hem vist un exemple real d'una funció. Per entendre millor què és el que està passant tractarem un a un, les diferents parts de les accions i funcions.
 </teoria>
