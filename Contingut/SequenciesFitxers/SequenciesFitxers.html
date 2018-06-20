@@ -255,7 +255,8 @@ Per llegir una seqüència es pot usar:
 <ul>
 	<li> <strong>L'operador d'extraccio >></strong> que llegeix amb format (d'acord amb el tipus de la variable). <br>
 	Exemple: 
-	<pre><code class="c++">ifstream fitxer("nom_fitxer.txt"); 
+	<pre><code class="c++">
+	ifstream fitxer("nom_fitxer.txt"); 
 	unsigned n;      fitxer>>n;        //cin>>n;
 	string paraula;  fitxer>>paraula;  //cin>>paraula;
 	char lletra;     fitxer>>lletra;   //cin>>lletra;
@@ -266,14 +267,51 @@ Per llegir una seqüència es pot usar:
 	<li>
 	<strong>Lectura de caràcters:</strong>
 		<ul>
+			<li> .get() llegeix caràcters sense ometre ws. Aquest efecte també es pot aconseguir amb >> usant l'opció <strong>noskipws</strong>
+			<pre> <code class="c++"> 
+			char lletra = fitxer.get(); //lletra=cin.get();
+			fitxer.get(lletra);         //cin.get(lletra);</code></pre> 
+			</li>
+			<li> .unget torna a fer accessible (només) el darrer caràcter llegit.
+			</li>
 		</ul>
-		
 	</li>
-
 </ul>
 
+<h4>Seqüències de sortida: escriptura</h4>
 
+Per escriure en una seqüència d'entrada es pot usar:
+<ul>
+	<li>
+		<strong> L'operador d'inserció << </strong> que ens permet escriure elements de tipus conegut. 
+		<pre><code class="c++">
+ofstream fitxer; 
+fitxer.open("arxiu.txt");
+//Escriptura amb format
+char caracter='a';
+unsigned n=15; 
+cout<<caracter<<" enter: "<<n<<endl; 
+fitxer<<caracter<<" enter: "<<n<<endl;
+		</code></pre>
+		<br> Aquest codi ens escriuria en el fitxer i en pantalla el següent: <br>
+		<img class="allargatPetit" src="../../Recursos/Imatges/SequenciesFitxers_escriptura.PNG"/>
+		Com veiem, escriu tant el caracter com el enter en el format corresponent. El \r\n correspondria al salt de línia en Windows. 
+		
+	</li>
+	<li>
+		<strong> .put()</strong> que permet escriure caràcters (d'un en un). 
+		<pre> <code class="c++">
+//Escriptura d’un caràcter
+char caracter='.';
+fitxer.put(caracter); //Escriu el caràcter
+cout.put(caracter); //Escrivim el caràcter a la pantalla
 
+		</code> </pre>
+		<br> Afegint aquest codi al anterior, ens resultaria en el següent:<br><br>
+		<img class="allargatPetit" src="../../Recursos/Imatges/SequenciesFitxers_escriptura2.PNG"/>
+		<br>Com veiem s'afageix el punt després del salt de línia, on hi havia el cursor.	
+	</li> 
+</ul>
 
 </teoria>
 
