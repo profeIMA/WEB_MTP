@@ -4,7 +4,7 @@ body { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 3
 p    { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; margin-top: 10px; margin-bottom: 0px; }
 
 /* size of footer */
-p.footer { font-size: 12px; font-style: italic; }
+p.footer { font-size: 12px; font-style: italic; position: absolute; bottom: 0; }
 
 /* size of footer hyperlink */
 a.footer { font-size: 12px; }
@@ -264,8 +264,14 @@ alerta{
     font-weight: bold;
 }
 
+teoria{
+    text-align: justify;
+    text-justify: inter-word;
+    
+}
 exercici{
     font-style: italic;
+    display = "block"
 }
 
 pseudocodi{
