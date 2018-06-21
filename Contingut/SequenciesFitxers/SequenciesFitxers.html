@@ -67,8 +67,7 @@
    
    
     <h4>Marques de fi</h4>
-<teoria>
-	
+<teoria> 
 	Es poden donar dos tipus de marques de fi:
 	<ul>
 		<li><strong>Marca de fi lògica (explícita):</strong> Donada per un element distingit del mateix tipus que els de la seqüència, com ara els vists en l'exemple anterior.<br>
@@ -153,6 +152,9 @@
 	</pseudocodi>
 	
 	En la cerca cal veure que en el bucle, processem només els elements necessaris fins que detectem la marca de fi de la seqüència o es troba el que es busca.	
+	
+    <img class ="codeGif" src="../../Recursos/Gif/GifCerca_d.gif" alt="Gif del funcionament de l'esquema de cerca">
+	
 	<br>L'esquema equivalent en c++ sería així:<br><br>
 	<pre><code class = "c++">	
 	... 
@@ -278,6 +280,15 @@ Per llegir una seqüència es pot usar:
 	</li>
 </ul>
 
+<h2> Marca de fi </h2><br><br>
+
+Cal tenir en compte que ha de ser detectada al ser llegida, <alerta>és un error continuar llegint!</alerta>
+A més, també és recomenable que, si n'hi ha, la marqua de fi lògica vagi seguida d'un WS, per evitar problemes en la detecció.
+<br>
+El fi de seqüència física, en C++, es detecta amb la funció .eof() que retorna un booleà que dona cert si s'ha arribat a la marca de fi.
+Pel cas de una marca de fi lògica, podem definir una constant EOS, donant-li el valor que volem que tingui la marca de fi, llavors per detectar-la, és una simple comparació d'igualtat (==).
+
+
 <h4>Seqüències de sortida: escriptura</h4>
 
 Per escriure en una seqüència d'entrada es pot usar:
@@ -294,7 +305,7 @@ cout<<caracter<<" enter: "<<n<<endl;
 fitxer<<caracter<<" enter: "<<n<<endl;
 		</code></pre>
 		<br> Aquest codi ens escriuria en el fitxer i en pantalla el següent: <br>
-		<img class="allargatPetit" src="../../Recursos/Imatges/SequenciesFitxers_escriptura.PNG"/>
+		<img class="allargatPetit" src="../../Recursos/Imatges/SequenciesFitxers_escriptura.PNG" alt="resultat del codi anterior"/>
 		Com veiem, escriu tant el caracter com el enter en el format corresponent. El \r\n correspondria al salt de línia en Windows. 
 		
 	</li>
@@ -308,10 +319,14 @@ cout.put(caracter); //Escrivim el caràcter a la pantalla
 
 		</code> </pre>
 		<br> Afegint aquest codi al anterior, ens resultaria en el següent:<br><br>
-		<img class="allargatPetit" src="../../Recursos/Imatges/SequenciesFitxers_escriptura2.PNG"/>
-		<br>Com veiem s'afageix el punt després del salt de línia, on hi havia el cursor.	
+		<img class="allargatPetit" src="../../Recursos/Imatges/SequenciesFitxers_escriptura2.PNG" alt="resultat del codi anterior"/>
+		<br>Com veiem s'afageix el punt després del salt de línia, on hi havia el cursor.
 	</li> 
 </ul>
+
+<h2> Marca de fi </h2><br><br>
+
+La marca de fi física la posa el sistema en el moment de tancar el fitxer. La lógica, si és necessària, cal escriure-la, seguida d'un WS, abans de tencar el fitxer.
 
 </teoria>
 
