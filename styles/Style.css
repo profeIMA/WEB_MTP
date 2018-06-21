@@ -266,6 +266,7 @@ alerta{
 
 exercici{
     font-style: italic;
+    display = "block"
 }
 
 pseudocodi{

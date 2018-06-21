@@ -14,3 +14,23 @@ $(function() {
     }, 100);
 
 });
+
+
+$(document).ready(function(){
+    var butons = $(document).getElementsByClassName("BotoSolucio");
+    for(var i = 0; i < butons.length(); i++)
+        {
+            butons[i].click(function(){
+            })
+        }
+})
+
+function myFunction(a) {
+    var x = document.getElementById(a.id);
+    console.log("El id es: " + x.id);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}

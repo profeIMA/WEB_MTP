@@ -38,13 +38,16 @@
 <!-- Contingut escrit -->
 <exercici>
     <h2>Problema 3</h2><br><br>
-   Per facilitar la tasca de càlcul de preus amb descompte i la gestió d'una botiga, es vol fer un programa que calculi el preu final d'una compra a la que cal aplicar un descompte, i també el canvi que cal tornar al client. Es vol fer sabent el preu de compra, el % de descompte i la quantitat lliurada pel client. El programa ens ha de calcular el preu final de la compra i el canvi que cal tornar. 	
-    <pre><code class="c++">
+   Per facilitar la tasca de càlcul de preus amb descompte i la gestió d'una botiga, es vol fer un programa que calculi el preu final d'una compra a la que cal aplicar un descompte, i també el canvi que cal tornar al client. Es vol fer sabent el preu de compra, el % de descompte i la quantitat lliurada pel client. El programa ens ha de calcular el preu final de la compra i el canvi que cal tornar. 	<br>
+    
+    <button onclick="myFunction(Problema3)">Try it</button>
+    
+    <pre><code id ="Problema3" class="c++">
         #include&lt;iostream&gt;
         #include&lt;iomanip&gt;
         
         //Entrada: llegeix (preu inicial i diners) dos nombres reals i descompte un nombre natural
-        //Sortida: mostra el preu final un cop aplicat el descompte a preu_inicial i el canvi que cal tornar d'acord amb el preu final i els diners lliurats        
+        //Sortida: mostra el preu final un cop aplicat el descompte a 
         int main(){
             cout&lt;&lt;"Preu: "&lt;&lt;endl;
             double preu_inicial;
