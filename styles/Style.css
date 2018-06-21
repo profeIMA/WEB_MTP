@@ -46,7 +46,7 @@ h1 { font-size: 22px; font-weight:normal; font-variant:small-caps;
 h1.center {text-align:center; }
 
 h2 { font-size: 15px; display: inline; text-align: left; font-weight: bold; }
-h3 { font-size: 20px; display: inline; font-weight: bold; color:#059667;}
+h3 { font-size: 20px;font-weight: bold; color:#059667;}
 h4 { font-size: 22px; font-weight: bold; color:#1B6059; }     /* shade of green */
 h4 a { font-size: 22px; font-weight: bold; color:#7c927b; }   /* for a name tages 00cc66 */
 
