@@ -1,3 +1,5 @@
+
+
 $(function() {
     $("#menu").load("/menu.html");
 
@@ -16,14 +18,11 @@ $(function() {
 });
 
 
-$(document).ready(function(){
-    var butons = $(document).getElementsByClassName("BotoSolucio");
-    for(var i = 0; i < butons.length(); i++)
-        {
-            butons[i].click(function(){
-            })
-        }
-})
+$(document).ready(
+    function(){
+        document.getElementById("anyActual").innerHTML = new Date().getFullYear();
+          }
+);
 
 function myFunction(a) {
     var x = document.getElementById(a.id);
@@ -34,3 +33,5 @@ function myFunction(a) {
         x.style.display = "none";
     }
 }
+
+
