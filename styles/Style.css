@@ -1,10 +1,10 @@
 @import url("https://www.cs.princeton.edu/courses/archive/spring18/cos226/css/link-icons.css");
 
-body { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; background: #E9EEE7}
+body { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; background: #E9EEE7;}
 p    { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; margin-top: 10px; margin-bottom: 0px; }
 
 /* size of footer */
-p.footer { font-size: 12px; font-style: italic;}
+p.footer { font-size: 12px; font-style: italic; height:50px;}
 
 /* size of footer hyperlink */
 a.footer { font-size: 12px; }
@@ -20,7 +20,7 @@ li {  font-size: 15px; margin-top: 6px;}
 hr   { height:1px; color:#444444; }
 code { font-family: Consolas, monaco, monospace; font-size: 14px; }
 tt   { font-family: Consolas, monaco, monospace; font-size: 14px; }
-blockquote { margin-left: 40px; margin-right: 0px; }
+blockquote { margin-left: 40px; margin-right: 0px; background-color:lightgrey; }
 blockquote pre { font-family: Consolas, monaco, monospace; font-size: 13px; background-color:#ebebeb; padding: 10px 15px 10px 15px; }
 blockquote pre.small { font-family: Consolas, monaco, monospace; font-size: 11px; background-color:#ebebeb;}
 blockquote pre.tiny { font-family: Consolas, monaco, monospace; font-size: 10px; background-color:#ebebeb;}
@@ -71,7 +71,7 @@ a:hover   { color: #aa3e3b; text-decoration: underline;  }
 
 #content  { margin-left: 204px;
             padding-right: 1.5cm; padding-left: 1cm;
-            padding-top: 0cm; padding-bottom: 0cm; }
+            padding-top: 0cm; padding-bottom: 0cm; min-height: calc(100vh - 150px);}
 
 
 /* http://www.tanfa.co.uk/css/examples/menu/tutorial-v.asp */
