@@ -293,3 +293,8 @@ example button:active{
 solucio{
     display: none;
 }
+.execucio{
+	background-color:black;
+	color: white;
+	font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
