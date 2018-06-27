@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
+<link rel="stylesheet" href="../../styles/vs.min.css">
+<meta charset="utf-8">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="/CustomScripts.js"></script> 
+<!-- Pels blocks de codi -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- scale font size for MathJax -->
+<title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body>
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      TIPUS ELEMENTALS DE DADES I INSTRUCCIONS BÀSIQUES
+    </h1>
+  </center>
+    
+    <h4>Variables</h4>
+
+    <h3>Què és una variable:</h3>
+    <teoria>
+     En C++ podem entendre una variable com un contenidor finit on podem emmagatzamar diferents dades. Aquestes dades necessiten tenir un format per tal d'entendre què estem tractant, quines operacions podem realitzar, com hem de mostrar les dades, etc.
+    Cal saber quins <a href="TipusVariables_TElemDades.html">tipus de variables</a> ha de guardar amb antel·lació per tal de reservar la memòria corresponent.<br><br>
+    
+    En C++ hi ha tres parts referents a l'ús de les variables: 
+        <ul>
+            <li><b>Declaració:</b> es defineix el nom i el tipus de la variable. <b><i>tipus nom_variable;</i></b></li>
+            <li><b>Inicialització i/o assignació:</b> aquesta fase és la que es dóna un valor a la variable, pot ser en la mateixa declaració o bé en un moment posterior: 
+            
+            <ul>
+            <li><b>En l'inicialització:</b> En el moment de la declaració, se li assigna una valor. <b><i>tipus nom_variable = valor;</i></b></li>    
+                <li><b>A posteriori:</b> en qualsevol moment podem donar un valor a la variable: <b><i>nom_variable = valor;</i></b></li>
+            </ul>
+            </li>
+            
+            <li><b>Utilització:</b> les variables es defineixen per ser usades, i per fer-ho només cal invocar el seu nom.</li>
+        </ul>
+        <alerta>Els noms de les variables sempre usarem minuscules i utilitzant la <a href="https://en.wikipedia.org/wiki/Camel_case">nomenclatura camel</a>o bé separant les paraules per una barra baixa.</alerta><br><br>
+        
+        Pel que fa les <b>constants</b>: <br>
+        Una constant és una variable que el seu valor no varia durant l'execució del programa. Tenim dos tipus de constants. 
+        <ul>
+        <li><b>Sense Nom:</b> són aquelles que es dóna el seu valor directament com podria ser: 8, "hola", 'A', true, -2.5 .</li>
+            <li><b>Amb Nom:</b> són aquelles que tenen un tipus i nom donats pel programador. Es comporten igual que les variables que hem vist anteriorment. <br> La única diferència és que en la declaració s'utilitza la paraula clau <b><i>const</i></b>. Exemple: <b><i>const tipus nom_variable = valor</i></b>.</li>
+        </ul>
+        
+        
+        
+    </teoria>
+    
+    
+    
+    
+<p class = footer>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+</div>
+
+
+
+</body>
+
+</html>
+
