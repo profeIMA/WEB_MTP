@@ -35,14 +35,24 @@
   </center>
   
   <teoria>
-	Per fer un programa en c++ es necessita:
+	Crear un programa en c++ implica saber-lo compilar, muntar (linkar) i executar. Per fer-ho es necessita:
 	<ul>
 		<li> Un fitxer *.cpp on hi hagi el codi que cal executar amb la funció principal(main) i els altres possibles elements.</li>
 		<li> Un compilador i un linkador, com ara el <a href="https://gcc.gnu.org/install/specific.html">g++ (gcc)</a>.</li>
-		
 	</ul>
 	
-		
+	Primer cal escriure el programa en un arxiu utilitzant un editor de text bàsic (com ara el bloc de notes, o el Notepad++). Cal guardar el fitxer amb extensió.cpp i amb un nom significatiu d'acord amb el programa implementat.
+	<br> Per compilar i linkar, s'obre un terminal on s'hagi guardat l'arxiu (en Windows es amb shift + botó dret -> "Abrir ventana de comandos aquí").
+	En el terminal utilitzem el g++ per compilar i linkar. Això es faria amb la comanda <i>g++ nom_fitxer.cpp</i>. Aquesta comanda compila i linka l'executable, i mostra, si n'hi ha, els errors de compilació i/o linkatge 
+	indicant la línia on apareixen i una petita explicació:
+	<br><br><img class="allargatMitja" src="../../Recursos/Imatges/Introduccio_CompilacioError.PNG" alt="compilació d'un programa amb comandes">
+	<br>A l'imatge es fan dos crides, una amb un error, i l'altre després de corregir l'error, compilant i linkant amb èxit en aquest cas. En el cas de que tot vagi bé, el g++ ens genera un fitxer executable (a.exe en windows)
+	el qual podem executar en el mateix terminal escribint <i>a</i> al terminal.
+	<br><br><img class="allargatMitja" src="../../Recursos/Imatges/Introduccio_Execucio.PNG" alt="Execució d'un programa després de compilarlo amb comandes">
+	<br> Per escollir el nom de l'executable al compilar, es pot fer amb la comanda <i>g++ -o nom_executable.exe nom_codi.cpp</i>. Ara per executar el resultat, escriuriem <i>nom_executable</i>.
+	
+	
+			
   </teoria> 
   
   
