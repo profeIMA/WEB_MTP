@@ -34,9 +34,10 @@
     </h1>
   </center>
     
-    <h4>Variables</h4>
+    <h4>Variables, Constants i Expressions</h4>
 
     <h3>Què és una variable:</h3>
+    
     <teoria>
      En C++ podem entendre una variable com un contenidor finit on podem emmagatzamar diferents dades. Aquestes dades necessiten tenir un format per tal d'entendre què estem tractant, quines operacions podem realitzar, com hem de mostrar les dades, etc.
     Cal saber quins <a href="TipusVariables_TElemDades.html">tipus de variables</a> ha de guardar amb antel·lació per tal de reservar la memòria corresponent.<br><br>
@@ -54,7 +55,7 @@
             
             <li><b>Utilització:</b> les variables es defineixen per ser usades, i per fer-ho només cal invocar el seu nom.</li>
         </ul>
-        <alerta>Els noms de les variables sempre usarem minuscules i utilitzant la <a href="https://en.wikipedia.org/wiki/Camel_case">nomenclatura camel</a>o bé separant les paraules per una barra baixa.</alerta><br><br>
+        <alerta>Els noms de les variables sempre usarem minuscules i utilitzant la <a target="_blank" href="https://en.wikipedia.org/wiki/Camel_case">nomenclatura camel</a> o bé separant les paraules per una barra baixa.</alerta><br><br>
         
         Pel que fa les <b>constants</b>: <br>
         Una constant és una variable que el seu valor no varia durant l'execució del programa. Tenim dos tipus de constants. 
@@ -62,13 +63,99 @@
         <li><b>Sense Nom:</b> són aquelles que es dóna el seu valor directament com podria ser: 8, "hola", 'A', true, -2.5 .</li>
             <li><b>Amb Nom:</b> són aquelles que tenen un tipus i nom donats pel programador. Es comporten igual que les variables que hem vist anteriorment. <br> La única diferència és que en la declaració s'utilitza la paraula clau <b><i>const</i></b>. Exemple: <b><i>const tipus nom_variable = valor</i></b>.</li>
         </ul>
-        
-        
-        
+        <alerta>Les constants amb nom sempre usarem Majuscules i utlitzant una barra baixa per separar paraules. </alerta>
     </teoria>
     
+    <h3>Ús de les variables en C++</h3>
     
+    <teoria>
+        La millor forma de de veure com funciona amb C++ és amb un petit exemple, on declararem una variable i una constant amb nom, i veurem les seves tres fases. 
+        
+        <pre><code class="c++">
+        #include &lt;string&gt;
+        
+        using namespace std; 
+            int main()
+            {
+                int variableEntera; // Declaració d'una variable entera usant notació camel. 
+                variableEntera = 5; // Assignació d'una variable entera amb una constant sense nom (5 és una constant sense nom).
+                
+                bool VARIABLE_LOGICA = true; //Declaració i inicialització d'una constant lògica utilitzant la notació de barra baixa. 
+                
+                char variable_caracter = 'P'; //Declaració i inicialització d'una variable caràcter utiltizant la notació de barra baixa. 
+                
+                unsigned int variable_natural, variableNatural; //Declaració de dues variables naturals. 
+                variable_natural = 10; //Assignació d'una variable natural. 
+                variableNatural = variable_natural; //Assignació d'una variable natural usant una altre variable natural.
+                
+                string missatgeError= "Error, torna a introduir les dades", missatgeOK = "Finalitzacio correcte";//Declaració i inicilaització de dues variables tipus string (cadena de caràcters).
+            
+                return 0;
+            }
+        
+        </code></pre>
     
+    </teoria>
+    
+    <h4>Expressions</h4>
+    
+    <h3>Operadors en C++</h3>
+    <teoria>
+    Com hem vist a <a href="TipusVariables_TElemDades.html">tipus de variables</a> cada tipus de variable té associats diferents operadors, i aquests operadors són de fàcil ús en C++, tot i que a vegades no s'expressen de la mateixa forma que matemàticament. A continuació hi ha una taula d'equivalències: <br>
+    
+    <img width="30px" height="350px" alt = "Taula d'equivalències C++ i matemàtiques" src ="../../Recursos/Imatges/OperadorsC++.PNG">
+    </teoria>
+    <h3>Expressions simples</h3>
+    <teoria>
+        Les expressions simples són la utilització de les operacions matemàtiques vistes anteriorment, lligades amb variables i constants. Aquestes operacions són evaluades i retornen el valor corresponent. Per exemple, una operació lògica retornarà un valor lògic. <br> 
+        
+        Els operadors tenen un <b>ordre de prioritat</b>: 
+        <img alt="Prioritat operadors C++" src="../../Recursos/Imatges/OperadorsC++Propritat.PNG" height="150px">
+        <br>    
+        
+        Per tal de dur a terme les expressions, cal que l'operació i la variable sigui compatible, per exemple, <b>>no es permet una operació lògica a una variable caràcter</b>. Ara bé, si que és possible fer operacions entre diferents tipus de variables com és el cas de les variables numèriques. Es permet les operacions entre: <b>Naturals - Enters - Reals</b>, ara bé el resultat de l'operació pot diferir de l'esperat si no es fa correctament.
+        <br> 
+        <alerta>Si una expressió utilitza parentesis per donar prioritat, cal que hi hagi el mateix nombre de parentesis obert que tancats.</alerta>
+    </teoria>
+    <h3>Casting</h3>
+
+    Hem vist que en C++ hi ha diferents tipus de variable i que cal escollir el tipus que més s'escau en el nostre programa, intentant aprofitar al màxim la memòria del nostre ordinador. Tot i això hi ha vegades que necessitem que una variable adopti un tipus diferent, i la volem transformar de forma momentània a un altre tipus. D'això se'n diu <h2>casting</h2>.<br> 
+    Ara bé, cal ser conscients dels problemes que pot ocasionar això, ja que per exemple: 
+    <ul> 
+    <li><h2> De float a int: </h2> en algun moment volem passar de float a int, això comporta perdre tota la informació dels decimals.</li>
+    <li><h2>De unsigned int a int: </h2> En el major part dels casos no suposa un problema, però hem de vigilar perquè el rang d'enters positius del unsigned int és el doble de gran que el int, i per tant podem fer un desbordament.</li>
+    </ul>
+    <br> 
+    Aquests són un parell d'exemples, però en podem trobar molts més. Així doncs, cal ser molt conscients de quin cast volem fer, i quins problemes poden aparèixer. 
+    
+    <h2>Implementació en c++</h2>
+    <teoria>
+    <pre><code class = "c++">
+        #include &lt;iostream&gt;
+        
+        int main(){
+            int diametre = 25; 
+            float radi = diametre/2; //Encara que sigui un float, la divisio entre dos enters, dóna un enter. 
+            cout&lt;&lt;"El radi val: "&lt;&lt;radi&lt;&lt;endl;
+            radi = (float)diametre/2;//Ara si que hi ha decimals. 
+            cout&lt;&lt;"El radi val: "&lt;&lt;radi&lt;&lt;endl;
+        }
+    </code></pre>
+    </teoria>
+    <h3>Funcions predefinides</h3>
+        <teoria>
+        Els operadors matemàtics anteriors no són suficients per realitzar totes les operacions, per solucionar aquesta mancança apareixen les llibreries. La llibreria <b>&lt;cmath&gt;</b> que ens dóna les suficients eines per fer tot tipus d'operacions matemàtiques. <br>
+        Per utiitzar-la cal fer el següent <b>include</b>:
+        
+        <pre><code class="C++"> #include &lt;cmath&gt;</code></pre>
+    
+        A continuació us mostrem les funcions més significatives de la llibreria: 
+            
+        <img alt="Llistat funcions cmath" src="../../Recursos/Imatges/FuncionsCmath.PNG">
+            
+        Per més informació sobre la llibreria, i funcions extra es pot consultar la seva <a target="_blank" href="http://www.cplusplus.com/reference/cmath/">documentació</a>. 
+</teoria>   
+        
     
 <p class = footer>
   <center>

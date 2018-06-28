@@ -71,7 +71,9 @@ a:hover   { color: #aa3e3b; text-decoration: underline;  }
 
 #content  { margin-left: 204px;
             padding-right: 1.5cm; padding-left: 1cm;
-            padding-top: 0cm; padding-bottom: 0cm; min-height: calc(100vh - 150px);}
+            padding-top: 0cm; padding-bottom: 0cm; min-height: calc(100vh - 150px);
+            font-family:Verdana, Geneva, sans-serif; 
+            font-size: 15px;}
 
 
 /* http://www.tanfa.co.uk/css/examples/menu/tutorial-v.asp */
