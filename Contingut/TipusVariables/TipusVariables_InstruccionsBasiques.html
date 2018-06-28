@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
+<link rel="stylesheet" href="../../styles/vs.min.css">
+<meta charset="utf-8">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="/CustomScripts.js"></script> 
+<!-- Pels blocks de codi -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- scale font size for MathJax -->
+<title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body>
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      TIPUS ELEMENTALS DE DADES I INSTRUCCIONS BÀSIQUES
+    </h1>
+  </center>
+    
+<h4>INSTRUCCIONS BÀSIQUES</h4>
+
+<h3>Quines són?</h3>
+    
+<teoria>
+   Les instruccions bàsiques són aquelles que es consideren necessàries per fer el programa més senzill. Aquestes instruccions són: <b>Assignar valors</b>, <b>Escriure</b> i <b>Llegir</b>: 
+    <ul>
+    <li><b>Assignar valors:</b> actualitzar el valor d'una variable donant-li un nou valor.</li>
+    <li><b>Escriure:</b> mostrar a l'usuari, normalment via pantalla, informació sobre el programa i/o resultats d'execució.</li>
+    <li><b>Llegir:</b> llegir les dades que li proporciona l'usuari, normalment via teclat.</li>
+    </ul>
+    
+    Per executar instruccions en C++ cal seguir unes pautes per tal d'evitar errors de compilació: 
+    <ul>
+    <li>Totes les instruccions acaben amb un <b>;</b> al final. (exemple: llegir(); escriure();). <alerta>Si no es posen, no podrem compil·lar el programa.</alerta></li>
+    <li>Les instruccions es llegeixen de dalt a baix i de forma ordenada. Això obliga a <b>declarar variables abans de poder-les utilitzar.</b></li>
+    </ul>
+</teoria>   
+<h3>Variables</h3>
+    Abans de seguir amb les instruccions cal saber utiltizar correctament les variables en C++. És per això que a continuació farem un repàs de com s'utilitzaven: 
+    
+            <pre><code class="c++">
+        #include &lt;string&gt;
+        
+        using namespace std; 
+            int main()
+            {
+                int variableEntera; // Declaració d'una variable entera usant notació camel. 
+                variableEntera = 5; // Assignació d'una variable entera amb una constant sense nom (5 és una constant sense nom).
+                
+                bool VARIABLE_LOGICA = true; //Declaració i inicialització d'una constant lògica utilitzant la notació de barra baixa. 
+                
+                char variable_caracter = 'P'; //Declaració i inicialització d'una variable caràcter utiltizant la notació de barra baixa. 
+                
+                unsigned int variable_natural, variableNatural; //Declaració de dues variables naturals. 
+                variable_natural = 10; //Assignació d'una variable natural. 
+                variableNatural = variable_natural; //Assignació d'una variable natural usant una altre variable natural.
+                
+                string missatgeError= "Error, torna a introduir les dades", missatgeOK = "Finalitzacio correcte";//Declaració i inicilaització de dues variables tipus string (cadena de caràcters).
+            
+                return 0;
+            }
+        
+        </code></pre>
+    
+    Per més informació es pot consultar la secció de <a href="TipusVariables_Variables.html">variables</a>
+<h3>Assignació</h3>
+    <teoria>
+        La assignació és el procés de canviar el valor a una variable, sobreescrivint el valor anterior. 
+    </teoria>
+    
+<p class = footer>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+</div>
+
+
+
+</body>
+
+</html>
+
