@@ -95,6 +95,51 @@
         
         using namespace std;
         </code></pre>
+        La instrucció que utilitzarem és <b>cout</b> que permet mostrar per pantalla la informació que desitja l'usuari. Per utilitzar es fa de la següent manera: instruccio&lt;&lt;informacio a mostrar&lt;&lt;informacio a mostrar; <br><br> 
+        Com es pot veure hi ha dues informacions a mostrar, això és degut a que cada element que es vulgui mostrar ha d'estar separat per l'operador <b>&lt;&lt;</b>. Per tant, si volem mostrar dues variables utilitzarem la següent instrucció;
+        <pre><code class="c++">
+            cout&lt;&lt;meva_variable&lt;&lt;meva_variable2&lt;&lt;endl;
+        </code></pre>
+        
+        <b>endl</b> s'utilitza per fer un salt de linia, d'aquesta manera la següent informació que es mostri sortirar en una nova linia. 
+        
+        <h3>Formateig de la sortida</h3>
+        <teoria>
+            Hi ha la possibilitat de triar com volem que surti la sortida, per exemple, escollir quants decimals volem que es mostrin, si volem que la linia ocupi una mida maxima, etc. Per poder utilitzar aquestes opcions, cal que afegim una nova llibreria <b>&lt;iomanip&gt;</b>. Algunes de les coses que es poden fer: 
+            <ul>
+                <li><b>Escollir l'amplada:</b> permet escollir quants caràcters es mostraràn per cada sortida. <i>Entenem que cada element entre &lt;&lt; és una sortida.</i>
+                <pre><code class="c++">
+                cout&lt;&lt;setw(8)&lt;&lt;2.3; // Mostrara:     2.3 (5 espais i 2.3 = 8); 
+                </code></pre>
+                    
+                    
+                    <ul>
+                        <li><b>Escollir quin caràcter omplir els forats en blanc</b>: com hem vist abans, el <b>setw</b> ens genera espais en blanc. Podem escollir que en comptes d'espais en blanc, usi un altre caràcter
+                        <pre><code class="c++">
+                            cout&lt;&lt;setfill('.')&lt;&lt;set(8)&lt;&lt;2.3; //Mostrara:.....2.3 (5 punts i 2.3 = 8)
+                        </code></pre>
+                        </li>
+                    </ul>
+                    
+                    
+                </li>
+                
+                <li><b>Escollir la precisió:</b> podem triar quants decimals volem mostrar per pantalla. 
+                    <pre><code class="c++">
+                        cout.setf(ios::fixed); 
+                        cout.precision(2);//A partir d'ara tots els reals que es mostrin tindran 2 decimals.
+                    </code></pre>
+                </li>
+                
+                
+            </ul>
+        </teoria>
+        
+    </teoria>
+    
+    <h3>Lectura</h3>
+    <teoria>
+    
     </teoria>
     
 <p class = footer>
