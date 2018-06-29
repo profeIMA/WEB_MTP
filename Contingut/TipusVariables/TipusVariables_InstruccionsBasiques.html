@@ -79,13 +79,36 @@
         
         </code></pre>
     
-    Per més informació es pot consultar la secció de <a href="TipusVariables_Variables.html">variables</a>
+    Per més informació es pot consultar la secció de <a href="TipusVariables_Variables.html">variables</a><br><br>
+    
+    
+
+    
 <h3>Assignació</h3>
     <teoria>
         La assignació és el procés de canviar el valor a una variable, sobreescrivint el valor anterior. En C++ utilitzem el <b>=</b> per assignar el valor de la dreta, a la variable de l'esquerra. 
         
-        <img  src="../../Recursos/Gif/assignacio.gif" alt = "Gif del funcionament de l'assignació" height="250px">
+        <img  src="../../Recursos/Gif/assignacio.gif" alt = "Gif del funcionament de l'assignació" style="width: 450px;height: 280px;">
         
+            Com sabem aquestes variables permeten fer operacions entre elles, en el cas de les numèriques tenim les operacions bàsiques de les matemàtiques. El C++ ens permet utilitzar aquestes operacions de diferents formes, les explícites i les compactes: 
+    <ul>
+        <li><b>Explícites:</b> l'usuari escriu ell mateix com vol que sgigui els operands, i assigna el resultat fina la una variable. Per exemple: 
+            <pre><code class="c++">
+                int a = 5; //Inicialització de a = 5; 
+                a = a * 2;// Operació explicita a * 2. 
+            </code></pre>
+        </li>
+        
+        <li><b>Compactes:</b> les compactes només necessitem un operand ja que el segon operand es sobreenten que és sobre la variable que estem fent la assignació. 
+            <pre><code = "c++">
+                int a = 5; //Inicialització de a = 5; 
+                a*=2; // Operacion compacte, multipliquem a*2 i assignem el resultat a " a ". 
+            </code></pre>
+        </li>
+    </ul>
+        
+        A continuació trobem la taula d'equivalències entre operacions compactes i explícites: 
+        <img style="width: 400px;height: 200px;" src="../../Recursos/Imatges/OperadorsCompactes.PNG" alt="Taula d'operadors compactes C++">
     </teoria>
 <h3>Escriptura</h3>
     <teoria>
@@ -139,7 +162,30 @@
     
     <h3>Lectura</h3>
     <teoria>
-    
+        El procés de lectura (o entrada) consisteix en llegir dades externes al programa i guardar-les en una variable. És una de les instruccions més importants ja que permet la interacció entre programa - usuari que és gairebé obligada en molts casos. En el nostre cas actual ens centrarem en llegir dades des del teclat, malgrat que també les podem llegir des de altres fonts com podria ser: un fitxer, internet, etc. <br><br> 
+        En C++ usarem la instrucció <b>cin</b> que requereix incluir la llibreria <b>&lt;iomanip&gt;</b>. De la mateixa forma que en el cas de la sortida on utilitzavem la instruccio <i>cout</i> seguida de l'operador <i>&lt;&lt;</i>. En el nostre cas usarem <b>cin</b> seguit de l'operador <b>&gt;&gt;</b> que ens separarà les diferents entrades que volguem llegir. <br>
+        Exemple: 
+        <pre><code class="c++">
+         #include &lt;iostream&gt;
+            ...
+            int var_entera;
+            cin&gt;&gt;var_entera;//Llegim un enter per teclat
+            ...
+        </code></pre>
+        Podem veure que en funció de la variable on volguem guardar l'entrada, el programa llegirà un enter, un real, un caràcter, etc. Per això és important saber quines dades esperem que entrin i informar a l'usuari. <alerta>Si intentem guardar un tipus de dada a una variable de diferent tipus, podem tenir resultats indesitjats.</alerta><br><br>
+        
+        Sovint abans de demanar una entrada de teclat s'informa a l'usuari quina dada ha d'introduïr: 
+        
+        <pre><code class="c++">
+            #include &lt;iostream&gt;
+            ...
+            cout&lt;&lt;"Introdueix la teva edat i el teu nom"&lt;&lt;endl;
+            
+            unsigned int edat; 
+            string nom;
+            cin&gt;&gt;edat&gt;&gt;nom;//Llegeix un natural i el guarda a edat --> Llegeix una cadena de caracters i el guarda a nom.
+            ...
+        </code></pre>
     </teoria>
     
 <p class = footer>
