@@ -139,14 +139,77 @@
         <b>Exemple 1:</b><br><br>
        <exercici> Ens demanen calcular l'àrea d'un cercle i l'àrea del quadrat més gran inscrit.</exercici><br><br>
         
+        L'algorisme final seria: 
         <button onclick="myFunction(C1)">Veure algorisme</button>
-        <pre><code class="c++"><solucio id="C1">
+        <solucio id="C1"><pre><code class="c++">
             //Entrada: Llegeix un nombre real >= 0 que representa el radi (r) del cercle
             //Sortida: Mostra per pantalla l'àrea del cercle i l'àrea del quadrat més gran inscrit.
                 
+            //Include de llibreries:
+            #include &lt;iostream&gt;//Libreries per operacions d'entrada i sortida
+            
+            //Declarem l'espai de treball:
+            using namespace std; //Espai estàndard
+            
+            int main(){
+                const double PI = 3.1416;//Nombre pi.
+                
+                //Entrada de dades:
+                cout&lt;&lt;"Introdueix el radi del cercle"&lt;&lt;endl; //Demana informació al usuari.
+                double radi;  //Declaració de la variable radi.
+                cin&gt;&gt;radi; //Lectura de les dades.
+                
+                //Operacions:
+                double area_cercle = PI*radi*radi; //Calculem area del cercle.
+                double area_quadrat = 2.0*radi*radi; //Calculem l'area del quadrat.
+                
+                //Sortida d'informació:
+                cout&lt;&lt;"Area del cercle: "&lt;&lt;area_cercle&lt;&lt;endl;//Mostrem l'area del cercle i fem un salt de linia.
+                cout&lt;&lt;"Area del quadrat: "&lt;&lt;area_quadrat&lt;&lt;endl;//Mosrem l'area del quadrat i fem un salt de linia.
+                
+                //Finalització:
+                return 0;
+            }
         
-     </solucio></code></pre>
+    </code></pre> </solucio>
         
+        <br><br>
+     <b>Exemple 2</b><br><br>
+    <exercici>Ens demanen un algorisme per passar el segons a: dies, hores, minuts i segons. </exercici><br>
+    L'algorisme final seria: 
+    <button onclick="myFunction(C2)">Veure algorisme</button>
+    <solucio id="C2"><pre><code class="c++">
+    
+            //Entrada: Llegeix un nombre natural que representa els segons (s).
+            //Sortida: Calcula el nombre de dies, hores, minuts i segons; equivalents a tots els segons (s). I els mostra per pantalla
+                
+            //Include de llibreries:
+            #include &lt;iostream&gt;//Libreries per operacions d'entrada i sortida
+            
+            //Declarem l'espai de treball:
+            using namespace std; //Espai estàndard
+            
+            int main(){
+                const unsigned SEGONS_MINUT=60;
+                const unsigned SEGONS_HORA=60*SEGONS_MINUT;
+                const unsigned SEGONS_DIA=24*SEGONS_HORA;
+
+
+                cout&lt;&lt;"Introdueix el nombre de segons: "&lt;&lt;endl;
+                unsigned n_segons;
+                cin&gt;&gt;n_segons;
+
+                unsigned n_dies=n_segons/SEGONS_DIA;
+                n_segons=n_segons%SEGONS_DIA;
+                unsigned n_hores=n_segons/SEGONS_HORA;
+                n_segons=n_segons%SEGONS_HORA;
+                unsigned n_minuts=n_segons/SEGONS_MINUT;
+                n_segons=n_segons%SEGONS_MINUT;
+
+                cout&lt;&lt;"Corresponen a "&lt;&lt;n_dies&lt;&lt;"d+"&lt;&lt;n_hores&lt;&lt;"h+"&lt;&lt;n_minuts&lt;&lt;"m+"&lt;&lt;n_segons&lt;&lt;"s."&lt;&lt;endl;
+            }
+        
+    </code></pre></solucio>
    </teoria> 
 <p class = footer>
   <center>
