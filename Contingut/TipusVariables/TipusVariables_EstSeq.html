@@ -34,129 +34,92 @@
     </h1>
   </center>
     
-    <h4>Variables, Constants i Expressions</h4>
-
-    <h3>Què és una variable:</h3>
-    
+    <h4>Estructura Seqüencial</h4>
     <teoria>
-     En C++ podem entendre una variable com un contenidor finit on podem emmagatzamar diferents dades. Aquestes dades necessiten tenir un format per tal d'entendre què estem tractant, quines operacions podem realitzar, com hem de mostrar les dades, etc.
-    Cal saber quins <a href="TipusVariables_TElemDades.html">tipus de variables</a> ha de guardar amb antel·lació per tal de reservar la memòria corresponent.<br><br>
-    
-    En C++ hi ha tres parts referents a l'ús de les variables: 
-        <ul>
-            <li><b>Declaració:</b> es defineix el nom i el tipus de la variable. <b><i>tipus nom_variable;</i></b></li>
-            <li><b>Inicialització i/o assignació:</b> aquesta fase és la que es dóna un valor a la variable, pot ser en la mateixa declaració o bé en un moment posterior: 
-            
-            <ul>
-            <li><b>En l'inicialització:</b> En el moment de la declaració, se li assigna una valor. <b><i>tipus nom_variable = valor;</i></b></li>    
-                <li><b>A posteriori:</b> en qualsevol moment podem donar un valor a la variable: <b><i>nom_variable = valor;</i></b></li>
-            </ul>
-            </li>
-            
-            <li><b>Utilització:</b> les variables es defineixen per ser usades, i per fer-ho només cal invocar el seu nom.</li>
+        En programació s'ha establert que l'ordinador executarà les comandes de forma ordenada començant per la primera línia fins a la última del programa. D'aquest ordre se'n diu <b>estructura seqüencial</b>. Aquesta metodologia obliga el programador a tenir en consideració diferents aspectes com ara: 
+        <ul> 
+            <li><b>Cal declarar una variable abans d'utilitzar</b>, és a dir, la declaració ha de ser <b>anterior</b> a la utilització.</li>        
+            <li>Abans d'utilitzar una variable declarada, cal que aquesta tingui un <b>valor prèvi</b>.</li>
+            <li>El programa mai retrocedirà linies de codi, de manera que no hi ha forma de tornar a un estat "anterior". (Amb l'exepció dels bucles) <alerta>Cal posar link als bucles!!</alerta></li>
         </ul>
-        <alerta>Els noms de les variables sempre usarem minuscules i utilitzant la <a target="_blank" href="https://en.wikipedia.org/wiki/Camel_case">nomenclatura camel</a> o bé separant les paraules per una barra baixa.</alerta><br><br>
-        
-        Pel que fa les <b>constants</b>: <br>
-        Una constant és una variable que el seu valor no varia durant l'execució del programa. Tenim dos tipus de constants. 
-        <ul>
-        <li><b>Sense Nom:</b> són aquelles que es dóna el seu valor directament com podria ser: 8, "hola", 'A', true, -2.5 .</li>
-            <li><b>Amb Nom:</b> són aquelles que tenen un tipus i nom donats pel programador. Es comporten igual que les variables que hem vist anteriorment. <br> La única diferència és que en la declaració s'utilitza la paraula clau <b><i>const</i></b>. Exemple: <b><i>const tipus nom_variable = valor</i></b>.</li>
-        </ul>
-        <alerta>Les constants amb nom sempre usarem Majuscules i utlitzant una barra baixa per separar paraules. </alerta>
+        Quan es compleixen tots els requisits direm que hi ha un bon algorisme seqüencial.
     </teoria>
     
-    <h3>Ús de les variables en C++</h3>
-    
-    <teoria>
-        La millor forma de de veure com funciona amb C++ és amb un petit exemple, on declararem una variable i una constant amb nom, i veurem les seves tres fases. 
-        
-        <pre><code class="c++">
-        #include &lt;string&gt;
-        
-        using namespace std; 
-            int main()
-            {
-                int variableEntera; // Declaració d'una variable entera usant notació camel. 
-                variableEntera = 5; // Assignació d'una variable entera amb una constant sense nom (5 és una constant sense nom).
-                
-                bool VARIABLE_LOGICA = true; //Declaració i inicialització d'una constant lògica utilitzant la notació de barra baixa. 
-                
-                char variable_caracter = 'P'; //Declaració i inicialització d'una variable caràcter utiltizant la notació de barra baixa. 
-                
-                unsigned int variable_natural, variableNatural; //Declaració de dues variables naturals. 
-                variable_natural = 10; //Assignació d'una variable natural. 
-                variableNatural = variable_natural; //Assignació d'una variable natural usant una altre variable natural.
-                
-                string missatgeError= "Error, torna a introduir les dades", missatgeOK = "Finalitzacio correcte";//Declaració i inicilaització de dues variables tipus string (cadena de caràcters).
-            
-                return 0;
-            }
-        
-        </code></pre>
-    
-    </teoria>
-    
-    <h4>Expressions</h4>
-    
-    <h3>Operadors en C++</h3>
-    <teoria>
-    Com hem vist a <a href="TipusVariables_TElemDades.html">tipus de variables</a> cada tipus de variable té associats diferents operadors, i aquests operadors són de fàcil ús en C++, tot i que a vegades no s'expressen de la mateixa forma que matemàticament. A continuació hi ha una taula d'equivalències: <br>
-    
-    <img width="30px" height="350px" alt = "Taula d'equivalències C++ i matemàtiques" src ="../../Recursos/Imatges/OperadorsC++.PNG">
-    </teoria>
-    <h3>Expressions simples</h3>
-    <teoria>
-        Les expressions simples són la utilització de les operacions matemàtiques vistes anteriorment, lligades amb variables i constants. Aquestes operacions són evaluades i retornen el valor corresponent. Per exemple, una operació lògica retornarà un valor lògic. <br> 
-        
-        Els operadors tenen un <b>ordre de prioritat</b>: 
-        <img alt="Prioritat operadors C++" src="../../Recursos/Imatges/OperadorsC++Propritat.PNG" height="150px">
-        <br>    
-        
-        Per tal de dur a terme les expressions, cal que l'operació i la variable sigui compatible, per exemple, <b>>no es permet una operació lògica a una variable caràcter</b>. Ara bé, si que és possible fer operacions entre diferents tipus de variables com és el cas de les variables numèriques. Es permet les operacions entre: <b>Naturals - Enters - Reals</b>, ara bé el resultat de l'operació pot diferir de l'esperat si no es fa correctament.
-        <br> 
-        <alerta>Si una expressió utilitza parentesis per donar prioritat, cal que hi hagi el mateix nombre de parentesis obert que tancats.</alerta>
-    </teoria>
-    <h3>Casting</h3>
-
-    Hem vist que en C++ hi ha diferents tipus de variable i que cal escollir el tipus que més s'escau en el nostre programa, intentant aprofitar al màxim la memòria del nostre ordinador. Tot i això hi ha vegades que necessitem que una variable adopti un tipus diferent, i la volem transformar de forma momentània a un altre tipus. D'això se'n diu <h2>casting</h2>.<br> 
-    Ara bé, cal ser conscients dels problemes que pot ocasionar això, ja que per exemple: 
-    <ul> 
-    <li><h2> De float a int: </h2> en algun moment volem passar de float a int, això comporta perdre tota la informació dels decimals.</li>
-    <li><h2>De unsigned int a int: </h2> En el major part dels casos no suposa un problema, però hem de vigilar perquè el rang d'enters positius del unsigned int és el doble de gran que el int, i per tant podem fer un desbordament.</li>
+    <h3>Algorisme</h3>
+    Un algorisme és un conjunt d'instruccions per tal d'efectuar una tasca. Sovint això implica la modificació i tractament de les dades que té el programa, les quals defineixen una <b>succeció d'estats</b> que al final donaran un estat final.<br>
+    Tot algorisme està format per una <b>especificació</b> que està compost per dues condicions: 
+    <ul>
+        <li><b>Inicial:</b> Informa com han de ser les dades d'entrada, si han de complir algun requisit. <i>Exemple: no es permeten nombres negatius. </i></li>
+        <li><b>Final:</b> Informa de què ha fet el programa amb les dades, i quina serà la sortida si s'escau. <i>Exemple: Suma les variables " a " i " b ", i en mostra el resultat.</i></li>
     </ul>
-    <br> 
-    Aquests són un parell d'exemples, però en podem trobar molts més. Així doncs, cal ser molt conscients de quin cast volem fer, i quins problemes poden aparèixer. 
     
-    <h2>Implementació en c++</h2>
+    <alerta>Una mala especificació pot derivar a inconsistències en els algorismes.</alerta><br><br>
+    
+    Els algorismes són la part conceptual del que ha de fer el programa, un cop s'escriuen amb un llenguatge de programació s'obté un programa. 
+    
+    <h3>Pseudocodi</h3>
     <teoria>
-    <pre><code class = "c++">
-        #include &lt;iostream&gt;
-        
-        int main(){
-            int diametre = 25; 
-            float radi = diametre/2; //Encara que sigui un float, la divisio entre dos enters, dóna un enter. 
-            cout&lt;&lt;"El radi val: "&lt;&lt;radi&lt;&lt;endl;
-            radi = (float)diametre/2;//Ara si que hi ha decimals. 
-            cout&lt;&lt;"El radi val: "&lt;&lt;radi&lt;&lt;endl;
-        }
-    </code></pre>
-    </teoria>
-    <h3>Funcions predefinides</h3>
-        <teoria>
-        Els operadors matemàtics anteriors no són suficients per realitzar totes les operacions, per solucionar aquesta mancança apareixen les llibreries. La llibreria <b>&lt;cmath&gt;</b> que ens dóna les suficients eines per fer tot tipus d'operacions matemàtiques. <br>
-        Per utiitzar-la cal fer el següent <b>include</b>:
-        
-        <pre><code class="C++"> #include &lt;cmath&gt;</code></pre>
+    El pseudocodi és un llenguatge no formal per algorismes, on permet escriure comandes definides pel propi usuari. Aquest llenguatge no està pensat per ser executat en un ordinador, sinó per ser entès per les persones i poder desenvolupar un algorisme sense preocupar-se en quin entorn o programa l'estan desesnvolupant. <br>
     
-        A continuació us mostrem les funcions més significatives de la llibreria: 
-            
-        <img alt="Llistat funcions cmath" src="../../Recursos/Imatges/FuncionsCmath.PNG">
-            
-        Per més informació sobre la llibreria, i funcions extra es pot consultar la seva <a target="_blank" href="http://www.cplusplus.com/reference/cmath/">documentació</a>. 
-</teoria>   
-        
+    Tot pseudocodi ha de seguir les següents regles: 
+    <ul>
+        <li>Les instruccions han de ser <b>precises.</b> És a dir, una instrucció no pot ser ambigua o tenir diferents interpretacions.</li>
+        <li>Cada pas ha de poder ser <b>entès i executat</b>. Una persona ha de ser capaç de fer manualment l'algorisme.</li>
+        <li>L'algorisme en pseudocodi ha d'acabar.</li>
+    </ul>
     
+    A continuació mostrarem alguns exemples d'algorismes en pseudocodi: <br><br> 
+        
+        <b>Exemple 1:</b><br><br>
+       <exercici> Ens demanen calcular l'àrea d'un cercle i l'àrea del quadrat més gran inscrit.</exercici><br><br>
+        
+        Per dur a terme l'algorisme necessitem: 
+        <ul> 
+            <li>El radi del cercle.</li>
+            <li>La formula de l'àrea del quadrat més gran inscrit.</li>
+            <li>Pensar com hauria de ser l'algorisme.</li>
+        </ul>
+        L'algorisme final seria: 
+        <button onclick="myFunction(Pseudo1)">Veure algorisme</button>
+        <pseudocodi><pre><code class="nohighlight"><solucio id="Pseudo1">
+            //Entrada: Llegeix un nombre real >= 0 que representa el radi (r) del cercle
+            //Sortida: Mostra per pantalla l'àrea del cercle i l'àrea del quadrat més gran inscrit.
+            
+            algorisme Càlcul_arees
+                llegir el radi del cercle.
+                calcular àrea del cercle.
+                calcular l'àrea del quadrat més gran inscrit.
+                mostrar les àrees calculades.
+            fi algorisme 
+        
+       </solucio></code></pre></pseudocodi>
+    
+        <b>Exemple 2</b><br><br>
+        <exercici>Ens demanen un algorisme per passar el segons a: dies, hores, minuts i segons. </exercici><br>
+        Per du a terme l'algorisme necessitem: 
+        <ul> 
+            <li>Saber la quantitat inicial de segons.</li>
+            <li>Saber la conversió de les unitats temporals</li>
+            <li>Pensar l'algorisme</li>
+        </ul>
+        L'algorisme final seria: 
+        <button onclick="myFunction(Pseudo2)">Veure algorisme</button>
+        <pseudocodi><pre><code class="nohighlight"><solucio id="Pseudo2">
+            //Entrada: Llegeix un nombre natural que representa els segons (s).
+            //Sortida: Calcula el nombre de dies, hores, minuts i segons; equivalents a tots els segons (s). I els mostra per pantalla
+            
+            algorisme Conversio_a_dies_hores_minuts_segons
+                llegir els segons inicials.
+                calcular el nombre de dies continguts en els segons inicials.
+                calcular el nombre d'hores continguts en els segons restants
+                calcular el nombre de minuts continguts en els segons restants
+                calcular els segons restants
+                mostrar tota la informació obtinguda
+            fi algorisme 
+        
+       </solucio></code></pre></pseudocodi>
+   
+   </teoria> 
 <p class = footer>
   <center>
       <p class = footer>
