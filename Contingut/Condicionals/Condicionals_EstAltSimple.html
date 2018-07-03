@@ -34,8 +34,37 @@
     </h1>
   </center>
     <h4>Estructura Alternativa Simple</h4>
+        Una estructura alternativa és aquella que permet tenir diferents execucions en funció de l'estat del programa. Per determinar quina execució cal dur a terme per un estat determinat del programa, utiltizem <b>condicions</b>. Tota condició té assignada un tall de codi, de manera que quan la condició és certa, aleshores s'executa el tall de codi. I quan la condició és falsa, simplement s'ignora aquest tall. <br> 
     
+        Els llenguatges de programació proporcionen dos tipus de condicions possibles: <br> 
+        <ul> 
+            <li><b>if(condició): </b>Aquest cas ens permet entrar una condició, la que nosaltres decidim. <i>Per exemple: i == 4</i>. Aquesta estructura demana que la condició retorni un valor booleà, és a dir, que només podem utlitzar operadors booleans per efectuar la condició. Si la condició falla, aleshores salta tot el que estigui compres dins de l'estructura, i executa el <b>else</b>, si n'hi ha.</li>
+            <li><b>else: </b> Aquesta estructura s'executa quan la condició del <b>if</b> falla. Així doncs, sempre ha d'anar a posteriori d'una condició if. 
+        </ul>
+    
+    Per poder visualtizar millor el seu funcionament, mirem el següent exemple: 
+    <i>Es fa una "loteria" on es demana al usuari que encerti el nombre amagat.</i>
+    
+    <pre><code class= "c++">
+        //Entrada: un natural entre 1 i 10. 
+        //Sortida: mostra si ha encertat el nombre secret o no.
+            unsigned int nombre_amagat = 3;
 
+            cout&lt;&lt;"Entra un natural entre 1 i 10"&lt;&lt;endl;
+            unsigned int a;
+            cin&gt;&gt;a; 
+
+            //Presa de decisio:
+
+            if(a == nombre_amagat)//Si el nombre que ha entrat és igual a nombre_amagat = (3) |(condició a == 3)|
+                cout&lt;&lt;"Has encertat el nombre secret"&lt;&lt;endl; 
+            else //Si no es igual a 3
+                cout&lt;&lt;"Ho sento, no has encertat el nombre secret"&lt;&lt;endl;
+
+    </code></pre>
+    
+    
+    
 <p class = footer>
   <center>
       <p class = footer>
@@ -51,3 +80,4 @@
 
 </html>
 
+ 
