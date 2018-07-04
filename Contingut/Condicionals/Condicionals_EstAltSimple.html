@@ -83,8 +83,35 @@
                       pis_real=pis
                    escriure pis_real
             </code></pre></pseudocodi></solucio>
+            
+            
+            <button onclick="myFunction(Ex11C)">Veure Solucio C++</button>
+           <solucio id="Ex11C"><pre><code class="c++">
+               // Entrada: llegeix un nombre natural (pis) diferent de 13
+                // Sortida: escriu el pis real (pis_real) al qual ha d'anar l'ascensor en funció del pis entrat
+
+                #include &lt;iostream&gt;
+                using namespace std; 
+
+                int main() {
+                   unsigned pis;
+                   cout&lt;&lt;"Pis: ";
+                   cin&gt;&gt;pis;
+                   unsigned pis_real;
+                   if (pis&gt;13) {
+                      pis_real=pis-1;
+                   }
+                   else {
+                      pis_real=pis;
+                   }
+                   cout&lt;&lt;"L'ascensor pujarà al pis real "&lt;&lt;pis_real&lt;&lt;endl;
+                   return 0;
+                }
+
+            </code></pre></solucio>
+            
         </li>
-        <li><b>Ambb una estructura simple incomplerta: </b>aquesta estructura li falta l'else o altrament. Per això es diu que és incomplerta.<br>
+        <li><b>Amb una estructura simple incomplerta: </b>aquesta estructura li falta l'else o altrament. Per això es diu que és incomplerta.<br>
             
          <button onclick="myFunction(Ex12)">Veure Solucio</button>
             <solucio id="Ex12"><pseudocodi><pre><code class="nohighlight">
@@ -97,9 +124,245 @@
                       pis_real=pis-1
                    escriure pis_real
             </code></pre></pseudocodi></solucio>
+            
+             <button onclick="myFunction(Ex12C)">Veure Solucio C++</button>
+           <solucio id="Ex12C"><pre><code class="c++">
+               // Entrada: llegeix un nombre natural (pis) diferent de 13
+                // Sortida: escriu el pis real (pis_real) al qual ha d'anar l'ascensor en funció del pis entrat
+
+                #include &lt;iostream&gt;
+                using namespace std; 
+
+                int main() {
+                   unsigned pis;
+                   cout&lt;&lt;"Pis: ";
+                   cin&gt;&gt;pis;
+                   unsigned pis_real;
+                   pis_real=pis;
+                   
+                   if (pis>13)
+                      pis_real=pis-1;
+                   
+                   cout&lt;&lt;"L'ascensor pujarà al pis real "&lt;&lt;pis_real&lt;&lt;endl;
+                   return 0;
+                }
+
+            </code></pre></solucio>
+            
         </li>
     </ul>
     </teoria>
+    
+    <h4>Altres exemples:</h4>
+    A continuació hi ha diferents exemples per acabar de veure diferents opcions. 
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!---------------------------------------------------------------------EXEMPLE 1------------------------------------------------------------------------------------------------>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <h3>Exemple 1: Valor absolut</h3>
+   <exercici> Es demana un programa on l'usuari entri un valor per teclat, i el progama retorna el seu valor absolut. Només podem implementar operacions senzilles (es decarten potències i arrels quadrades).</exercici>
+    
+    <br>
+       
+       <pseudocodi><pre><code class="nohighlight">
+            // Entrada: llegeix un nombre enter (nombre)
+            // Sortida: escriu valor absolut de nombre
+
+            algorisme Valor_absolut 
+               enter nombre 
+               llegir nombre 
+               natural valor_absolut
+               si nombre&gt;=0
+                  valor_absolut=nombre
+               altrament
+                  valor_absolut=-nombre   
+               escriure valor_absolut
+
+
+        </code></pre></pseudocodi>
+    
+    <button onclick="myFunction(Ex22)">Solucio Estructura incomplerta</button>
+       <solucio id="Ex22"><pseudocodi><pre><code class="nohighlight">
+            // Entrada: llegeix un nombre enter (nombre)
+            // Sortida: escriu valor absolut de nombre
+
+             algorisme Valor_absolut 
+               enter nombre 
+               llegir nombre 
+               natural valor_absolut
+               valor_absolut=nombre
+               si nombre&lt;0
+                  valor_absolut=-nombre   
+               escriure valor_absolut 
+
+
+
+        </code></pre></pseudocodi></solucio>
+    
+    
+    
+    
+      <button onclick="myFunction(Ex21C)">Solucio Estructura complerta C++</button>
+           <solucio id="Ex21C"><pre><code class="c++">
+               // Entrada: llegeix un nombre natural (pis) diferent de 13
+                // Sortida: escriu el pis real (pis_real) al qual ha d'anar l'ascensor en funció del pis entrat
+
+                #include &lt;iostream&gt;
+                using namespace std; 
+
+                int main() {
+                    int nombre;
+                    cout&lt;&lt;"Nombre enter: ";
+                    cin&gt;&gt;nombre;
+                    unsigned valor_absolut;
+                    if (nombre&gt;=0)
+                        valor_absolut=nombre;
+                    else
+                        valor_absolut=-nombre;
+                    cout&lt;&lt;"El valor absolut de "&lt;&lt;nombre&lt;&lt;" és "&lt;&lt;valor_absolut&lt;&lt;endl;
+                    return 0;
+
+                }
+
+            </code></pre></solucio>
+    
+         <button onclick="myFunction(Ex22C)">Solucio Estructura incomplerta C++</button>
+           <solucio id="Ex22C"><pre><code class="c++">
+               // Entrada: llegeix un nombre natural (pis) diferent de 13
+                // Sortida: escriu el pis real (pis_real) al qual ha d'anar l'ascensor en funció del pis entrat
+
+                #include &lt;iostream&gt;
+                using namespace std; 
+
+                int main() {
+                   unsigned pis;
+                   cout&lt;&lt;"Pis: ";
+                   cin&gt;&gt;pis;
+                 unsigned valor_absolut=nombre;
+                if (nombre&lt;0)
+                    valor_absolut=-nombre;
+                   
+                   cout&lt;&lt;"L'ascensor pujarà al pis real "&lt;&lt;pis_real&lt;&lt;endl;
+                   return 0;
+                }
+
+            </code></pre></solucio>
+    
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!---------------------------------------------------------------------EXEMPLE 2------------------------------------------------------------------------------------------------>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    
+    <h3>Exemple2: Màxim i mínim de dos enters</h3>
+    <exercici>Es demana que l'usuari entri dos valos enters, i el programa digui quin és el màxim i quin el mínim</exercici>
+    
+   
+      <pseudocodi><pre><code class="nohighlight">
+       
+        // Entrada: llegeix dos nombres enters (nombre1,nombre2)
+        // Sortida: escriu màxim(nombre1,nombre2) i mínim(nombre1,nombre2)
+
+        algorisme Màxim_mínim 
+           enter nombre1, nombre2
+           llegir nombre1
+           llegir nombre2
+           enter max, min
+           si nombre1&gt;=nombre2
+              max=nombre1 
+              min=nombre2
+           altrament
+              max=nombre2 
+              min=nombre1
+           escriure max,min 
+
+        </code></pre></pseudocodi>
+    
+    <button onclick="myFunction(Ex32)">Solucio Estructura incomplerta</button>
+       <solucio id="Ex32"><pseudocodi><pre><code class="nohighlight">
+            // Entrada: llegeix dos nombres enters (nombre1,nombre2)
+            // Sortida: escriu màxim(nombre1,nombre2) i mínim(nombre1,nombre2)
+
+            algorisme Màxim_mínim 
+               enter nombre1, nombre2
+               llegir nombre1
+               llegir nombre2
+               enter max, min
+               max=nombre1 
+               min=nombre2
+               si nombre1&lt;nombre2
+                  max=nombre2 
+                  min=nombre1
+               escriure max,min 
+
+        </code></pre></pseudocodi></solucio>
+    
+    
+    
+    
+      <button onclick="myFunction(Ex31C)">Solucio Estructura complerta C++</button>
+           <solucio id="Ex31C"><pre><code class="c++">
+            // Entrada: llegeix dos nombres enters (nombre1,nombre2)
+            // Sortida: escriu màxim(nombre1,nombre2) i mínim(nombre1,nombre2)
+            
+                #include &lt;iostream&gt;
+                using namespace std; 
+
+                int main() {
+                    int nombre1, nombre2;
+                    cout&lt;&lt;"Primer nombre enter: ";
+                    cin>>nombre1;
+                    cout&lt;&lt;"Segon nombre enter: ";
+                    cin>>nombre2;
+                    int max, min;
+                    if (nombre1&gt;=nombre2) {
+                        max=nombre1;
+                        min=nombre2;
+                    }
+                    else {
+                        max=nombre2;
+                        min=nombre1;
+                    }
+                    cout&lt;&lt;"Màxim de "&lt;&lt;nombre1&lt;&lt;" i "&lt;&lt;nombre2&lt;&lt;" és "&lt;&lt;max&lt;&lt;endl;
+                    cout&lt;&lt;"Mínim de "&lt;&lt;nombre1&lt;&lt;" i "&lt;&lt;nombre2&lt;&lt;" és "&lt;&lt;min&lt;&lt;endl;
+
+                    return 0;
+
+                }
+
+            </code></pre></solucio>
+    
+         <button onclick="myFunction(Ex32C)">Solucio Estructura incomplerta C++</button>
+           <solucio id="Ex32C"><pre><code class="c++">
+            // Entrada: llegeix dos nombres enters (nombre1,nombre2)
+            // Sortida: escriu màxim(nombre1,nombre2) i mínim(nombre1,nombre2)
+
+                #include &lt;iostream&gt;
+                using namespace std; 
+
+                int main() {
+                    int nombre1, nombre2;
+                    cout&lt;&lt;"Primer nombre enter: ";
+                    cin>>nombre1;
+                    cout&lt;&lt;"Segon nombre enter: ";
+                    cin>>nombre2;
+                    int max=nombre1, min=nombre2;
+                    if (nombre1&lt;nombre2) {
+                        min=nombre1;
+                        max=nombre2;
+                    }
+
+                    cout&lt;&lt;"Màxim de "&lt;&lt;nombre1&lt;&lt;" i "&lt;&lt;nombre2&lt;&lt;" és "&lt;&lt;max&lt;&lt;endl;
+                    cout&lt;&lt;"Mínim de "&lt;&lt;nombre1&lt;&lt;" i "&lt;&lt;nombre2&lt;&lt;" és "&lt;&lt;min&lt;&lt;endl;
+                    
+                    return 0;
+                }
+
+            </code></pre></solucio>
+    
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!---------------------------------------------------------------------FI EXEMPLES------------------------------------------------------------------------------------------------>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+    
+    
     
 <p class = footer>
   <center>
