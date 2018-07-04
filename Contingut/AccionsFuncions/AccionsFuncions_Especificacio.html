@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="/CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body>
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      ESPECIFICACIÓ
+    </h1>
+  </center>
+
+   Un algorisme és una successió d'instruccions que modifiquen l'entorn, una successió d'estats definits pels valors de les variables de l'entorn en un moment donat.
+   <br> La pre i postcondició formalment es defineixen per predicats, expressions booleanes (amb quantificadors), que representen el conjunt de valors que fan que el predicat sigui cert.
+   Quan un algorisme complex una especificiació {P}S{Q} (essent P la pre, S les sentències i Q la post), es guaranteix que si l'algorisme comença en algun dels estats de P, acabarà en algun dels estats de Q.<br>
+   
+   <h4> Precondició</h4>
+   <teoria>
+		Són els requeriments sobre els paràmetres d'entrada què han de complir les dades d'entrada, són obligacions de l'usuari, i representa
+		el conjunt dels possibles estats inicials vàlids.
+		En general caldria procurar que els predicats de la pre fossin el més febles (genèriques) com sigui possible.
+		
+		<pre><code class="c++">
+void quocient_i_residu(int dividend, int divisor, int& q, int& r)
+//Pre: divisor>0  (aquesta és més forta, restrictiva)
+//Pre: divisor!=0  (aquesta és més feble, menys restrictiva)
+
+double arrel(double valor)
+//Pre: valor>=0
+
+void intercanvi(double& x, double& y)
+//Pre: -- 
+//Pre: cert  
+		</code></pre>
+		
+   </teoria>
+   
+   
+   <h4>Postcondició</h4>
+   <teoria>
+		Són els requeriments sobre la sortida, s'ha d'expressar en funció dels paràmetres d'entrada. Són les obligacions del programador assumint que la precondició es compleix i 
+		representa el conjunt dels possibles estats finals vàlids. Convenim que els paràmetres d'entrada no es modifiquen.
+		<pre><code class = "c++">
+void quocient_i_residu(int dividend, int divisor, int& q, int& r)
+//Pre: divisor!=0 
+//Post: |divisor|>r>=0 i dividend=divisor*q+r
+
+double arrel_quadrada(double valor)
+//Pre: valor>=0
+//Post: retorna arrel tal que arrel*arrel=valor
+		</code></pre>
+		Per referir-nos als valors d'entrada dels paràmetres, s'acostumar a fer-ho amb el nom del paràmetre en majúscula.
+		<pre><code class = "c++">
+void intercanvi(int& x, int& y)
+//Pre: x=X i y=Y
+//Post: x=Y i y=X
+		</code></pre>
+   </teoria>
+   
+   <h4>Invariants d’un programa i disseny iteratiu</h4>
+   L’especificació i els invariants permeten fer una anàlisi acurada dels algorismes que requereixen disseny iteratiu.
+   		<pre><code class = "c++">
+unsigned potencia(unsigned base, unsigned exponent) {
+//Pre: base&gt;0
+//Post: retorna base^exponent
+
+    unsigned resultat=1;
+    unsigned comptador=0;
+    // Invariant: resultat=base^comptador i comptador&lt;=exponent
+    while (comptador&lt;exponent) {
+        // Invariant: resultat=base^comptador i comptador&lt;exponent
+        resultat=resultat*base;
+        comptador++;
+        // Invariant: resultat=base^comptador i comptador&lt;=exponent
+    }
+    // Invariant: resultat=base^exponent
+    return resultat;
+}
+		</code></pre>
+   
+   
+   
+ </div>
+<p class = footer>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
