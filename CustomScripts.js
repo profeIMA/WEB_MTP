@@ -1,7 +1,7 @@
 
 
 $(function() {
-    $("#menu").load("/menu.html");
+    $("#menu").load("../../menu.html");
 
     function activeNav() {
         var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
@@ -26,7 +26,6 @@ $(document).ready(
 
 function myFunction(a) {
     var x = document.getElementById(a.id);
-    console.log("El id es: " + x.id);
     if (x.style.display == "block") {
         x.style.display = "none";
     } else {
