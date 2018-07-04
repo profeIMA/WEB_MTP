@@ -26,7 +26,6 @@ $(document).ready(
 
 function myFunction(a) {
     var x = document.getElementById(a.id);
-    console.log("El id es: " + x.id);
     if (x.style.display == "block") {
         x.style.display = "none";
     } else {
