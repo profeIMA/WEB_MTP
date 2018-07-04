@@ -1,7 +1,7 @@
 
 
 $(function() {
-    $("#menu").load("/menu.html");
+    $("#menu").load("../../menu.html");
 
     function activeNav() {
         var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
