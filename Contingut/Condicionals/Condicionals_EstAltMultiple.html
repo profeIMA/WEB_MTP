@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body>
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      DECISIONS
+    </h1>
+  </center>
+    <h4>Estructura Alternativa Múltiple</h4>
+        Per començar amb l'estructura Alternativa múltiple, cal haver entès els contignuts de <a href="Condicionals_EstAltSimple.html">l'estuctura alternativa simple</a>. <br> 
+        Fins ara hem vist com evaluar una expressió i determinar una execució o una altre en funció de si es compleix la condició establerta. Però a vegades es poden donar diferents casos 
+        que necessitem evaluar diferents solucions. En aquests casos apareix l'estructura alternativa múltiple. 
+    
+    <h3>Declaració i funcionament</h3>
+    <teoria>
+        Una forma de fer una estructura alternativa múltiple és encadenar diferents estructures simples fent així una cascada de condicionals que pot arribar fins a tants nivells com es desitji. D'aquesta pràctica se'n diuen condicionals niats.<br>
+        Tot i això, també apareix el <b>altrament si, o else if</b> que substuteix els condicionals niats per una altre nomenclatura i que simplement serveix com a "sintantic sugar". És a dir, a nivell d'execució no hi ha diferència entre ells, però si que pot ajudar a fer més net el codi.<br>
+        A continuació veurem un exemple de cada:
+        <br>
+        <h2>Condicionals niats</h2>
+        
+        <pseudocodi><pre><code class="nohighlight">
+            si(condició 1)
+                    si (condició 1.1)
+                        <i>fer quelcom</i>
+                    altrement
+                        <i>fer quelcom</i>
+            altrement
+                si(condició 2)
+                    <i>fer quelcom</i>
+                altrement
+                    si(condició 3)
+                        si (condició 3.1)
+                            <i>fer quelcom</i>
+                        altrement 
+                    
+            <i>Continuació del codi després de l'estructura</i>
+        </code></pre></pseudocodi>
+        <br>
+        Per veure millor el funcionament, mirem un exemple en C++: <br>
+       <img src="../../Recursos/Imatges/nestedif.gif">
+        <br>
+        <h2>Altrement si:</h2>
+        
+        <pseudocodi><pre><code class="nohighlight">
+            si(condició1)
+                fer quelcom
+            altrement si(condició 2)
+                fer quelcom 2
+            altrement si (condició 3)
+                fer quelcom 3
+            .... 
+            ....
+            altrement
+                fer quelcom n
+        </code></pre></pseudocodi>
+        
+        
+    </teoria>
+    
+    <h4>Altres exemples:</h4>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!---------------------------------------------------------------------EXEMPLE 1------------------------------------------------------------------------------------------------>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+    
+        
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!---------------------------------------------------------------------FI EXEMPLES------------------------------------------------------------------------------------------------>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+    
+    
+    
+<p class = footer>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+</div>
+
+
+
+</body>
+
+</html>
+
+ 
