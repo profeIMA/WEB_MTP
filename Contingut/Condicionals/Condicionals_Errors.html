@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body>
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      DECISIONS
+    </h1>
+  </center>
+    <h4>Errors i problemes freqüents</h4>
+        A continuacio farem un llistat dels errors més freqüents en programació de condicions i estructures alternatives:
+    <h3>Mal ús dels punt i coma</h3>
+    <teoria>
+        Hem vist que en C++ és necessari acabar les instruccions amb <b>;</b>. Però això no s'aplica amb les estructures, aleshores el següent codi és un error: 
+        <pre><code class="c++">
+            if(condicio);
+                fer_quelcom
+        </code></pre>
+        En aquest cas el <b>;</b>, està mal col·locat, però no és un error de programació ja que és un sentència vàlida. En C++, utilitzar el <b>;</b>, significa que no es vol fer res. Per tant en aquest cas estem dient que si es compleix la condició del <i>if</i> no volem fer res. I a continuació de "no fer res", s'executarà el <i>fer quelcom</i>.<br><br>
+        
+        Ara bé, per altra banda, es pot utiltizar el punt i coma de forma intencionada per remarcar que no vols fer res si es dóna el cas. Això significa que com a programador has pensat amb aquella possiblitat, però has determinat que no calia fer cap instrucció. <br>
+        
+        Un exemple: 
+        
+        <pre><code class="c++">
+        //Entrada: L'usuari entra un valor enter
+        //Sortida: retorna el valor absolut del nombre.
+        int digit; 
+        cout&lt;&lt;"Entra un enter";
+        cin&gt;&gt;digit;
+        if(ditigit&lt;0)
+            digit*=-1;
+        else ;//El digit ja es positiu, no cal fer res
+        
+            
+        
+        </code></pre>
+        
+    </teoria>
+
+    
+    
+    
+<p class = footer>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+</div>
+
+
+
+</body>
+
+</html>
+
+ 
