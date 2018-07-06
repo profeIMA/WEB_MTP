@@ -254,6 +254,12 @@ img {
     width:500px; 
     height:100px;
 }
+
+.allargatTaula{
+	max-height: 100px;
+	height: auto;
+	width: auto;
+}
 .menucontent{
     display: none;
 }
