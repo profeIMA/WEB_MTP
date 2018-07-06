@@ -49,13 +49,130 @@
 int b[]; // matriu o vector de vectors
 	</code></pre>
 	La representació gràfica de a i b podria ser una cosa així:
-	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple1.PNG" alt = "Imatge amb el contingut de neixament"/><br>
-	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple2.PNG" alt = "Imatge amb el contingut de neixament"/>
+	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple1.PNG" alt = "Exemple de taula d'una dimensió"/><br>
+	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple2.PNG" alt = "Exemple de taula de dues dimensions"/><br>
+	
+	La posició de cada element està especificada per índexs naturals en el rang [0..capacitat-1]. 
+	Per accedir a un element fem servir l'operador [] i els índexs que indiquen la posició del element: <br>
+	<ul>
+		<li>nom[índex] per a una dimensió</li>
+		<li>nom[índex_fila] [índex_columna] per a dues dimensions</li>
+	</ul>
+	
+	Usant les taules a i b  delcarades anteriorment l'accés seria així:<br>
+	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple3.PNG" alt = "Exemple de accés a un element d'una taula d'una dimensió"/><br>
+	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple4.PNG" alt = "Exemple de accés a un element d'una taula de dues dimensions"/><br>
 		
+	Cal distingir entre ocupació i capacitat. Mai podem sobrepassar la capacitat, pero podem tenir posicions "desocupades". Caldrà tenir un control sobre les posicions ocupades.
+	
+	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple5.PNG" alt = "Exemple d'ocupació en una taula d'una dimensió."/><br>
+	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple6.PNG" alt = "Exemple d'ocupació en una taula de dues dimensions."/><br>
+	
+	El tipus base d'una taula pot ser qualsevol tipus elemental, a més de qualsevol struct o taula. <br>
+	Els elements a[i] o b[i][j], corresponents a un vector o a una matriu d'un determinat tipus, són tractats com a simples variables d'aquest tipus. <br>
+	<strong> Indexació i accessos fora de rang</strong>: 
+	En C++, els índexs dels elments d'un array de capacitat N van de 0 a N-1. Quan s'accedeix a un element que no existeix (per exemple a la posició N), 
+	es produeix un accés fora de rang, que és un error greu. C++ no dona cap missatge especial quan es produeix un accés fora de rang; pot ser un error díficil de detectar, 
+	axí que cal verificar amb cura que el nostre codi no en tingui cap.
+	<h3>Tipus taula</h3>
+	
+	<teoria>
+		Les definicions de tipus amb typedef s'acostumen a escriure abans de les accions, funcions i main.
+	
+		<pre><code class="c++">struct Punt_2d {double x; double y;};
+
+typedef int Vector_enter[100];
+typedef int Matriu_enter[50][100];
+// typedef Vector_enter Matriu_enter[50];
+typedef Punt_2d Matriu_punt_2d[50][100];
+typedef double Vector_real[100];
+typedef char Vector_caracter[100];
+
+int main(){
+    Vector_enter vec;
+    Matriu_enter mat;
+    Matriu_punt_2d mat_punt_2d;
+    ...
+}</code></pre>
+
+		Es repcomana usar typedef i constants, així:
+		<pre><code class="c++">const unsigned N_MAX=100, N_FIL_MAX=100, N_COL_MAX=100;
+
+struct Punt_2d {double x; double y;};
+
+typedef int Vector_enter[N_MAX]; 
+typedef int Matriu_enter[N_FIL_MAX][N_COL_MAX];
+// typedef Vector_enter Matriu_enter[N_FIL_MAX];
+typedef Punt_2d Matriu_punt_2d[N_FIL_MAX][N_COL_MAX];
+typedef double Vector_real[N_MAX];
+typedef char Vector_caracter[N_MAX];
+
+int main(){
+    Vector_enter vec;
+    Matriu_enter mat;
+    Matriu_punt_2d mat_punt_2d;
+    ...
+}</code></pre>
+
+
   </teoria>
 	
+	<br><br><h2>Exemple d'ús de taules (vector):</h2><br>
+	<pre><code class="c++">const unsigned N_MAX=100;
+typedef int Vector_enter[N_MAX];
+
+int main() {
+&nbsp;&nbsp; &nbsp;
+    // Entrada
+&nbsp; &nbsp; Vector_enter vector;
+&nbsp; &nbsp; unsigned n;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre elements del vector: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;n;
+
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra vector: &quot;;
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) cin&gt;&gt;vector[i];
+
+    // Sortida
+&nbsp; &nbsp; cout&lt;&lt;&quot;Vector entrat: &quot;;
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) cout&lt;&lt;setw(5)&lt;&lt;vector[i];
+&nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; return 0;
+}</code></pre>
+
+<br><br><h2>Exemple d'ús de taules (vector):</h2><br>
+	<pre><code class="c++">const unsigned N_FIL_MAX=100, N_COL_MAX=100;
+typedef int Matriu_enter[N_FIL_MAX][N_COL_MAX];
+
+int main() {
+    // Entrada
+&nbsp; &nbsp; Matriu_enter matriu;
+&nbsp; &nbsp; unsigned n,m; 
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre files i columnes de la matriu: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;n&gt;&gt;m;
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; cout&lt;&lt;&quot;Entra fila &quot;&lt;&lt;i+1&lt;&lt;&quot; : &quot;;
+&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=0; j&lt;m; j++)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cin&gt;&gt;matriu[i][j];
+&nbsp; &nbsp; }
+    // Sortida
+&nbsp; &nbsp; cout&lt;&lt;endl&lt;&lt;&quot;Matriu entrada: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=0; j&lt;m; j++)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cout&lt;&lt;setw(5)&lt;&lt;matriu[i][j];
+&nbsp; &nbsp; &nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp; &nbsp; }
+&nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp; &nbsp; return 0;
+}</code></pre>
 	
-	
+	<h2>Accions i funcions amb taules:</h2><br>
+	En C++, el nom d'una taula és directament una referència, així que les taules sempre es passen per referència. Per motius de coherència, 
+	<alerta>no s'ha de posar mai el símbol & en els paràmetres formals corresponents.</alerta>.
+	Així, una taula no la podem passar per valor, però, si s'escau, podem fer que sigui considerada com un paràmetre d'entrada constant indicant al compilador que no poden ser modificats els valors originals;  això es fa afegint const davant dels paràmetres formals, com per exemple:
+	<pre><code class = "c++">void mostrar_vector(const Vector_enter vector, unsigned n)</code></pre>
+	<alerta>Podem passar una taula a una funció, però no podem retornar una taula!</alerta>; en aquest cas, podem utilitzar una acció.
+	</teoria>
  </div>
 <p class = footer>
   <center>
