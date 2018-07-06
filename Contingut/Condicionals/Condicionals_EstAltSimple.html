@@ -153,6 +153,63 @@
     </ul>
     </teoria>
     
+    <h3>Us de variables booleanes</h3>
+    Fins el moment hem vist que les condicions són expressions boleanes que si es compleixen s'entra dins del condicional. El que està passant realment és que el resultat d'evaluar l'expressió és un booleà, i aquest valor s'utilitza per informar al condicional de si cal entrar o no.<br> 
+    Així doncs, el que realment necessitem és un <b>valor booleà</b>, ja sigui <b>fruit d'una expresió o bé una variable booleana</b>. <br> 
+    
+    Un exemple seria el següent: 
+    <pseudocodi><pre><code class="nohighlight">
+            // Entrada: llegeix un nombre natural (any) 
+            // Sortida: escriu si any és o no un any de traspàs 
+
+        /************************************************************************
+                                EXPRESSIÓ LÒGICA
+        /************************************************************************
+            algorisme Any_traspàs 
+               natural any
+               llegir any 
+               <alerta>si (any mod 400==0) o (any mod 4==0 i any mod 100!=0)</alerta>
+                  escriure any, " és de traspàs" 
+               altrament 
+                  escriure any, " no és de traspàs"
+
+
+        /************************************************************************
+                                VARIABLE BOOLEANA 
+        /************************************************************************
+        algorisme Any_traspàs 
+           natural any
+           llegir any
+           booleà traspàs
+           <alerta>traspàs=(any mod 400==0) o (any mod 4==0 i any mod 100!=0)</alerta>
+           si traspàs
+              escriure any, " és de traspàs"
+           altrament
+              escriure any, " no és de traspàs"
+
+    </code></pre></pseudocodi>
+    
+    Per veure l'exemple en C++:<button onclick="myFunction(BoolC)">Veure exemple en C++</button>
+           <solucio id="BoolC"><pre><code class="c++">
+                // Entrada: llegeix un nombre natural (any) 
+                // Sortida: escriu si any és o no un any de traspàs 
+                
+                #include &lt;iostream&gt;
+                using namespace std;                
+
+                int main() {
+                    unsigned any;
+                    cout&lt;&lt;"Any gregorià: ";
+                    cin&gt;&gt;any;
+                    bool traspas= (any % 400==0) or (any % 4==0 and any % 100!=0);
+                    if (traspas)
+                        cout&lt;&lt;"L'any "&lt;&lt;any&lt;&lt;" és de traspàs"&lt;&lt;endl;
+                    else
+                        cout&lt;&lt;"L'any "&lt;&lt;any&lt;&lt;" no és de traspàs"&lt;&lt;endl;
+                    return 0;
+                }
+            </code></pre></solucio>
+    
     <h4>Altres exemples:</h4>
     A continuació hi ha diferents exemples per acabar de veure diferents opcions. 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
@@ -357,6 +414,7 @@
 
             </code></pre></solucio>
     
+        
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!---------------------------------------------------------------------FI EXEMPLES------------------------------------------------------------------------------------------------>
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
