@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="ca">
 
 <head>
 
 
-<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
-<link rel="stylesheet" href="../../styles/vs.min.css">
-<meta charset="utf-8">
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
 
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="../../CustomScripts.js"></script> 
     <!-- Pels blocks de codi -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+    <script>hljs.initHighlightingOnLoad();</script>
 
 
-<!-- scale font size for MathJax -->
-<title>MODEL DE WEB MTP</title>
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
 
 </head>
 
@@ -30,115 +30,19 @@
 <div id = "content">
   <center>
     <h1 class = "center">
-      EXEMPLES ESTRUCTURES ALTERNATIVES
+      DECISIONS
     </h1>
   </center>
-    <br>
-<!-- Contingut escrit -->  
- <h4>EXEMPLES D'OPERANDS BOOLEANS</h4>
-<br>
-<exercici>
-    Volem fer un programa que ens digui si hem aprovat una assignatura o no. Per fer-ho tenim en compte dues coses: primer de tot cal que la mitjana de l'assignatura sigui igual o més gran que 5. Segona, cal haver superat la nota mínima de l'examen, que normalment és un 4.<br>
-    Cal que el l'usuari entri la seva mitjana i la seva nota al examen 
-    <pre><code class="c++">
-        #include &lt;iostream&gt;
-        using namespace std;
+    <h4>Estructures Alternatives: Exemples</h4>
         
-        int main(){
-            unsigned int minExamen = 4;//La nota mínima al examen és un 4;
-            
-            unsigned int nota = 0; 
-            cout&lt;&lt;"Entrala teva nota ";//Demanem al usuari que entri la seva nota
-            cin&gt;&gt;nota; ///ALERTA, QUE PASSA SI L'USUARI ENTRA UNA NOTA NEGATIVA? 
-            
-            unsigned int mitjana = 0;
-            cout&lt;&lt;"Entrala teva mitjana ";//Demanem al usuari que entri la seva mitjana
-            cin&gt;&gt;mitjana; ///ALERTA, QUE PASSA SI L'USUARI ENTRA UNA MITJANA NEGATIVA? 
-            
-            if (nota > 10 || mitjana > 10){//Si la nota o la mitjana és superior a 10 es que l'usuari ens vol enganyar
-                cout&lt;&lt;"La teva nota o mitjana no es valida"&lt;&lt;endl;
-                return 0; //Acabem la execucio
-            }
-            else//Si la nota i la mitjana  es mes petita que 0
-            {}//No cal fer res, podríem suprimir aquest else. (també podríem fer tota la resta del codi dins del else, però no és recomenable)
-            
-            //Comprovem que té l'examen aprovat
-            if(nota >= minExamen && mitjana >=5)//Si té l'examen aprovat i la mitjana aprovada
-            {
-                cout&lt;&lt;"Felicitats has aprovat"&lt;&lt;endl;
-            }
-            else 
-            {
-                cout&lt;&lt;"La mitjana o l'examen no arriben a la nota minima. "&lt;&lt;endl;
-            }
-            return 0;
-
-        }
-    </code></pre>
-</exercici>
-
-  <br><br>
-    <h4>Estructures Encadenades</h4>
-    <br>
-<exercici>Agafant l'exercici anterior, ens demanen que informem a l'alumne que ha suspès, per quin motiu ha suspès. Per fer-ho, cal que comprovem una a una les condicions de suspèns i identificar quina d'elles és la que falla. </exercici>
-    <br>
+        
     
-        <pre><code class="c++">
-        #include &lt;iostream&gt;
-        using namespace std;
-        
-        int main(){
-            unsigned int minExamen = 4;//La nota minima al examen es un 4;
-            
-            unsigned int nota = 0; 
-            cout&lt;&lt;"Entrala teva nota ";//Demanem al usuari que entri la seva nota
-            cin&gt;&gt;nota; ///ALERTA, QUE PASSA SI L'USUARI ENTRA UNA NOTA NEGATIVA? 
-            
-            unsigned int mitjana = 0;
-            cout&lt;&lt;"Entrala teva mitjana ";//Demanem al usuari que entri la seva mitjana
-            cin&gt;&gt;mitjana; ///ALERTA, QUE PASSA SI L'USUARI ENTRA UNA NOTA NEGATIVA? 
-            
-            if (nota > 10){//Si la nota és superior a 10 es que l'usuari ens vol enganyar
-                cout&lt;&lt;"La teva nota no és valida"&lt;&lt;endl;
-                return 0; //Acabem la execucio
-            }
-            else//Si la nota es mes petita que 0
-            {
-                if(mitjana > 10)
-                {
-                    cout&lt;&lt;"La teva mitjana no és valida"&lt;&lt;endl;
-                    return 0; //Acabem la execucio
-                }
-                else 
-                {}//No cal fer res
-            }
-            
-            //Comprovem que te l'examen aprovat
-            if(nota >= minExamen)//Si te l'examen aprovat
-            {
-                if(mitjana >= 5)//Si te la mitjana aprovada
-                {
-                    cout&lt;&lt;"Felicitats has aprovat"&lt;&lt;endl;
-                }
-                else//Si te la mitjana suspesa
-                {
-                    cout&lt;&lt;"La mitjana no t'arriba al 5"&lt;&lt;endl;
-                }
-            }
-            else //Te l'examen suspes
-            {
-                cout&lt;&lt;"l'examen no arriba a la nota minima. "&lt;&lt;endl;
-            }
-            return 0;
-
-        }
-    </code></pre>
-
-  <p class = footer>
+    
+    
+<p class = footer>
   <center>
       <p class = footer>
-      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
-      Copyright &copy; 2000&ndash;2018
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
       <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
       Tots els drets reservats.
   </center>
@@ -150,4 +54,4 @@
 
 </html>
 
-
+ 

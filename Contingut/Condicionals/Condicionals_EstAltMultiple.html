@@ -85,15 +85,73 @@
         
     </teoria>
     
+    <h4>Switch</h4>
+    <teoria>Una altre estructura que podem utilitzar és el <b>switch</b>. Aquesta estructura ens permet fer diferents execucions en funció del valor d'una varaible. <br>
+            L'estructura té la següent forma: 
+        
+            <pre><code class="c++">
+                unsigned int digit;
+                switch(digit){
+                    case 0: cout&lt;&lt;"Numero 0"; break;
+                    case 1: cout&lt;&lt;"Numero 1"; break; 
+                    case 2: cout&lt;&lt;"Numero 2"; break;
+                    case 3: cout&lt;&lt;"Numero 3"; break;
+                    default: cout&lt;&lt;"Numero major que 3"; break;                
+                }
+            </code></pre>
+        El seu funcionament és el següent: Agafa el valor de la variable "digit" i comprova un a un cada " case " fins a trobar el valor que li correspont. <br>És a dir, primer comprova si <i>digit == 0</i>, després <i>digit == 1</i>, i així succesivament fins a trobar la condició correcta, aleshores executa el case corresponent, <b>i tots els posteriors</b>. <br>Si no troba la condició correcta, aleshores executara la branca "<b>default</b>".<br>
+       <alerta> Al final de cada case, cal utilitzar la comanda "<b>break</b>", ja que de no ser així, l'estructura seguiria executant tots els casos posteriors a ell. </alerta>   
+    </teoria>
     <h4>Altres exemples:</h4>
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!---------------------------------------------------------------------EXEMPLE 1------------------------------------------------------------------------------------------------>
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <h3>Exemple 1:</h3>
+    <exercici>Es demana un programa que digui quins efectes tindrà un terratrèmol segons l'escala de Richtard. Cal que l'usuari entri el nivell del terratrèmol que desitja, i el programa retorni els efectes que tindrà. 
+        A continuació hi ha la informació de cada nivell:
+        <img class="petita" src="../../Recursos/Imatges/EscalaRichtard.PNG">
+    
+              Per veure la solució: <button onclick="myFunction(Ex1)">Solucio </button>
+                <solucio id="Ex1"><pre><code class="c++">
 
+                //Entrada: l'usuari entra un nombre real entre  0-10
+                //Sortida: mostra els efectes del terratrèmol.
+                
+                #include &lt;iostream&gt;
+                usign namespace std; 
+                
+                int main(){             
+                
+                    double richter; 
+                    cout&lt;&lt;"Entra el nivell del terratremol,(0-10)"&lt;&lt;endl;
+                    cin&gt;&gt;richter;
+                    
+                    if (richter&gt;=8.0)
+                       cout&lt;&lt;"Most structures fall";
+                    else if (richter&gt;=7.0)
+                       cout&lt;&lt;"Many buildings destroyed";
+                    else if (richter&gt;=6.0)
+                       cout&lt;&lt;"Many buildings considerably damaged, some collapse";
+                    else if (richter&gt;=4.5)
+                       cout&lt;&lt;"Damage to poorly constructed buildings";
+                    else
+                       cout&lt;&lt;"No destruction of buildings";
+                    
+                    <alerta>//Què passaria si es canviés l'ordre de les condicions?</alerta>
+                    
+                    return 0;
+                    }
+            </code></pre></solucio>
+    </exercici>
+    
+    
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!---------------------------------------------------------------------EXEMPLE 2------------------------------------------------------------------------------------------------>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     
         
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
-    <!---------------------------------------------------------------------FI EXEMPLES------------------------------------------------------------------------------------------------>
+    <!---------------------------------------------------------------------FI EXEMPLES---------------------------------------------------------------------------------------------->
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
 
     
