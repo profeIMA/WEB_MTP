@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="/CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body>
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      TREBALL BÀSIC AMB TAULES
+    </h1>
+  </center>
+
+  <h4>Fonaments</h4>
+  <teoria>
+	<h2>Declaració i inicialització d'un vector</h2><br>
+	<pre><code class="c++">//Tipus nom[mida] = llista opcional de valors
+double valors[5] = {31, 54, 6.5, 20.3, 44.4}; </code></pre>
+	Cal comentar que la mida ha de ser constant (no pot ser una variable). Si es dona la llista de valors, no és necessari ficar la mida.
+	<img class = "mitjana" src = "../../Recursos/Imatges/TuplesTaules_Basic_Taules.PNG" alt = "Exemple de taula d'una dimensió"/><br>
+	<br>
+	<h2>Declaració i inicialització d'una matriu</h2><br>
+	<pre><code class="c++">//Tipus nom[mida_fila][mida_columna] = llista opcional de valors
+double matriu[4][4] = {
+						{16, 3, 2, 3.3},
+						{5, 10, 15.5, 20.3},
+						{9, 6.7, 1.2, 12},
+						{13, 45, 5.6, 3.20}
+					};</code></pre>
+	<br>
+  </teoria>
+  <h4>Treball bàsic amb taules</h4>
+  <teoria>
+  
+  A continuació veurem una série d'exemples bàsics de treball amb taules i tuples. 
+  
+  <h3>Assignar i mostrar</h3>
+  	<teoria>
+	<h2>Assignació de 0 a n-1 a un vector</h2>
+		<pre><code class = "c++">void assignar_vector_enter(Vector_enter vec, unsigned n) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
+&nbsp; &nbsp; //Post: vec[0..n-1] cont&eacute; successivament els naturals des de 0 a n-1
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) vec[i]=i;
+}
+void escriure_vector_enter(const Vector_enter vec, unsigned n) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
+&nbsp; &nbsp; //Post: s'han mostrat el n valors de vec[0..n-1]
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) cout&lt;&lt;vec[i]&lt;&lt;&quot; &quot;;
+}
+
+int main() {&nbsp; &nbsp;
+&nbsp; &nbsp; Vector_enter vec;
+&nbsp; &nbsp; unsigned n;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre elements del vector: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;n;&nbsp;
+&nbsp; &nbsp; assignar_vector_enter(vec,n);
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Vector obtingut: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; escriure_vector_enter(vec,n);
+&nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp; &nbsp; return 0;
+}</pre></code>
+	<h2>Assignació de 0 a n*m-1 a una matriu</h2>
+	<pre><code class = "c++">void assigna_matriu_enter(Matriu_enter mat, unsigned n, unsigned m) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=m&lt;=N_COL_MAX
+&nbsp; &nbsp; //Post: mat[0..n-1,0..m-1] cont&eacute; successivament els naturals des de 0 a n*m-1
+&nbsp; &nbsp; unsigned comptador=0;
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++)
+&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=0; j&lt;m; j++) {
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mat[i][j]=comptador;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; comptador++;
+&nbsp; &nbsp; &nbsp; &nbsp; }
+}
+
+void escriure_matriu_enter(const Matriu_enter mat, unsigned n, unsigned m) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=m&lt;=N_COL_MAX
+&nbsp; &nbsp; //Post: s'han mostrat el n*m valors de mat[0..n-1,0..m-1]
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=0; j&lt;m; j++)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cout&lt;&lt;setw(5)&lt;&lt;mat[i][j];
+&nbsp; &nbsp; &nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp; &nbsp; }
+}
+int main() {
+&nbsp; &nbsp; Matriu_enter mat;
+&nbsp; &nbsp; unsigned n,m;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre files i columnes de la matriu: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;n&gt;&gt;m;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; assigna_matriu_enter(mat,n,m);
+&nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Matriu obtinguda: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; escriure_matriu_enter(mat,n,m);
+&nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; return 0;
+}</pre></code>
+	
+	</teoria>
+	<h3>Lectura i escriptura </h3>
+  	<teoria>
+		<h2>En un vector</h2><br>
+		<pre><code class="c++">void llegir_vector_enter(Vector_enter vec, unsigned n) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
+&nbsp; &nbsp; //Post: vec[0..n-1] cont&eacute; successivament els enters entrats
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) cin&gt;&gt;vec[i];
+}
+void escriure_vector_enter(const Vector_enter vec, unsigned n) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
+&nbsp; &nbsp; //Post: s'han mostrat els n valors de vec[0..n-1]
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) cout&lt;&lt;vec[i]&lt;&lt;&quot; &quot;;
+}
+int main() {&nbsp; &nbsp;
+&nbsp; &nbsp; Vector_enter vec;
+    unsigned n;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre elements del vector: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;n;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra &quot;&lt;&lt;n&lt;&lt;&quot; enters: &quot;;
+&nbsp; &nbsp; llegir_vector_enter(vec,n);
+&nbsp; &nbsp; cout&lt;&lt;endl;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Vector entrat: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; escriure_vector_enter(vec,n);
+&nbsp; &nbsp; cout&lt;&lt;endl;&nbsp; &nbsp;
+&nbsp; &nbsp; return 0;
+}</code></pre>
+
+		<h2>En un vector</h2><br>
+		<pre><code class = "c++">void llegir_matriu_enter(Matriu_enter mat, unsigned n, unsigned m) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=m&lt;=N_COL_MAX
+&nbsp; &nbsp; //Post: mat[0..n-1,0..m-1] cont&eacute; successivament els enters entrats
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; cout&lt;&lt;&quot;Entra fila &quot;&lt;&lt;i+1&lt;&lt;&quot; : &quot;;
+&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=0; j&lt;m; j++)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cin&gt;&gt;mat[i][j];
+&nbsp; &nbsp; }
+}
+void escriure_matriu_enter(const Matriu_enter mat, unsigned n, unsigned m) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=m&lt;=N_COL_MAX
+&nbsp; &nbsp; //Post: s'han mostrat els n*m valors de mat[0..n-1,0..m-1]
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=0; j&lt;m; j++)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cout&lt;&lt;setw(5)&lt;&lt;mat[i][j];
+&nbsp; &nbsp; &nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp; &nbsp; }
+}
+int main() {&nbsp; &nbsp;
+ &nbsp;
+&nbsp; &nbsp; Matriu_enter mat;
+&nbsp; &nbsp; unsigned n,m;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre files i columnes de la matriu: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;n&gt;&gt;m;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra &quot;&lt;&lt;n&lt;&lt;&quot; files de &quot;&lt;&lt;m&lt;&lt;&quot; enters: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; llegir_matriu_enter(mat,n,m);
+&nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Matriu entrada: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; escriure_matriu_enter(mat,n,m);
+&nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; return 0;
+}</code></pre>
+
+	</teoria>
+	
+	<h3>Llegir fins a marca de fi</h3>
+	<teoria>
+		<h2>Omplir un vector des de teclat i amb marca de fi 0</h2><br>
+		<pre><code class = "c++">void llegir_vector_natural_amb_fi(Vector_natural vec, unsigned &amp;n) {
+&nbsp; &nbsp; //Pre: cert
+&nbsp; &nbsp; //Post: 0&lt;=n&lt;=N_MAX i vec[0..n-1] cont&eacute; n valors entrats
+&nbsp; &nbsp; n=0;
+&nbsp; &nbsp; unsigned element;
+&nbsp; &nbsp; cin&gt;&gt;element; // marca de fi 0
+&nbsp; &nbsp; while (n&lt;N_MAX and element&gt;0) {
+&nbsp; &nbsp; &nbsp; &nbsp; vec[n]=element;
+&nbsp; &nbsp; &nbsp; &nbsp; n++;
+&nbsp; &nbsp; &nbsp; &nbsp; cin&gt;&gt;element; // marca de fi 0
+&nbsp; &nbsp; }
+}
+int main() { &nbsp;
+&nbsp; &nbsp; Vector_natural vec;
+&nbsp; &nbsp; unsigned n;&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra naturals (fi amb 0): &quot;;
+&nbsp; &nbsp; llegir_vector_natural_amb_fi(vec,n);
+&nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Vector entrat: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; escriure_vector_natural(vec,n);
+&nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; return 0;
+}</code></pre>
+		
+		<h2>Omplir un vector de tuples amb marca de fi 0</h2><br>
+		
+		<pre><code class = "c++">const unsigned N_MAX=100;
+
+struct Producte {
+&nbsp; &nbsp; unsigned codi;
+&nbsp; &nbsp; double preu;
+};
+typedef Producte Vector_producte[N_MAX];
+
+void llegir_vector_producte_amb_fi(Vector_producte vec, unsigned &amp;n) {
+&nbsp; &nbsp; //Pre: cert
+&nbsp; &nbsp; //Post: 0&lt;=n&lt;=N_MAX i vec[0..n-1] cont&eacute; n productes entrats
+&nbsp; &nbsp; n=0;
+&nbsp; &nbsp; unsigned codi;
+&nbsp; &nbsp; cin&gt;&gt;codi;
+&nbsp; &nbsp; while (n&lt;N_MAX and codi&gt;0) {
+&nbsp; &nbsp; &nbsp; &nbsp; vec[n].codi=codi;
+&nbsp; &nbsp; &nbsp; &nbsp; cin&gt;&gt;vec[n].preu;
+&nbsp; &nbsp; &nbsp; &nbsp; n++;
+&nbsp; &nbsp; &nbsp; &nbsp; cin&gt;&gt;codi;
+&nbsp; &nbsp; }
+}
+
+void escriure_vector_producte(const Vector_producte vec, unsigned n) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
+&nbsp; &nbsp; //Post: s'han mostrat els n productes de vec[0..n-1]
+&nbsp; &nbsp; for(unsigned i=0; i&lt;n; i++) cout&lt;&lt;vec[i].codi&lt;&lt;&quot; - &quot;&lt;&lt;vec[i].preu&lt;&lt;endl;
+}
+int main() {
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; Vector_producte vec;
+&nbsp; &nbsp; unsigned n;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra productes amb fi codi=0: &quot;;
+&nbsp; &nbsp; llegir_vector_producte_amb_fi(vec,n);
+&nbsp; &nbsp; cout&lt;&lt;endl;
+
+&nbsp; &nbsp; cout&lt;&lt;&quot;Vector entrat: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; escriure_vector_producte(vec,n);
+&nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; return 0;
+}</code></pre>
+
+
+	</teoria>
+
+  </teoria>
+	
+ </div>
+<p class = footer>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

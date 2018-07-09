@@ -117,54 +117,7 @@ int main(){
 
   </teoria>
 	
-	<br><br><h2>Exemple d'ús de taules (vector):</h2><br>
-	<pre><code class="c++">const unsigned N_MAX=100;
-typedef int Vector_enter[N_MAX];
-
-int main() {
-&nbsp;&nbsp; &nbsp;
-    // Entrada
-&nbsp; &nbsp; Vector_enter vector;
-&nbsp; &nbsp; unsigned n;
-&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre elements del vector: &quot;;
-&nbsp; &nbsp; cin&gt;&gt;n;
-
-&nbsp; &nbsp; cout&lt;&lt;&quot;Entra vector: &quot;;
-&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) cin&gt;&gt;vector[i];
-
-    // Sortida
-&nbsp; &nbsp; cout&lt;&lt;&quot;Vector entrat: &quot;;
-&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) cout&lt;&lt;setw(5)&lt;&lt;vector[i];
-&nbsp; &nbsp; cout&lt;&lt;endl;
-&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; return 0;
-}</code></pre>
-
-<br><br><h2>Exemple d'ús de taules (vector):</h2><br>
-	<pre><code class="c++">const unsigned N_FIL_MAX=100, N_COL_MAX=100;
-typedef int Matriu_enter[N_FIL_MAX][N_COL_MAX];
-
-int main() {
-    // Entrada
-&nbsp; &nbsp; Matriu_enter matriu;
-&nbsp; &nbsp; unsigned n,m; 
-&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre files i columnes de la matriu: &quot;;
-&nbsp; &nbsp; cin&gt;&gt;n&gt;&gt;m;
-&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
-&nbsp; &nbsp; &nbsp; &nbsp; cout&lt;&lt;&quot;Entra fila &quot;&lt;&lt;i+1&lt;&lt;&quot; : &quot;;
-&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=0; j&lt;m; j++)
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cin&gt;&gt;matriu[i][j];
-&nbsp; &nbsp; }
-    // Sortida
-&nbsp; &nbsp; cout&lt;&lt;endl&lt;&lt;&quot;Matriu entrada: &quot;&lt;&lt;endl;
-&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
-&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=0; j&lt;m; j++)
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cout&lt;&lt;setw(5)&lt;&lt;matriu[i][j];
-&nbsp; &nbsp; &nbsp; &nbsp; cout&lt;&lt;endl;
-&nbsp; &nbsp; }
-&nbsp; &nbsp; cout&lt;&lt;endl;
-&nbsp; &nbsp; return 0;
-}</code></pre>
+	
 	
 	<h2>Accions i funcions amb taules:</h2><br>
 	En C++, el nom d'una taula és directament una referència, així que les taules sempre es passen per referència. Per motius de coherència, 
@@ -172,7 +125,57 @@ int main() {
 	Així, una taula no la podem passar per valor, però, si s'escau, podem fer que sigui considerada com un paràmetre d'entrada constant indicant al compilador que no poden ser modificats els valors originals;  això es fa afegint const davant dels paràmetres formals, com per exemple:
 	<pre><code class = "c++">void mostrar_vector(const Vector_enter vector, unsigned n)</code></pre>
 	<alerta>Podem passar una taula a una funció, però no podem retornar una taula!</alerta>; en aquest cas, podem utilitzar una acció.
+	
+	<h3>Esquemes sobre vector</h3>
+	<teoria>
+		Els esquemes de treball sobre vectors són els següents (iguals que els de les seqüències):
+		<ul>
+			<li><strong>Recorregut:</strong>En general, coneixem per endavant el nombre d'elements i es fa amb un for.
+				<ul>
+					<li> <strong> Esquema simple de reccorregut (vector)</strong>
+					<pseudocodi><pre><code class ="nohighlight">inicialització tractament
+per index de 0 fins n-1 fer
+    tractar element[index]
+tractament final</code></pre></pseudocodi>
+					</li>
+					<li> <strong> Esquema simple de reccorregut (matriu n*m)</strong>
+					<pseudocodi><pre><code class ="nohighlight">inicialització tractament
+per index_fila de 0 fins n-1 fer
+	per index_columna de 0 fins m-1 fer
+		tractar element[index_fila][index_columna]
+tractament final</code></pre></pseudocodi>
+					</li>
+				</ul>
+			</li>
+			<li><strong>Cerca:</strong>Recorrem fins que es compleix una condició o arriba al final amb un while.
+				<ul>
+					<li> <strong> Esquema simple de cerca (vector)</strong>
+					<pseudocodi><pre><code class ="nohighlight">index=0
+trobat=fals
+mentre index&lt;n i no trobat fer
+	tractar element (index, trobat)
+tractament final</code></pre></pseudocodi>
+					<alerta>A <i>tractar element</i> <alerta>caldrà actualitar trobat i, si cal, incrementar índex</alerta>
+					</li>
+					<li> <strong> Esquema simple de cerca (matriu n*m)</strong>
+					<pseudocodi><pre><code class ="nohighlight">index_fila=0
+index_columna=0
+trobat=fals
+mentre index_fila&lt;n i no trobat fer
+	mentre index_columna&lt;n i no trobat fer
+		tractar element (index_columna, trobat)
+	index_fila=index_fila+1
+tractament final</code></pre></pseudocodi>
+					<alerta>A <i>tractar element</i> <alerta>caldrà actualitar trobat i, si cal, incrementar índex</alerta>
+					</li>
+				</ul>
+			</li>
+		</ul>
 	</teoria>
+	</teoria>
+	
+	
+	
  </div>
 <p class = footer>
   <center>
