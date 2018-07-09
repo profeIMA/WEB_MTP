@@ -57,15 +57,68 @@
         if(ditigit&lt;0)
             digit*=-1;
         else ;//El digit ja es positiu, no cal fer res
-        
-            
-        
+
         </code></pre>
         
     </teoria>
-
+    
+    <h3>Mala indentació</h3>
+    <teoria>
+        Sabem que la indentació és molt important per saber dins de quina estructura ens trobem. Si no la respectem aleshores ens poden succeïr errors dins del nostre codi. Exemple: 
+        <pre><code class="c++">
+            double cost_enviament ; //El cost d'enviament estandard es de 10€
+            if(estat == "USA")//Si el paquet prové d'estats unnits
+                if(estat== "CA")//Estat == california
+                    cost_enviament = 12.0;
+            <alerta>else</alerta>// Aquest else què vol dir? que no sigui California o que no sigui d'Estats Units?
+                cost_enviament = 15.0€ 
+                    
+        </code></pre>
+    </teoria>
+    
+    <h3>Confusió entre igualtat i assgnació</h3>
+    <teoria>
+        Com ja sabem de <a href="../TipusVariables/TipusVariables_TElemDades.html">les variables</a> podem tenir diferents operadors, entre ells hi ha l'Assignació, <b> = </b> i la comparació <b>==</b>. Els quals tenen
+        propòsits ben diferents, entre ells, un serveix per donar un valor a una variable, mentre que l'altre serveix per comparar dos valors. <br> 
+        
+        Si no els usem correctament, poden passar coses com les següents: <br> 
+        <pre><code class="c++">
+        int a = 5; 
+        
+        if(a = 2)//En aquest cas no estem comparant res, sinó assignant un valor a A.
+        {
+            cout&lt;&lt;"a val dos"&lt;&lt;endl;
+        }
+        else 
+        {
+        cout&lt;&lt;"a no val dos"&lt;&lt;endl;
+        }
+        </code></pre>
+        Quin seria el resultat de l'execució? 
+    </teoria>
     
     
+    <h3>Errors en operadors Lògics</h3>
+    <teoria>
+        També sabem que les variables lògiques permeten fer combinació d'operadors lògics, ara bé, hem d'anar amb compte en no escriure errors ja que després tindrem resultats no desitjats.<br> 
+        Els errors més freqüents que hi ha són els següents: 
+        <pre><code class="c++">
+            int a = 4;
+            if (a == 3 || 6 ) //Error, la segona condició està evaluant 6 per separat, i per tant sempre donarà true. (6 != 0)
+                a = 3; 
+            
+            //La forma correcte: 
+            if (a == 3 || a == 6)
+        </code></pre>
+        <pre><code class="c++">
+            int x = 3,y=8;
+            if(x && y &gt; 0)//Error, x s'avalua sola, i pertant sempre donarà certa la seva part. 
+                x = y; 
+                
+            //La forma correcte: 
+            if ( x &gt; 0 && y&gt;0)
+        </code></pre>
+    </teoria>
     
 <p class = footer>
   <center>
