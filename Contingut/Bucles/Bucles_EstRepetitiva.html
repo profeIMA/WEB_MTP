@@ -34,20 +34,231 @@
     </h1>
   </center>
     <h4>Estructura Repetitiva</h4>
-    <teoria>
-        En programació molt recurrentment necessitem fer una mateixa tasca repetidament fins assolir el nostre objectiu. Amb el que sabem fins ara, si volem <b>comptar les lletres que té una paraula</b>, hauriem de repetir el codi un nombre de vegades determinat, i confiar en que no haguem fet curt. Ja es pot veure que no és la millor manera. <br>
-        Per solucionar aquest problema, apareixen els bucles o estructures iteratives, que ens permeten repetir un conjunt d'instruccions un nombre de vegades que nosaltres decidim. Aquest nombre pot fer determinat o indeterminat. Aquestes estrucutres són realment importants per càlculs que necessiten repetir operacions.<br> <br>
-        
-        En aquest tema aprendrem: 
-        <ul> 
-            <li>Implementar bucles: <b>for, while, do--while</b></li>
-            <li>Evitar errors de <b>bucles infinits i errors "per un pas"</b>.</li>
-            <li>Comprendre els <b>bucles niats.</b></li>
-            <li>Implementar programes que llegeixin i processin <b>conjunts de dades.</b></li>
-            <li>Utilitzar l'ordinador per fer <b>simulacions</b>.</li>
-        </ul>
-        
+<teoria>
+    Anomanem bucle aquella estructura que repeteix una sèrie d'instruccions de forma consecutiva fins que es deixa de complir una condició. Aquestes condicions són els encarregats de controlar el flux de l'estructura i decidir quan se'n surt. Així doncs, és important establir condicions vàlides per evitar resultats indesitjats, o bé, que el programa es quedi atrapat dins del bucle. 
+    A continuació explicarem algunes estructures iteratives:
+    <br><br>
+    
+</teoria>
+   
+<h3>
+   Mentre
+</h3>
+<teoria>
+    Entenem un "mentre" una estructura iterativa que MENTRE es compleix una condició va iterant sobre ella mateixa. En el moment que la condició no es compleix, aleshores es trenca el bucle i segueix executant el programa amb normalitat. Un cop la condició és falsa, <alerta> no es torna a executar el codi del bucle!</alerta>. Un exemple seria escriure nombres del 0 al 9 en format bucle. Mentre el nombre que ha d'escriure sigui menor que 9, escriure per pantalla i incrementar el nombre.<br>
+    <pseudocodi>
+        <pre><code class="nohighlight">
+            mentre n menor 9
+                escriurePantalla
+                incrementar n
+            fi mentre
+        </code></pre>
+    </pseudocodi>
+    <h2>Repassem la execució d'aquest tall de codi:</h2> <br><br>
+    Per tal d'agilitzar l'execució, en comptes de fer fins a 9, hem il·lustrat fins a 2. El mecanisme és el mateix:
+    <ul>
+    <li>Primer evaluem la condició si es compleix.</li>
+        <li>Si es compleix, s'executen les instruccions de dins el mentre.</li>
+        <li>Si no es compleix, s'abandona el mentre.</li>
+    </ul>
+    <img class ="codeGif" src="../../Recursos/Gif/MentreTrasa.gif" alt="Gif del funcionament del mentre">
+    <br><br>
+    <h2>Implementació en c++</h2>
+    <br>
+    <pre><code class="c++">
+            int n = 0;
+        while(n &lt; 9)
+        {
+            cout&lt;&lt;"El valor de n es: "&lt;&lt;n&lt;&lt;endl;
+            n++;
+        }
+        cout&lt;&lt;"El valor de n es major de 9"&lt;&lt;endl;
+    </code></pre>
+
+</teoria>    
+ <br><br>
+    
+<h3>Per:</h3>   
+    <br><br>
+<teoria>
+   El " per " és una altre esctructura iterativa amb un nombre d'iteracions fixat, on una variable de control va modificant el seu valor fins a incumplir una condició, quan això passa es trenca el bucle. D'aquests paràmetres se'n diuen inicialitzacio, finalització i pas:
+    <ul>
+        <li><h2>Inicialitzacio:</h2> Quin es el valor inicial de la variable de control (n en el cas anterior).</li>
+        <li><h2>Finalització:</h2> Quina condició ha de complir. (n &lt; 9, en el cas anterior)</li>
+        <li><h2>El pas:</h2> Com es modificarà la variable de control en cada iteració.( n++ en el cas anterior)</li>
+    </ul>
+    <br>
+    En pseudocodi utilitzem la seguent expressio: 
+        <pseudocodi>
+        <pre><code class="nohighlight">
+            per var_control de valor_inicial fins valor_final pas +1 fer 
+                FerQuelcom();
+            fi per 
+        </code></pre>
+    </pseudocodi>
+    
+    <img style="height: 170px;width: 250px;" src="../../Recursos/Gif/BuclePer.gif" alt="Gif mostrant com funciona el per" >
+    
+    Aquest codi el que fa és, la var_control s'inicialitza al valor_inicial. I fins que no hagi arribat al valor_final, augmenta el seu valor en 1. D'aquesta manera va iterant i executant les <a href="../AccionsFuncions/AccionsFuncions_Teoria.html">funcions i accions </a>que es trobin dins de l'estructura. 
+    <br>
+    
+    <h2>Informació adicional:</h2>
+    <ul>
+        <li>El pas pot ser qualsevol valor, tant positiu com negatiu.</li>
+        <li>La variable de control no s'hauria de modificar dins del per, pot donar lloc a resultats indesitjats.</li>
+        <li>En la major part dels casos, la variable de control deixa d'existir un cop hem sortit del per.</li>
+        <li>En pseudocodi, entenem el per, com una varible que va de valor A a valor B. En c++, hi ha més possibilitats
+            <ul>
+                <li>Anar de A B, igual que l'exemple amb pseudocodi.</li>
+                <li>Anar de A fins a "desconegut" mentre es compleixi una condició, per exemple: A sigui diferent de C.</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <h2>Implementació en c++</h2><br>
+    Exemple: bucle "per" que fa 9 iteracions:<br>
+    <pre><code class="c++">
+    for(unsigned int x = 0; x &lt; 9; x++)
+    {
+        cout&lt;&lt;"El valor de x es: "&lt;&lt;x&lt;&lt;endl; 
+    }    
+    </code></pre>
     </teoria>
+    
+    
+    <h3>Passos pel disseny iteratiu</h3>
+    <teoria>
+        A continuació hi ha un seguit de passos per poder construir una estructura iterativa sense errors de "no acabament" o "per un pas":
+        <ul>
+            <li>Variables "principals" (entrada i sortida) i "auxiliars".</li>
+            <li>Inicialitzar les variables (vigilar, p.e., =0 o =1).</li>
+            <li>uan assolim l’objectiu? Quina és la condició de fi? Determinar la condició del mentre (vigilar, p.e., &lt;= o &lt;).</li>
+            <li>Garantir l’acabament en un nombre finit de passos: avançar cap a la fi (vigilar que el bucle no sigui infinit)</li>
+            <li>Completar el cos del bucle </li>
+        </ul> 
+    </teoria>
+    <h1>Alguns exemples</h1>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!---------------------------------------------------------------------EXEMPLE 1------------------------------------------------------------------------------------------------>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <h3>Exemple 1</h3>
+    <exercici>Donada una base i un exponent, calcular el resultat d'elevar la base a l'exponent.<br>
+        //Entrada: llegeix dos nombres naturals (base, exponent) amb base&gt;0
+        //Sortida: escriu el resultat de base^exponent
+    </exercici>
+    
+    <button onclick="myFunction(Ex10)">Solucio per Pseudocodi</button>
+       <solucio id="Ex10"><pseudocodi><pre><code class="nohighlight">
+         //Entrada: llegeix dos nombres naturals (base, exponent) amb base&gt;0
+         //Sortida: escriu el resultat de base^exponent
+        
+           algorisme Potència
+               natural base, exponent // entrada
+               natural resultat // sortida
+               natural comptador // auxiliar
+
+               llegir base // base>0
+               llegir exponent // exponent>=0
+               // base>0 i exponent>=0             
+               
+               resultat= 1 
+              per comptador de 1 fins exponent
+                  resultat=resultat*base
+                  
+               // resultat=base^exponent
+               escriure resultat
+
+        </code></pre></pseudocodi></solucio>
+    
+        <button onclick="myFunction(Ex11)">Solucio mentre Pseudocodi</button>
+       <solucio id="Ex11"><pseudocodi><pre><code class="nohighlight">
+         //Entrada: llegeix dos nombres naturals (base, exponent) amb base&gt;0
+         //Sortida: escriu el resultat de base^exponent
+        
+           algorisme Potència
+               natural base, exponent // entrada
+               natural resultat // sortida
+               natural comptador // auxiliar
+
+               llegir base // base>0
+               llegir exponent // exponent>=0
+               // base>0 i exponent>=0             
+               
+               resultat= 1 
+               comptador=1
+               
+               mentre comptador&lt;=exponent 
+                  resultat=resultat*base
+                  comptador=comptador+1
+                  
+               // resultat=base^exponent
+               escriure resultat
+
+        </code></pre></pseudocodi></solucio>
+    
+    
+    <button onclick="myFunction(Ex12)">Solucio for C++</button>
+    <solucio id="Ex12"><pre><code class="c++">
+
+        //Entrada: llegeix dos nombres naturals (base, exponent) amb base&gt;0
+        //Sortida: escriu el resultat de base^exponent
+
+        #include &lt;iostream&gt;
+        using namespace std; 
+
+        int main(){             
+            unsigned base;
+            cout&lt;&lt;"Entra base: ";
+            cin&gt;&gt;base; // base&gt;
+
+            unsigned exponent;
+            cout&lt;&lt;"Entra exponent: ";
+            cin>>exponent; // exponent>=0
+            
+            unsigned resultat=1;
+
+            for (unsigned comptador=1; comptador&lt;=exponent; comptador++)
+                resultat=resultat*base;
+
+            cout&lt;&lt;base&lt;&lt;"^"&lt;&lt;exponent&lt;&lt;" = "&lt;&lt;resultat&lt;&lt;endl;
+            return 0;
+        }
+</code></pre></solucio>
+    
+    <button onclick="myFunction(Ex13)">Solucio while C++</button>
+    <solucio id="Ex13"><pre><code class="c++">
+
+        //Entrada: llegeix dos nombres naturals (base, exponent) amb base&gt;0
+        //Sortida: escriu el resultat de base^exponent
+
+        #include &lt;iostream&gt;
+        using namespace std; 
+
+        int main(){             
+            unsigned base;
+            cout&lt;&lt;"Entra base: ";
+            cin&gt;&gt;base; // base&gt;
+
+            unsigned exponent;
+            cout&lt;&lt;"Entra exponent: ";
+            cin>>exponent; // exponent>=0
+            
+            unsigned resultat=1;
+
+            unsigned comptador=1; // =0
+            while (comptador&lt;=exponent) { // comptador&lt;exponent
+                resultat=resultat*base;
+                comptador++;
+            } 
+            
+            cout&lt;&lt;base&lt;&lt;"^"&lt;&lt;exponent&lt;&lt;" = "&lt;&lt;resultat&lt;&lt;endl;
+            return 0;
+        }
+</code></pre></solucio>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!---------------------------------------------------------------------EXEMPLE 2------------------------------------------------------------------------------------------------>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
     
 <p class = footer>
   <center>
