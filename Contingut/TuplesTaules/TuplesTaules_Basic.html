@@ -59,7 +59,10 @@ double matriu[4][4] = {
   
   <h3>Assignar i mostrar</h3>
   	<teoria>
-	<h2>Assignació de 0 a n-1 a un vector</h2>
+	<h2>Assignació de 0 a n-1 a un vector</h2><br>
+	Assignar a un vector d'n elements els successius nombres naturals (0, 1, 2, 3, ...).
+	<button onclick="myFunction(P7_1_1)">Veure Codi</button><br>
+	<solucio id="P7_1_1">
 		<pre><code class = "c++">void assignar_vector_enter(Vector_enter vec, unsigned n) {
 &nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
 &nbsp; &nbsp; //Post: vec[0..n-1] cont&eacute; successivament els naturals des de 0 a n-1
@@ -82,8 +85,11 @@ int main() {&nbsp; &nbsp;
 &nbsp; &nbsp; escriure_vector_enter(vec,n);
 &nbsp; &nbsp; cout&lt;&lt;endl;
 &nbsp; &nbsp; return 0;
-}</pre></code>
-	<h2>Assignació de 0 a n*m-1 a una matriu</h2>
+}</pre></code></solucio><br>
+	<h2>Assignació de 0 a n*m-1 a una matriu</h2><br>
+	Assignar a una matriu n*m els successius nombres naturals per files.
+	<button onclick="myFunction(P7_1_2)">Veure Codi</button><br>
+	<solucio id="P7_1_2">
 	<pre><code class = "c++">void assigna_matriu_enter(Matriu_enter mat, unsigned n, unsigned m) {
 &nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=m&lt;=N_COL_MAX
 &nbsp; &nbsp; //Post: mat[0..n-1,0..m-1] cont&eacute; successivament els naturals des de 0 a n*m-1
@@ -119,11 +125,14 @@ int main() {
 &nbsp;&nbsp; &nbsp;
 &nbsp; &nbsp; return 0;
 }</pre></code>
-	
+	</solucio><br>
 	</teoria>
 	<h3>Lectura i escriptura </h3>
   	<teoria>
 		<h2>En un vector</h2><br>
+		Fer un subprograma que permeti llegir un vector de mida n i un que permeti escriure'l.
+		<button onclick="myFunction(P7_2_1)">Veure Codi</button><br>
+	<solucio id="P7_2_1">
 		<pre><code class="c++">void llegir_vector_enter(Vector_enter vec, unsigned n) {
 &nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
 &nbsp; &nbsp; //Post: vec[0..n-1] cont&eacute; successivament els enters entrats
@@ -147,8 +156,12 @@ int main() {&nbsp; &nbsp;
 &nbsp; &nbsp; cout&lt;&lt;endl;&nbsp; &nbsp;
 &nbsp; &nbsp; return 0;
 }</code></pre>
+</solucio><br>
 
-		<h2>En un vector</h2><br>
+		<h2>En una matriu</h2><br>
+		Fer un subprograma que permeti llegir una matriu de mida n*m i un que permeti esciure-la
+		<button onclick="myFunction(P7_2_2)">Veure Codi</button><br>
+	<solucio id="P7_2_2">
 		<pre><code class = "c++">void llegir_matriu_enter(Matriu_enter mat, unsigned n, unsigned m) {
 &nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=m&lt;=N_COL_MAX
 &nbsp; &nbsp; //Post: mat[0..n-1,0..m-1] cont&eacute; successivament els enters entrats
@@ -183,13 +196,16 @@ int main() {&nbsp; &nbsp;
 &nbsp; &nbsp; cout&lt;&lt;endl;
 &nbsp;&nbsp; &nbsp;
 &nbsp; &nbsp; return 0;
-}</code></pre>
+}</code></pre></solucio><br>
 
 	</teoria>
 	
 	<h3>Llegir fins a marca de fi</h3>
 	<teoria>
 		<h2>Omplir un vector des de teclat i amb marca de fi 0</h2><br>
+		Fer un subprograma que permeti omplir un vector des de teclat i amb marca de fi -1. 
+		<button onclick="myFunction(P7_2_3)">Veure Codi</button><br>
+		<solucio id="P7_2_3">
 		<pre><code class = "c++">void llegir_vector_natural_amb_fi(Vector_natural vec, unsigned &amp;n) {
 &nbsp; &nbsp; //Pre: cert
 &nbsp; &nbsp; //Post: 0&lt;=n&lt;=N_MAX i vec[0..n-1] cont&eacute; n valors entrats
@@ -214,10 +230,13 @@ int main() { &nbsp;
 &nbsp; &nbsp; cout&lt;&lt;endl;
 &nbsp;&nbsp; &nbsp;
 &nbsp; &nbsp; return 0;
-}</code></pre>
+}</code></pre></solucio><br>
 		
 		<h2>Omplir un vector de tuples amb marca de fi 0</h2><br>
+		Fer un subprograma que permeti omplir un vector de tuples Producte des de teclat i amb marca de fi codi=-1.
 		
+		<button onclick="myFunction(P7_2_4)">Veure Codi</button><br>
+		<solucio id="P7_2_4">
 		<pre><code class = "c++">const unsigned N_MAX=100;
 
 struct Producte {
@@ -259,7 +278,7 @@ int main() {
 &nbsp; &nbsp; cout&lt;&lt;endl;
 &nbsp;&nbsp; &nbsp;
 &nbsp; &nbsp; return 0;
-}</code></pre>
+}</code></pre></solucio>
 
 
 	</teoria>

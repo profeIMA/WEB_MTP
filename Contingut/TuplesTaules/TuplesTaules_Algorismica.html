@@ -30,9 +30,250 @@
 <div id = "content">
   <center>
     <h1 class = "center">
-      TREBALL BÀSIC AMB TAULES
+      ALGORÍSMICA AMB TAULES
     </h1>
   </center>
+  
+  <h4>Recorregut</h4>
+  <teoria>
+	<h2>Suma vector</h2><br>
+	Calcular la suma dels elements d'un vector.
+	<button onclick="myFunction(P7_4_1)">Veure Codi</button><br>
+		<solucio id="P7_4_1">
+		<pre><code class = "c++">int suma_vector_enter(const Vector_enter vec, unsigned n) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
+&nbsp; &nbsp; //Post: retorna suma de vec[0..n-1]
+&nbsp; &nbsp; int suma=0;
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) suma+=vec[i];
+&nbsp; &nbsp; return suma;
+}
+
+int main() {&nbsp; 
+&nbsp;
+    unsigned n;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre elements del vector: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;n;&nbsp;
+&nbsp; 
+&nbsp;&nbsp; &nbsp;Vector_enter vec;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra &quot;&lt;&lt;n&lt;&lt;&quot; enters: &quot;;
+&nbsp; &nbsp; llegir_vector_enter(vec,n);
+&nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Suma vector= &quot;&lt;&lt;suma_vector_enter(vec,n)&lt;&lt;endl;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; return 0;
+}</code></pre>
+		</solucio><br>
+		
+		<h2>Suma matriu</h2><br>
+		Calcular la suma dels elements d'una matriu.
+		<button onclick="myFunction(P7_4_2)">Veure Codi</button><br>
+		<solucio id="P7_4_2">
+		<pre><code class = "c++">int suma_matriu_enter(const Matriu_enter mat, unsigned n, unsigned m) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=m&lt;=N_COL_MAX
+&nbsp; &nbsp; //Post: retorna suma de mat[0..n-1,0..m-1]
+&nbsp; &nbsp; int suma=0;
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=0; j&lt;m; j++)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; suma+=mat[i][j];
+&nbsp; &nbsp; }
+&nbsp; &nbsp; return suma;
+}
+int main() { &nbsp;
+&nbsp; &nbsp; Matriu_enter mat;
+&nbsp; &nbsp; unsigned n,m;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre files i columnes de la matriu: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;n&gt;&gt;m;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra &quot;&lt;&lt;n&lt;&lt;&quot; files de &quot;&lt;&lt;m&lt;&lt;&quot; enters: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; llegir_matriu_enter(mat,n,m);
+&nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Suma matriu= &quot;&lt;&lt;suma_matriu_enter(mat,n,m)&lt;&lt;endl;&nbsp;
+&nbsp; &nbsp; return 0;
+}
+</code></pre>
+		</solucio><br>
+		
+		<h2>Mínim d'un vector i la seva posició</h2><br>
+		Trobar el valor mínim d'un vector i la seva posició.
+		<button onclick="myFunction(P7_4_3)">Veure Codi</button><br>
+		<solucio id="P7_4_3">
+		<pre><code class = "c++">void minim_i_posicio(const Vector_enter vec, unsigned n, unsigned&amp; pos, int&amp; min) {
+&nbsp; &nbsp; //Pre: 0&lt;n&lt;=N_MAX
+&nbsp; &nbsp; //Post: min &eacute;s el m&iacute;nim de vec[0..n-1] i pos &eacute;s la seva posici&oacute; (m&eacute;s a l'esquerre)
+&nbsp; &nbsp; min=vec[0];
+    pos=0;
+&nbsp; &nbsp; for (unsigned i=1; i&lt;n; i++) 
+       if (vec[i]&lt;min){
+         min=vec[i];
+         pos=i;
+       }
+}
+
+int main() {&nbsp; &nbsp;
+&nbsp; &nbsp; Vector_enter vec;
+    unsigned n;
+    ... &nbsp;
+    
+    int pos;
+    minim_i_posicio(vec,n,pos,min);
+&nbsp; &nbsp; cout&lt;&lt;&quot;M&iacute;nim vector= &quot;&lt;&lt;min&lt;&lt;endl&lt;&lt;&quot;Posici&oacute; m&iacute;nim vector= &quot;&lt;&lt;pos+1&lt;&lt;endl;
+&nbsp;&nbsp; &nbsp;...
+}</code></pre>
+		</solucio><br>
+		
+		<h2>Mínim fila i màxim columna d'una matriu</h2><br>
+		Obtenir el mínim de cada fila i el màxim de cada columna d'una matriu.
+		<button onclick="myFunction(P7_4_4)">Veure Codi</button><br>
+		<solucio id="P7_4_4">
+		<pre><code class = "c++">void minim_fila_matriu(const Matriu_enter mat, unsigned n, unsigned m, Vector_enter vec) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=m&lt;=N_COL_MAX
+&nbsp; &nbsp; //Post: vec[0..n-1] cont&eacute; el m&iacute;nim de cada fila de mat[0..n-1,0..m-1]
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; int min=mat[i][0];
+&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=1; j&lt;m; j++)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (mat[i][j]&lt;min) min=mat[i][j];
+&nbsp; &nbsp; &nbsp; &nbsp; vec[i]=min;
+&nbsp; &nbsp; }
+}
+void maxim_columna_matriu(const Matriu_enter mat, unsigned n, unsigned m, Vector_enter vec) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=m&lt;=N_COL_MAX
+&nbsp; &nbsp; //Post: vec[0..m-1] cont&eacute; el m&agrave;xim de cada columna de mat[0..n-1,0..m-1]
+&nbsp; &nbsp; for (unsigned j=0; j&lt;m; j++) {
+&nbsp; &nbsp; &nbsp; &nbsp; int max=mat[0][j];
+&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned i=1; i&lt;n; i++)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (mat[i][j]&gt;max) max=mat[i][j];
+&nbsp; &nbsp; &nbsp; &nbsp; vec[j]=max;
+&nbsp; &nbsp; }
+}</code></pre>
+		</solucio><br>
+  </teoria>
+  <!-- aquí aniria la cerca -->
+  <h4>Cerca d'un element</h4>
+  <teoria>
+	<h3>Cerca d'un element en un vector</h3>
+	<teoria>
+	<h2>Existència (o no) d’un element en un vector</h2><br>
+	Determinar l'existència o no d'un element en un vector.
+	<button onclick="myFunction(P7_5_1)">Veure Codi</button><br>
+	<solucio id="P7_5_1"><pre><code clss = "c++">bool existeix(const Vector_enter vec, unsigned n, int x) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
+&nbsp; &nbsp; //Post: retorna cert si x existeix a vec[0..n-1], altrament fals
+&nbsp; &nbsp; unsigned i=0;
+&nbsp; &nbsp; bool trobat=false;
+&nbsp; &nbsp; while (i&lt;n and not trobat) // not (i=n or trobat)
+&nbsp; &nbsp; &nbsp; &nbsp; if (vec[i]==x) trobat=true;
+&nbsp; &nbsp; &nbsp; &nbsp; else i++;
+&nbsp; &nbsp; return trobat;
+}
+
+int main() {&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; Vector_enter vec; 
+    unsigned n; 
+    cout&lt;&lt;&quot;Nombre d&rsquo;elements i elements del vector: &quot;&lt;&lt;endl;
+    cin&gt;&gt;n;
+&nbsp; &nbsp; llegir_vector_enter(vec,n);
+    int valor;
+    cout&lt;&lt;&quot;Entra el valor a cercar: &quot;;
+    cin&gt;&gt;valor; 
+    bool hi_es=existeix(vec,n,valor);
+    cout&lt;&lt;&quot;El &quot;&lt;&lt;valor&lt;&lt;&quot; &eacute;s al vector? &quot;&lt;&lt;boolalpha&lt;&lt;hi_es&lt;&lt;endl;
+}</code></pre></solucio><br>
+
+
+<h2>Existència (o no) d’un element en un vector ordenat</h2><br>
+	Determinar l'existència o no d'un element en un vector. 
+	<button onclick="myFunction(P7_5_1_2)">Veure Codi</button><br>
+	<solucio id="P7_5_1_2"><pre><code clss = "c++">bool existeix_vector_ordenat(const Vector_enter vec, unsigned n, int x) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX i vec[0..n-1] est&agrave; ordenat
+&nbsp; &nbsp; //Post: retorna cert si x existeix a vec[0..n-1], altrament fals
+&nbsp; &nbsp; unsigned i=0;
+&nbsp; &nbsp; bool acabat=false; trobat=false; 
+&nbsp; &nbsp; while (i&lt;n and not acabat) // not (i=n or acabat)
+&nbsp; &nbsp; &nbsp; &nbsp; if (vec[i]&gt;=x) { 
+            acabat=true; 
+            trobat=vec[i]==x;
+        }
+&nbsp; &nbsp; &nbsp; &nbsp; else i++;
+&nbsp; &nbsp; return trobat;
+}
+int main() {&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; Vector_enter vec; 
+    unsigned n; 
+    cout&lt;&lt;&quot;Nombre d&rsquo;elements i elements del vector ORDENATS de petit a gran: &quot;&lt;&lt;endl; cin&gt;&gt;n;
+&nbsp; &nbsp; llegir_vector_enter(vec,n);
+    int valor;
+    cout&lt;&lt;&quot;Entra el valor a cercar: &quot;; cin&gt;&gt;valor; 
+    bool hi_es=existeix_vector_ordenat(vec,n,valor);
+    cout&lt;&lt;&quot;El &quot;&lt;&lt;valor&lt;&lt;&quot; &eacute;s al vector? &quot;&lt;&lt;boolalpha&lt;&lt;hi_es&lt;&lt;endl;
+}</code></pre></solucio><br>
+
+
+<h2>Posició d’un element en un vector (si no hi és retorna -1)</h2><br>
+	Obtenir la posició en què es troba un element en un vector (en el cas que no hi sigui retornar -1).
+	<button onclick="myFunction(P7_5_2)">Veure Codi</button><br>
+	<solucio id="P7_5_2"><pre><code clss = "c++">int posicio_element(const Vector_enter vec, unsigned n, int x) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
+&nbsp; &nbsp; //Post: si x existeix a vec[0..n-1] retorna la seva posici&oacute; m&eacute;s petita, altrament -1
+&nbsp; &nbsp; int pos=-1;
+&nbsp; &nbsp; unsigned i=0;
+&nbsp; &nbsp; bool trobat=false;
+&nbsp; &nbsp; while (i&lt;n and not trobat) // not (i=n or trobat)
+&nbsp; &nbsp; &nbsp; &nbsp; if (vec[i]==x) trobat=true;
+&nbsp; &nbsp; &nbsp; &nbsp; else i++;
+&nbsp; &nbsp; if (trobat) pos=i;
+&nbsp; &nbsp; return pos;
+}
+int main() {
+&nbsp; &nbsp; Vector_enter vec; unsigned n;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre d&rsquo;elements i elements del vector: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; cin&gt;&gt;n;
+&nbsp; &nbsp; llegir_vector_enter(vec,n);
+&nbsp; &nbsp; int valor;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra el valor a cercar: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;valor;
+&nbsp; &nbsp; int pos=posicio_element(vec,n,valor);
+&nbsp; &nbsp; if (pos!=-1) cout&lt;&lt;&quot;La posici&oacute; de &quot;&lt;&lt;valor&lt;&lt;&quot; &eacute;s &quot;&lt;&lt;pos+1&lt;&lt;endl;
+&nbsp; &nbsp; else cout&lt;&lt;&quot;El &quot;&lt;&lt;valor&lt;&lt;&quot; no hi &eacute;s!&quot;&lt;&lt;endl;
+}
+</code></pre></solucio><br>
+
+
+<h2>Trobat i posició d’un element en un vector</h2><br>
+	Retocar el codi anterior per tal que s'obtingui la variable booleana trobat i la variable posició (aquesta només tindrà significat si l'element existeix).
+	<button onclick="myFunction(P7_5_2_2)">Veure Codi</button><br>
+	<solucio id="P7_5_2_2"><pre><code clss = "c++">void trobat_i_posicio_element(const Vector_enter vec, unsigned n, int x, bool&amp; trobat, unsigned&amp; pos) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
+&nbsp; &nbsp; //Post: si x existeix a vec[0..n-1], trobat=cert i pos=posici&oacute; m&eacute;s petita de x, altrament trobat=fals i pos no t&eacute; significat
+&nbsp; &nbsp; unsigned i=0;
+&nbsp; &nbsp; trobat=false;
+&nbsp; &nbsp; while (i&lt;n and not trobat) // not (i=n or trobat)
+&nbsp; &nbsp; &nbsp; &nbsp; if (vec[i]==x) trobat=true;
+&nbsp; &nbsp; &nbsp; &nbsp; else i++;
+&nbsp; &nbsp; if (trobat) pos=i;
+}
+int main() {
+&nbsp; &nbsp; Vector_enter vec; unsigned n;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre d&rsquo;elements i elements del vector: &quot;&lt;&lt;endl; cin&gt;&gt;n;
+&nbsp; &nbsp; llegir_vector_enter(vec,n);
+&nbsp; &nbsp; int valor;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra el valor a cercar: &quot;; cin&gt;&gt;valor;
+&nbsp; &nbsp; bool trobat; unsigned pos;
+&nbsp; &nbsp; trobat_i_posicio_element(vec,n,valor,trobat,pos);
+&nbsp; &nbsp; if (trobat) cout&lt;&lt;&quot;La posici&oacute; de &quot;&lt;&lt;valor&lt;&lt;&quot; &eacute;s &quot;&lt;&lt;pos+1&lt;&lt;endl;
+&nbsp; &nbsp; else cout&lt;&lt;&quot;El &quot;&lt;&lt;valor&lt;&lt;&quot; no hi &eacute;s!&quot;&lt;&lt;endl;
+}</code></pre></solucio><br>
+
+
+
+
+	
+	</teoria>
+  
+  </teoria>
+  
+  
 
   	
  </div>
