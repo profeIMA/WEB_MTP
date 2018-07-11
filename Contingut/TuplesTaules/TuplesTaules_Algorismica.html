@@ -149,9 +149,55 @@ void maxim_columna_matriu(const Matriu_enter mat, unsigned n, unsigned m, Vector
 }</code></pre>
 		</solucio><br>
   </teoria>
-  <!-- aquí aniria la cerca -->
-  <h4>Cerca d'un element</h4>
+  <h4>Cerca en taules</h4>
   <teoria>
+      <h2>Determinar si un vector està ordenat creixentment</h2>
+      <button onclick="myFunction(P7_5_4)">Veure Codi</button><br>
+	<solucio id="P7_5_4"><pre><code clss = "c++">bool es_creixent(const Vector_enter vec, unsigned n) {
+&nbsp; &nbsp; //Pre: 0&lt;n&lt;=N_MAX
+&nbsp; &nbsp; //Post: retorna cert si vec[0..n-1] &eacute;s creixent, altrament fals
+&nbsp; &nbsp; unsigned i=0;
+&nbsp; &nbsp; bool creixent=true;
+&nbsp; &nbsp; while (i&lt;n-1 and creixent) // not (i=n-1 or not creixent)
+&nbsp; &nbsp; &nbsp; &nbsp; if (vec[i]&gt;vec[i+1]) creixent=false;
+&nbsp; &nbsp; &nbsp; &nbsp; else i++;
+&nbsp; &nbsp; return creixent;
+}
+
+int main() {
+&nbsp; &nbsp; Vector_enter vec; unsigned n;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre d&rsquo;elements (&gt;0) i elements del vector: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; cin&gt;&gt;n;
+&nbsp; &nbsp; llegir_vector_enter(vec,n);
+
+&nbsp; &nbsp; cout&lt;&lt;&quot;&Eacute;s creixent el vector? &quot;&lt;&lt;boolalpha&lt;&lt;es_creixent(vec,n)&lt;&lt;endl;
+            }</code></pre></solucio><br>
+        <h2>Donat un vector d'enters, indicar si hi ha tres elements consecutius tals que la seva suma sigui més gran que una certa quantitat.</h2>
+        <button onclick="myFunction(P7_5_5)">Veure Codi</button><br>
+	    <solucio id="P7_5_5"><pre><code clss = "c++">bool hi_ha_tres_elements(const Vector_enter vec, unsigned n, int valor_suma) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
+&nbsp; &nbsp; //Post: retorna cert si a vec[0..n-1] hi has 3 elements seguits que sumen m&eacute;s que valor_suma, altrament fals
+&nbsp; &nbsp; bool trobat=false;
+&nbsp; &nbsp; if (n&gt;2) {
+&nbsp; &nbsp; &nbsp; &nbsp; unsigned i=0;
+&nbsp; &nbsp; &nbsp; &nbsp; while (i&lt;n-2 and not trobat) // not (i=n-2 or trobat)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (vec[i]+vec[i+1]+vec[i+2]&gt;valor_suma) trobat=true;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else i++;
+&nbsp; &nbsp; }
+&nbsp; &nbsp; return trobat;
+}
+
+int main() {
+&nbsp; &nbsp; Vector_enter vec; unsigned n;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre d&rsquo;elements i elements del vector: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; cin&gt;&gt;n;
+&nbsp; &nbsp; llegir_vector_enter(vec,n);
+&nbsp; &nbsp; int valor;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra el valor de la suma: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;valor;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Hi ha 3 elements seguits que la seva suma &gt; &quot;&lt;&lt;valor&lt;&lt;&quot; ? &quot;&lt;&lt;boolalpha&lt;&lt; hi_ha_tres_elements(vec,n,valor)&lt;&lt;endl;
+                }</code></pre></solucio><br>
+
 	<h3>Cerca d'un element en un vector</h3>
 	<teoria>
 	<h2>Existència (o no) d’un element en un vector</h2><br>
@@ -263,14 +309,70 @@ int main() {
 &nbsp; &nbsp; trobat_i_posicio_element(vec,n,valor,trobat,pos);
 &nbsp; &nbsp; if (trobat) cout&lt;&lt;&quot;La posici&oacute; de &quot;&lt;&lt;valor&lt;&lt;&quot; &eacute;s &quot;&lt;&lt;pos+1&lt;&lt;endl;
 &nbsp; &nbsp; else cout&lt;&lt;&quot;El &quot;&lt;&lt;valor&lt;&lt;&quot; no hi &eacute;s!&quot;&lt;&lt;endl;
-}</code></pre></solucio><br>
+}</code></pre></solucio><br><br>
 
+    </teoria>
+    
+    <h3>Cerca en un vecotor ordenat</h3>
+  <teoria>
+        <h2>Cerca elment</h2><br><br>
+        <teoria>
+        Calcular si existeix o no un element en un vector ordenat utilitzant la cerca dicotòmica. 
+        <button onclick="myFunction(P7_5_3)">Veure Codi</button>
+        <solucio id="P7_5_3"><pre><code class="c++">bool existeix_dicotomic(const Vector_enter vec, int n, int x) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX i vec[0..n-1] ordenat creixentment
+&nbsp; &nbsp; //Post: retorna cert si x existeix a vec[0..n-1], altrament fals
+&nbsp; &nbsp; int esquerre=0, dret=n-1;
+&nbsp; &nbsp; bool trobat=false;
+&nbsp; &nbsp; while (esquerre&lt;=dret and not trobat) {
+&nbsp; &nbsp; &nbsp; &nbsp; int mig=(esquerre+dret)/2;
+&nbsp; &nbsp; &nbsp; &nbsp; if (x==vec[mig]) trobat=true;
+&nbsp; &nbsp; &nbsp; &nbsp; else if (x&lt;vec[mig]) dret=mig-1;
+&nbsp; &nbsp; &nbsp; &nbsp; else esquerre=mig+1;
+&nbsp; &nbsp; }
+&nbsp; &nbsp; return trobat;
+}
+int main() {
+&nbsp; &nbsp; Vector_enter vec; unsigned n;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre d&rsquo;elements i elements del vector ordenats de petit a gran: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; cin&gt;&gt;n;
+&nbsp; &nbsp; llegir_vector_enter(vec,n);
+&nbsp; &nbsp; int valor;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra el valor a cercar: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;valor;
+&nbsp; &nbsp; bool hi_es=existeix_dicotomic(vec,n,valor);
+&nbsp; &nbsp; cout&lt;&lt;&quot;El &quot;&lt;&lt;valor&lt;&lt;&quot; &eacute;s al vector? &quot;&lt;&lt;boolalpha&lt;&lt;hi_es&lt;&lt;endl;
+            }</code></pre></solucio><br><br>
 
-
-
-	
-	</teoria>
-  
+            Retocar el codi anterior per tal que indiqui també la posició en el cas que s'hagi trobat.
+            <button onclick="myFunction(P7_5_3_2)">Veure Codi</button>
+            <solucio id="P7_5_3_2"><pre><code class="c++">bool existeix_dicotomic(const Vector_enter vec, int n, int x) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX i vec[0..n-1] ordenat creixentment
+&nbsp; &nbsp; //Post: retorna cert si x existeix a vec[0..n-1], altrament fals
+&nbsp; &nbsp; int esquerre=0, dret=n-1;
+&nbsp; &nbsp; bool trobat=false;
+&nbsp; &nbsp; while (esquerre&lt;=dret and not trobat) {
+&nbsp; &nbsp; &nbsp; &nbsp; int mig=(esquerre+dret)/2;
+&nbsp; &nbsp; &nbsp; &nbsp; if (x==vec[mig]) trobat=true;
+&nbsp; &nbsp; &nbsp; &nbsp; else if (x&lt;vec[mig]) dret=mig-1;
+&nbsp; &nbsp; &nbsp; &nbsp; else esquerre=mig+1;
+&nbsp; &nbsp; }
+&nbsp; &nbsp; return trobat;
+}
+int main() {
+&nbsp; &nbsp; Vector_enter vec; unsigned n;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre d&rsquo;elements i elements del vector ordenats de petit a gran: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; cin&gt;&gt;n;
+&nbsp; &nbsp; llegir_vector_enter(vec,n);
+&nbsp; &nbsp; int valor;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra el valor a cercar: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;valor;
+&nbsp; &nbsp; bool hi_es=existeix_dicotomic(vec,n,valor);
+&nbsp; &nbsp; cout&lt;&lt;&quot;El &quot;&lt;&lt;valor&lt;&lt;&quot; &eacute;s al vector? &quot;&lt;&lt;boolalpha&lt;&lt;hi_es&lt;&lt;endl;
+                }</code></pre></solucio>
+    
+        </teoria>
+    </teoria>
   </teoria>
   
   
