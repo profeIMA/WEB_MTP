@@ -89,6 +89,31 @@
             Amb aquest codi, tenim tota la traça ben documentada de la nostre execució. Com heu pogut observar, en comptes d'utilitzar <b>cout</b>, utilitzem <b>cerr</b>, això és degut perquè utilitzem un altre canal (el qual també es mostra per pantalla), però és un canal dedicat a mostrar errors i informació rellevant pels desenvolupadors, que en la versió final del programa es pot fer que no es mostri.<br>
             
         </teoria>
+        
+    </teoria>
+    <h3>Errors per un pas</h3>
+    <teoria>
+        A vegades quan fem estructures alternatives ens equivoquem en pensar el nombre de iteracions i potser ens deixem de processar un element. D'aquests errors, en diem errors per un pas, i és que a vegades no és tant intuitiu veure com ha d'anar una estructura. Un exemple: <br> 
+        <exercici>Volem fer que l'usuari entri lletres fins a una d. En tots els casos, si ha entrat una minuscula, entrarem una majuscula i viceversa.</exercici>
+        <pre><code class = "c++">
+            boolfi_sequencia; 
+            char c;
+            cout&lt;&lt;"Entra un caracter: ";
+            cin&gt;&gt;c;
+            
+            fi_sequencia = c == 'd';
+            while(!fi_sequencia)
+            {
+                cout&lt;&lt;"Has entrat la lletra: "&lt;&lt;MajusToMinusAndVice(c)&lt;&lt;endl; 
+                cout&lt;&lt;"Entra un caracter: ";
+                cin&gt;&gt;c;
+                fi_sequencia = c == 'd';
+            }
+            
+            return 0;//EIS QUE NO HEM PROCESSAT LA D!!!!
+        </code></pre>
+        
+        Aquest és un exemple d'un error per pas, on no hem procesat l'últim element. Per trobar aquests errors també podem utilitzar la traça per veure el funcionament del nostre codi.
     </teoria>
 <p class = footer>
   <center>
