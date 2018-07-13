@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body>
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      DECISIONS
+    </h1>
+  </center>
+    <h4>Exercicis</h4>
+       
+     <!-------------------------------------------------------------------------------------------------------------------------->
+     <!------------------------------------------ EXERCICI 1 -------------------------------------------------------------------->
+     <!-------------------------------------------------------------------------------------------------------------------------->
+    <h3>Exercici 1</h3>
+    <exercici>
+        Què escriuen aquests fragments de codi?
+    </exercici>
+    <ul>
+        <li>
+            <pre><code class = "C++">
+                int n = 1; int m = -1;
+                if (-n &gt;= m) { cout &lt;&lt; n; } else { cout &lt;&lt; m; }
+            </code></pre>
+            
+            <button onclick="myFunction(Ex10)">Solucio</button>
+            <solucio id="Ex10">Resultat = 1<br></solucio>
+        </li>
+        
+        <li>
+             <pre><code class = "C++">
+                int n = 1; int m = -1;
+                if (n &lt; -m) { cout &lt;&lt; n; } else { cout &lt;&lt; m; }
+            </code></pre>
+            
+             <button onclick="myFunction(Ex11)">Solucio</button>
+            <solucio id="Ex11">Resultat = -1<br></solucio>
+        </li>
+        
+         <li>
+             <pre><code class = "C++">
+                double x = 0; dobule y = 1;
+                if (fabs(x - y) &lt; 1 ) { cout &lt;&lt; x; } else { cout &lt;&lt; y; }
+            </code></pre>
+             
+             <button onclick="myFunction(Ex12)">Solucio</button>
+            <solucio id="Ex12">Resultat = 1<br></solucio>
+        </li>
+        <li>
+             <pre><code class = "C++">
+                double x = sqrt(2); dobule y = 2;
+                if (x * x == y) { cout &lt;&lt; x; } else { cout &lt;&lt; y; }
+            </code></pre>
+            
+            <button onclick="myFunction(Ex13)">Solucio</button>
+            <solucio id="Ex13">Resultat = &radic;2<br></solucio>
+        </li>
+    </ul>
+    
+     <!-------------------------------------------------------------------------------------------------------------------------->
+     <!------------------------------------------ EXERCICI 2 -------------------------------------------------------------------->
+     <!-------------------------------------------------------------------------------------------------------------------------->
+    <h3>Exercici 2</h3>
+    <exercici>
+        Les següents expressions, on b és de tipus bool, poden ser simplificades i, de fet, considerarem que la forma simplificada és la manera correcta d'escriure-les! 
+    </exercici>
+    <pseudocodi><pre><code class ="nohighlight">
+        b == true
+        b == false
+        b != true
+        b != false
+    </code></pre></pseudocodi>
+    
+    <button onclick="myFunction(Ex20)">Solucio</button>
+    <solucio id="Ex20">
+        <pseudocodi><pre><code class="nohighlight">
+            b //equival a: b == true
+            !b //equival a: b == false
+            !b //equival a: b == false == no true
+            b //equival a: b == true == no false
+        </code></pre></pseudocodi>
+    </solucio>
+    
+    
+     <!-------------------------------------------------------------------------------------------------------------------------->
+     <!------------------------------------------ EXERCICI 3 -------------------------------------------------------------------->
+     <!-------------------------------------------------------------------------------------------------------------------------->
+    
+    <h3>Exercici 3</h3>
+    <exercici>
+        Donat un caràcter, escriure un comentari que digui si és un dígit, una lletra minúscula, una lletra majúscula o un altre tipus de caràcter.<br>
+    </exercici>
+    
+    <button onclick="myFunction(Ex30)">Solucio</button>
+    <solucio id="Ex30">
+        <pre><code class="c++">
+            // Entrada: llegeix un caràcter (caracter)
+            // Sortida: escriu un comentari que indica si caracter és un dígit, una lletra minúscula, una lletra majúscula o un altre tipus de caràcter
+
+            #include &lt;iostream&gt;
+            using namespace std;
+
+            int main() {
+                char caracter;
+                cout&lt;&lt;"Caràcter: ";
+                cin&gt;&gt;caracter;
+                cout&lt;&lt;caracter&lt;&lt;" és ";
+                if (caracter &gt;='0' and caracter &lt;='9') cout&lt;&lt;"un dígit"&lt;&lt;endl;
+                else if (caracter &gt;='a' and caracter &lt;='z') cout&lt;&lt;"una lletra minúscula"&lt;&lt;endl;
+                else if (caracter &gt;='A' and caracter &lt;='Z') cout&lt;&lt;"una lletra majúscula"&lt;&lt;endl;
+                else cout&lt;&lt;"un altre caràcter"&lt;&lt;endl;
+                return 0;
+            }
+
+        </code></pre>
+    </solucio>
+     <!-------------------------------------------------------------------------------------------------------------------------->
+     <!------------------------------------------ EXERCICI 4 -------------------------------------------------------------------->
+     <!-------------------------------------------------------------------------------------------------------------------------->
+    
+    <h3>Exercici 4</h3>
+    <exercici>
+        S'entren 3 nombres naturals que representen hores (&lt;24), minuts (&lt;60) i segons &lt;60) i s'escriu el resultat d'afegir un segon a les dades anteriors, tenint en compte que el nombre de minuts i el nombre de segons segueixin essent &lt;60.<br>
+    </exercici>
+    
+    <button onclick="myFunction(Ex40)">Solucio</button>
+    <solucio id="Ex40">
+        <pre><code class="c++">
+           // Entrada: llegeix 3 nombres naturals (hora, minut, segon)
+            // Sortida: escriu hora, minut i segon després d'haver incrementat un segon a les dades entrades
+            
+            #include &lt;iostream&gt;
+            
+            using namespace std;
+            
+            int main() {
+                const unsigned HORES_DIA=24, MINUTS_HORA=60, SEGONS_MINUT=60;
+                unsigned hora, minut, segon;
+                cout&lt;&lt;"Entra hora (0-23) minut (0-59) segon (0-59): "; cin&gt;&gt;hora&gt;&gt;minut&gt;&gt;segon;
+                segon++;
+                if (segon==SEGONS_MINUT) {
+                    segon=0; minut++;
+                    if (minut==MINUTS_HORA) {
+                        minut=0; hora++;
+                        if (hora==HORES_DIA)
+                            hora=0;
+                    }
+                }
+                cout&lt;&lt;hora&lt;&lt;":"&lt;&lt;minut&lt;&lt;":"&lt;&lt;segon&lt;&lt;endl;
+                return 0;
+            }
+        </code></pre>
+    </solucio>
+<p class = footer>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+</div>
+
+
+
+</body>
+
+</html>
+
+ 
