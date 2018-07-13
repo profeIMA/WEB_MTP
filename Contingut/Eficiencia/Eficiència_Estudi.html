@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body>
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      EFICIÈNCIA
+    </h1>
+  </center>
+    <h4>Estudi de l'eficiència</h4>
+    <h3>Què mesurem?</h3>
+    <teoria>
+        La eficiència està directament relacionada amb els recursos que utilitza el sistem. En el nostre cas ens centrerem en saber el <b>temps</b> que tarda el nostre algorisme a fer totes les instruccions. Malgrat tot, els temps dels algorismes poden variar en funció de variables <i>aleatòries</i>,
+        per exemple, un algorisme que ha de buscar un valor en un vector, el seu temps canviarà si el valor buscat és el primer o l'últim. Per aquest motiu, sempre es busca el <b>pitjor</b> i el <b>millor</b> dels casos. Sovint es prefereix utiltizar el pitjor dels casos que el millor.<br>
+        Aquests temps, solen dependre directament de la <b>quantitat de dades</b> de les que disposem. 
+    </teoria>
+    
+    <h3>Grandària de les dades</h3>
+    <teoria>
+        Com hem vist a <a href="../TipusVariables/TipusVariables_TElemDades.html"> tipus de variables</a>, cada tipus té un cost diferent de memòria. És per això que quan volem saber la grandària de les nostres dades mirem: 
+        <ul>
+            <li><b>Nombre de bits</b>: necessàris per reprensentar / guardar les nostres dades. És un dels factors més importants i es representa per la lletra <b>n</b>.</li>
+            <li><b>Exemples:</b>
+                <ul>
+                    <li>Un vector d'enters de <b>m</b> elements: Si cada posició són 32 bits, aleshores, la mida serà de <b>nombres guardats * 32 = m</b>. I aixo equival a: <b> n = m </b></li>
+                    <li>El càlcul d'un factorial !a, aleshores n = log<sub>2</sub>(m)</li>
+                </ul>
+            </li>
+        </ul>
+    </teoria>
+        
+    
+<p class = footer>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+</div>
+
+
+
+</body>
+
+</html>
+
+ 
