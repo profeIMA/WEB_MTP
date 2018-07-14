@@ -77,7 +77,7 @@ int b[]; // matriu o vector de vectors
 	<h3>Tipus taula</h3>
 	
 	<teoria>
-		Les definicions de tipus amb typedef s'acostumen a escriure abans de les accions, funcions i main.
+		
 	
 		<pre><code class="c++">struct Punt_2d {double x; double y;};
 
@@ -95,7 +95,7 @@ int main(){
     ...
 }</code></pre>
 
-		Es repcomana usar typedef i constants, així:
+		També es pot fer usant typedef i constants, així:
 		<pre><code class="c++">const unsigned N_MAX=100, N_FIL_MAX=100, N_COL_MAX=100;
 
 struct Punt_2d {double x; double y;};
@@ -155,7 +155,6 @@ trobat=fals
 mentre index&lt;n i no trobat fer
 	tractar element (index, trobat)
 tractament final</code></pre></pseudocodi>
-					<alerta>A <i>tractar element</i> <alerta>caldrà actualitar trobat i, si cal, incrementar índex</alerta>
 					</li>
 					<li> <strong> Esquema simple de cerca (matriu n*m)</strong>
 					<pseudocodi><pre><code class ="nohighlight">index_fila=0
@@ -166,7 +165,6 @@ mentre index_fila&lt;n i no trobat fer
 		tractar element (index_columna, trobat)
 	index_fila=index_fila+1
 tractament final</code></pre></pseudocodi>
-					<alerta>A <i>tractar element</i> <alerta>caldrà actualitar trobat i, si cal, incrementar índex</alerta>
 					</li>
 				</ul>
 			</li>

@@ -36,7 +36,7 @@
   
   <h4>Recorregut</h4>
   <teoria>
-	<h2>Suma vector</h2><br>
+	<h2>4.1 Suma vector</h2><br>
 	Calcular la suma dels elements d'un vector.
 	<button onclick="myFunction(P7_4_1)">Veure Codi</button><br>
 		<solucio id="P7_4_1">
@@ -65,7 +65,7 @@ int main() {&nbsp;
 }</code></pre>
 		</solucio><br>
 		
-		<h2>Suma matriu</h2><br>
+		<h2>4.2 Suma matriu</h2><br>
 		Calcular la suma dels elements d'una matriu.
 		<button onclick="myFunction(P7_4_2)">Veure Codi</button><br>
 		<solucio id="P7_4_2">
@@ -95,7 +95,7 @@ int main() { &nbsp;
 </code></pre>
 		</solucio><br>
 		
-		<h2>Mínim d'un vector i la seva posició</h2><br>
+		<h2>4.3 Mínim d'un vector i la seva posició</h2><br>
 		Trobar el valor mínim d'un vector i la seva posició.
 		<button onclick="myFunction(P7_4_3)">Veure Codi</button><br>
 		<solucio id="P7_4_3">
@@ -123,7 +123,7 @@ int main() {&nbsp; &nbsp;
 }</code></pre>
 		</solucio><br>
 		
-		<h2>Mínim fila i màxim columna d'una matriu</h2><br>
+		<h2>4.4 Mínim fila i màxim columna d'una matriu</h2><br>
 		Obtenir el mínim de cada fila i el màxim de cada columna d'una matriu.
 		<button onclick="myFunction(P7_4_4)">Veure Codi</button><br>
 		<solucio id="P7_4_4">
@@ -151,7 +151,7 @@ void maxim_columna_matriu(const Matriu_enter mat, unsigned n, unsigned m, Vector
   </teoria>
   <h4>Cerca en taules</h4>
   <teoria>
-      <h2>Determinar si un vector està ordenat creixentment</h2>
+      <h2>5.4 Determinar si un vector està ordenat creixentment</h2>
       <button onclick="myFunction(P7_5_4)">Veure Codi</button><br>
 	<solucio id="P7_5_4"><pre><code clss = "c++">bool es_creixent(const Vector_enter vec, unsigned n) {
 &nbsp; &nbsp; //Pre: 0&lt;n&lt;=N_MAX
@@ -172,7 +172,7 @@ int main() {
 
 &nbsp; &nbsp; cout&lt;&lt;&quot;&Eacute;s creixent el vector? &quot;&lt;&lt;boolalpha&lt;&lt;es_creixent(vec,n)&lt;&lt;endl;
             }</code></pre></solucio><br>
-        <h2>Donat un vector d'enters, indicar si hi ha tres elements consecutius tals que la seva suma sigui més gran que una certa quantitat.</h2>
+        <h2>5.5 Donat un vector d'enters, indicar si hi ha tres elements consecutius tals que la seva suma sigui més gran que una certa quantitat.</h2>
         <button onclick="myFunction(P7_5_5)">Veure Codi</button><br>
 	    <solucio id="P7_5_5"><pre><code clss = "c++">bool hi_ha_tres_elements(const Vector_enter vec, unsigned n, int valor_suma) {
 &nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
@@ -200,7 +200,7 @@ int main() {
 
 	<h3>Cerca d'un element en un vector</h3>
 	<teoria>
-	<h2>Existència (o no) d’un element en un vector</h2><br>
+	<h2>5.1 Existència (o no) d’un element en un vector</h2><br>
 	Determinar l'existència o no d'un element en un vector.
 	<button onclick="myFunction(P7_5_1)">Veure Codi</button><br>
 	<solucio id="P7_5_1"><pre><code clss = "c++">bool existeix(const Vector_enter vec, unsigned n, int x) {
@@ -228,7 +228,7 @@ int main() {&nbsp;&nbsp; &nbsp;
 }</code></pre></solucio><br>
 
 
-<h2>Existència (o no) d’un element en un vector ordenat</h2><br>
+<h2>5.1 Existència (o no) d’un element en un vector ordenat</h2><br>
 	Determinar l'existència o no d'un element en un vector. 
 	<button onclick="myFunction(P7_5_1_2)">Veure Codi</button><br>
 	<solucio id="P7_5_1_2"><pre><code clss = "c++">bool existeix_vector_ordenat(const Vector_enter vec, unsigned n, int x) {
@@ -256,7 +256,7 @@ int main() {&nbsp;&nbsp; &nbsp;
 }</code></pre></solucio><br>
 
 
-<h2>Posició d’un element en un vector (si no hi és retorna -1)</h2><br>
+<h2>5.2 Posició d’un element en un vector (si no hi és retorna -1)</h2><br>
 	Obtenir la posició en què es troba un element en un vector (en el cas que no hi sigui retornar -1).
 	<button onclick="myFunction(P7_5_2)">Veure Codi</button><br>
 	<solucio id="P7_5_2"><pre><code clss = "c++">int posicio_element(const Vector_enter vec, unsigned n, int x) {
@@ -286,7 +286,7 @@ int main() {
 </code></pre></solucio><br>
 
 
-<h2>Trobat i posició d’un element en un vector</h2><br>
+<h2>5.2 Trobat i posició d’un element en un vector</h2><br>
 	Retocar el codi anterior per tal que s'obtingui la variable booleana trobat i la variable posició (aquesta només tindrà significat si l'element existeix).
 	<button onclick="myFunction(P7_5_2_2)">Veure Codi</button><br>
 	<solucio id="P7_5_2_2"><pre><code clss = "c++">void trobat_i_posicio_element(const Vector_enter vec, unsigned n, int x, bool&amp; trobat, unsigned&amp; pos) {
@@ -315,7 +315,7 @@ int main() {
     
     <h3>Cerca en un vector ordenat - cerca dicotòmica</h3>
   <teoria>
-        
+        <h2>5.3 Cerca dicotòmica</h2><br>
         Calcular si existeix o no un element en un vector ordenat utilitzant la cerca dicotòmica. 
         <button onclick="myFunction(P7_5_3)">Veure Codi</button>
         <solucio id="P7_5_3"><pre><code class="c++">bool existeix_dicotomic(const Vector_enter vec, int n, int x) {
@@ -375,7 +375,7 @@ int main() {
   
   <h4>Mètodes d'ordenació i inserció</h4>
   <teoria>
-	<h2>Ordenació d'intercanvi directe (bombolla)</h2><br> 
+	<h2>6.1.1 Ordenació d'intercanvi directe (bombolla)</h2><br> 
 	<button onclick="myFunction(P7_6_1)">Veure Codi</button>
             <solucio id="P7_6_1"><pre><code class="c++">void intercanvi(int&amp; x, int&amp; y) {
     //Pre: x=X i y=Y
@@ -413,7 +413,7 @@ int main() {
 }</code></pre></solucio><br><br>
   
   
-  <h2>Ordenació vector per "selecció directa"</h2><br> 
+  <h2>6.1.2 Ordenació vector per "selecció directa"</h2><br> 
 	<button onclick="myFunction(P7_6_1_2)">Veure Codi</button>
             <solucio id="P7_6_1_2"><pre><code class="c++">void intercanvi(int&amp; x, int&amp; y) {
 &nbsp; &nbsp; int aux=x; x=y; y=aux;
@@ -456,7 +456,7 @@ int main() {
 &nbsp; &nbsp; return 0;
 }</code></pre></solucio><br><br>
 	
-		<h2>Inserció d'un element en un vector (versió 1)</h2><br> 
+		<h2>6.2 Inserció d'un element en un vector (versió 1)</h2><br> 
 		<button onclick="myFunction(P7_6_2_1)">Veure Codi</button>
         <solucio id="P7_6_2_1"><pre><code class="c++">void insercio(Vector_enter vec, unsigned&amp; n, int element) {
 &nbsp; &nbsp; //Pre: 0&lt;=n&lt;N_MAX i vec[0..n-1] est&agrave; ordenat i vec=VEC i n=N
@@ -481,7 +481,7 @@ int main() {
 }</code></pre></solucio><br><br>
 
 
-		<h2>Inserció d'un element en un vector (versió 2)</h2><br> 
+		<h2>6.2 Inserció d'un element en un vector (versió 2)</h2><br> 
 		<button onclick="myFunction(P7_6_2_2)">Veure Codi</button>
         <solucio id="P7_6_2_2"><pre><code class="c++">void insercio(Vector_enter vec, int&amp; n, int element) {
 &nbsp; &nbsp; //Pre: 0&lt;=n&lt;N_MAX i vec[0..n-1] est&agrave; ordenat i vec=VEC i n=N
@@ -509,7 +509,7 @@ int main() {
 }</code></pre></solucio><br><br>
 
 
-		<h2>Ordenació vector per "inserció directa"</h2><br> 
+		<h2>6.3 Ordenació vector per "inserció directa"</h2><br> 
 		<button onclick="myFunction(P7_6_3)">Veure Codi</button>
         <solucio id="P7_6_3"><pre><code class="c++">void insercio_des_de(Vector_enter vec, unsigned pos) {
 &nbsp; &nbsp; //Pre: 0&lt;pos&lt;N_MAX i vec[0..pos-1] est&agrave; ordenat i vec=VEC
@@ -548,7 +548,7 @@ int main() {
 &nbsp; &nbsp; return 0;
 }</code></pre></solucio><br><br>
 
-		<h2>Inserció en un vector ordenat si la posició és coneguda</h2><br>
+		<h2>6.4 i 6.5 Inserció en un vector ordenat si la posició és coneguda</h2><br>
 		Es cercarà la posició d'inserció en el vector ordenat amb una cerca dicotòmica. 
 		<button onclick="myFunction(P7_6_4)">Veure Codi</button>
         <solucio id="P7_6_4"><pre><code class="c++">void insercio_des_de(Vector_enter vec, unsigned pos) {
@@ -589,7 +589,7 @@ int main() {
 }</code></pre></solucio><br><br>
 
 
-		<h2>Inserció en un vector ordenat si la posició és coneguda</h2><br>
+		<h2>6.6 Ordenació vector per "inserció binària"</h2><br>
 		Usem la inserció en un vector ordenat si la posició és coneguda vista en l'apartat anterior.
 		<button onclick="myFunction(P7_6_6)">Veure Codi</button>
         <solucio id="P7_6_6"><pre><code class="c++">unsigned posicio_insercio_dicotomica(const Vector_enter vec, int n, int element) {
@@ -644,7 +644,7 @@ int main() {&nbsp;
   
   <teoria>
   
-  <h2>Esborrar element d'un vector ordenat donada la posició</h2><br>
+  <h2>7.1 Esborrar element d'un vector ordenat donada la posició</h2><br>
 	<button onclick="myFunction(P7_7_1)">Veure Codi</button>
         <solucio id="P7_7_1"><pre><code class="c++">void esborrat_coneguda_posicio(Vector_enter vec, unsigned&amp; n, unsigned pos) {
 &nbsp; &nbsp; //Pre: 0&lt;n&lt;=N_MAX i vec[0..n-1] est&agrave; ordenat i vec=VEC i n=N i 0&lt;=pos&lt;n
@@ -669,7 +669,7 @@ int main() {
 &nbsp; &nbsp; return 0;
 }</code></pre></solucio><br><br>
   
-  <h2>Esborrar element d'un vector donada la posició, sense ordre</h2><br>
+  <h2>7.2 Esborrar element d'un vector donada la posició, sense ordre</h2><br>
   	<button onclick="myFunction(P7_7_1_2)">Veure Codi</button>
         <solucio id="P7_7_1_2"><pre><code class="c++">void esborrat_coneguda_posicio_sense_ordre(Vector_enter vec, unsigned&amp; n, unsigned pos) {
 &nbsp; &nbsp; //Pre: 0&lt;n&lt;=N_MAX i vec=VEC i n=N i 0&lt;=pos&lt;n
@@ -702,7 +702,7 @@ int main() {
 	
 	<h3>Cerca d'un elment</h3>
 	<teoria>
-		<h2>Existència (o no) d’un element en un vector de tuples</h2><br>
+		<h2>5.1 Existència (o no) d’un element en un vector de tuples</h2><br>
 		<button onclick="myFunction(P7_5_1_3)">Veure Codi</button>
         <solucio id="P7_5_1_3"><pre><code class="c++">struct Producte {
 &nbsp; &nbsp; unsigned codi;
@@ -801,7 +801,7 @@ int main() {
 	
 	<h3>Ordenació</h3>
 	<teoria>
-	<h2>Ordenar taula de punts per proximitat a (0,0)</h2><br>
+	<h2>9.3 Ordenar taula de punts per proximitat a (0,0)</h2><br>
 		Donada una taula de punts de tipus Punt_2d, ordenar-la de menor a major distància a l'origen. 
 		<button onclick="myFunction(P7_9_3)">Veure Codi</button>
         <solucio id="P7_9_3"><pre><code class="c++">struct Punt {double x; double y;};
@@ -853,7 +853,7 @@ int main() {&nbsp; &nbsp;
 &nbsp; &nbsp; ordenacio_seleccio_directa(punts,n); 
     escriure_taula_punts (punts,n);&nbsp;&nbsp; &nbsp;
 }</code></pre></solucio><br><br>
-	<h2>Ordenar una taula d’atletes segons diferents criteris</h2><br>
+	<h2>9.4 Ordenar una taula d’atletes segons diferents criteris</h2><br>
 		El següent exercici consisteix en fer una accióq ue permeti ordenar un vector d'n atletes segons diferents criteris. Cada atleta té un nom, un país i un tipus d'esport o modalitat associat. 
 		L'ordenació del vector ha de poder ser per ordre alfabètic ascendent segons el nom d'atleta, la modalitat o el país. Els desempats es faran tenint en compte els altres dos camps seguint 
 		l'ordre nom-modalitat-país (p.e., si ordenem per modalitat, els d'igual modalitat s'ordenaran primer per nom i després per país).
