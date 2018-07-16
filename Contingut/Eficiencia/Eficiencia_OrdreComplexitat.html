@@ -34,7 +34,47 @@
     </h1>
   </center>
     <h4>Ordre de complexitat</h4>
-
+    L'ordre de complexitat és utiltizat per fer una estimació matemàtica del nombre d'operacions que realitza el nostre algorisme. Com s'ha explicat anteriorment les <a href="Eficiencia_Estudi.html">operacions unitàries</a>, podrem veure quantes operacions està utilitzant. 
+    <br>
+    També veurem que passa quan un programa és molt extens o bé, el nombre d'operacions creix. 
+    <h3>Càlcul del nombre d'operacions</h3>
+    <teoria>
+        Per fer el càlcul del nombre d'operacions només cal que fem la traça de tot el programa i anem contant quantes operacions està realitzen el nostre algorisme. <br> <br> 
+        Per exemple: 
+        <pre><code class="C++">
+            int suma = 0; 
+            for(int i = 0; i != 9; i++)
+            {
+                suma+=i; //Cost unitàri, operació aritmètica.
+            }
+        </code></pre>
+        El nombre d'operacions que es fan són: <b>9 Sumes + 1 assignació = 10</b>. <br><br>
+        
+        Està clar aque aquest programa és exageradament simple, però què passaria si tinguessim un programa molt més extens?. La resposta és que ens tocaria contar de la mateixa forma que hem fet anteriorment, fet que torna el càlcul de l'eficiència ineficient. <br> 
+        Per tal de calcular més ràpidament el càlcul de les operacions, s'utiltiza l'ordre de complexitat.
+    </teoria>
+    
+    <h3>Ordre de complexitat</h3>
+    <teoria> 
+        Per utilitzar l'ordre de comlpexitat, a priori es <b>descarten totes aquelles operacions aïllades</b>, per exemple, en el cas anterior, no tindriem en compte l'assignació de <i>suma = 0</i>, ja que no tenen un impacte directe amb l'algorisme. En canvi, si que es posa especial atenció en aquelles parts de l'algorisme que necessita: <b>iterar sobre dades</b>, <b>Fer càlculs no unitàris</b> (com el cas de l'exponent o arrel quadrada), <b>Recórrer o usar una estructura de dades</b> , etc. <br><br>
+        
+        Per calcular l'ordre de complexitat, <b>assumirem que les nostres dades d'entrada poden ser infinites</b>, i és per això que no ens importa quin cost exacta té, sinó com és la <b>funció que descriu el nombre d'operacions en funció de les dades.</b>. <br>Aquestes funcions tindràn un <b>creixament</b> que serà d'un dels següents tipus: 
+        <br><br>
+        <i>Eix X = Mida dades. Eix Y = Nombre d'operacions.</i>
+            <img src="../../Recursos/Imatges/OrdreComplexitat.PNG" alt="Ordres de complexitat">
+        
+        En un primer cop d'ull potser no es pot veure la gran diferència entre aquestes funcions, de manera que anirem a posar alguns valors: <i>(Hem considerat que una operació unitària tarda 1 microsegon)</i>
+        <img src="../../Recursos/Imatges/OrdreComplexitatTemps.PNG" alt="Temps dels ordres de complexitat">
+        De color <span style="color:forestgreen">verd</span> tenim tots aquells ordres que es poden donar a la vida real i, podem acceptar. En canvi en <span style="color:red">vermell</span> tenim tots aquells que no són tractables i per tant, si mai ens surt un algorisme d'aquest ordre cal buscar la forma d'optimitzar-lo.<br><br>
+        <h3>Operacions entre ordres</h3>
+        <teoria>
+            Una manera de calcular el nostre algorisme es basa en calcular les diferents parts de l'algorisme i després sumar-les. D'aquesta forma obtenim el cost del nostre programa al complert. Per fer això, primer cal saber quina operació hem de realitzar: 
+            <ul> 
+                <li><b>Suma: </b>Sumarem quan tenim una estructura seqüencial.</li>
+                <li><b>Multiplicació: </b> Multiplicarem quan tenim una estructura iterativa.</li>
+            </ul>
+        </teoria>
+    </teoria>
     
 <p class = footer>
   <center>
