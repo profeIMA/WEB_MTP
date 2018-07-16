@@ -36,8 +36,9 @@
     <h4>Estudi de l'eficiència</h4>
     <h3>Què mesurem?</h3>
     <teoria>
-        La eficiència està directament relacionada amb els recursos que utilitza el sistem. En el nostre cas ens centrerem en saber el <b>temps</b> que tarda el nostre algorisme a fer totes les instruccions. Malgrat tot, els temps dels algorismes poden variar en funció de variables <i>aleatòries</i>,
-        per exemple, un algorisme que ha de buscar un valor en un vector, el seu temps canviarà si el valor buscat és el primer o l'últim. Per aquest motiu, sempre es busca el <b>pitjor</b> i el <b>millor</b> dels casos. Sovint es prefereix utiltizar el pitjor dels casos que el millor.<br>
+        La <b>eficiència</b> està directament relacionada amb els recursos que utilitza el sistem. En el nostre cas ens centrerem en saber el <b>temps</b> que tarda el nostre algorisme a fer totes les instruccions. Malgrat tot, els temps dels algorismes poden variar en funció de variables <i>aleatòries</i>.<br>
+        Per exemple, un algorisme que ha de buscar un valor en un vector, el seu temps canviarà si el valor buscat és el primer o l'últim. Per aquest motiu, sempre es busca el <b>pitjor</b> i el <b>millor</b> dels casos.<br>
+        Sovint es prefereix utiltizar el <b>pitjor dels casos que el millor.</b><br>
         Aquests temps, solen dependre directament de la <b>quantitat de dades</b> de les que disposem. 
     </teoria>
     
@@ -55,6 +56,18 @@
         </ul>
     </teoria>
         
+    <h3>Cost de les operacions</h3>
+    <teoria>
+        Un altre problema que ens sorgeix és a la hora de definir <b>quant costa fer una operació</b>, no tenim un mètode enpíric precís ja que cada ordinador té un hardware i software diferent. <br>
+        Per solucionar el problema utiltizarem les <b>unitats de temps</b>, sense especificar la equivalència entre unitats de temps i segons. Per altre banda també definirem quines són les <b>operacions unitàries</b> que només <b>utilitzen una unitat de temps</b> per calcular-se.<br>
+        Aquestes operacions són: 
+        <ul>
+            <li><b>Les operacions aritmètiques: </b>+ , - ,/ ,* , log(), exp(), sin(), cos(), etc. <alerta>L'exponent no és una d'elles</alerta></li>
+            <li><b>Comparadors lògics: </b> &lt;, &gt;,&lt;=, &gt;=, ==, !=.</li>
+            <li><b>Lectura i escriptura a qualsevol registre de memòria: </b> Sovint es fa mitjantçant punters.</li>
+        </ul>
+        Totes la resta d'operacions que pot fer el programa de segur que és una composició de les operacions unitàries, i per tant, en podrem saber el cost que tenen. Això ens permet <b>analitzar la eficència teòrica</b>, que vindrà donada pel nombre d'operacions simples i la <b>complexitat</b> de l'algorisme.
+    </teoria>
     
 <p class = footer>
   <center>
