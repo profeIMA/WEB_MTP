@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="/CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body>
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      ERRORS I PROBLEMES FREQÜENTS
+    </h1>
+  </center>
+  <h2>Accions i funcions amb taules:</h2>
+  <teoria>
+	En C++, el nom d'una taula és directament una referència, així que les taules sempre es passen per referència. Per motius de coherència, 
+	<alerta>no s'ha de posar mai el símbol & en els paràmetres formals corresponents.</alerta>.
+	Així, una taula no la podem passar per valor, però, si s'escau, podem fer que sigui considerada com un paràmetre d'entrada constant indicant al compilador que no poden ser modificats els valors originals;  això es fa afegint const davant dels paràmetres formals, com per exemple:
+	<pre><code class = "c++">void mostrar_vector(const Vector_enter vector, unsigned n)</code></pre>
+	<alerta>Podem passar una taula a una funció, però no podem retornar una taula!</alerta>; en aquest cas, podem utilitzar una acció.
+	</teoria><br><br>
+	<h2>Assignació de taules</h2>
+	<teoria>
+		Una variable de tipus taula guarda l'adreça del primer element de la taula, per això, per copiar-les, no ho podem fer amb l'operador d'assignació.
+		Dóna error, quan és una taula d'elements bàsics, no còpia elment a element, el compilador es queixa. Per fer la còpia podem fer una acció que s'en encarregui:
+		<pre><code class="c++">void copia(const Vector_enter t1, Vector_enter t2, unsigned n){
+		//Pre: 0<=n<=N_MAX
+		//Post: t2[0..n] = t1[0..n]
+			for(unsigned i=0; i&lt;n; i++) t2[i]=t1[i];
+		}</code></pre>
+	</teoria><br><br>
+	<h2>Pas de vectors i matrius</h2>
+	<teoria>
+		En lloc d'usar una definició de tipus vector/matriu a la capçalera de l'acció o de la funció, podríem fer-ho de la següent manera: 
+		<pre><code>//Per vectors:
+		void llegir_vector_enter(int vec[], unsigned n) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
+&nbsp; &nbsp; //Post: vec_enter[0..n-1] cont&eacute; successivament els enters entrats
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) cin&gt;&gt;vec[i];
+}
+
+int suma_vector_enter(const int vec[], unsigned n) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
+&nbsp; &nbsp; //Post: retorna suma de vec[0..n-1]
+&nbsp; &nbsp; int suma=0;
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) suma+=vec[i];
+&nbsp; &nbsp; return suma;
+}
+//Per matrius:
+void llegir_matriu_enter(int mat[][N_COL_MAX], unsigned n, unsigned m) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=m&lt;=N_COL_MAX
+&nbsp; &nbsp; //Post: mat[0..n-1,0..m-1] cont&eacute; successivament els enters entrats
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; cout&lt;&lt;&quot;Entra fila &quot;&lt;&lt;i+1&lt;&lt;&quot; : &quot;;
+&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=0; j&lt;m; j++)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cin&gt;&gt;mat[i][j];
+&nbsp; &nbsp; }
+}
+
+int suma_matriu_enter(const int mat[][N_COL_MAX], unsigned n, unsigned m) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=m&lt;=N_COL_MAX
+&nbsp; &nbsp; //Post: retorna suma de mat[0..n-1,0..m-1]
+&nbsp; &nbsp; int suma=0;
+&nbsp; &nbsp; ...
+&nbsp; &nbsp; return suma;
+}
+</code></pre>
+
+<alerta>En el cas de les matrius, és necessari ficar el nombre de columnes amb una constant., seria error ficar per exemple int mat_enter[][]</alerta>
+	</teoria>
+	
+	
+	
+	
+	
+	
+	
+ </div>
+<p class = footer>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

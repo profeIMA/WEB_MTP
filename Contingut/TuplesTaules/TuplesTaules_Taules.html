@@ -117,15 +117,6 @@ int main(){
 
   </teoria>
 	
-	
-	
-	<h2>Accions i funcions amb taules:</h2><br>
-	En C++, el nom d'una taula és directament una referència, així que les taules sempre es passen per referència. Per motius de coherència, 
-	<alerta>no s'ha de posar mai el símbol & en els paràmetres formals corresponents.</alerta>.
-	Així, una taula no la podem passar per valor, però, si s'escau, podem fer que sigui considerada com un paràmetre d'entrada constant indicant al compilador que no poden ser modificats els valors originals;  això es fa afegint const davant dels paràmetres formals, com per exemple:
-	<pre><code class = "c++">void mostrar_vector(const Vector_enter vector, unsigned n)</code></pre>
-	<alerta>Podem passar una taula a una funció, però no podem retornar una taula!</alerta>; en aquest cas, podem utilitzar una acció.
-	
 	<h3>Esquemes sobre vector</h3>
 	<teoria>
 		Els esquemes de treball sobre vectors són els següents (iguals que els de les seqüències):

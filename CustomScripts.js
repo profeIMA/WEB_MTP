@@ -1,6 +1,7 @@
 
 
 $(function() {
+	
     $("#menu").load("../../menu.html");
 
     function activeNav() {
@@ -32,5 +33,7 @@ function myFunction(a) {
         x.style.display = "block";
     }
 }
+
+
 
 
