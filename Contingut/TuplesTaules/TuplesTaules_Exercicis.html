@@ -516,15 +516,7 @@ void cerca_matriu(Matriu_enter mat, int n, int m, int x, bool&amp; trobat, unsig
 &nbsp; &nbsp; &nbsp; &nbsp; else j++; 
 &nbsp; &nbsp; }
 }</code></pre> </solucio> <br>
-
-
-
-
-
-
-
-
-
+        
   </teoria>
   
   <!-- Supressió-->
@@ -560,7 +552,247 @@ int main() {&nbsp; &nbsp;
   
   <!-- Altres-->
   <teoria>
-  </teoria>
+      <h2>Taules 8.1: Fusió de dos vectors ordenats</h2><br>
+      Fusionar 2 vectors d'enters ordenats en un vector ordenat que contingui tots els elements dels dos inicials (els vectors poden tenir repeticions).
+      <button onclick="myFunction(P7_Taules_8_1)">Veure Solució</button><br>
+      <solucio id="P7_Taules_8_1">
+	  <pre><code class="c++">void fusio_vectors(const Vector_enter vec1, const Vector_enter vec2, unsigned n1, unsigned n2, Vector_enter vec_fusio, unsigned &amp;n) {
+//Pre: 0&lt;=n1+n2&lt;=N_MAX i vec1[0..n1-1] ordenat i vec2[0..n2-1] ordenat
+//Post: vec_fusio[0..n1+n2-1] ordenat i &eacute;s la fusi&oacute; de vec1[0..n1-1] i vec2[0..n2-1] i n=n1+n2
+&nbsp; &nbsp; unsigned i1=0, i2=0, i=0;    while(i1&lt;n1 and i2&lt;n2) {        if(vec1[i1]&lt;vec2[i2]) { vec_fusio[i]=vec1[i1]; i++; i1++; }        else { vec_fusio[i]=vec2[i2]; i++; i2++; }
+    }
+&nbsp; &nbsp; while(i1&lt;n1) { vec_fusio[i]=vec1[i1]; i++; i1++; } //copiar_a_des_des(vec_fucio,i,vec1,n1,i1);
+    &nbsp; while(i2&lt;n2) { vec_fusio[i]=vec2[i2]; i++; i2++; } //copiar_a_des_des(vec_fucio,i,vec2,n2,i2);
+    n=n1+n2;
+}
+
+int main() {&nbsp; &nbsp;
+&nbsp; &nbsp; Vector_enter vec1, vec2, vec_fusio; unsigned n1, n2, n;
+&nbsp; &nbsp; ...
+&nbsp; &nbsp; llegir_vector_enter(vec1,n1); ... llegir_vector_enter(vec2,n2);&nbsp; 
+&nbsp; &nbsp; fusio_vectors(vec1,vec2,n1,n2,vec_fusio, n);&nbsp;&nbsp; &nbsp;
+&nbsp;  ...
+} </code></pre></solucio><br>
+      
+      <h2>Taules 8.2: Unió de dos vectors ordenats</h2><br>
+      Unió de dos vectors ordenats (sense repeticions en els vectors inicials). 
+      <button onclick="myFunction(P7_Taules_8_2)">Veure Solució</button><br>
+      <solucio id="P7_Taules_8_2">
+      <pre><code class="c++">void unio_vectors(const Vector_enter vec1, const Vector_enter vec2, unsigned n1, unsigned n2, Vector_enter vec_unio, unsigned &amp;n) {
+//Pre: 0&lt;=n1+n2&lt;=N_MAX i vec1[0..n1-1] i vec2[0..n2-1] sense repetits i ordenats
+//Post: 0&lt;=n&lt;=n1+n2 i vec_unio[0..n-1] ordenat i &eacute;s la uni&oacute; de vec1[0..n1-1] i vec2[0..n2-1]
+&nbsp; &nbsp; unsigned i1=0, i2=0;
+    n=0;
+    while(i1&lt;n1 and i2&lt;n2) {
+        if(vec1[i1]&lt;vec2[i2]) { vec_unio[n]=vec1[i1]; i1++; }
+        else if(vec1[i1]==vec2[i2]) { vec_unio[n]=vec1[i1]; i1++; i2++; }
+        else { vec_unio[n]=vec2[i2]; i2++; }
+        n++;
+    }
+}
+
+int main() {&nbsp; &nbsp;
+&nbsp; &nbsp; Vector_enter vec1, vec2, vec_unio; unsigned n1, n2, n;
+&nbsp; &nbsp; ...
+&nbsp; &nbsp; llegir_vector_enter(vec1,n1); ... llegir_vector_enter(vec2,n2);&nbsp; 
+&nbsp; &nbsp; unio_vectors(vec1,vec2,n1,n2,vec_unio, n);&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; ...
+} </code></pre></solucio><br>
+
+
+      <h2>Taules 8.3: Intersecció de dos vectors ordenats</h2><br>
+      Intersecció de dos vectors ordenats (sense repeticions en els vectors inicials).<br>
+      Nota: La unió conté tots els elements que apareixen en un dels dos vectors inicials i la intersecció només els que apareixen en els dos. Cap dels vectors conté elements repetits. Els vectors resultants han d'estar ordenats.
+      <button onclick="myFunction(P7_Taules_8_3)">Veure Solució</button><br>
+      <solucio id="P7_Taules_8_3">
+      <pre><code class="c++">void interseccio_vectors(const Vector_enter vec1, const Vector_enter vec2, unsigned n1, unsigned n2, Vector_enter vec_inter, unsigned &amp;n) {
+//Pre: 0&lt;=n1,n2&lt;=N_MAX i vec1[0..n1-1] i vec2[0..n2-1] sense repetits i ordenats
+//Post: 0&lt;=n&lt;=min(n1,n2) i vec_inter[0..n-1] ordenat i &eacute;s la intersecci&oacute; de vec1[0..n1-1] i vec2[0..n2-1]
+        unsigned i1=0, i2=0;
+        n=0;
+        while(i1&lt;n1 and i2&lt;n2) {
+                if(vec1[i1]==vec2[i2]) { vec_inter[n]=vec1[i1]; i1++; i2++; n++; }
+                else if(vec1[i1]&lt;vec2[i2]) i1++;
+                else i2++; 
+        }
+}
+
+int main() {&nbsp; &nbsp;
+        Vector_enter vec1, vec2, vec_inter; unsigned n1, n2, n;
+        ...
+        llegir_vector_enter(vec1,n1); ... llegir_vector_enter(vec2,n2);&nbsp; 
+        interseccio_vectors(vec1,vec2,n1,n2,vec_inter, n);
+        ...
+}</code></pre></solucio><br>
+      
+      <h2>Taules 8.4: Unió de dos vectors desordenats</h2><br>
+      Unió de dos vectors desordenats (sense repeticions en els vectors inicials). 
+      <button onclick="myFunction(P7_Taules_8_4)">Veure Solució</button><br>
+      <solucio id="P7_Taules_8_4">
+      <pre><code class="c++">void unio_vectors_desordenats(const Vector_enter vec1, const Vector_enter vec2, unsigned n1, unsigned n2, Vector_enter vec_unio, unsigned &amp;n) {
+//Pre: 0&lt;=n1+n2&lt;=N_MAX i vec1[0..n1-1] i vec2[0..n2-1] sense repetits
+//Post: 0&lt;=n&lt;=n1+n2 i vec_inio[0..n-1] &eacute;s la uni&oacute; de vec1[0..n1-1] i vec2[0..n2-1]
+        for(unsigned i1=0;i1&lt;n1;i1++) { vec_unio[i1]=vec1[i1]; }
+                n=n1;
+                for(unsigned i2=0;i2&lt;n2;i2++) { 
+                        if(not existeix(vec1,n1,vec2[i2])){ vec_unio[n]=vec2[i2]; n++; }
+                }
+}
+
+int main() {&nbsp; &nbsp;
+        Vector_enter vec1, vec2, vec_unio; unsigned n1, n2, n;
+        ...
+        llegir_vector_enter(vec1,n1); ... llegir_vector_enter(vec2,n2);&nbsp; 
+        unio_vectors_desordenats(vec1,vec2,n1,n2,vec_unio,n);&nbsp;&nbsp; &nbsp;
+        ...
+}</code></pre></solucio><br>
+
+      <h2>Taules 8.5: Intersecció de dos vectors desordenats</h2><br>
+      Intersecció de dos vectors desordenats (sense repeticions en els vectors inicials). 
+      <button onclick="myFunction(P7_Taules_8_5)">Veure Solució</button><br>
+      <solucio id="P7_Taules_8_5">
+      <pre><code class="c++">void interseccio_vectors_desordenats(const Vector_enter vec1, const Vector_enter vec2, unsigned n1, unsigned n2, Vector_enter vec_inter, unsigned &amp;n) {
+//Pre: 0&lt;=n1,n2&lt;=N_MAX i vec1[0..n1-1] i vec2[0..n2-1] sense repetits
+//Post: 0&lt;=n&lt;=min(n1,n2) i vec_inter[0..n-1] &eacute;s la intersecci&oacute; de vec1[0..n1-1] i vec2[0..n2-1]
+        for(unsigned i1=0;i1&lt;n1;i1++) {
+                if(existeix(vec2,n2,vec1[i1]){ 
+                        vec_inter[n]=vec1[i1]; 
+                        n++;
+                }
+        }
+}
+
+int main() {&nbsp; &nbsp;
+        Vector_enter vec1, vec2, vec_inter; unsigned n1, n2, n;
+        ...
+        llegir_vector_enter(vec1,n1); ... llegir_vector_enter(vec2,n2);&nbsp; 
+        interseccio_vectors_desordenats(vec1,vec2,n1,n2,vec_inter, n);&nbsp;&nbsp; &nbsp;
+        ...
+}</code></pre></solucio><br>
+
+</teoria>
+
+<h4> Taules de tuples </h4>
+<teoria>
+    <h2>Taules 9.2: Cercar el punt més proper al (0,0) </h2><br>
+    Donada una taula de punts de tipus Punt_2d, cercar el punt que estigui més a la vora de l'origen (0,0). 
+
+    <button onclick="myFunction(P7_Taules_9_2)">Veure Solució</button><br>
+    <solucio id="P7_Taules_9_2">
+    <pre><code class="c++">#include &lt;cmath&gt;
+struct Punt {
+&nbsp; &nbsp; double x;
+&nbsp; &nbsp; double y;
+};
+const unsigned N_MAX=100;
+typedef Punt Vector_punts[N_MAX];
+struct Taula_punts{
+        Vector_punts vect;
+        unsigned n;
+}
+    
+double dist(Punt p, Punt q){
+        //Pre: cert
+        //Post: retorna la dist&agrave;ncia Euclidea entre els punts p i q
+        double dif_x=p.x-q.x, dif_y=p.y-q-y;
+        return sqrt(dif_x*dif_x+dif_y*dif_y);
+}
+
+Punt mes_proper_a_origen(Taula_punts punts, Punt p) {
+        //Pre: 0&lt;=punts.n&lt;=N_MAX
+        //Post: retorna el punt de punts.vect[0..punts.n-1] m&eacute;s proper a p Punt mes_proper=punts.vect[0];
+        double menor_dist= distancia(mes_proper,p);
+        int darrer = int(punts.n)-1;
+        for (unsigned i=1; i&lt;darrer; i++) {
+                double dist=distancia(punts.vector[i],p);
+                if(dist&lt;menor_dist){ menor_dist=dist; mes_proper=punts.vect[i];}
+        }
+        return mes_proper;
+}
+void llegir_vector_punts(Vector_punts vec, unsigned n) {
+        //Pre: 0&lt;=punts.n&lt;=N_MAX
+        //Post: punts.vec[0..punts.n-1] cont&eacute; successivament els Punts entrats
+        for (unsigned i=0; i&lt;n; i++) cin&gt;&gt;punts.vec[i].x&gt;&gt;punts.vec[i].y;
+}
+
+int main() {&nbsp; &nbsp;
+        Vector_punts punts; unsigned n;
+        cout&lt;&lt;&quot;Nombre de punts: &quot;; cin&gt;&gt;n;
+        llegir_vector_punts(punts,n); 
+        Punt proper_origen=mes_proper_a_origen(punts,n);&nbsp;&nbsp; &nbsp;
+        escriure_taula_punts (punts,n);&nbsp;&nbsp; &nbsp;
+        &hellip;
+}</code></pre>
+
+    <h2>Taules 9.5: Ordenar pila de cartes per coll+número
+    </h2><br>
+    Ordenar una pila de cartes, representada amb una taula de tuples Carta. Cada carta consta d'un pal {bastos, copes, espases o oros} i un enter {1, ..., 12} i es volen ordenar per ordre alfabètic dels pals i, dins de cada pal, numèricament. Exemple: el 12 de bastos és menor que el 2 de copes.
+
+    <button onclick="myFunction(P7_Taules_9_5)">Veure Solució</button><br>
+    <solucio id="P7_Taules_9_5">
+        Solució amb ordenació per inserció binaria:
+        <pre><code class="c++">struct Carta{
+        string pal;
+        unsigned num;
+};
+
+const unsigned N_MAX=48;
+typedef Carta Vector_cartes [N_MAX];
+
+struct Pila_cartes{
+        Vector_cartes vec;
+        unsigned n_cartes;
+};
+
+bool es_menor(Carta carta_a, Carta carta_b){
+//Pre: cert
+//Post: retorna cert si la carta_a &eacute;s menor (menor pal o en cas d&rsquo;igual pal menor n&uacute;mero) que la carta_b
+        bool menor=carta_a.pal&lt;carta_b.pal;
+        if(carta_a.pal==carta_b.pal) menor=carta_a.num&lt;carta_b.num; 
+        return menor;
+}
+
+unsigned posicio_insercio(const Pila_cartes&amp; pila, unsigned pos) {
+//Pre: pila.vec[0..pos-1] ordenat i 0&lt;pos&lt;pila.n_cartes 
+//Post: retorna la posici&oacute; d&rsquo;insercio de la carta pila.vect[pos] a pila.vect[0..pos]
+        int esquerre=0, dret=n-1, mig=0;   bool trobat=false;
+        Carta carta_nova=pila.vec[pos];
+        while(esquerre&lt;=dret and not trobat){
+                mig=(esquerre+dret)/2;
+                if(es_menor(carta_nova,pila.vec[mig])) dret=mig-1;
+                else if(es_menor(pila.vec[mig], carta_nova)) esqurre=mig+1;
+                else trobat=true;
+        }
+        if(trobat) pos=unsigned(mig); 
+        else pos=unsigned(esquerre);
+        return pos;
+}
+
+void insereix_a_pos(Pila_cartes&amp; pila, unsigned pos_carta, unsigned pos_insercio) {
+//Pre: pila.vec[0..pos_carta-1] ordenat i 0&lt;pos_carta&lt;pila.n_cartes i 0&lt;=pos_insercio&lt;=pos_carta i pila.vec=VEC
+//Post: pila.vec[0..pos_carta] ordenat i amb VEC[pos_carta] inserit a pos_inserci&oacute;
+        Carta carta_a_inserir=pila.vec[pos_carta];
+        for(unsigned i=pos_carta-1; i&gt;=pos_insercio;i++))
+                pila.vec[i+1]=pila.vec[i];
+        pila.vect[pos_insercio]=carta_a_inserir;
+}
+
+void ordena(Pila_cartes&amp; pila) {
+//Pre: 0&lt;=pila.n_cartes&lt;=N_MAX i pila.vec=VEC
+//Post: pila.vec[0..pila.n_cartes-1] cont&eacute; una permutaci&oacute; ordenada dels valors de VEC[0..pila.n_cartes-1]
+        for (int i=1; i&lt;int(pila.n_cartes)-1; i++) 
+                insereix_a_pos(pila, i, posicio_insercio(pila,i));
+}
+
+int main() {&nbsp; &nbsp;
+        Pila_cartes cartes; 
+        ...
+        ordenar(cartes);&nbsp;&nbsp; &nbsp;
+        ...
+}</code></pre>
+    </solucio>
+    
+</teoria>
   
 	
 	
