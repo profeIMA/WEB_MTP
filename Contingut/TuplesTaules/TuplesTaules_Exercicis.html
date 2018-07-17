@@ -1,0 +1,582 @@
+﻿<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="/CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body>
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      Exercicis
+    </h1>
+  </center>
+  
+  <h4> Tuples </h4>
+  <teoria>
+	<h2> Tuples 3: Funcions suma i producte de complexos</h2></br>
+	Donats dos nombres complexos (tipus Complex), construir dues funcions que respectivament ens retornin la suma i el producte dels dos nombres. 
+	<button onclick="myFunction(P7_Tuples_3)">Veure Solució</button><br>
+	<solucio id="P7_Tuples_3">
+		<pre><code class="c++">struct Complex {
+    double r; 
+    double i;
+}; 
+
+Complex suma (Complex num1, Complex num2) {
+// Pre: cert; 
+//Post: retorna el complex num1+num2
+    Complex resultat;
+    resultat.r=num1.r+num2.r;
+    resultat.i=num1.i+num2.i;
+&nbsp; &nbsp; return resultat;
+}
+
+Complex producte (Complex num1, Complex num2) {
+// Pre: cert; 
+//Post: retorna el complex num1&middot;num2
+    Complex resultat;
+    resultat.r=num1.r*num2.r- num1.i*num2.i;
+    resultat.i=num1.r*num2.i+ num1.i*num2.r;
+&nbsp; &nbsp; return resultat;
+}
+
+Complex llegir_complex () {
+// Pre: cert; Post: retorna el complex llegit de teclat
+    Complex num;
+    cout&lt;&lt;&quot;Part real: &quot;; cin&gt;&gt;num.r;
+    cout&lt;&lt;&quot;Part imaginaria: &quot;; cin&gt;&gt;num.i;
+  &nbsp; return num;
+}
+Complex mostrar_complex (Complex num) {
+// Pre: cert; Post: mostra el complex num
+    if(num.i&gt;=0) cout&lt;&lt;num.r&lt;&lt;&quot; + &quot;&lt;&lt;num.i&lt;&lt;&quot; i &quot;;
+    else  cout&lt;&lt;num.r&lt;&lt;&quot; &quot;&lt;&lt;num.i&lt;&lt;&quot; i &quot;;
+}
+int main() {
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; // Entrada
+&nbsp; &nbsp; Complex complex1 = llegir_complex();
+    Complex complex2 = llegir_complex(); 
+&nbsp; &nbsp; // C&agrave;lcul
+    Complex sum=suma(complex1,complex2); 
+    Complex prod=producte(complex1,complex2); 
+&nbsp; &nbsp; // Sortida
+    cout&lt;&lt;&quot;Suma: &quot;; mostrar_complex(complex1); cout&lt;&lt;endl&lt;&lt;&quot;Producte: &quot;; mostrar_complex(prod);
+    return 0;
+}</code></pre>
+	</solucio><br>
+	
+	<h2>Tuples 4: Diferència instants de temps</h2><br>
+	Donats dos instants de temps (tipus Temps) que estan separats com a màxim 24 hores, realitzar una funció que calculi la diferència (tipus Temps) entre ells. El primer instant es considerarà anterior al segon.
+	<button onclick="myFunction(P7_Tuples_4)">Veure Solució</button><br>
+	<solucio id="P7_Tuples_4">
+		<pre><code class="c++">struct Temps {
+    unsigned hores; 
+    unsigned minuts;
+    unsigned segons;
+}; 
+
+unsigned n_segons(Temps t) {
+//Pre: cert Post: retorna el nombre d esegons corresponents a t
+   return (t.hores*60+t.minuts)*60+t.segons;
+}
+Temps de_segons_a_temps(unsigned segons) {
+//Pre: cert  Post: retorna un temps amb minuts&lt;60 i segons&lt;60 equivalent als segons entrats
+    Temps t;
+    t.segons=segons%60;
+    t.hores=segons/3600;
+    t.minuts=segons/60-t.hores*60;
+    return t;
+}
+
+Temps diferencia(Temps t_inici, Temps t_fi){
+//Pre: t_inici anterior a t_fi Post: retorna la difer&egrave;ncia entre t_inici i t_fi
+     unsigned segons_inici=n_segons(t_inici);
+     unsigned segons_fi=n_segons(fi);
+     if(segons_inici&gt;segons_fi) segons_fi+=24*3600;
+     unsigned segons_diferencia=segons_fi-segons_inici;
+     return de_segons_a_temps(segons_diferencia);
+}</code></pre></solucio>
+  </teoria>
+  <h4>Taules</h4>
+  
+  <!-- Recorregut-->
+  <teoria>
+	<h2>Taules 4.5: Transposar una matriu</h2>
+	<button onclick="myFunction(P7_Taules_4_5)">Veure Solució</button><br>
+	<solucio id="P7_Taules_4_5">
+		<pre><code class="c++">void transposada_matriu_enter(const Matriu_enter mat_1, unsigned n, unsigned m, Matriu_enter mat_2) {
+&nbsp; &nbsp; //Pre: 0&lt;=n,m&lt;= min(N_FIL_MAX,N_COL_MAX)
+&nbsp; &nbsp; //Post: mat_2[0..m-1,0..n-1] &eacute;s la transposada de mat_1[0..n-1,0..m-1]
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=0; j&lt;m; j++)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mat_2[j][i]=mat_1[i][j];
+&nbsp; &nbsp; }
+}
+int main() { &nbsp;
+&nbsp; &nbsp; Matriu_enter mat1, mat2;
+&nbsp; &nbsp; unsigned n,m;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre files i columnes de la matriu: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;n&gt;&gt;m;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra &quot;&lt;&lt;n&lt;&lt;&quot; files de &quot;&lt;&lt;m&lt;&lt;&quot; enters: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; llegir_matriu_enter(mat1,n,m);
+&nbsp; &nbsp; cout&lt;&lt;endl;&nbsp; &nbsp;
+&nbsp; &nbsp; transposada_matriu_enter(mat1,n,m,mat2);&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Matriu transposada: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; escriure_matriu_enter(mat2,m,n);
+&nbsp; &nbsp; cout&lt;&lt;endl; &nbsp;
+&nbsp; &nbsp; return 0;
+}</code></pre>
+	</solucio><br>
+	<h2>Taules 4.6: Construir un triangle de Pascal</h2><br>
+	Exemple de <a href="https://ca.wikipedia.org/wiki/Triangle_de_Tartaglia">triangle de Pascal</a>:
+	<img class = "petita" style="width:150px; height:150px;" src = "../../Recursos/Imatges/TuplesTaules_Exercicis_TrianglePascal.PNG" alt = "Exemple d'un triangle de pascal"/><br>
+	<button onclick="myFunction(P7_Taules_4_6)">Veure Solució</button><br>
+	<solucio id="P7_Taules_4_6">
+		<pre><code class="c++">void omplir_matriu_pascal(Matriu_enter mat, unsigned n) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX
+&nbsp; &nbsp; //Post: mat[0..n-1,0..n-1] cont&eacute; les n files del triangle de Pascal
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; mat[i][0]=1; mat[i][i]=1;
+&nbsp; &nbsp; }
+&nbsp; &nbsp; for (unsigned i=2; i&lt;n; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=1; j&lt;i; j++)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mat[i][j]=mat[i-1][j]+mat[i-1][j-1];
+&nbsp; &nbsp; }
+}
+
+void escriure_triangle(const Matriu_enter mat, unsigned n) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX
+&nbsp; &nbsp; //Post: s'han mostrat els valors del triangle esquerre de la diagonal principal de mat[0..n-1,0..n-1]
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=0; j&lt;=i; j++)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cout&lt;&lt;setw(5)&lt;&lt;mat[i][j];
+&nbsp; &nbsp; &nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp; &nbsp; }
+}
+
+void omplir_matriu_pascal(Matriu_enter mat, unsigned n) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX
+&nbsp; &nbsp; //Post: mat[0..n-1,0..n-1] cont&eacute; les n files del triangle de Pascal
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; mat[i][0]=1; mat[i][i]=1;
+&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=1; j&lt;i; j++)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mat[i][j]=mat[i-1][j]+mat[i-1][j-1];
+&nbsp; &nbsp; }
+}
+
+int main() {
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; Matriu_enter mat;
+&nbsp; &nbsp; unsigned n;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre de files del triangle de Pascal: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;n;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; omplir_matriu_pascal(mat,n);
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Triangle de Pascal: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; escriure_triangle(mat,n);
+&nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; return 0;
+}</code></pre>
+	</solucio><br>
+	
+	<h2>Taules 4.7: Histograma de notes</h2><br>
+	Donat un vector de notes naturals positives entre 0 i 10, obtenir i mostrar el corresponent histograma que indicarà el nombre d'aparicions de cada nota.
+	<button onclick="myFunction(P7_Taules_4_7)">Veure Solució</button><br>
+	<solucio id="P7_Taules_4_7">
+		<pre><code class="c++">const unsigned N_MAX=100;
+typedef unsigned Vector_natural[N_MAX];
+typedef int Vector_histograma_notes[11];
+
+void llegir_vector_notes(Vector_natural vec_natural, unsigned n) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
+&nbsp; &nbsp; //Post: vec_natural[0..n-1] cont&eacute; successivament els naturals entre 0 i 10 entrats
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) cin&gt;&gt;vec_natural[i];
+}
+void omplir_histograma_notes(const Vector_natural notes, unsigned n, Vector_histograma_notes hist) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX i elements de notes estan entre 0 i 10
+&nbsp; &nbsp; //Post: hist[0..10] &eacute;s l'histograma de notes[0..n-1]
+&nbsp; &nbsp; for (unsigned i=0; i&lt;=10; i++) hist[i]=0; 
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; unsigned nota=notes[i];
+&nbsp; &nbsp; &nbsp; &nbsp; hist[nota]++; // hist[notes[i]]++
+&nbsp; &nbsp; }
+}
+void escriure_histograma_notes(const Vector_histograma_notes hist) {
+&nbsp; &nbsp; //Pre: cert
+&nbsp; &nbsp; //Post: s'ha mostrat l'histograma de notes (format nota-freq&uuml;&egrave;ncia)
+&nbsp; &nbsp; for (unsigned i=0; i&lt;=10; i++) cout&lt;&lt;i&lt;&lt;&quot; -- &quot;&lt;&lt;hist[i]&lt;&lt;endl;
+}
+
+int main() {
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; Vector_natural notes;
+    unsigned n;&nbsp; &nbsp; 
+    cout&lt;&lt;&quot;Nombre notes: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;n;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra &quot;&lt;&lt;n&lt;&lt;&quot; notes naturals entre 0 i 10: &quot;;
+&nbsp; &nbsp; llegir_vector_notes(notes,n);
+&nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; Vector_histograma_notes hist;
+&nbsp; &nbsp; omplir_histograma_notes(notes,n,hist);
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Vector histograma: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; escriure_histograma_notes(hist);
+&nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; return 0;
+}</code></pre>
+		Inicialització alternativa:
+		<pre><code class="c++">const unsigned N_MAX=100;
+typedef unsigned Vector_natural[N_MAX];
+typedef int Vector_histograma_notes[11];
+
+void obtenir_histograma_notes(Vector_histograma_notes hist) {
+&nbsp; &nbsp; //Pre: <alerta>notes[0..10] inicialitzats a 0</alerta>
+&nbsp; &nbsp; //Post: hist[0..10] &eacute;s l'histograma de les notes llegides contingudes de 0 a 10
+    unsigned n;    
+    cout&lt;&lt;&quot;Nombre notes: &quot;; 
+    cin&gt;&gt;n;
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
+        unsigned nota; 
+        cout&lt;&lt;&quot;Nota: &quot;&lt;&lt;endl; cin&gt;&gt;nota;
+&nbsp; &nbsp; &nbsp; &nbsp; hist[nota]++; 
+&nbsp; &nbsp; }
+}
+
+void llegir_vector_notes(Vector_natural vec_natural, unsigned n) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
+&nbsp; &nbsp; //Post: vec_natural[0..n-1] cont&eacute; successivament els naturals entre 0 i 10 entrats
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) cin&gt;&gt;vec_natural[i];
+}
+void omplir_histograma_notes(const Vector_natural notes, unsigned n, Vector_histograma_notes hist) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX i elements de notes estan entre 0 i 10
+&nbsp; &nbsp; //Post: hist[0..10] &eacute;s l'histograma de notes[0..n-1]
+&nbsp; &nbsp; for (unsigned i=0; i&lt;=10; i++) hist[i]=0; 
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; unsigned nota=notes[i];
+&nbsp; &nbsp; &nbsp; &nbsp; hist[nota]++; // hist[notes[i]]++
+&nbsp; &nbsp; }
+}
+void escriure_histograma_notes(const Vector_histograma_notes hist) {
+&nbsp; &nbsp; //Pre: cert
+&nbsp; &nbsp; //Post: s'ha mostrat l'histograma de notes (format nota-freq&uuml;&egrave;ncia)
+&nbsp; &nbsp; for (unsigned i=0; i&lt;=10; i++) cout&lt;&lt;i&lt;&lt;&quot; -- &quot;&lt;&lt;hist[i]&lt;&lt;endl;
+}
+
+int main() {&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; <alerta>Vector_histograma_notes hist={0}; <alerta>//inicialitzem a 0 (aquesta inicialització també es pot usar en la versió anterior)
+&nbsp; &nbsp; obtenir_histograma_notes(hist);
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Vector histograma: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; escriure_histograma_notes(hist);
+&nbsp; &nbsp; cout&lt;&lt;endl;&nbsp; &nbsp;
+&nbsp; &nbsp; return 0;
+}</code></pre>
+
+</solucio><br>
+
+	<h2>Taules 4.8: Capgirar un vector</h2><br>
+	<button onclick="myFunction(P7_Taules_4_8)">Veure Solució</button><br>
+	<solucio id="P7_Taules_4_8">
+		<pre><code class="c++">void intercanvi(int&amp; x, int&amp; y) {
+&nbsp; &nbsp; int aux=x;
+&nbsp; &nbsp; x=y;
+&nbsp; &nbsp; y=aux;
+}
+void capgirar_vector_enter(Vector_enter vec, unsigned n) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX i vec=VEC
+&nbsp; &nbsp; //Post: vec[0..n-1] cont&eacute; els valors de VEC[0 ..n-1] en ordre invers
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n/2; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; intercanvi(vec[i],vec[n-i-1]);
+&nbsp; &nbsp; &nbsp; &nbsp; // int aux=vec[i];
+&nbsp; &nbsp; &nbsp; &nbsp; // vec[i]=vec[n-i-1];
+&nbsp; &nbsp; &nbsp; &nbsp; // vec[n-i-1]=aux;
+&nbsp; &nbsp; }
+}
+
+int main() {&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; Vector_enter vec; unsigned n; 
+&nbsp; &nbsp; ...&nbsp; &nbsp;
+&nbsp; &nbsp; capgirar_vector_enter(vec,n);
+&nbsp; &nbsp; escriure_vector_enter(vec,n);&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; ...
+}</code></pre>
+	</solucio><br>
+	
+	<h2>Taules 4.9: Multiplicació de dues matrius</h2><br>
+	Obtenir el resultat de multiplicar dues  matrius: A * B = C, on A té n files i m columnes i B té m files i p columnes.
+	<button onclick="myFunction(P7_Taules_4_9)">Veure Solució</button><br>
+	<solucio id="P7_Taules_4_9">
+		<pre><code class="c++">void multiplicacio_matrius_enter(const Matriu_enter mat1, const Matriu_enter mat2, Matriu_enter mat3, unsigned n, unsigned m, unsigned p){
+&nbsp; &nbsp; //Pre: 0&lt;=n,m,p&lt;= min(N_FIL_MAX, N_COL_MAX)
+&nbsp; &nbsp; //Post: mat3[0..n-1,0..p-1] = multiplicaci&oacute; de mat_1[0..n-1,0..m-1]*mat_2[0..m-1,0..p-1]
+&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned k=0; k&lt;p; k++) {
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int suma=0;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=0; j&lt;m; j++) suma+=mat1[i][j]*mat2[j][k];
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mat3[i][k]=suma;
+&nbsp; &nbsp; &nbsp; &nbsp; }
+&nbsp; &nbsp; }
+}
+
+int main() {
+&nbsp; &nbsp; Matriu_enter mat1, mat2, mat3;
+&nbsp; &nbsp; unsigned n,m,p;
+    ... 
+&nbsp;&nbsp; &nbsp;llegir_matriu_enter(mat1,n,m);
+&nbsp; &nbsp; llegir_matriu_enter(mat2,m,p);
+&nbsp; &nbsp; multiplicacio_matrius_enter(mat1,mat2,mat3,n,m,p);
+&nbsp;&nbsp; &nbsp;escriure_matriu_enter(mat3,n,p);
+&nbsp; &nbsp; ...
+}</code></pre>
+		</solucio><br>
+  </teoria>
+  
+  <!-- Cerca-->
+  <teoria>
+
+    <h2>Taules 5.7: Determinar si en un vector hi ha algun element repetit:&nbsp;</h2>
+    <button onclick="myFunction(P7_Taules_5_7)">Veure Solució</button><br>
+    <solucio id="P7_Taules_5_7">
+        <pseudocodi>
+            <pre><code class="nohighlight">booleà element_repetit(Vector_enter vec; Natural n) 
+{Pre: n&gt;0 i n&lt;=N_MAX}
+{Post: retorna cert si hi ha un repetit a vec[0..n-1], fals altrament}  
+
+    Natural i 
+    i=0
+    repetit=fals 
+    mentre  no fi   i no repetit fer 
+        si &quot;vec[i] existeix a vec[i+1..n-1]&quot;
+            repetit=cert 
+        altrament 
+            i=i+1 
+    return repetit</code></pre></pseudocodi>
+            <pre><code class="c++">bool existeix_des_de(const Vector_enter vec, unsigned n, unsigned pos) {
+&nbsp; &nbsp; //Pre: 0&lt;n&lt;=N_MAX i 0&lt;=pos&lt;n-1
+&nbsp; &nbsp; //Post: retorna cert si vec[pos] existeix a vec[pos+1..n-1], altrament fals
+&nbsp; &nbsp; unsigned i=pos+1;
+&nbsp; &nbsp; bool trobat=false;
+&nbsp; &nbsp; while (i&lt;n and not trobat) // not (i=n or trobat)
+&nbsp; &nbsp; &nbsp; &nbsp; if(vec[i]==vec[pos]) trobat=true;
+&nbsp; &nbsp; &nbsp; &nbsp; else i++;
+&nbsp; &nbsp; return trobat;
+}
+
+bool existeix_repetit(const Vector_enter vec, unsigned n) {
+&nbsp; &nbsp; //Pre: 0&lt;n&lt;=N_MAX
+&nbsp; &nbsp; //Post: retorna cert si hi ha un repetit a vec[0..n-1], altrament fals
+&nbsp; &nbsp; unsigned i=0;
+&nbsp; &nbsp; bool repetit=false;
+&nbsp; &nbsp; while (i&lt;n-1 and not repetit) // not (i=n-1 or repetit)
+&nbsp; &nbsp; &nbsp; &nbsp; if(existeix_des_de(vec,n,i)) repetit=true;
+&nbsp; &nbsp; &nbsp; &nbsp; else i++;
+&nbsp; &nbsp; return repetit;
+}
+
+int main() {
+&nbsp; &nbsp; Vector_enter vec; 
+    unsigned n;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre d&rsquo;elements (&gt;0) i elements del vector: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; cin&gt;&gt;n; &nbsp; 
+    llegir_vector_enter(vec,n);
+&nbsp; &nbsp; bool hi_es=existeix_repetit(vec,n);
+&nbsp; &nbsp; cout&lt;&lt;&quot;Hi ha un repetit en el vector? &quot;&lt;&lt;boolalpha&lt;&lt;hi_es&lt;&lt;endl;
+
+    return 0;
+}</code></pre></solucio><br>
+
+        <h2>Taules 5.9: Cercar un element en una matriu ordenada</h2><br>
+        Cercar un element en una matriu ordenada. L'ordenació de la matriu ve donada per A[i+1,j] >= A[i,j] i A[i,j+1] >= A[i,j].
+        <button onclick="myFunction(P7_Taules_5_9)">Veure Solució</button><br>
+        <solucio id="P7_Taules_5_9">
+
+            Matriu ordenada:
+            
+            <img class = "petita" style="width:150px; height:150px;" src = "../../Recursos/Imatges/TuplesTaules_Exercicis_matriuOrdenada.png" alt = "Exemple d'un triangle de pascal"/><br>
+
+
+            <pre><code class= "c++">void cerca_matriu(Matriu_enter mat, int n, int m, int x, bool&amp; trobat, unsigned&amp; fila, unsigned&amp; col) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=m&lt;=N_COL_MAX, mat est&agrave; ordenada ((mat[i+1,j]&gt;=mat[i,j] i mat[i,j+1]&gt;=mat[i,j]))
+&nbsp; &nbsp; //Post: si x pertany a mat, trobat=cert i (fila,col) contenen una posici&oacute; de x; altrament, trobat=fals i (fila,col) no tenen significat
+&nbsp; &nbsp; int i=n-1,j=0;
+&nbsp; &nbsp; trobat=false;
+&nbsp; &nbsp; while (i&gt;=0 and j&lt;=m-1 and not trobat) {
+&nbsp; &nbsp; &nbsp; &nbsp; if (mat[i][j]==x) {
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; trobat=true;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fila=i; col=j;
+&nbsp; &nbsp; &nbsp; &nbsp; }
+        else if (mat[i][j]&lt;x) j++;
+&nbsp; &nbsp; &nbsp; &nbsp; else i--; &nbsp; &nbsp; 
+        
+}
+
+int main() {&nbsp; &nbsp;
+&nbsp; &nbsp; Matriu_enter mat; unsigned n,m;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre files i columnes de la matriu: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;n&gt;&gt;m;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra &quot;&lt;&lt;n&lt;&lt;&quot; files de &quot;&lt;&lt;m&lt;&lt;&quot; enters: &quot;&lt;&lt;endl;
+&nbsp; &nbsp; llegir_matriu_enter(mat,n,m); // s'omple una matriu ordenada
+&nbsp; &nbsp; cout&lt;&lt;endl;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; int valor;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra el valor a cercar: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;valor;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; unsigned fila,col;
+&nbsp; &nbsp; bool trobat;
+&nbsp; &nbsp; cerca_matriu(mat,n,m,valor,trobat,fila,col);
+&nbsp; &nbsp; if (trobat) cout&lt;&lt;&quot;Trobat a (&quot;&lt;&lt;fila+1&lt;&lt;&quot;,&quot;&lt;&lt;col+1&lt;&lt;&quot;)&quot;&lt;&lt;endl;
+&nbsp; &nbsp; else cout&lt;&lt;&quot;No trobat&quot;&lt;&lt;endl;
+&nbsp; &nbsp; return 0;
+}</code></pre>
+        </solucio><br>
+
+
+        <h2>Taules 5.10: Cercar (per files o columnes) un element en una matriu&nbsp;</h2>
+        <button onclick="myFunction(P7_Taules_5_10)">Veure Solució</button><br>
+        <solucio id="P7_Taules_5_10">
+            
+            Per files: <br>
+            <pre><code class="c++">void trobat_i_posicio_element(const Vector_enter vec, unsigned n, int x, bool&amp; trobat, unsigned&amp; pos) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_COL_MAX
+&nbsp; &nbsp; //Post: si x existeix a vec[0..n-1], trobat=cert i pos=posici&oacute; m&eacute;s petita de x, altrament trobat=fals i pos no t&eacute; significat
+&nbsp; &nbsp; unsigned i=0;
+&nbsp; &nbsp; trobat=false;
+&nbsp; &nbsp; while (i&lt;n and not trobat) // not (i=n or trobat)
+&nbsp; &nbsp; &nbsp; &nbsp; if (vec[i]==x) trobat=true; //Si es busqu&eacute;s un element que compl&iacute;s una determinada condici&oacute;, aqu&iacute; es cridaria al subprograma que la comprova
+&nbsp; &nbsp; &nbsp; &nbsp; else i++;
+&nbsp; &nbsp; if (trobat) pos=i;
+}
+
+void cerca_matriu(Matriu_enter mat, int n, int m, int x, bool&amp; trobat, unsigned&amp; fila, unsigned&amp; col) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=m&lt;=N_COL_MAX, 
+&nbsp; &nbsp; //Post: si x pertany a mat, trobat=cert i (fila,col) contenen una posici&oacute; de x; altrament, trobat=fals i (fila,col) no tenen significat
+&nbsp; &nbsp; int i=0;
+&nbsp; &nbsp; trobat=false;
+&nbsp; &nbsp; while (i&lt;n and not trobat) {
+        trobat_i_posicio_element(mat[i], m, x, trobat, col); //Com que el C++ permet passar tota una fila com a un vector, usem l&rsquo;exercici 5.2 per buscar la posici&oacute; d&rsquo;un element en un vector
+&nbsp; &nbsp; &nbsp; &nbsp; if (trobat) fila=i;
+&nbsp; &nbsp; &nbsp; &nbsp; else i++; 
+&nbsp; &nbsp; }
+}</code></pre>
+
+
+            Per columnes: <br>
+
+
+            <pre><code class="c++">void trobat_i_posicio_element_a_columna(const Matriu_enter mat, unsigned col, unsigned n, int x, bool&amp; trobat, unsigned&amp; pos) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=col&lt;N_COL_MAX
+&nbsp; &nbsp; //Post: si x existeix a mat[0..n-1][col], trobat=cert i pos=fila m&eacute;s petita de x, altrament trobat=fals i pos no t&eacute; significat
+&nbsp; &nbsp; unsigned i=0;
+&nbsp; &nbsp; trobat=false;
+&nbsp; &nbsp; while (i&lt;n and not trobat) // not (i=n or trobat)
+&nbsp; &nbsp; &nbsp; &nbsp; if (vec[i][col]==x) trobat=true;
+&nbsp; &nbsp; &nbsp; &nbsp; else i++;
+&nbsp; &nbsp; if (trobat) pos=i;
+}
+
+void cerca_matriu(Matriu_enter mat, int n, int m, int x, bool&amp; trobat, unsigned&amp; fila, unsigned&amp; col) {
+&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=m&lt;=N_COL_MAX, 
+&nbsp; &nbsp; //Post: si x pertany a mat, trobat=cert i (fila,col) contenen una posici&oacute; de x; altrament, trobat=fals i (fila,col) no tenen significat
+&nbsp; &nbsp; int j=0;
+&nbsp; &nbsp; trobat=false;
+&nbsp; &nbsp; while (j&lt;m and not trobat) {
+        trobat_i_posicio_element_a_columna(mat, j, n, x, trobat, fila); //Com que el C++ NO permet passar una columna com a un vector, es passa tota la matriu i cercarem a la columna indicada
+&nbsp; &nbsp; &nbsp; &nbsp; if (trobat) columna=j;
+&nbsp; &nbsp; &nbsp; &nbsp; else j++; 
+&nbsp; &nbsp; }
+}</code></pre> </solucio> <br>
+
+
+
+
+
+
+
+
+
+  </teoria>
+  
+  <!-- Supressió-->
+  <teoria>
+  <h2>Taules 7.2: Esborrar elments repetits d'un vector ordenat</h2><br>
+  Eliminar, eficientment, els elements repetits d'un vector ordenat creixentment. Exemple: passar de [1,2,2,2,5,6,6,8] a [1,2,5,6,8].
+  <button onclick="myFunction(P7_Taules_7_2)">Veure Solució</button><br>
+  <solucio id="P7_Taules_7_2">
+		<pre><code class="c++">void esborrar_repetits(Vector_enter vec, unsigned&amp; n) {
+&nbsp; &nbsp; //Pre: 0&lt;n&lt;=N_MAX i vec[0..n-1] est&agrave; ordenat i vec=VEC i n=N
+&nbsp; &nbsp; //Post: vec[0..n-1] est&agrave; ordenat i cont&eacute; tots els elements de VEC[0..N-1] per&ograve; sense repeticions
+&nbsp; &nbsp; unsigned pos_consolidada=0;
+&nbsp; &nbsp; for (int i=1; i&lt;n; i++)
+&nbsp; &nbsp; &nbsp; &nbsp; if (vec[i]!=vec[pos_consolidada]) {
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pos_consolidada++;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; vec[pos_consolidada]=vec[i];
+&nbsp; &nbsp; &nbsp; &nbsp; }
+&nbsp; &nbsp; n=pos_consolidada+1;
+}
+int main() {&nbsp; &nbsp;
+&nbsp; &nbsp; Vector_enter vec; unsigned n;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre elements del vector (&gt;0): &quot;; cin&gt;&gt;n;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra &quot;&lt;&lt;n&lt;&lt;&quot; enters ordenats: &quot;;
+&nbsp; &nbsp; llegir_vector_enter(vec,n);&nbsp; &nbsp;
+&nbsp; &nbsp; esborrar_repetits(vec,n);&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Vector ordenat sense repetits: &quot;;
+&nbsp; &nbsp; escriure_vector_enter(vec,n);
+&nbsp; &nbsp; cout&lt;&lt;endl;&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; return 0;
+}</code></pre>
+		</solucio><br>
+  </teoria>
+  
+  <!-- Altres-->
+  <teoria>
+  </teoria>
+  
+	
+	
+	
+ </div>
+<p class = footer>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
