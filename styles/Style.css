@@ -50,7 +50,7 @@ h3 { font-size: 20px;font-weight: bold; color:#059667;}
 h4 { font-size: 22px; font-weight: bold; color:#1B6059; }     /* shade of green */
 h4 a { font-size: 22px; font-weight: bold; color:#7c927b; }   /* for a name tages 00cc66 */
 
-ol li        { list-style: decimal;     }
+ol li        { list-style: lower-alpha; }
 ol ol li     { list-style: lower-alpha; }
 ol ol ol li  { list-style: lower-roman; }
 
@@ -65,8 +65,6 @@ a { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300;
 
 a:link    { color: #0b5fb9; }  /* shade of blue on cover = 436994 */
 a:hover   { color: #aa3e3b; text-decoration: underline;  }
-
-
 
 
 #content  { margin-left: 204px;
