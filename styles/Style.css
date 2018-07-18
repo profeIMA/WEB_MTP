@@ -308,3 +308,19 @@ solucio{
 	color: white;
 	font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
 }
+
+
+a.forward {
+    padding-top: 50px;
+    content:url(../Recursos/Imatges/IconaAvans.png); 
+    float: right;
+    padding-bottom: 30px;
+}
+
+a.backward {
+    padding-top: 50px;
+    content:url(../Recursos/Imatges/IconaRetroces.png); 
+    float:left;
+    padding-bottom: 30px;
+
+}
