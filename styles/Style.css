@@ -84,6 +84,7 @@ a:hover   { color: #aa3e3b; text-decoration: underline;  }
                  border-width: 0px; padding: 0px 0px;}
 
 
+
 #menu {
 float: left;
 width: 190px;
@@ -138,12 +139,12 @@ background: #000;
 #menu a {
 color: #000;
 /* background: #efefef; */
-background: #729FBA;
+background: #93bcb9;
 text-decoration: none;
 }
 
 /* white on black headings */
-#menu a.title { color: #fff; background: #204962; cursor: pointer;}
+#menu a.title { color: #fff; background: #334847; cursor: pointer;}
 #menu a.ex_easy {  color: #000; background: #cccccc;}
 #menu a.ex_medium {  color: #000; background: #cccccc;}
 #menu a.ex_hard {  color: #000; background: #cccccc;}
@@ -163,12 +164,12 @@ background: #9EC4DB;
 
 #menu ul ul a:hover {
 color: #fff;
-background: #356480;
+background: #307D75;
 }
 
 #menu ul ul ul a:hover {
 color: #fff;
-background: #356480;
+background: #307D75;
 }
 
 
@@ -324,3 +325,4 @@ a.backward {
     padding-bottom: 30px;
 
 }
+
