@@ -23,8 +23,10 @@ $(document).ready(
     function(){
         document.getElementById("anyActual").innerHTML = new Date().getFullYear();
         document.getElementsByTagName("title")[0].innerHTML = "Algorismes i estructures de dades";
+        $('head').append('<link rel="shortcut icon" href="../../favicon.ico"></link>');
           }
 );
+
 
 function myFunction(a) {
     var x = document.getElementById(a.id);
