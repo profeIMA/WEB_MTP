@@ -144,7 +144,7 @@ text-decoration: none;
 }
 
 /* white on black headings */
-#menu a.title { color: #fff; background: #334847; cursor: pointer;}
+#menu a.title { color: #fff; background: #2A4341; cursor: pointer;}
 #menu a.ex_easy {  color: #000; background: #cccccc;}
 #menu a.ex_medium {  color: #000; background: #cccccc;}
 #menu a.ex_hard {  color: #000; background: #cccccc;}

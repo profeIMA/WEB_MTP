@@ -22,6 +22,7 @@ $(function() {
 $(document).ready(
     function(){
         document.getElementById("anyActual").innerHTML = new Date().getFullYear();
+        document.getElementsByTagName("title")[0].innerHTML = "Algorismes i estructures de dades";
           }
 );
 
