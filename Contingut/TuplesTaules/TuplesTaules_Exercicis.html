@@ -559,7 +559,10 @@ int main() {&nbsp; &nbsp;
 	  <pre><code class="c++">void fusio_vectors(const Vector_enter vec1, const Vector_enter vec2, unsigned n1, unsigned n2, Vector_enter vec_fusio, unsigned &amp;n) {
 //Pre: 0&lt;=n1+n2&lt;=N_MAX i vec1[0..n1-1] ordenat i vec2[0..n2-1] ordenat
 //Post: vec_fusio[0..n1+n2-1] ordenat i &eacute;s la fusi&oacute; de vec1[0..n1-1] i vec2[0..n2-1] i n=n1+n2
-&nbsp; &nbsp; unsigned i1=0, i2=0, i=0;    while(i1&lt;n1 and i2&lt;n2) {        if(vec1[i1]&lt;vec2[i2]) { vec_fusio[i]=vec1[i1]; i++; i1++; }        else { vec_fusio[i]=vec2[i2]; i++; i2++; }
+&nbsp; &nbsp; unsigned i1=0, i2=0, i=0;
+&nbsp; &nbsp; while(i1&lt;n1 and i2&lt;n2) {
+&nbsp; &nbsp; &nbsp; &nbsp; if(vec1[i1]&lt;vec2[i2]) { vec_fusio[i]=vec1[i1]; i++; i1++; }
+&nbsp; &nbsp; &nbsp; &nbsp; lse { vec_fusio[i]=vec2[i2]; i++; i2++; }
     }
 &nbsp; &nbsp; while(i1&lt;n1) { vec_fusio[i]=vec1[i1]; i++; i1++; } //copiar_a_des_des(vec_fucio,i,vec1,n1,i1);
     &nbsp; while(i2&lt;n2) { vec_fusio[i]=vec2[i2]; i++; i2++; } //copiar_a_des_des(vec_fucio,i,vec2,n2,i2);
