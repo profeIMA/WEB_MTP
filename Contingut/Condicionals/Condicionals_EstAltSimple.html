@@ -34,15 +34,15 @@
     </h1>
   </center>
     <h4>Estructura Alternativa Simple If - else </h4>
-        Una estructura alternativa és aquella que permet tenir diferents execucions en funció de l'estat del programa. Per determinar quina execució cal dur a terme per un estat determinat del programa, utiltizem <b>condicions</b>. Tota condició té assignada un tall de codi, de manera que quan la condició és certa, aleshores s'executa el tall de codi. I quan la condició és falsa, simplement s'ignora aquest tall. <br> 
+        Una estructura alternativa és aquella que permet tenir diferents execucions en funció de l'estat del programa. Per determinar quina execució cal dur a terme per un estat determinat del programa, utilitzem <b>condicions</b>. Tota condició té assignada un tall de codi, de manera que quan la condició és certa, aleshores s'executa el tall de codi. I quan la condició és falsa, simplement s'ignora aquest tall. <br> 
     
         Els llenguatges de programació proporcionen dos tipus de condicions possibles: <br> 
         <ul> 
-            <li><b>if(condició): </b>Aquest cas ens permet entrar una condició, la que nosaltres decidim. <i>Per exemple: i == 4</i>. Aquesta estructura demana que la condició retorni un valor booleà, és a dir, que només podem utlitzar operadors booleans per efectuar la condició. Si la condició falla, aleshores salta tot el que estigui compres dins de l'estructura, i executa el <b>else</b>, si n'hi ha.</li>
+            <li><b>if(condició): </b>Aquest cas ens permet entrar una condició, la que nosaltres decidim. <i>Per exemple: i == 4</i>. Aquesta estructura demana que la condició retorni un valor booleà, és a dir, que només podem utilitzar operadors booleans per efectuar la condició. Si la condició falla, aleshores salta tot el que estigui compres dins de l'estructura, i executa el <b>else</b>, si n'hi ha.</li>
             <li><b>else: </b> Aquesta estructura s'executa quan la condició del <b>if</b> falla. Així doncs, sempre ha d'anar a posteriori d'una condició if. 
         </ul>
     
-    Per poder visualtizar millor el seu funcionament, mirem el següent exemple: 
+    Per poder visualitzar millor el seu funcionament, mirem el següent exemple: 
     <i>Es fa una "loteria" on es demana al usuari que encerti el nombre amagat.</i>
     
     <pre><code class= "c++">
@@ -71,7 +71,7 @@
     Tenim dues formes de resoldre el problema: 
     <ul>
         <li><b>Amb una estructura simple completa (if - else): </b>utilitzant l'esquema anterior podem resoldre l'exercici. <br>
-            <button onclick="myFunction(Ex11)">Veure Solucio</button>
+            <button onclick="myFunction(Ex11)">Veure Solució</button>
             <solucio id="Ex11"><pseudocodi><pre><code class="nohighlight">
                algorisme Control_ascensor 
                    natural pis
@@ -85,7 +85,7 @@
             </code></pre></pseudocodi></solucio>
             
             
-            <button onclick="myFunction(Ex11C)">Veure Solucio C++</button>
+            <button onclick="myFunction(Ex11C)">Veure Solució C++</button>
            <solucio id="Ex11C"><pre><code class="c++">
                // Entrada: llegeix un nombre natural (pis) diferent de 13
                 // Sortida: escriu el pis real (pis_real) al qual ha d'anar l'ascensor en funció del pis entrat
@@ -113,7 +113,7 @@
         </li>
         <li><b>Amb una estructura simple incomplerta ( if): </b>aquesta estructura li falta l'else o altrament. Per això es diu que és incomplerta.<br>
             
-         <button onclick="myFunction(Ex12)">Veure Solucio</button>
+         <button onclick="myFunction(Ex12)">Veure Solució</button>
             <solucio id="Ex12"><pseudocodi><pre><code class="nohighlight">
               algorisme Control_ascensor 
                    natural pis
@@ -125,7 +125,7 @@
                    escriure pis_real
             </code></pre></pseudocodi></solucio>
             
-             <button onclick="myFunction(Ex12C)">Veure Solucio C++</button>
+             <button onclick="myFunction(Ex12C)">Veure Solució C++</button>
            <solucio id="Ex12C"><pre><code class="c++">
                // Entrada: llegeix un nombre natural (pis) diferent de 13
                 // Sortida: escriu el pis real (pis_real) al qual ha d'anar l'ascensor en funció del pis entrat
@@ -154,8 +154,8 @@
     </teoria>
     
     <h3>Us de variables booleanes</h3>
-    Fins el moment hem vist que les condicions són expressions boleanes que si es compleixen s'entra dins del condicional. El que està passant realment és que el resultat d'evaluar l'expressió és un booleà, i aquest valor s'utilitza per informar al condicional de si cal entrar o no.<br> 
-    Així doncs, el que realment necessitem és un <b>valor booleà</b>, ja sigui <b>fruit d'una expresió o bé una variable booleana</b>. <br> 
+    Fins el moment hem vist que les condicions són expressions booleanes que si es compleixen s'entra dins del condicional. El que està passant realment és que el resultat d'avaluar l'expressió és un booleà, i aquest valor s'utilitza per informar al condicional de si cal entrar o no.<br> 
+    Així doncs, el que realment necessitem és un <b>valor booleà</b>, ja sigui <b>fruit d'una expressió o bé una variable booleana</b>. <br> 
     
     Un exemple seria el següent: 
     <pseudocodi><pre><code class="nohighlight">
@@ -216,7 +216,7 @@
     <!---------------------------------------------------------------------EXEMPLE 1------------------------------------------------------------------------------------------------>
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <h3>Exemple 1: Valor absolut</h3>
-   <exercici> Es demana un programa on l'usuari entri un valor per teclat, i el progama retorna el seu valor absolut. Només podem implementar operacions senzilles (es decarten potències i arrels quadrades).</exercici>
+   <exercici> Es demana un programa on l'usuari entri un valor per teclat, i el programa retorna el seu valor absolut. Només podem implementar operacions senzilles (es descarten potències i arrels quadrades).</exercici>
     
     <br>
        
@@ -237,7 +237,7 @@
 
         </code></pre></pseudocodi>
     
-    <button onclick="myFunction(Ex22)">Solucio Estructura if</button>
+    <button onclick="myFunction(Ex22)">Solució Estructura if</button>
        <solucio id="Ex22"><pseudocodi><pre><code class="nohighlight">
             // Entrada: llegeix un nombre enter (nombre)
             // Sortida: escriu valor absolut de nombre
@@ -258,7 +258,7 @@
     
     
     
-      <button onclick="myFunction(Ex21C)">Solucio Estructura if-else C++</button>
+      <button onclick="myFunction(Ex21C)">Solució Estructura if-else C++</button>
            <solucio id="Ex21C"><pre><code class="c++">
                // Entrada: llegeix un nombre natural (pis) diferent de 13
                 // Sortida: escriu el pis real (pis_real) al qual ha d'anar l'ascensor en funció del pis entrat
@@ -282,7 +282,7 @@
 
             </code></pre></solucio>
     
-         <button onclick="myFunction(Ex22C)">Solucio Estructura if C++</button>
+         <button onclick="myFunction(Ex22C)">Solució Estructura if C++</button>
            <solucio id="Ex22C"><pre><code class="c++">
                // Entrada: llegeix un nombre natural (pis) diferent de 13
                 // Sortida: escriu el pis real (pis_real) al qual ha d'anar l'ascensor en funció del pis entrat
@@ -309,7 +309,7 @@
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     
     <h3>Exemple2: Màxim i mínim de dos enters</h3>
-    <exercici>Es demana que l'usuari entri dos valos enters, i el programa digui quin és el màxim i quin el mínim</exercici>
+    <exercici>Es demana que l'usuari entri dos valors enters, i el programa digui quin és el màxim i quin el mínim</exercici>
     
    
       <pseudocodi><pre><code class="nohighlight">
@@ -332,7 +332,7 @@
 
         </code></pre></pseudocodi>
     
-    <button onclick="myFunction(Ex32)">Solucio Estructura if</button>
+    <button onclick="myFunction(Ex32)">Solució Estructura if</button>
        <solucio id="Ex32"><pseudocodi><pre><code class="nohighlight">
             // Entrada: llegeix dos nombres enters (nombre1,nombre2)
             // Sortida: escriu màxim(nombre1,nombre2) i mínim(nombre1,nombre2)
@@ -354,7 +354,7 @@
     
     
     
-      <button onclick="myFunction(Ex31C)">Solucio Estructura if-else C++</button>
+      <button onclick="myFunction(Ex31C)">Solució Estructura if-else C++</button>
            <solucio id="Ex31C"><pre><code class="c++">
             // Entrada: llegeix dos nombres enters (nombre1,nombre2)
             // Sortida: escriu màxim(nombre1,nombre2) i mínim(nombre1,nombre2)
@@ -386,7 +386,7 @@
 
             </code></pre></solucio>
     
-         <button onclick="myFunction(Ex32C)">Solucio Estructura if C++</button>
+         <button onclick="myFunction(Ex32C)">Solució Estructura if C++</button>
            <solucio id="Ex32C"><pre><code class="c++">
             // Entrada: llegeix dos nombres enters (nombre1,nombre2)
             // Sortida: escriu màxim(nombre1,nombre2) i mínim(nombre1,nombre2)

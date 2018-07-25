@@ -34,14 +34,14 @@
     </h1>
   </center>
     <h4>Estructura Alternativa Múltiple</h4>
-        Per començar amb l'estructura Alternativa múltiple, cal haver entès els contignuts de <a href="Condicionals_EstAltSimple.html">l'estuctura alternativa simple</a>. <br> 
-        Fins ara hem vist com evaluar una expressió i determinar una execució o una altre en funció de si es compleix la condició establerta. Però a vegades es poden donar diferents casos 
-        que necessitem evaluar diferents solucions. En aquests casos apareix l'estructura alternativa múltiple. 
+        Per començar amb l'estructura Alternativa múltiple, cal haver entès els continguts de <a href="Condicionals_EstAltSimple.html">l'estructura alternativa simple</a>. <br> 
+        Fins ara hem vist com avaluar una expressió i determinar una execució o una altre en funció de si es compleix la condició establerta. Però a vegades es poden donar diferents casos 
+        que necessitem avaluar diferents solucions. En aquests casos apareix l'estructura alternativa múltiple. 
     
     <h3>Declaració i funcionament</h3>
     <teoria>
         Una forma de fer una estructura alternativa múltiple és encadenar diferents estructures simples fent així una cascada de condicionals que pot arribar fins a tants nivells com es desitji. D'aquesta pràctica se'n diuen condicionals niats.<br>
-        Tot i això, també apareix el <b>altrament si, o else if</b> que substuteix els condicionals niats per una altre nomenclatura i que simplement serveix com a "sintantic sugar". És a dir, a nivell d'execució no hi ha diferència entre ells, però si que pot ajudar a fer més net el codi.<br>
+        Tot i això, també apareix el <b>altrament si, o else if</b> que substitueix els condicionals niats per una altre nomenclatura i que simplement serveix com a "sintantic sugar". És a dir, a nivell d'execució no hi ha diferència entre ells, però si que pot ajudar a fer més net el codi.<br>
         A continuació veurem un exemple de cada:
         <br>
         <h2>Condicionals niats</h2>
@@ -50,16 +50,16 @@
             si(condició 1)
                     si (condició 1.1)
                         <i>fer quelcom</i>
-                    altrement
+                    altrament
                         <i>fer quelcom</i>
-            altrement
+            altrament
                 si(condició 2)
                     <i>fer quelcom</i>
-                altrement
+                altrament
                     si(condició 3)
                         si (condició 3.1)
                             <i>fer quelcom</i>
-                        altrement 
+                        altrament 
                     
             <i>Continuació del codi després de l'estructura</i>
         </code></pre></pseudocodi>
@@ -72,13 +72,13 @@
         <pseudocodi><pre><code class="nohighlight">
             si(condició1)
                 fer quelcom
-            altrement si(condició 2)
+            altrament si(condició 2)
                 fer quelcom 2
-            altrement si (condició 3)
+            altrament si (condició 3)
                 fer quelcom 3
             .... 
             ....
-            altrement
+            altrament
                 fer quelcom n
         </code></pre></pseudocodi>
         
@@ -86,7 +86,7 @@
     </teoria>
     
     <h4>Switch</h4>
-    <teoria>Una altre estructura que podem utilitzar és el <b>switch</b>. Aquesta estructura ens permet fer diferents execucions en funció del valor d'una varaible. <br>
+    <teoria>Una altre estructura que podem utilitzar és el <b>switch</b>. Aquesta estructura ens permet fer diferents execucions en funció del valor d'una variable. <br>
             L'estructura té la següent forma: 
         
             <pre><code class="c++">
@@ -99,7 +99,7 @@
                     default: cout&lt;&lt;"Numero major que 3"; break;                
                 }
             </code></pre>
-        El seu funcionament és el següent: Agafa el valor de la variable "digit" i comprova un a un cada " case " fins a trobar el valor que li correspont. <br>És a dir, primer comprova si <i>digit == 0</i>, després <i>digit == 1</i>, i així succesivament fins a trobar la condició correcta, aleshores executa el case corresponent, <b>i tots els posteriors</b>. <br>Si no troba la condició correcta, aleshores executara la branca "<b>default</b>".<br>
+        El seu funcionament és el següent: Agafa el valor de la variable "digit" i comprova un a un cada " case " fins a trobar el valor que li correspon. <br>És a dir, primer comprova si <i>digit == 0</i>, després <i>digit == 1</i>, i així successivament fins a trobar la condició correcta, aleshores executa el case corresponent, <b>i tots els posteriors</b>. <br>Si no troba la condició correcta, aleshores executarà la branca "<b>default</b>".<br>
        <alerta> Al final de cada case, cal utilitzar la comanda "<b>break</b>", ja que de no ser així, l'estructura seguiria executant tots els casos posteriors a ell. </alerta>   
     </teoria>
     <h4>Altres exemples:</h4>
@@ -111,7 +111,7 @@
         A continuació hi ha la informació de cada nivell:
         <img class="petita" src="../../Recursos/Imatges/EscalaRichtard.PNG">
     
-              Per veure la solució: <button onclick="myFunction(Ex1)">Solucio </button>
+              Per veure la solució: <button onclick="myFunction(Ex1)">Solució </button>
                 <solucio id="Ex1"><pre><code class="c++">
 
                 //Entrada: l'usuari entra un nombre real entre  0-10

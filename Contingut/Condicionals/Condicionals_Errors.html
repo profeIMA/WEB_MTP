@@ -34,7 +34,7 @@
     </h1>
   </center>
     <h4>Errors i problemes freqüents</h4>
-        A continuacio farem un llistat dels errors més freqüents en programació de condicions i estructures alternatives:
+        A continuació farem un llistat dels errors més freqüents en programació de condicions i estructures alternatives:
     <h3>Mal ús dels punt i coma</h3>
     <teoria>
         Hem vist que en C++ és necessari acabar les instruccions amb <b>;</b>. Però això no s'aplica amb les estructures, aleshores el següent codi és un error: 
@@ -44,7 +44,7 @@
         </code></pre>
         En aquest cas el <b>;</b>, està mal col·locat, però no és un error de programació ja que és un sentència vàlida. En C++, utilitzar el <b>;</b>, significa que no es vol fer res. Per tant en aquest cas estem dient que si es compleix la condició del <i>if</i> no volem fer res. I a continuació de "no fer res", s'executarà el <i>fer quelcom</i>.<br><br>
         
-        Ara bé, per altra banda, es pot utiltizar el punt i coma de forma intencionada per remarcar que no vols fer res si es dóna el cas. Això significa que com a programador has pensat amb aquella possiblitat, però has determinat que no calia fer cap instrucció. <br>
+        Ara bé, per altra banda, es pot utilitzar el punt i coma de forma intencionada per remarcar que no vols fer res si es dóna el cas. Això significa que com a programador has pensat amb aquella possibilitat, però has determinat que no calia fer cap instrucció. <br>
         
         Un exemple: 
         
@@ -64,10 +64,10 @@
     
     <h3>Mala indentació</h3>
     <teoria>
-        Sabem que la indentació és molt important per saber dins de quina estructura ens trobem. Si no la respectem aleshores ens poden succeïr errors dins del nostre codi. Exemple: 
+        Sabem que la indentació és molt important per saber dins de quina estructura ens trobem. Si no la respectem aleshores ens poden succeir errors dins del nostre codi. Exemple: 
         <pre><code class="c++">
-            double cost_enviament ; //El cost d'enviament estandard es de 10€
-            if(estat == "USA")//Si el paquet prové d'estats unnits
+            double cost_enviament ; //El cost d'enviament estàndard es de 10€
+            if(estat == "USA")//Si el paquet prové d'estats units
                 if(estat== "CA")//Estat == california
                     cost_enviament = 12.0;
             <alerta>else</alerta>// Aquest else què vol dir? que no sigui California o que no sigui d'Estats Units?
@@ -76,7 +76,7 @@
         </code></pre>
     </teoria>
     
-    <h3>Confusió entre igualtat i assgnació</h3>
+    <h3>Confusió entre igualtat i assignació</h3>
     <teoria>
         Com ja sabem de <a href="../TipusVariables/TipusVariables_TElemDades.html">les variables</a> podem tenir diferents operadors, entre ells hi ha l'Assignació, <b> = </b> i la comparació <b>==</b>. Els quals tenen
         propòsits ben diferents, entre ells, un serveix per donar un valor a una variable, mentre que l'altre serveix per comparar dos valors. <br> 
@@ -104,7 +104,7 @@
         Els errors més freqüents que hi ha són els següents: 
         <pre><code class="c++">
             int a = 4;
-            if (a == 3 || 6 ) //Error, la segona condició està evaluant 6 per separat, i per tant sempre donarà true. (6 != 0)
+            if (a == 3 || 6 ) //Error, la segona condició està avaluant 6 per separat, i per tant sempre donarà true. (6 != 0)
                 a = 3; 
             
             //La forma correcte: 
@@ -112,7 +112,7 @@
         </code></pre>
         <pre><code class="c++">
             int x = 3,y=8;
-            if(x && y &gt; 0)//Error, x s'avalua sola, i pertant sempre donarà certa la seva part. 
+            if(x && y &gt; 0)//Error, x s'avalua sola, i per tant sempre donarà certa la seva part. 
                 x = y; 
                 
             //La forma correcte: 
