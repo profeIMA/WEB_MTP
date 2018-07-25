@@ -39,8 +39,8 @@
     <h3>Què és una variable:</h3>
     
     <teoria>
-     En C++ podem entendre una variable com un contenidor finit on podem emmagatzamar diferents dades. Aquestes dades necessiten tenir un format per tal d'entendre què estem tractant, quines operacions podem realitzar, com hem de mostrar les dades, etc.
-    Cal saber quins <a href="TipusVariables_TElemDades.html">tipus de variables</a> ha de guardar amb antel·lació per tal de reservar la memòria corresponent.<br><br>
+     En C++ podem entendre una variable com un contenidor finit on podem emmagatzemar diferents dades. Aquestes dades necessiten tenir un format per tal d'entendre què estem tractant, quines operacions podem realitzar, com hem de mostrar les dades, etc.
+    Cal saber quins <a href="TipusVariables_TElemDades.html">tipus de variables</a> ha de guardar amb antelació per tal de reservar la memòria corresponent.<br><br>
     
     En C++ hi ha tres parts referents a l'ús de les variables: 
         <ul>
@@ -48,7 +48,7 @@
             <li><b>Inicialització i/o assignació:</b> aquesta fase és la que es dóna un valor a la variable, pot ser en la mateixa declaració o bé en un moment posterior: 
             
             <ul>
-            <li><b>En l'inicialització:</b> En el moment de la declaració, se li assigna una valor. <b><i>tipus nom_variable = valor;</i></b></li>    
+            <li><b>En la inicialització:</b> En el moment de la declaració, se li assigna una valor. <b><i>tipus nom_variable = valor;</i></b></li>    
                 <li><b>A posteriori:</b> en qualsevol moment podem donar un valor a la variable: <b><i>nom_variable = valor;</i></b></li>
             </ul>
             </li>
@@ -63,7 +63,7 @@
         <li><b>Sense Nom:</b> són aquelles que es dóna el seu valor directament com podria ser: 8, "hola", 'A', true, -2.5 .</li>
             <li><b>Amb Nom:</b> són aquelles que tenen un tipus i nom donats pel programador. Es comporten igual que les variables que hem vist anteriorment. <br> La única diferència és que en la declaració s'utilitza la paraula clau <b><i>const</i></b>. Exemple: <b><i>const tipus nom_variable = valor</i></b>.</li>
         </ul>
-        <alerta>Les constants amb nom sempre usarem Majuscules i utlitzant una barra baixa per separar paraules. </alerta>
+        <alerta>Les constants amb nom sempre usarem Majúscules i utilitzant una barra baixa per separar paraules. </alerta>
     </teoria>
     
     <h3>Ús de les variables en C++</h3>
@@ -82,13 +82,13 @@
                 
                 bool VARIABLE_LOGICA = true; //Declaració i inicialització d'una constant lògica utilitzant la notació de barra baixa. 
                 
-                char variable_caracter = 'P'; //Declaració i inicialització d'una variable caràcter utiltizant la notació de barra baixa. 
+                char variable_caracter = 'P'; //Declaració i inicialització d'una variable caràcter utilitzant la notació de barra baixa. 
                 
                 unsigned int variable_natural, variableNatural; //Declaració de dues variables naturals. 
                 variable_natural = 10; //Assignació d'una variable natural. 
                 variableNatural = variable_natural; //Assignació d'una variable natural usant una altre variable natural.
                 
-                string missatgeError= "Error, torna a introduir les dades", missatgeOK = "Finalitzacio correcte";//Declaració i inicilaització de dues variables tipus string (cadena de caràcters).
+                string missatgeError= "Error, torna a introduir les dades", missatgeOK = "Finalitzacio correcte";//Declaració i inicialització de dues variables tipus string (cadena de caràcters).
             
                 return 0;
             }
@@ -107,7 +107,7 @@
     </teoria>
     <h3>Expressions simples</h3>
     <teoria>
-        Les expressions simples són la utilització de les operacions matemàtiques vistes anteriorment, lligades amb variables i constants. Aquestes operacions són evaluades i retornen el valor corresponent. Per exemple, una operació lògica retornarà un valor lògic. <br> 
+        Les expressions simples són la utilització de les operacions matemàtiques vistes anteriorment, lligades amb variables i constants. Aquestes operacions són avaluades i retornen el valor corresponent. Per exemple, una operació lògica retornarà un valor lògic. <br> 
         
         Els operadors tenen un <b>ordre de prioritat</b>: 
         <img alt="Prioritat operadors C++" src="../../Recursos/Imatges/OperadorsC++Propritat.PNG" height="150px">
@@ -115,7 +115,7 @@
         
         Per tal de dur a terme les expressions, cal que l'operació i la variable sigui compatible, per exemple, <b>>no es permet una operació lògica a una variable caràcter</b>. Ara bé, si que és possible fer operacions entre diferents tipus de variables com és el cas de les variables numèriques. Es permet les operacions entre: <b>Naturals - Enters - Reals</b>, ara bé el resultat de l'operació pot diferir de l'esperat si no es fa correctament.
         <br> 
-        <alerta>Si una expressió utilitza parentesis per donar prioritat, cal que hi hagi el mateix nombre de parentesis obert que tancats.</alerta>
+        <alerta>Si una expressió utilitza parèntesis per donar prioritat, cal que hi hagi el mateix nombre de parèntesis obert que tancats.</alerta>
     </teoria>
     <h3>Casting</h3>
 
@@ -135,7 +135,7 @@
         
         int main(){
             int diametre = 25; 
-            float radi = diametre/2; //Encara que sigui un float, la divisio entre dos enters, dóna un enter. 
+            float radi = diametre/2; //Encara que sigui un float, la divisió entre dos enters, dóna un enter. 
             cout&lt;&lt;"El radi val: "&lt;&lt;radi&lt;&lt;endl;
             radi = (float)diametre/2;//Ara si que hi ha decimals. 
             cout&lt;&lt;"El radi val: "&lt;&lt;radi&lt;&lt;endl;
@@ -145,7 +145,7 @@
     <h3>Funcions predefinides</h3>
         <teoria>
         Els operadors matemàtics anteriors no són suficients per realitzar totes les operacions, per solucionar aquesta mancança apareixen les llibreries. La llibreria <b>&lt;cmath&gt;</b> que ens dóna les suficients eines per fer tot tipus d'operacions matemàtiques. <br>
-        Per utiitzar-la cal fer el següent <b>include</b>:
+        Per utilitzar-la cal fer el següent <b>include</b>:
         
         <pre><code class="C++"> #include &lt;cmath&gt;</code></pre>
     
