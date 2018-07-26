@@ -42,11 +42,11 @@
     A la següent imatge podem veure els diferents entorns en un programa de c++ <br> 
     <img class = "mitjana" src="../../Recursos/Imatges/EntornsGlobal_Local.PNG">
     <br> 
-    <h2>Errors comúns</h2><br> 
+    <h2>Errors comuns</h2><br> 
     <ul>
-        <li><h2>Crides a funcions desconegudes:</h2> tot àmbit local té coneixament de d'una part de l'àmbit global, concretament, de tot l'àmbit global anterior al seu propi àmbit. Per exemple, <h2>FuncioA</h2> té coneixament de tot fins arribar a la seva implementació. <alerta>Encara que la implementació de l'ACCIOB sigui posterior, recordem que la capçalera és anterior</alerta></li>
+        <li><h2>Crides a funcions desconegudes:</h2> tot àmbit local té coneixement de d'una part de l'àmbit global, concretament, de tot l'àmbit global anterior al seu propi àmbit. Per exemple, <h2>FuncioA</h2> té coneixement de tot fins arribar a la seva implementació. <alerta>Encara que la implementació de l'ACCIOB sigui posterior, recordem que la capçalera és anterior</alerta></li>
         <li><h2>Implementació en backwards</h2> Quan fem una implementació en "backwards", és a dir, al mateix moment que la declarem, hem de ser conscients, que aquella funció coneix tot fins arribada la seva implementació, i per tant, no podrà cridar cap acció o funció, ni utilitzar cap estructura de dades declarada a posteriori.</li>
-        <li><h2>Crides a <a href=../TipusVariables/TipusVariables_Variables.html>variables</a> locals d'altres funcions: </h2> recordem que tot el que sigui declarat dins d'una acció o funció, està declarat dins de l'àmbit local, i per tant ningú més el conèix.</li>
+        <li><h2>Crides a <a href=../TipusVariables/TipusVariables_Variables.html>variables</a> locals d'altres funcions: </h2> recordem que tot el que sigui declarat dins d'una acció o funció, està declarat dins de l'àmbit local, i per tant ningú més el coneix.</li>
         <li><h2>Ús inapropiat de variables globals: </h2> Les variables globals en general són una mala praxis, i s'han d'evitar tant com sigui possible ja que fa que el programa no sigui robust. Únicament es permeten les variables globals en cas de ser <h2>constants</h2> universals pel programa. Com per exemple: el nombre pi, la constat de gravitació, o una constant pròpia.</li>
     </ul>
 </teoria>

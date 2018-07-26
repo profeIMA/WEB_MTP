@@ -39,7 +39,7 @@
 <teoria>
     Un subprograma és un tall de codi que es separa del programa principal i queda a ús del programador perquè l'utilitzi sempre que vulgui. D'aquesta manera, es pot organitzar el codi per funcionalitats, de tal manera que un tros servirà per fer escriure per pantalla i un altre tros servirà per calcular arrels quadrades de nombres enters, per exemple. <br> 
     Per fer aquesta extracció de codi del programa principal, primer cal saber especificar de forma concreta què fa aquell codi, quins valors de variables pot prendre, quan no s'hauria d'utilitzar i quan si, etc. <br>
-    <alerta>Els subprogrames s'executen en un entorn local, això significa que no conèixen RES no estigui declarat en un <a href="Entorns_Teoria.html">entorn global</a></alerta>
+    <alerta>Els subprogrames s'executen en un entorn local, això significa que no coneixen RES no estigui declarat en un <a href="Entorns_Teoria.html">entorn global</a></alerta>
     <br>
     <h2>Exemple</h2>
     <pre><code class = "c++">
@@ -47,18 +47,18 @@
         
         using namespace std; 
         
-        int suma(int a, int b) //CAPÇALERA:Declarem la acció i/o funció
+        int suma(int a, int b) //CAPÇALERA: Declarem la acció i/o funció
         {//PRE: a i b dos enters
         //POST: retorna la suma entre a i b
             int c = a + b;//Instruccions a executar
-            return c;//RETORN: valor que ha de retornar (IMPORTANT: c és un enter igual que el retorn de la funcio )
+            return c;//RETORN: valor que ha de retornar (IMPORTANT: c és un enter igual que el retorn de la funció )
         }
         
         int main(){
             int x = 4; 
             int y = 3; 
             
-            int z = suma(x,y);//INVOCACIÓ:Cridem a la nostra funció declarada ANTERIORMENT, i li passem dues variables, x,y( dos enters), que són les mateixes que la funció espera (a,b).
+            int z = suma(x,y);//INVOCACIÓ: Cridem a la nostra funció declarada ANTERIORMENT, i li passem dues variables, x,y( dos enters), que són les mateixes que la funció espera (a,b).
             cout&lt;&lt;"El valor de z es: "&lt;&lt;z&lt;&lt;endl;
         }
         
@@ -72,19 +72,19 @@
     La capçalera és la declaració de l'acció o funció, (Igual que les variables, les accions i funcions també s'han de declarar). A la capçalera i figura: <h2>Quin valor retorna</h2> si és que en retorna cap, <h2>el nom</h2> de que tindrà, els <h2>paràmetres d'entrada</h2> que cal subministrar a la funció o acció, i la <h2>especificació</h2>. <br>
     <ul>
         <li><h2>Retorn: </h2> Una funció pot retornar qualsevol tipus de variable unitària, és a dir, només pot retornar una dada.  <alerta>REPASSAR!!</alerta></li>
-        <li><h2>Nom: </h2>És el nom que tindrà la funció, no té importancia a nivell de programa.</li>
+        <li><h2>Nom: </h2>És el nom que tindrà la funció, no té importància a nivell de programa.</li>
         <li><h2>Paràmetres entrada: </h2> Són tots els paràmetres que envies a la funció, aquests paràmetres poden ser per <h2> constants </h2>,<h2>per referència</h2>, <h2>per paràmetre</h2><br>
 			<ul>
 				<li><h2>Constants: </h2>com el seu nom indica són valors que no canvien durant el curs de l'execució dins de la funció.</li>
-				<li><h2>Per paràmetre:</h2> s'envia una còpia de la variable original a la funció. D'aquesta manera es pot modificar el valor de la variable sense efectar el valor original</li>
-				<li><h2>Per referència:</h2> s'envia la ubicació de memòria de la variable original, aixó doncs, es tracta en tot moment amb la varible real.</li>
-				<li><h2>Per referència i constant: </h2>una opció per otpimitzar el programa és enviar la referència de memòria però declarar-la constant per evitar modificacions. És considerat una bona pràctica.</li>
+				<li><h2>Per paràmetre:</h2> s'envia una còpia de la variable original a la funció. D'aquesta manera es pot modificar el valor de la variable sense afectar el valor original</li>
+				<li><h2>Per referència:</h2> s'envia la ubicació de memòria de la variable original, això doncs, es tracta en tot moment amb la variable real.</li>
+				<li><h2>Per referència i constant: </h2>una opció per optimitzar el programa és enviar la referència de memòria però declarar-la constant per evitar modificacions. És considerat una bona pràctica.</li>
 			</ul>
 		</li>
-        <li><h2>Especificació: </h2> ha d'informar al usuàri la pre-condició i la post-condició:
+        <li><h2>Especificació: </h2> ha d'informar al usuari la pre-condició i la post-condició:
 			<ul>
 				<li><h2>La pre-condició: </h2>indica quines condicions s'han de donar per executar aquella funció, sovint, es demana que els paràmetres d'entrada compleixin uns requisits. Com per exemple que un enter no sigui 0 ja que podria portar problemes. També es pot donar el cas que no hi hagi precondició, és a dir, que sempre funciona correctament.</li>
-				<li><h2>La post-condició: </h2>Explica què fa el progama amb les variables entrades, i què retorna. Si durant l'execució canvia alguna dada o estructura de dades, també cal infomrar.</li>
+				<li><h2>La post-condició: </h2>Explica què fa el programa amb les variables entrades, i què retorna. Si durant l'execució canvia alguna dada o estructura de dades, també cal informar.</li>
 			</ul></li>
     </ul>
     
@@ -136,7 +136,7 @@
    <h4>Exemples</h4>
    <teoria>
 	   <strong>Càlcul de l’àrea del cercle i del quadrat més gran inscrit en aquest. </strong>
-	   <button onclick="myFunction(P5_1)">Solucio</button><br>
+	   <button onclick="myFunction(P5_1)">Solució</button><br>
 		<solucio id="P5_1">
 		<span style="color:MediumTurquoise">Cal obtenir dos valors (area_cercle,  area_quadrat), per tant ha de ser una acció amb dos paràmetres de sortida (pas per referència).</color>
 		<pre><code class = "c++">
@@ -152,7 +152,7 @@
 
 
 		<strong>Càlcul del màxim de dos nombres reals.</strong>
-		<button onclick="myFunction(P5_2)">Solucio</button><br>
+		<button onclick="myFunction(P5_2)">Solució</button><br>
 		<solucio id="P5_2">
 		<span style="color:MediumTurquoise">Cal obtenir un valor (màxim), per tant ha de ser una funció real que rep dos reals d’entrada (pas per valor)</span>
 		<pre><code class = "c++">
@@ -167,7 +167,7 @@ double maxim(double x, double y) {
 		<br>
 
 		<strong>Suma dels naturals des de 1 a n</strong>
-		 <button onclick="myFunction(P5_3)">Solucio</button><br>
+		 <button onclick="myFunction(P5_3)">Solució</button><br>
 		<solucio id="P5_3">
 		<span style="color:MediumTurquoise">Cal obtenir dos valors (area_cercle,  area_quadrat), per tant ha de ser una acció amb dos paràmetres de sortida (pas per referència).</span>
 		<pre><code class = "c++">
@@ -186,7 +186,7 @@ unsigned suma_naturals(unsigned n) {
 		
 		<strong>Divisió per restes successives</strong>
 		<br>Donat dos naturals, dividend i divisor amb divisor>0, determinar el quocient i el residu mitjançant restes successives
-		<button onclick="myFunction(P5_4)">Solucio</button><br>
+		<button onclick="myFunction(P5_4)">Solució</button><br>
 		<solucio id="P5_4">
 		<span style="color:MediumTurquoise">Cal obtenir dos valors a partir de dos naturals, per tant és una acció amb dos paràmetres d’entrada (pas per valor): dividend i divisor; 
 		i dos paràmetres de sortida (pas per referència): quocient i residu</span>
@@ -205,7 +205,7 @@ residu=dividend;
 		<br>
 
 		<strong>Esbrinar si un nombre és parell</strong>
-		 <button onclick="myFunction(P5_5)">Solucio</button><br>
+		 <button onclick="myFunction(P5_5)">Solució</button><br>
 		<solucio id="P5_5">
 		<span style="color:MediumTurquoise">Cal calcular un valor booleà (és_parell), per tant és una funció booleana que rep un nombre natural (pas per valor).</span>
 		<pre><code class = "c++">
@@ -218,7 +218,7 @@ bool es_parell(unsigned n){
 		<br>
 
 		<strong>Simular el llançament d’un dau</strong>
-		 <button onclick="myFunction(P5_6)">Solucio</button><br>
+		 <button onclick="myFunction(P5_6)">Solució</button><br>
 		<solucio id="P5_6">
 		<span style="color:MediumTurquoise">Cal obtenir un valor natural (dau), per tant és una funció natural sense paràmetres</span>
 		<pre><code class = "c++">
@@ -242,7 +242,7 @@ int main(){
 
 		<strong>Esbrinar si un nombre té un dígit parell.</strong><br>
 		Fer un subprograma per determinar si un nombre té un dígit parell
-		 <button onclick="myFunction(P5_7)">Solucio</button><br>
+		 <button onclick="myFunction(P5_7)">Solució</button><br>
 		<solucio id="P5_7">
 		<span style="color:MediumTurquoise">Cal obtenir un valor booleà (te_parell), per tant és una funció booleana amb un paràmetre natural d’entrada (pas per valor)</span>
 		<pre><code class = "c++">
@@ -283,7 +283,7 @@ bool te_digit_parell(unsigned n){
 	<h3>Exemples</h3>
 	
 	<strong>Primer nombre primer >=n</strong>
-	<button onclick="myFunction(P5_12)">Solucio</button><br>
+	<button onclick="myFunction(P5_12)">Solució</button><br>
 		<solucio id="P5_12">
 		<pre><code class = "c++">
 //Entrada: un natural n &gt;1
@@ -326,7 +326,7 @@ Exemple:  220 i 284 són amics
 	<li>Suma dels divisors de 284 exceptuant el 284<br>1 + 2 + 4 + 71 + 142 = 220</li>
 </ul>
 	
-	<button onclick="myFunction(P5_16)">Solucio</button><br>
+	<button onclick="myFunction(P5_16)">Solució</button><br>
 		<solucio id="P5_16">
 		Ens demanen parelles (a,b) amb:
 		<ul>
