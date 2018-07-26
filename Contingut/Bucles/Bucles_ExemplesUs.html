@@ -38,9 +38,9 @@
     
     <h3>Validació d'entrada</h3>
     <teoria>
-        Quan fem programes que requereixen una entrada per part de l'úsuari, si no sabem el nombre de valors que ha d'entrar, no tenim forma de saber quan ha acabat d'entrar dades. Per això, s'utiltizen <b>valors impossibles</b> o bé <b>valors incorrectes</b> per determinar que quan entra un d'aquests es 
+        Quan fem programes que requereixen una entrada per part de l'usuari, si no sabem el nombre de valors que ha d'entrar, no tenim forma de saber quan ha acabat d'entrar dades. Per això, s'utilitzen  <b>valors impossibles</b> o bé <b>valors incorrectes</b> per determinar que quan entra un d'aquests es 
         considera que s'ha acabat el procés d'obtenció de dades. <br> 
-        Per exemple, si demanem a l'usuari que ens entri una sèria de caràcters, podem dir que si entra qualsevol cosa que no sigui una lletra, aleshores, es considerarà que s'ha acabat l'obtenció de dades. <br> 
+        Per exemple, si demanem a l'usuari que ens entri una sèrie de caràcters, podem dir que si entra qualsevol cosa que no sigui una lletra, aleshores, es considerarà que s'ha acabat l'obtenció de dades. <br> 
         Per dur a terme aquesta validació, sovint es fa servir una funció de validació. Per més informació sobre funcions, consulteu l'apartat d'<a href="../AccionsFuncions/AccionsFuncions_Motivacions.html"> accions i funcions</a>. 
         <br> <br> 
         
@@ -58,7 +58,7 @@
             unsigned int comptador; 
             
             //Entrada de salaris
-            cout&lt;&lt;"Entra salaris, -1 per acabar"&lt;&lt;endl; //Expliquem quina és la condició de finalitzacio,(els salaris no poden ser negatius)
+            cout&lt;&lt;"Entra salaris, -1 per acabar"&lt;&lt;endl; //Expliquem quina és la condició de finalització,(els salaris no poden ser negatius)
             cin&gt;&gt;salari; 
             
             while(salari&gt;-1)//Mentre els salaris siguin positius
@@ -69,7 +69,7 @@
                 cin&gt;&gt;salari; //Preguntem pel següent salari
             }
             
-            //Calcul i sortida
+            //Càlcul i sortida
             
             if(comptador&gt;0)
             {
@@ -91,14 +91,14 @@
         Però abans d'entrar amb simulacions, cal explicar que són i com es fan servir els nombres aleatoris. 
         <br>
         
-        <h3>Nombres Aletoris</h3>
+        <h3>Nombres Aleatoris</h3>
         <teoria> 
             Els nombres aleatoris són aquells que nombres que l'usuari no sap quin valor tindran. La única força que té el programador és poder delimitar el rang que pot prendre, per exemple, un nombre aleatori entre 0 - 10. <br> 
             Ara bé, en C++ quan s'utilitza la llibreria bàsica: <b>cstdlib</b>, aleshores no estem fent nombres aleatoris reals, sinó pseudoaleatoris ja que el seu funcionament és el següent: 
             <ul> 
                 <li>1. <b>Consulta la llista</b>: El C++ té una llista immensa de valors pre-establerts dins una taula d'aleatoris, aleshores, mira quin és el següent nombre que toca de la llista.</li>
-                <li>2. <b>Adapta el valor:</b>: El valor de la llista té un rang molt elevat, (sovint 4 bytes). Així doncs, en comptes de mostrar el valor que tocaria, adapta aquell valor al rang que tu vols. Una forma senzilla de fer-ho: <b>(valor_taula / valor_maxim)*ValorMaxRang + ValorMinRang</b>. Per <i>exemple: si volem un enter entre 1 - 10, i la taula té un valor maxim de 2147483647. El valor que toca de la taula es de 1589705648. Aleshores el nostre valor es: <b>(1589705648 / 2147483647) * 10 + 1 = 8.4026437</b></i>. També hi ha altres mètodes per fer-ho. </li>
-                <li>3. <b>Actualitza la poisció del taula:</b> Actualitza la següent poisció que caldrà consultar per obtenir un nombre aleatori. </li>
+                <li>2. <b>Adapta el valor:</b>: El valor de la llista té un rang molt elevat, (sovint 4 bytes). Així doncs, en comptes de mostrar el valor que tocaria, adapta aquell valor al rang que tu vols. Una forma senzilla de fer-ho: <b>(valor_taula / valor_maxim)*ValorMaxRang + ValorMinRang</b>. Per <i>exemple: si volem un enter entre 1 - 10, i la taula té un valor màxim de 2147483647. El valor que toca de la taula es de 1589705648. Aleshores el nostre valor es: <b>(1589705648 / 2147483647) * 10 + 1 = 8.4026437</b></i>. També hi ha altres mètodes per fer-ho. </li>
+                <li>3. <b>Actualitza la posició del taula:</b> Actualitza la següent posició que caldrà consultar per obtenir un nombre aleatori. </li>
             </ul>
             
             Per utilitzar els nombres aleatoris cal: 
@@ -106,7 +106,7 @@
                 #include &lt;cstdlib&gt; // include per srand i rand
                 #include &lt;ctime&gt; // include per time
                 
-                srand(time(NULL)); // Agafa el valor de temps actual per determinar quina posicio de la taula comença a mirar valors (inici "aleatori")
+                srand(time(NULL)); // Agafa el valor de temps actual per determinar quina posició de la taula comença a mirar valors (inici "aleatori")
                 double random_value = rand()%10; //Random entre 0 - 9 (10 possibles valors);
             </code></pre>
         </teoria>
