@@ -39,13 +39,13 @@
 	<img class="mitjana" src="../../Recursos/Imatges/SequenciesFitxers_streams.PNG" alt="imatge explicativa sobre streams">
 	<br><br>
 	
-	Per poder treballar amb streams, cal incluir les llibreries fstream o iostream. C++ utilitza diferents streams:
+	Per poder treballar amb streams, cal incloure les llibreries fstream o iostream. C++ utilitza diferents streams:
 	<ul>
 		<li>
 			<strong>Streams d'entrada:</strong> 
 			<ul>
 			<li>istream: crea l'stream cin, connectat amb l'entrada per teclat.</li>
-			<li>ifstream: permet l'entrada desde fitxer, havent de crear una variable ifstream i associar-la al fitxer d'on es vol llegir.</li>
+			<li>ifstream: permet l'entrada des de fitxer, havent de crear una variable ifstream i associar-la al fitxer d'on es vol llegir.</li>
 			</ul>
 		</li>
 		<li>
@@ -58,7 +58,7 @@
 		<li>
 			<strong>Streams d'entrada/sortida:</strong> 
 			<ul>
-			<li>iostream: crea cin i cout com a variables globals i els conneta amb l'entrada per teclat i a sortida per pantalla, respectivament.</li>
+			<li>iostream: crea cin i cout com a variables globals i els connecta amb l'entrada per teclat i a sortida per pantalla, respectivament.</li>
 			<li>fstream: permet llegir i escriure a fitxer, cal declarar variables i associar-les a un fitxer.</li>
 			</ul>
 		</li>
@@ -97,7 +97,7 @@ Seqüències amb fitxers
 	<h2>Associació variable i fitxer</h2>
 	<br> <ul>
 		<li><strong>var.open(nom_fitxer);</strong> associa el fitxer a la variable</li>
-		<li><strong>var.close();</strong> Tanca el fitxer desvinculant-lo. Es fa automàticament quan la variable dexia d'existir, pero és necessari si la variable s'ha d'associar a un segon fitxer o si el fitxer ha de canviar de modalitat (entrada <-> sortida)</li>
+		<li><strong>var.close();</strong> Tanca el fitxer desvinculant-lo. Es fa automàticament quan la variable deixa d'existir, però és necessari si la variable s'ha d'associar a un segon fitxer o si el fitxer ha de canviar de modalitat (entrada <-> sortida)</li>
 	</ul>
 			
 </teoria>
@@ -175,7 +175,7 @@ while(getline(in_file,linia))
 <h2> Marca de fi </h2><br><br>
 
 Cal tenir en compte que ha de ser detectada al ser llegida, <alerta>és un error continuar llegint!</alerta>
-A més, també és recomenable que, si n'hi ha, la marqua de fi lògica vagi seguida d'un WS, per evitar problemes en la detecció.
+A més, també és recomanable que, si n'hi ha, la marca de fi lògica vagi seguida d'un WS, per evitar problemes en la detecció.
 <br>
 El fi de seqüència física, en C++, es detecta amb la funció .eof() que retorna un booleà que dona cert si s'ha arribat a la marca de fi.
 Pel cas de una marca de fi lògica, podem definir una constant EOS, donant-li el valor que volem que tingui la marca de fi, llavors per detectar-la, és una simple comparació d'igualtat (==).
@@ -198,7 +198,7 @@ fitxer&lt;&lt;caracter&lt;&lt;&quot; enter: &quot;&lt;&lt;n&lt;&lt;endl;
 		</code></pre>
 		<br> Aquest codi ens escriuria en el fitxer i en pantalla el següent: <br>
 		<img class="allargatPetit" src="../../Recursos/Imatges/SequenciesFitxers_escriptura.PNG" alt="resultat del codi anterior"/><br>
-		Com veiem, escriu tant el caracter com el enter en el format corresponent. El \r\n correspondria al salt de línia en Windows. 
+		Com veiem, escriu tant el caràcter com el enter en el format corresponent. El \r\n correspondria al salt de línia en Windows. 
 		
 	</li>
 	<li>
@@ -212,13 +212,13 @@ cout.put(caracter); //Escrivim el caràcter a la pantalla
 		</code> </pre>
 		<br> Afegint aquest codi al anterior, ens resultaria en el següent:<br><br>
 		<img class="allargatPetit" src="../../Recursos/Imatges/SequenciesFitxers_escriptura2.PNG" alt="resultat del codi anterior"/><br>
-		Com veiem s'afageix el punt després del salt de línia, on hi havia el cursor.
+		Com veiem s'afegeix el punt després del salt de línia, on hi havia el cursor.
 	</li> 
 </ul>
 
 <h2> Marca de fi </h2><br><br>
 
-La marca de fi física la posa el sistema en el moment de tancar el fitxer. La lógica, si és necessària, cal escriure-la, seguida d'un WS, abans de tencar el fitxer.
+La marca de fi física la posa el sistema en el moment de tancar el fitxer. La lògica, si és necessària, cal escriure-la, seguida d'un WS, abans de tancar el fitxer.
 
 </teoria>
 
@@ -226,7 +226,7 @@ La marca de fi física la posa el sistema en el moment de tancar el fitxer. La l
 	<teoria>
 
 	Comptar la quantitat de nombres parells que hi ha en una seqüència de naturals >0 guardada en el fitxer dades.dat.
-	<button onclick="myFunction(P6_1)">Solucio</button><br>
+	<button onclick="myFunction(P6_1)">Solució</button><br>
 		<solucio id="P6_1"><pre><code class = "c++">
 #include&lt;iostream&gt;
 #include&lt;fstream&gt;
@@ -249,7 +249,7 @@ int main(){
 		</code></pre><br></solucio>
 	
 	Donada una seqüència de caràcters guardada en el fitxer dades.dat, determinar si hi ha una 'z'.
-	<button onclick="myFunction(P6_2)">Solucio</button><br>
+	<button onclick="myFunction(P6_2)">Solució</button><br>
 		<solucio id="P6_2"><pre><code class = "c++">
 #include&lt;iostream&gt;
 #include&lt;fstream&gt;

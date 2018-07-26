@@ -38,7 +38,7 @@
   <h4>Fonaments</h4>
   
   <teoria>
-	Les taules són estrutures de dades (elements) del mateix tipus (tipus base) sota d'un nom o identificador.<br>
+	Les taules són estructures de dades (elements) del mateix tipus (tipus base) sota d'un nom o identificador.<br>
 	Declaració (+ reserva de memòria):
 	<ul>
 		<li> <strong>Una dimensió:</strong> tipus nom [capacitat] //capacitat és un nombre natural</li>
@@ -59,11 +59,11 @@ int b[]; // matriu o vector de vectors
 		<li>nom[índex_fila] [índex_columna] per a dues dimensions</li>
 	</ul>
 	
-	Usant les taules a i b  delcarades anteriorment l'accés seria així:<br>
+	Usant les taules a i b  declarades anteriorment l'accés seria així:<br>
 	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple3.PNG" alt = "Exemple de accés a un element d'una taula d'una dimensió"/><br>
 	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple4.PNG" alt = "Exemple de accés a un element d'una taula de dues dimensions"/><br>
 		
-	Cal distingir entre ocupació i capacitat. Mai podem sobrepassar la capacitat, pero podem tenir posicions "desocupades". Caldrà tenir un control sobre les posicions ocupades.
+	Cal distingir entre ocupació i capacitat. Mai podem sobrepassar la capacitat, però podem tenir posicions "desocupades". Caldrà tenir un control sobre les posicions ocupades.
 	
 	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple5.PNG" alt = "Exemple d'ocupació en una taula d'una dimensió."/><br>
 	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple6.PNG" alt = "Exemple d'ocupació en una taula de dues dimensions."/><br>
@@ -71,9 +71,9 @@ int b[]; // matriu o vector de vectors
 	El tipus base d'una taula pot ser qualsevol tipus elemental, a més de qualsevol struct o taula. <br>
 	Els elements a[i] o b[i][j], corresponents a un vector o a una matriu d'un determinat tipus, són tractats com a simples variables d'aquest tipus. <br>
 	<strong> Indexació i accessos fora de rang</strong>: 
-	En C++, els índexs dels elments d'un array de capacitat N van de 0 a N-1. Quan s'accedeix a un element que no existeix (per exemple a la posició N), 
-	es produeix un accés fora de rang, que és un error greu. C++ no dona cap missatge especial quan es produeix un accés fora de rang; pot ser un error díficil de detectar, 
-	axí que cal verificar amb cura que el nostre codi no en tingui cap.
+	En C++, els índexs dels elements d'un array de capacitat N van de 0 a N-1. Quan s'accedeix a un element que no existeix (per exemple a la posició N), 
+	es produeix un accés fora de rang, que és un error greu. C++ no dona cap missatge especial quan es produeix un accés fora de rang; pot ser un error difícil de detectar, 
+	així que cal verificar amb cura que el nostre codi no en tingui cap.
 	<h3>Tipus taula</h3>
 	
 	<teoria>
@@ -121,15 +121,15 @@ int main(){
 	<teoria>
 		Els esquemes de treball sobre vectors són els següents (iguals que els de les seqüències):
 		<ul>
-			<li><strong>Recorregut:</strong>En general, coneixem per endavant el nombre d'elements i es fa amb un for.
+			<li><strong>Recorregut:</strong> En general, coneixem per endavant el nombre d'elements i es fa amb un for.
 				<ul>
-					<li> <strong> Esquema simple de reccorregut (vector)</strong>
+					<li> <strong> Esquema simple de recorregut (vector)</strong>
 					<pseudocodi><pre><code class ="nohighlight">inicialització tractament
 per index de 0 fins n-1 fer
     tractar element[index]
 tractament final</code></pre></pseudocodi>
 					</li>
-					<li> <strong> Esquema simple de reccorregut (matriu n*m)</strong>
+					<li> <strong> Esquema simple de recorregut (matriu n*m)</strong>
 					<pseudocodi><pre><code class ="nohighlight">inicialització tractament
 per index_fila de 0 fins n-1 fer
 	per index_columna de 0 fins m-1 fer
@@ -138,7 +138,7 @@ tractament final</code></pre></pseudocodi>
 					</li>
 				</ul>
 			</li>
-			<li><strong>Cerca:</strong>Recorrem fins que es compleix una condició o arriba al final amb un while.
+			<li><strong>Cerca:</strong> Recorrem fins que es compleix una condició o arriba al final amb un while.
 				<ul>
 					<li> <strong> Esquema simple de cerca (vector)</strong>
 					<pseudocodi><pre><code class ="nohighlight">index=0
