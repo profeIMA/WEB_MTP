@@ -118,29 +118,10 @@
         Donat un caràcter, escriure un comentari que digui si és un dígit, una lletra minúscula, una lletra majúscula o un altre tipus de caràcter.<br>
     </exercici>
     
-    <button onclick="myFunction(Ex30)">Solució</button>
-    <solucio id="Ex30">
-        <pre><code class="c++">
-            // Entrada: llegeix un caràcter (caracter)
-            // Sortida: escriu un comentari que indica si caracter és un dígit, una lletra minúscula, una lletra majúscula o un altre tipus de caràcter
-
-            #include &lt;iostream&gt;
-            using namespace std;
-
-            int main() {
-                char caracter;
-                cout&lt;&lt;"Caràcter: ";
-                cin&gt;&gt;caracter;
-                cout&lt;&lt;caracter&lt;&lt;" és ";
-                if (caracter &gt;='0' and caracter &lt;='9') cout&lt;&lt;"un dígit"&lt;&lt;endl;
-                else if (caracter &gt;='a' and caracter &lt;='z') cout&lt;&lt;"una lletra minúscula"&lt;&lt;endl;
-                else if (caracter &gt;='A' and caracter &lt;='Z') cout&lt;&lt;"una lletra majúscula"&lt;&lt;endl;
-                else cout&lt;&lt;"un altre caràcter"&lt;&lt;endl;
-                return 0;
-            }
-
-        </code></pre>
-    </solucio>
+   <button><a  target="_blank" href= "https://github.com/Onnion191/Exercicis-MTP1/blob/Estudiants/ExercicisT3/T3-EX7-ASCII.cpp">Veure Solució</a></button>
+        <br><br>
+    
+   
      <!-------------------------------------------------------------------------------------------------------------------------->
      <!------------------------------------------ EXERCICI 4 -------------------------------------------------------------------->
      <!-------------------------------------------------------------------------------------------------------------------------->
@@ -150,35 +131,33 @@
         S'entren 3 nombres naturals que representen hores (&lt;24), minuts (&lt;60) i segons &lt;60) i s'escriu el resultat d'afegir un segon a les dades anteriors, tenint en compte que el nombre de minuts i el nombre de segons segueixin essent &lt;60.<br>
     </exercici>
     
-    <button onclick="myFunction(Ex40)">Solució</button>
-    <solucio id="Ex40">
-        <pre><code class="c++">
-           // Entrada: llegeix 3 nombres naturals (hora, minut, segon)
-            // Sortida: escriu hora, minut i segon després d'haver incrementat un segon a les dades entrades
-            
-            #include &lt;iostream&gt;
-            
-            using namespace std;
-            
-            int main() {
-                const unsigned HORES_DIA=24, MINUTS_HORA=60, SEGONS_MINUT=60;
-                unsigned hora, minut, segon;
-                cout&lt;&lt;"Entra hora (0-23) minut (0-59) segon (0-59): "; cin&gt;&gt;hora&gt;&gt;minut&gt;&gt;segon;
-                segon++;
-                if (segon==SEGONS_MINUT) {
-                    segon=0; minut++;
-                    if (minut==MINUTS_HORA) {
-                        minut=0; hora++;
-                        if (hora==HORES_DIA)
-                            hora=0;
-                    }
-                }
-                cout&lt;&lt;hora&lt;&lt;":"&lt;&lt;minut&lt;&lt;":"&lt;&lt;segon&lt;&lt;endl;
-                return 0;
-            }
-        </code></pre>
-    </solucio>
+    <button><a  target="_blank" href= "https://github.com/Onnion191/Exercicis-MTP1/blob/Estudiants/ExercicisT3/T3-EX8-Temps.cpp">Veure Solució</a></button>
+        <br><br>
+    
+    
+     <!-------------------------------------------------------------------------------------------------------------------------->
+     <!------------------------------------------ EXERCICI 5 -------------------------------------------------------------------->
+     <!-------------------------------------------------------------------------------------------------------------------------->
+    
+    <h3>Exercici 5</h3>
+    <exercici>
+        Resolució d'una equació de segon grau ax^2+bx+c=0. S'introdueixen els coeficients reals i s'obté la solució (amb els missatges adients depenent dels valors d'a, b i c). A part del cas en què a és diferent de 0 (equació de segon grau), estudiem el cas a igual a 0 (equació lineal), obtenint una solució per la x. Però també acceptem que a i b puguin ser 0, en aquest cas distingim entre el cas que és una tautologia i el que és una contradicció. <br>
+    </exercici>
+    
+    <button><a  target="_blank" href= "https://github.com/Onnion191/Exercicis-MTP1/blob/Estudiants/ExercicisT3/T3-EX9-equacio.cpp">Veure Solució</a></button>
+        <br><br>
 	
+     <!-------------------------------------------------------------------------------------------------------------------------->
+     <!------------------------------------------ EXERCICI 6 -------------------------------------------------------------------->
+     <!-------------------------------------------------------------------------------------------------------------------------->
+    
+    <h3>Exercici 6</h3>
+    <exercici>
+        En un tauler d'escacs, cada quadre pot ser descrit per una lletra i un número, per exemple, g5. Escriure un algorisme en pseudocodi i un programa que, donada una parella lletra-número, determini de quin color és el quadre: negre o blanc? Preparar un joc de proves que permeti testejar les diverses branques. <br>
+    </exercici>
+    
+    <button><a  target="_blank" href= "https://github.com/Onnion191/Exercicis-MTP1/blob/Estudiants/ExercicisT3/T3-EX10-taulerEscacs.cpp">Veure Solució</a></button>
+        <br><br>
 	
 </div>
 <p class = footer>

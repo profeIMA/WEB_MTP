@@ -30,12 +30,29 @@
 <div id = "content">
   <center>
     <h1 class = "center">
-      EFICIÈNCIA
+      1.4 ALGORISMES SEQÜENCIALS
     </h1>
   </center>
     <h4>Estudi de la complexitat en un algorisme seqüencial</h4>
-    
-    
+    <teoria>
+        Com hem vist anteriorment disposem de diferents <a href="Eficiencia_OrdreComplexitat.html">ordres de complexitat</a> els quals ens donen una idea del cost d'un algorisme. Agafarem aquesta idea per tal de poder saber quin és el nostre grau d'eficiència en un algorisme seqüencial.
+    </teoria>
+    <h3>Cost de les Instruccions</h3>
+    <teoria>
+        Un algorisme seqüencial consta d'un seguit d'instruccions conseqÑutives, per tant si tenim un programa com aquest: <br>
+        
+        <pseudocodi><pre><code class="nohighligh">
+            instrucció 1 (Cost S1)
+            instrucció 2 (Cost S2)
+            instrucció 3 (Cost S3)
+            ...
+            instrucció n (Cost n)
+        </code></pre></pseudocodi>
+        Per determinar quin és el cost del nostre algorisme aplicariem la següent expressió. &sum;(S<sub>i</sub>), sumant tots els costos tindriem el cost total. <br>
+        Ara bé, en el pitjor dels casos, tindrem un nombre de dades tendint a infinit, i per tant hi ha molts <b>costos que són despreciables</b> en contra d'altres que són realments importants. Per exemple, si tenim un cost constant enfront a un cost quadràtic (n <sup>2</sup>), aleshores el constant és menyspreable. <br> <br>
+        
+        Així doncs, <b>per calcular el cost</b> simplement ens quedarem amb l'<b>ordre de magnitud més gran</b> de les instruccions que tenim. Per tant el cost és: <b>Max(S1 .... Sn)</b>.
+    </teoria>
 </div>
 <p class = footer>
   <center>
