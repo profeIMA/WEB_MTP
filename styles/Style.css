@@ -10,7 +10,6 @@ p.footer { font-size: 12px; font-style: italic; height:50px;}
 a.footer { font-size: 12px; }
 
 /* size of blurb in introcs/home */
-/* p.blurb { font-size: 12px; font-style: italic; line-height: 125%; } */
 
 /* size of blurb in introcs/home */
 p.blurb { font-size: 16px; font-style: italic; font-weight: 350; line-height: 140%; }
@@ -36,10 +35,10 @@ th a { font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif; line-height: 1
 td a { font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; margin-top: 20px;}
 
 td tt { font-family: Consolas, monaco, monospace; font-size: 13px; }
-
+/*  COLORS DELS TITOLS */
 h1 { font-size: 22px; font-weight:normal; font-variant:small-caps; 
-     background-color:#307D75;/*#4e6994 color antic*/   /* 221e1f = textbook black */
-     /* background-color:#0b5fb9; */  /* 221e1f = textbook black */
+     background-color:#307D75;
+   
      color:#FFFFFF; text-align: left; padding-right:15px; padding-left:20px;
      padding-top:6px;padding-bottom:6px;}
 
@@ -47,8 +46,8 @@ h1.center {text-align:center; }
 
 h2 { font-size: 15px; display: inline; text-align: left; font-weight: bold; }
 h3 { font-size: 20px;font-weight: bold; color:#059667;}
-h4 { font-size: 22px; font-weight: bold; color:#1B6059; }     /* shade of green */
-h4 a { font-size: 22px; font-weight: bold; color:#7c927b; }   /* for a name tages 00cc66 */
+h4 { font-size: 22px; font-weight: bold; color:#1B6059; }     
+h4 a { font-size: 22px; font-weight: bold; color:#7c927b; }
 
 ol li        { list-style: lower-alpha; }
 ol ol li     { list-style: lower-alpha; }
@@ -63,7 +62,7 @@ ul ul ul ul li { list-style: disc;    }
 
 a { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; text-decoration: none; }
 
-a:link    { color: #0b5fb9; }  /* shade of blue on cover = 436994 */
+a:link    { color: #0b5fb9; }  
 a:hover   { color: #aa3e3b; text-decoration: underline;  }
 
 
@@ -74,12 +73,10 @@ a:hover   { color: #aa3e3b; text-decoration: underline;  }
             font-size: 15px;}
 
 
-/* http://www.tanfa.co.uk/css/examples/menu/tutorial-v.asp */
-
 
 /***************************************************/
 
-/* white on black headings */
+
 #menu a.picture { color: #fff; background: #000;  text-decoration: none; font-size: 12px;
                  border-width: 0px; padding: 0px 0px;}
 
@@ -99,24 +96,24 @@ margin: 0;
 padding: 0;
 }
 
-/* added this to override bullets */
+/* evitar que els items surtin en format de llista */
 #menu ul li          { list-style: none; }
 #menu ul ul li       { list-style: none; }
 #menu ul ul ul li    { list-style: none; }
 #menu ul ul ul ul li { list-style: none; }
 
-/* added this to override 6px top margin */
+/* canviar el marge */
 #menu li { margin: 0px;}
 
 #menu a, #menu h2 {
-/* changed from 12px/16px for thicker menu items */
+
 font: bold 12px/18px arial, helvetica, sans-serif;
 display: block;
 border-width: 1px;
 border-style: solid;
 border-color: #ccc #888 #555 #bbb;
 margin: 0;
-padding: 2px 10px;  /* changed from 2px 3px */
+padding: 2px 10px;  
 }
 
 #menu a.book  {  
@@ -130,7 +127,7 @@ padding: 0px 0px;
 }
 
 #menu h2 {
-border-width: 0px;   /* added this - otherwise default is 1 from above */
+border-width: 0px;   /*Evitar desplaçament*/
 color: #fff;
 background: #000;
 }
@@ -149,13 +146,6 @@ text-decoration: none;
 #menu a.ex_medium {  color: #000; background: #cccccc;}
 #menu a.ex_hard {  color: #000; background: #cccccc;}
 
-
-/* cover purple = 896e81 */
-/* cover blue   = 4e6994 */
-/* cover green  = 7c927b */
-/* cover purple = 896e81 */
-/* cover brown  = 907669 */
-/* cover aqua   = 639397 */
 
 #menu a:hover {
 color: #204962;
