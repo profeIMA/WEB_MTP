@@ -36,765 +36,125 @@
   
   <h4> Tuples </h4>
   <teoria>
-	<h2> Tuples 3: Funcions suma i producte de complexos</h2></br>
-	Donats dos nombres complexos (tipus Complex), construir dues funcions que respectivament ens retornin la suma i el producte dels dos nombres. 
-	<button onclick="myFunction(P7_Tuples_3)">Veure Solució</button><br>
-	<solucio id="P7_Tuples_3">
-		<pre><code class="c++">struct Complex {
-    double r; 
-    double i;
-}; 
-
-Complex suma (Complex num1, Complex num2) {
-// Pre: cert; 
-//Post: retorna el complex num1+num2
-    Complex resultat;
-    resultat.r=num1.r+num2.r;
-    resultat.i=num1.i+num2.i;
-&nbsp; &nbsp; return resultat;
-}
-
-Complex producte (Complex num1, Complex num2) {
-// Pre: cert; 
-//Post: retorna el complex num1&middot;num2
-    Complex resultat;
-    resultat.r=num1.r*num2.r- num1.i*num2.i;
-    resultat.i=num1.r*num2.i+ num1.i*num2.r;
-&nbsp; &nbsp; return resultat;
-}
-
-Complex llegir_complex () {
-// Pre: cert; Post: retorna el complex llegit de teclat
-    Complex num;
-    cout&lt;&lt;&quot;Part real: &quot;; cin&gt;&gt;num.r;
-    cout&lt;&lt;&quot;Part imaginaria: &quot;; cin&gt;&gt;num.i;
-  &nbsp; return num;
-}
-Complex mostrar_complex (Complex num) {
-// Pre: cert; Post: mostra el complex num
-    if(num.i&gt;=0) cout&lt;&lt;num.r&lt;&lt;&quot; + &quot;&lt;&lt;num.i&lt;&lt;&quot; i &quot;;
-    else  cout&lt;&lt;num.r&lt;&lt;&quot; &quot;&lt;&lt;num.i&lt;&lt;&quot; i &quot;;
-}
-int main() {
-&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; // Entrada
-&nbsp; &nbsp; Complex complex1 = llegir_complex();
-    Complex complex2 = llegir_complex(); 
-&nbsp; &nbsp; // C&agrave;lcul
-    Complex sum=suma(complex1,complex2); 
-    Complex prod=producte(complex1,complex2); 
-&nbsp; &nbsp; // Sortida
-    cout&lt;&lt;&quot;Suma: &quot;; mostrar_complex(complex1); cout&lt;&lt;endl&lt;&lt;&quot;Producte: &quot;; mostrar_complex(prod);
-    return 0;
-}</code></pre>
-	</solucio><br>
+	<h3> Tuples: Exercici 3</h3>
+	<teoria>
+		Donats dos nombres complexos (tipus Complex), construir dues funcions que respectivament ens retornin la suma i el producte dels dos nombres. 
+		<br><button><a  target="_blank" href= "https://github.com/sipwarriper/Exercicis-MTP1/blob/Estudiants/ExercicisT7/T7-EX0_3-Complexos.cpp">Veure Solució</a></button>
+	</teoria>
 	
-	<h2>Tuples 4: Diferència instants de temps</h2><br>
-	Donats dos instants de temps (tipus Temps) que estan separats com a màxim 24 hores, realitzar una funció que calculi la diferència (tipus Temps) entre ells. El primer instant es considerarà anterior al segon.
-	<button onclick="myFunction(P7_Tuples_4)">Veure Solució</button><br>
-	<solucio id="P7_Tuples_4">
-		<pre><code class="c++">struct Temps {
-    unsigned hores; 
-    unsigned minuts;
-    unsigned segons;
-}; 
-
-unsigned n_segons(Temps t) {
-//Pre: cert Post: retorna el nombre d esegons corresponents a t
-   return (t.hores*60+t.minuts)*60+t.segons;
-}
-Temps de_segons_a_temps(unsigned segons) {
-//Pre: cert  Post: retorna un temps amb minuts&lt;60 i segons&lt;60 equivalent als segons entrats
-    Temps t;
-    t.segons=segons%60;
-    t.hores=segons/3600;
-    t.minuts=segons/60-t.hores*60;
-    return t;
-}
-
-Temps diferencia(Temps t_inici, Temps t_fi){
-//Pre: t_inici anterior a t_fi Post: retorna la difer&egrave;ncia entre t_inici i t_fi
-     unsigned segons_inici=n_segons(t_inici);
-     unsigned segons_fi=n_segons(fi);
-     if(segons_inici&gt;segons_fi) segons_fi+=24*3600;
-     unsigned segons_diferencia=segons_fi-segons_inici;
-     return de_segons_a_temps(segons_diferencia);
-}</code></pre></solucio>
+	
+	<h3> Tuples: Exercici 4</h3>
+	<teoria>
+		Donats dos instants de temps (tipus Temps) que estan separats com a màxim 24 hores, realitzar una funció que calculi la diferència (tipus Temps) entre ells. El primer instant es considerarà anterior al segon.
+		<br><button><a  target="_blank" href= "https://github.com/sipwarriper/Exercicis-MTP1/blob/Estudiants/ExercicisT7/T7-EX0_4-diferenciaTemps.cpp">Veure Solució</a></button>
+	</teoria>
   </teoria>
   <h4>Taules</h4>
   
   <!-- Recorregut-->
   <teoria>
-	<h2>Taules 4.5: Transposar una matriu</h2>
-	<button onclick="myFunction(P7_Taules_4_5)">Veure Solució</button><br>
-	<solucio id="P7_Taules_4_5">
-		<pre><code class="c++">void transposada_matriu_enter(const Matriu_enter mat_1, unsigned n, unsigned m, Matriu_enter mat_2) {
-&nbsp; &nbsp; //Pre: 0&lt;=n,m&lt;= min(N_FIL_MAX,N_COL_MAX)
-&nbsp; &nbsp; //Post: mat_2[0..m-1,0..n-1] &eacute;s la transposada de mat_1[0..n-1,0..m-1]
-&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
-&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=0; j&lt;m; j++)
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mat_2[j][i]=mat_1[i][j];
-&nbsp; &nbsp; }
-}
-int main() { &nbsp;
-&nbsp; &nbsp; Matriu_enter mat1, mat2;
-&nbsp; &nbsp; unsigned n,m;
-&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre files i columnes de la matriu: &quot;;
-&nbsp; &nbsp; cin&gt;&gt;n&gt;&gt;m;&nbsp; &nbsp;
-&nbsp; &nbsp; cout&lt;&lt;&quot;Entra &quot;&lt;&lt;n&lt;&lt;&quot; files de &quot;&lt;&lt;m&lt;&lt;&quot; enters: &quot;&lt;&lt;endl;
-&nbsp; &nbsp; llegir_matriu_enter(mat1,n,m);
-&nbsp; &nbsp; cout&lt;&lt;endl;&nbsp; &nbsp;
-&nbsp; &nbsp; transposada_matriu_enter(mat1,n,m,mat2);&nbsp; &nbsp;
-&nbsp; &nbsp; cout&lt;&lt;&quot;Matriu transposada: &quot;&lt;&lt;endl;
-&nbsp; &nbsp; escriure_matriu_enter(mat2,m,n);
-&nbsp; &nbsp; cout&lt;&lt;endl; &nbsp;
-&nbsp; &nbsp; return 0;
-}</code></pre>
-	</solucio><br>
-	<h2>Taules 4.6: Construir un triangle de Pascal</h2><br>
-	Exemple de <a href="https://ca.wikipedia.org/wiki/Triangle_de_Tartaglia">triangle de Pascal</a>:
-	<img class = "petita" style="width:150px; height:150px;" src = "../../Recursos/Imatges/TuplesTaules_Exercicis_TrianglePascal.PNG" alt = "Exemple d'un triangle de pascal"/><br>
-	<button onclick="myFunction(P7_Taules_4_6)">Veure Solució</button><br>
-	<solucio id="P7_Taules_4_6">
-		<pre><code class="c++">void omplir_matriu_pascal(Matriu_enter mat, unsigned n) {
-&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX
-&nbsp; &nbsp; //Post: mat[0..n-1,0..n-1] cont&eacute; les n files del triangle de Pascal
-&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
-&nbsp; &nbsp; &nbsp; &nbsp; mat[i][0]=1; mat[i][i]=1;
-&nbsp; &nbsp; }
-&nbsp; &nbsp; for (unsigned i=2; i&lt;n; i++) {
-&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=1; j&lt;i; j++)
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mat[i][j]=mat[i-1][j]+mat[i-1][j-1];
-&nbsp; &nbsp; }
-}
-
-void escriure_triangle(const Matriu_enter mat, unsigned n) {
-&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX
-&nbsp; &nbsp; //Post: s'han mostrat els valors del triangle esquerre de la diagonal principal de mat[0..n-1,0..n-1]
-&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
-&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=0; j&lt;=i; j++)
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cout&lt;&lt;setw(5)&lt;&lt;mat[i][j];
-&nbsp; &nbsp; &nbsp; &nbsp; cout&lt;&lt;endl;
-&nbsp; &nbsp; }
-}
-
-void omplir_matriu_pascal(Matriu_enter mat, unsigned n) {
-&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX
-&nbsp; &nbsp; //Post: mat[0..n-1,0..n-1] cont&eacute; les n files del triangle de Pascal
-&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
-&nbsp; &nbsp; &nbsp; &nbsp; mat[i][0]=1; mat[i][i]=1;
-&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=1; j&lt;i; j++)
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mat[i][j]=mat[i-1][j]+mat[i-1][j-1];
-&nbsp; &nbsp; }
-}
-
-int main() {
-&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; Matriu_enter mat;
-&nbsp; &nbsp; unsigned n;
-&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre de files del triangle de Pascal: &quot;;
-&nbsp; &nbsp; cin&gt;&gt;n;
-&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; omplir_matriu_pascal(mat,n);
-&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; cout&lt;&lt;&quot;Triangle de Pascal: &quot;&lt;&lt;endl;
-&nbsp; &nbsp; escriure_triangle(mat,n);
-&nbsp; &nbsp; cout&lt;&lt;endl;
-&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; return 0;
-}</code></pre>
-	</solucio><br>
+	<h3>Taules 4.5: Transposar una matriu</h3>
 	
-	<h2>Taules 4.7: Histograma de notes</h2><br>
-	Donat un vector de notes naturals positives entre 0 i 10, obtenir i mostrar el corresponent histograma que indicarà el nombre d'aparicions de cada nota.
-	<button onclick="myFunction(P7_Taules_4_7)">Veure Solució</button><br>
-	<solucio id="P7_Taules_4_7">
-		<pre><code class="c++">const unsigned N_MAX=100;
-typedef unsigned Vector_natural[N_MAX];
-typedef int Vector_histograma_notes[11];
-
-void llegir_vector_notes(Vector_natural vec_natural, unsigned n) {
-&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
-&nbsp; &nbsp; //Post: vec_natural[0..n-1] cont&eacute; successivament els naturals entre 0 i 10 entrats
-&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) cin&gt;&gt;vec_natural[i];
-}
-void omplir_histograma_notes(const Vector_natural notes, unsigned n, Vector_histograma_notes hist) {
-&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX i elements de notes estan entre 0 i 10
-&nbsp; &nbsp; //Post: hist[0..10] &eacute;s l'histograma de notes[0..n-1]
-&nbsp; &nbsp; for (unsigned i=0; i&lt;=10; i++) hist[i]=0; 
-&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
-&nbsp; &nbsp; &nbsp; &nbsp; unsigned nota=notes[i];
-&nbsp; &nbsp; &nbsp; &nbsp; hist[nota]++; // hist[notes[i]]++
-&nbsp; &nbsp; }
-}
-void escriure_histograma_notes(const Vector_histograma_notes hist) {
-&nbsp; &nbsp; //Pre: cert
-&nbsp; &nbsp; //Post: s'ha mostrat l'histograma de notes (format nota-freq&uuml;&egrave;ncia)
-&nbsp; &nbsp; for (unsigned i=0; i&lt;=10; i++) cout&lt;&lt;i&lt;&lt;&quot; -- &quot;&lt;&lt;hist[i]&lt;&lt;endl;
-}
-
-int main() {
-&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; Vector_natural notes;
-    unsigned n;&nbsp; &nbsp; 
-    cout&lt;&lt;&quot;Nombre notes: &quot;;
-&nbsp; &nbsp; cin&gt;&gt;n;
-&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; cout&lt;&lt;&quot;Entra &quot;&lt;&lt;n&lt;&lt;&quot; notes naturals entre 0 i 10: &quot;;
-&nbsp; &nbsp; llegir_vector_notes(notes,n);
-&nbsp; &nbsp; cout&lt;&lt;endl;
-&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; Vector_histograma_notes hist;
-&nbsp; &nbsp; omplir_histograma_notes(notes,n,hist);
-&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; cout&lt;&lt;&quot;Vector histograma: &quot;&lt;&lt;endl;
-&nbsp; &nbsp; escriure_histograma_notes(hist);
-&nbsp; &nbsp; cout&lt;&lt;endl;
-&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; return 0;
-}</code></pre>
-		Inicialització alternativa:
-		<pre><code class="c++">const unsigned N_MAX=100;
-typedef unsigned Vector_natural[N_MAX];
-typedef int Vector_histograma_notes[11];
-
-void obtenir_histograma_notes(Vector_histograma_notes hist) {
-&nbsp; &nbsp; //Pre: <alerta>notes[0..10] inicialitzats a 0</alerta>
-&nbsp; &nbsp; //Post: hist[0..10] &eacute;s l'histograma de les notes llegides contingudes de 0 a 10
-    unsigned n;    
-    cout&lt;&lt;&quot;Nombre notes: &quot;; 
-    cin&gt;&gt;n;
-&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
-        unsigned nota; 
-        cout&lt;&lt;&quot;Nota: &quot;&lt;&lt;endl; cin&gt;&gt;nota;
-&nbsp; &nbsp; &nbsp; &nbsp; hist[nota]++; 
-&nbsp; &nbsp; }
-}
-
-void llegir_vector_notes(Vector_natural vec_natural, unsigned n) {
-&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX
-&nbsp; &nbsp; //Post: vec_natural[0..n-1] cont&eacute; successivament els naturals entre 0 i 10 entrats
-&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) cin&gt;&gt;vec_natural[i];
-}
-void omplir_histograma_notes(const Vector_natural notes, unsigned n, Vector_histograma_notes hist) {
-&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX i elements de notes estan entre 0 i 10
-&nbsp; &nbsp; //Post: hist[0..10] &eacute;s l'histograma de notes[0..n-1]
-&nbsp; &nbsp; for (unsigned i=0; i&lt;=10; i++) hist[i]=0; 
-&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
-&nbsp; &nbsp; &nbsp; &nbsp; unsigned nota=notes[i];
-&nbsp; &nbsp; &nbsp; &nbsp; hist[nota]++; // hist[notes[i]]++
-&nbsp; &nbsp; }
-}
-void escriure_histograma_notes(const Vector_histograma_notes hist) {
-&nbsp; &nbsp; //Pre: cert
-&nbsp; &nbsp; //Post: s'ha mostrat l'histograma de notes (format nota-freq&uuml;&egrave;ncia)
-&nbsp; &nbsp; for (unsigned i=0; i&lt;=10; i++) cout&lt;&lt;i&lt;&lt;&quot; -- &quot;&lt;&lt;hist[i]&lt;&lt;endl;
-}
-
-int main() {&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; <alerta>Vector_histograma_notes hist={0}; <alerta>//inicialitzem a 0 (aquesta inicialització també es pot usar en la versió anterior)
-&nbsp; &nbsp; obtenir_histograma_notes(hist);
-&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; cout&lt;&lt;&quot;Vector histograma: &quot;&lt;&lt;endl;
-&nbsp; &nbsp; escriure_histograma_notes(hist);
-&nbsp; &nbsp; cout&lt;&lt;endl;&nbsp; &nbsp;
-&nbsp; &nbsp; return 0;
-}</code></pre>
-
-</solucio><br>
-
-	<h2>Taules 4.8: Capgirar un vector</h2><br>
-	<button onclick="myFunction(P7_Taules_4_8)">Veure Solució</button><br>
-	<solucio id="P7_Taules_4_8">
-		<pre><code class="c++">void intercanvi(int&amp; x, int&amp; y) {
-&nbsp; &nbsp; int aux=x;
-&nbsp; &nbsp; x=y;
-&nbsp; &nbsp; y=aux;
-}
-void capgirar_vector_enter(Vector_enter vec, unsigned n) {
-&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_MAX i vec=VEC
-&nbsp; &nbsp; //Post: vec[0..n-1] cont&eacute; els valors de VEC[0 ..n-1] en ordre invers
-&nbsp; &nbsp; for (unsigned i=0; i&lt;n/2; i++) {
-&nbsp; &nbsp; &nbsp; &nbsp; intercanvi(vec[i],vec[n-i-1]);
-&nbsp; &nbsp; &nbsp; &nbsp; // int aux=vec[i];
-&nbsp; &nbsp; &nbsp; &nbsp; // vec[i]=vec[n-i-1];
-&nbsp; &nbsp; &nbsp; &nbsp; // vec[n-i-1]=aux;
-&nbsp; &nbsp; }
-}
-
-int main() {&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; Vector_enter vec; unsigned n; 
-&nbsp; &nbsp; ...&nbsp; &nbsp;
-&nbsp; &nbsp; capgirar_vector_enter(vec,n);
-&nbsp; &nbsp; escriure_vector_enter(vec,n);&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; ...
-}</code></pre>
-	</solucio><br>
 	
-	<h2>Taules 4.9: Multiplicació de dues matrius</h2><br>
-	Obtenir el resultat de multiplicar dues  matrius: A * B = C, on A té n files i m columnes i B té m files i p columnes.
-	<button onclick="myFunction(P7_Taules_4_9)">Veure Solució</button><br>
-	<solucio id="P7_Taules_4_9">
-		<pre><code class="c++">void multiplicacio_matrius_enter(const Matriu_enter mat1, const Matriu_enter mat2, Matriu_enter mat3, unsigned n, unsigned m, unsigned p){
-&nbsp; &nbsp; //Pre: 0&lt;=n,m,p&lt;= min(N_FIL_MAX, N_COL_MAX)
-&nbsp; &nbsp; //Post: mat3[0..n-1,0..p-1] = multiplicaci&oacute; de mat_1[0..n-1,0..m-1]*mat_2[0..m-1,0..p-1]
-&nbsp; &nbsp; for (unsigned i=0; i&lt;n; i++) {
-&nbsp; &nbsp; &nbsp; &nbsp; for (unsigned k=0; k&lt;p; k++) {
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int suma=0;
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; for (unsigned j=0; j&lt;m; j++) suma+=mat1[i][j]*mat2[j][k];
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mat3[i][k]=suma;
-&nbsp; &nbsp; &nbsp; &nbsp; }
-&nbsp; &nbsp; }
-}
+	
+	
+	
+	<h3>Taules 4.6: Construir un triangle de Pascal</h3><br>
+	<teoria>
+		Exemple de <a href="https://ca.wikipedia.org/wiki/Triangle_de_Tartaglia">triangle de Pascal</a>:
+		<img class = "petita" style="width:150px; height:150px;" src = "../../Recursos/Imatges/TuplesTaules_Exercicis_TrianglePascal.PNG" alt = "Exemple d'un triangle de pascal"/><br>
+	</teoria>
+	
+	<h3>Taules 4.7: Histograma de notes</h3>
+	<teoria>
+		Donat un vector de notes naturals positives entre 0 i 10, obtenir i mostrar el corresponent histograma que indicarà el nombre d'aparicions de cada nota.
+		<button onclick="myFunction(P7_Taules_4_7)">Veure Solució</button><br>
+	</teoria>
 
-int main() {
-&nbsp; &nbsp; Matriu_enter mat1, mat2, mat3;
-&nbsp; &nbsp; unsigned n,m,p;
-    ... 
-&nbsp;&nbsp; &nbsp;llegir_matriu_enter(mat1,n,m);
-&nbsp; &nbsp; llegir_matriu_enter(mat2,m,p);
-&nbsp; &nbsp; multiplicacio_matrius_enter(mat1,mat2,mat3,n,m,p);
-&nbsp;&nbsp; &nbsp;escriure_matriu_enter(mat3,n,p);
-&nbsp; &nbsp; ...
-}</code></pre>
-		</solucio><br>
+	<h3>Taules 4.8: Capgirar un vector</h3>
+	<teoria>
+	</teoria>
+	
+	
+	<h3>Taules 4.9: Multiplicació de dues matrius</h3>
+	<teoria>
+		Obtenir el resultat de multiplicar dues  matrius: A * B = C, on A té n files i m columnes i B té m files i p columnes.
+	</teoria>
   </teoria>
+  
+  
   
   <!-- Cerca-->
   <teoria>
 
-    <h2>Taules 5.7: Determinar si en un vector hi ha algun element repetit:&nbsp;</h2>
-    <button onclick="myFunction(P7_Taules_5_7)">Veure Solució</button><br>
-    <solucio id="P7_Taules_5_7">
-        <pseudocodi>
-            <pre><code class="nohighlight">booleà element_repetit(Vector_enter vec; Natural n) 
-{Pre: n&gt;0 i n&lt;=N_MAX}
-{Post: retorna cert si hi ha un repetit a vec[0..n-1], fals altrament}  
+    <h3>Taules 5.7: Determinar si en un vector hi ha algun element repetit:&nbsp;</h3>
+    <teoria>
+	</teoria>
 
-    Natural i 
-    i=0
-    repetit=fals 
-    mentre  no fi   i no repetit fer 
-        si &quot;vec[i] existeix a vec[i+1..n-1]&quot;
-            repetit=cert 
-        altrament 
-            i=i+1 
-    return repetit</code></pre></pseudocodi>
-            <pre><code class="c++">bool existeix_des_de(const Vector_enter vec, unsigned n, unsigned pos) {
-&nbsp; &nbsp; //Pre: 0&lt;n&lt;=N_MAX i 0&lt;=pos&lt;n-1
-&nbsp; &nbsp; //Post: retorna cert si vec[pos] existeix a vec[pos+1..n-1], altrament fals
-&nbsp; &nbsp; unsigned i=pos+1;
-&nbsp; &nbsp; bool trobat=false;
-&nbsp; &nbsp; while (i&lt;n and not trobat) // not (i=n or trobat)
-&nbsp; &nbsp; &nbsp; &nbsp; if(vec[i]==vec[pos]) trobat=true;
-&nbsp; &nbsp; &nbsp; &nbsp; else i++;
-&nbsp; &nbsp; return trobat;
-}
-
-bool existeix_repetit(const Vector_enter vec, unsigned n) {
-&nbsp; &nbsp; //Pre: 0&lt;n&lt;=N_MAX
-&nbsp; &nbsp; //Post: retorna cert si hi ha un repetit a vec[0..n-1], altrament fals
-&nbsp; &nbsp; unsigned i=0;
-&nbsp; &nbsp; bool repetit=false;
-&nbsp; &nbsp; while (i&lt;n-1 and not repetit) // not (i=n-1 or repetit)
-&nbsp; &nbsp; &nbsp; &nbsp; if(existeix_des_de(vec,n,i)) repetit=true;
-&nbsp; &nbsp; &nbsp; &nbsp; else i++;
-&nbsp; &nbsp; return repetit;
-}
-
-int main() {
-&nbsp; &nbsp; Vector_enter vec; 
-    unsigned n;
-&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre d&rsquo;elements (&gt;0) i elements del vector: &quot;&lt;&lt;endl;
-&nbsp; &nbsp; cin&gt;&gt;n; &nbsp; 
-    llegir_vector_enter(vec,n);
-&nbsp; &nbsp; bool hi_es=existeix_repetit(vec,n);
-&nbsp; &nbsp; cout&lt;&lt;&quot;Hi ha un repetit en el vector? &quot;&lt;&lt;boolalpha&lt;&lt;hi_es&lt;&lt;endl;
-
-    return 0;
-}</code></pre></solucio><br>
-
-        <h2>Taules 5.9: Cercar un element en una matriu ordenada</h2><br>
-        Cercar un element en una matriu ordenada. L'ordenació de la matriu ve donada per A[i+1,j] >= A[i,j] i A[i,j+1] >= A[i,j].
-        <button onclick="myFunction(P7_Taules_5_9)">Veure Solució</button><br>
-        <solucio id="P7_Taules_5_9">
-
-            Matriu ordenada:
-            
-            <img class = "petita" style="width:150px; height:150px;" src = "../../Recursos/Imatges/TuplesTaules_Exercicis_matriuOrdenada.png" alt = "Exemple d'un triangle de pascal"/><br>
+	<h3>Taules 5.9: Cercar un element en una matriu ordenada</h3>
+	Cercar un element en una matriu ordenada. L'ordenació de la matriu ve donada per A[i+1,j] >= A[i,j] i A[i,j+1] >= A[i,j].
+	<teoria>
+	</teoria>
 
 
-            <pre><code class= "c++">void cerca_matriu(Matriu_enter mat, int n, int m, int x, bool&amp; trobat, unsigned&amp; fila, unsigned&amp; col) {
-&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=m&lt;=N_COL_MAX, mat est&agrave; ordenada ((mat[i+1,j]&gt;=mat[i,j] i mat[i,j+1]&gt;=mat[i,j]))
-&nbsp; &nbsp; //Post: si x pertany a mat, trobat=cert i (fila,col) contenen una posici&oacute; de x; altrament, trobat=fals i (fila,col) no tenen significat
-&nbsp; &nbsp; int i=n-1,j=0;
-&nbsp; &nbsp; trobat=false;
-&nbsp; &nbsp; while (i&gt;=0 and j&lt;=m-1 and not trobat) {
-&nbsp; &nbsp; &nbsp; &nbsp; if (mat[i][j]==x) {
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; trobat=true;
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fila=i; col=j;
-&nbsp; &nbsp; &nbsp; &nbsp; }
-        else if (mat[i][j]&lt;x) j++;
-&nbsp; &nbsp; &nbsp; &nbsp; else i--; &nbsp; &nbsp; 
-        
-}
-
-int main() {&nbsp; &nbsp;
-&nbsp; &nbsp; Matriu_enter mat; unsigned n,m;
-&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre files i columnes de la matriu: &quot;;
-&nbsp; &nbsp; cin&gt;&gt;n&gt;&gt;m;
-&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; cout&lt;&lt;&quot;Entra &quot;&lt;&lt;n&lt;&lt;&quot; files de &quot;&lt;&lt;m&lt;&lt;&quot; enters: &quot;&lt;&lt;endl;
-&nbsp; &nbsp; llegir_matriu_enter(mat,n,m); // s'omple una matriu ordenada
-&nbsp; &nbsp; cout&lt;&lt;endl;
-&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; int valor;
-&nbsp; &nbsp; cout&lt;&lt;&quot;Entra el valor a cercar: &quot;;
-&nbsp; &nbsp; cin&gt;&gt;valor;
-&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; unsigned fila,col;
-&nbsp; &nbsp; bool trobat;
-&nbsp; &nbsp; cerca_matriu(mat,n,m,valor,trobat,fila,col);
-&nbsp; &nbsp; if (trobat) cout&lt;&lt;&quot;Trobat a (&quot;&lt;&lt;fila+1&lt;&lt;&quot;,&quot;&lt;&lt;col+1&lt;&lt;&quot;)&quot;&lt;&lt;endl;
-&nbsp; &nbsp; else cout&lt;&lt;&quot;No trobat&quot;&lt;&lt;endl;
-&nbsp; &nbsp; return 0;
-}</code></pre>
-        </solucio><br>
-
-
-        <h2>Taules 5.10: Cercar (per files o columnes) un element en una matriu&nbsp;</h2>
-        <button onclick="myFunction(P7_Taules_5_10)">Veure Solució</button><br>
-        <solucio id="P7_Taules_5_10">
-            
-            Per files: <br>
-            <pre><code class="c++">void trobat_i_posicio_element(const Vector_enter vec, unsigned n, int x, bool&amp; trobat, unsigned&amp; pos) {
-&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_COL_MAX
-&nbsp; &nbsp; //Post: si x existeix a vec[0..n-1], trobat=cert i pos=posici&oacute; m&eacute;s petita de x, altrament trobat=fals i pos no t&eacute; significat
-&nbsp; &nbsp; unsigned i=0;
-&nbsp; &nbsp; trobat=false;
-&nbsp; &nbsp; while (i&lt;n and not trobat) // not (i=n or trobat)
-&nbsp; &nbsp; &nbsp; &nbsp; if (vec[i]==x) trobat=true; //Si es busqu&eacute;s un element que compl&iacute;s una determinada condici&oacute;, aqu&iacute; es cridaria al subprograma que la comprova
-&nbsp; &nbsp; &nbsp; &nbsp; else i++;
-&nbsp; &nbsp; if (trobat) pos=i;
-}
-
-void cerca_matriu(Matriu_enter mat, int n, int m, int x, bool&amp; trobat, unsigned&amp; fila, unsigned&amp; col) {
-&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=m&lt;=N_COL_MAX, 
-&nbsp; &nbsp; //Post: si x pertany a mat, trobat=cert i (fila,col) contenen una posici&oacute; de x; altrament, trobat=fals i (fila,col) no tenen significat
-&nbsp; &nbsp; int i=0;
-&nbsp; &nbsp; trobat=false;
-&nbsp; &nbsp; while (i&lt;n and not trobat) {
-        trobat_i_posicio_element(mat[i], m, x, trobat, col); //Com que el C++ permet passar tota una fila com a un vector, usem l&rsquo;exercici 5.2 per buscar la posici&oacute; d&rsquo;un element en un vector
-&nbsp; &nbsp; &nbsp; &nbsp; if (trobat) fila=i;
-&nbsp; &nbsp; &nbsp; &nbsp; else i++; 
-&nbsp; &nbsp; }
-}</code></pre>
-
-
-            Per columnes: <br>
-
-
-            <pre><code class="c++">void trobat_i_posicio_element_a_columna(const Matriu_enter mat, unsigned col, unsigned n, int x, bool&amp; trobat, unsigned&amp; pos) {
-&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=col&lt;N_COL_MAX
-&nbsp; &nbsp; //Post: si x existeix a mat[0..n-1][col], trobat=cert i pos=fila m&eacute;s petita de x, altrament trobat=fals i pos no t&eacute; significat
-&nbsp; &nbsp; unsigned i=0;
-&nbsp; &nbsp; trobat=false;
-&nbsp; &nbsp; while (i&lt;n and not trobat) // not (i=n or trobat)
-&nbsp; &nbsp; &nbsp; &nbsp; if (vec[i][col]==x) trobat=true;
-&nbsp; &nbsp; &nbsp; &nbsp; else i++;
-&nbsp; &nbsp; if (trobat) pos=i;
-}
-
-void cerca_matriu(Matriu_enter mat, int n, int m, int x, bool&amp; trobat, unsigned&amp; fila, unsigned&amp; col) {
-&nbsp; &nbsp; //Pre: 0&lt;=n&lt;=N_FIL_MAX, 0&lt;=m&lt;=N_COL_MAX, 
-&nbsp; &nbsp; //Post: si x pertany a mat, trobat=cert i (fila,col) contenen una posici&oacute; de x; altrament, trobat=fals i (fila,col) no tenen significat
-&nbsp; &nbsp; int j=0;
-&nbsp; &nbsp; trobat=false;
-&nbsp; &nbsp; while (j&lt;m and not trobat) {
-        trobat_i_posicio_element_a_columna(mat, j, n, x, trobat, fila); //Com que el C++ NO permet passar una columna com a un vector, es passa tota la matriu i cercarem a la columna indicada
-&nbsp; &nbsp; &nbsp; &nbsp; if (trobat) columna=j;
-&nbsp; &nbsp; &nbsp; &nbsp; else j++; 
-&nbsp; &nbsp; }
-}</code></pre> </solucio> <br>
+    <h3>Taules 5.10: Cercar (per files o columnes) un element en una matriu&nbsp;</h3>
+	<teoria>
+	</teoria>
+       
         
   </teoria>
   
   <!-- Supressió-->
   <teoria>
-  <h2>Taules 7.2: Esborrar elments repetits d'un vector ordenat</h2><br>
-  Eliminar, eficientment, els elements repetits d'un vector ordenat creixentment. Exemple: passar de [1,2,2,2,5,6,6,8] a [1,2,5,6,8].
-  <button onclick="myFunction(P7_Taules_7_2)">Veure Solució</button><br>
-  <solucio id="P7_Taules_7_2">
-		<pre><code class="c++">void esborrar_repetits(Vector_enter vec, unsigned&amp; n) {
-&nbsp; &nbsp; //Pre: 0&lt;n&lt;=N_MAX i vec[0..n-1] est&agrave; ordenat i vec=VEC i n=N
-&nbsp; &nbsp; //Post: vec[0..n-1] est&agrave; ordenat i cont&eacute; tots els elements de VEC[0..N-1] per&ograve; sense repeticions
-&nbsp; &nbsp; unsigned pos_consolidada=0;
-&nbsp; &nbsp; for (int i=1; i&lt;n; i++)
-&nbsp; &nbsp; &nbsp; &nbsp; if (vec[i]!=vec[pos_consolidada]) {
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pos_consolidada++;
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; vec[pos_consolidada]=vec[i];
-&nbsp; &nbsp; &nbsp; &nbsp; }
-&nbsp; &nbsp; n=pos_consolidada+1;
-}
-int main() {&nbsp; &nbsp;
-&nbsp; &nbsp; Vector_enter vec; unsigned n;
-&nbsp; &nbsp; cout&lt;&lt;&quot;Nombre elements del vector (&gt;0): &quot;; cin&gt;&gt;n;&nbsp; &nbsp;
-&nbsp; &nbsp; cout&lt;&lt;&quot;Entra &quot;&lt;&lt;n&lt;&lt;&quot; enters ordenats: &quot;;
-&nbsp; &nbsp; llegir_vector_enter(vec,n);&nbsp; &nbsp;
-&nbsp; &nbsp; esborrar_repetits(vec,n);&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; cout&lt;&lt;&quot;Vector ordenat sense repetits: &quot;;
-&nbsp; &nbsp; escriure_vector_enter(vec,n);
-&nbsp; &nbsp; cout&lt;&lt;endl;&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; return 0;
-}</code></pre>
-		</solucio><br>
+  <h3>Taules 7.2: Esborrar elments repetits d'un vector ordenat</h3>
+	<teoria>
+		Eliminar, eficientment, els elements repetits d'un vector ordenat creixentment. Exemple: passar de [1,2,2,2,5,6,6,8] a [1,2,5,6,8].
+	</teoria>
   </teoria>
   
   <!-- Altres-->
   <teoria>
-      <h2>Taules 8.1: Fusió de dos vectors ordenats</h2><br>
-      Fusionar 2 vectors d'enters ordenats en un vector ordenat que contingui tots els elements dels dos inicials (els vectors poden tenir repeticions).
-      <button onclick="myFunction(P7_Taules_8_1)">Veure Solució</button><br>
-      <solucio id="P7_Taules_8_1">
-	  <pre><code class="c++">void fusio_vectors(const Vector_enter vec1, const Vector_enter vec2, unsigned n1, unsigned n2, Vector_enter vec_fusio, unsigned &amp;n) {
-//Pre: 0&lt;=n1+n2&lt;=N_MAX i vec1[0..n1-1] ordenat i vec2[0..n2-1] ordenat
-//Post: vec_fusio[0..n1+n2-1] ordenat i &eacute;s la fusi&oacute; de vec1[0..n1-1] i vec2[0..n2-1] i n=n1+n2
-&nbsp; &nbsp; unsigned i1=0, i2=0, i=0;
-&nbsp; &nbsp; while(i1&lt;n1 and i2&lt;n2) {
-&nbsp; &nbsp; &nbsp; &nbsp; if(vec1[i1]&lt;vec2[i2]) { vec_fusio[i]=vec1[i1]; i++; i1++; }
-&nbsp; &nbsp; &nbsp; &nbsp; lse { vec_fusio[i]=vec2[i2]; i++; i2++; }
-    }
-&nbsp; &nbsp; while(i1&lt;n1) { vec_fusio[i]=vec1[i1]; i++; i1++; } //copiar_a_des_des(vec_fucio,i,vec1,n1,i1);
-    &nbsp; while(i2&lt;n2) { vec_fusio[i]=vec2[i2]; i++; i2++; } //copiar_a_des_des(vec_fucio,i,vec2,n2,i2);
-    n=n1+n2;
-}
-
-int main() {&nbsp; &nbsp;
-&nbsp; &nbsp; Vector_enter vec1, vec2, vec_fusio; unsigned n1, n2, n;
-&nbsp; &nbsp; ...
-&nbsp; &nbsp; llegir_vector_enter(vec1,n1); ... llegir_vector_enter(vec2,n2);&nbsp; 
-&nbsp; &nbsp; fusio_vectors(vec1,vec2,n1,n2,vec_fusio, n);&nbsp;&nbsp; &nbsp;
-&nbsp;  ...
-} </code></pre></solucio><br>
+      <h3>Taules 8.1: Fusió de dos vectors ordenats</h3>
+		<teoria>
+			Fusionar 2 vectors d'enters ordenats en un vector ordenat que contingui tots els elements dels dos inicials (els vectors poden tenir repeticions).
+		</teoria>
       
-      <h2>Taules 8.2: Unió de dos vectors ordenats</h2><br>
-      Unió de dos vectors ordenats (sense repeticions en els vectors inicials). 
-      <button onclick="myFunction(P7_Taules_8_2)">Veure Solució</button><br>
-      <solucio id="P7_Taules_8_2">
-      <pre><code class="c++">void unio_vectors(const Vector_enter vec1, const Vector_enter vec2, unsigned n1, unsigned n2, Vector_enter vec_unio, unsigned &amp;n) {
-//Pre: 0&lt;=n1+n2&lt;=N_MAX i vec1[0..n1-1] i vec2[0..n2-1] sense repetits i ordenats
-//Post: 0&lt;=n&lt;=n1+n2 i vec_unio[0..n-1] ordenat i &eacute;s la uni&oacute; de vec1[0..n1-1] i vec2[0..n2-1]
-&nbsp; &nbsp; unsigned i1=0, i2=0;
-    n=0;
-    while(i1&lt;n1 and i2&lt;n2) {
-        if(vec1[i1]&lt;vec2[i2]) { vec_unio[n]=vec1[i1]; i1++; }
-        else if(vec1[i1]==vec2[i2]) { vec_unio[n]=vec1[i1]; i1++; i2++; }
-        else { vec_unio[n]=vec2[i2]; i2++; }
-        n++;
-    }
-}
-
-int main() {&nbsp; &nbsp;
-&nbsp; &nbsp; Vector_enter vec1, vec2, vec_unio; unsigned n1, n2, n;
-&nbsp; &nbsp; ...
-&nbsp; &nbsp; llegir_vector_enter(vec1,n1); ... llegir_vector_enter(vec2,n2);&nbsp; 
-&nbsp; &nbsp; unio_vectors(vec1,vec2,n1,n2,vec_unio, n);&nbsp;&nbsp; &nbsp;
-&nbsp; &nbsp; ...
-} </code></pre></solucio><br>
+      <h3>Taules 8.2: Unió de dos vectors ordenats</h3>
+		<teoria>
+			Unió de dos vectors ordenats (sense repeticions en els vectors inicials).
+		</teoria>
 
 
-      <h2>Taules 8.3: Intersecció de dos vectors ordenats</h2><br>
-      Intersecció de dos vectors ordenats (sense repeticions en els vectors inicials).<br>
-      Nota: La unió conté tots els elements que apareixen en un dels dos vectors inicials i la intersecció només els que apareixen en els dos. Cap dels vectors conté elements repetits. Els vectors resultants han d'estar ordenats.
-      <button onclick="myFunction(P7_Taules_8_3)">Veure Solució</button><br>
-      <solucio id="P7_Taules_8_3">
-      <pre><code class="c++">void interseccio_vectors(const Vector_enter vec1, const Vector_enter vec2, unsigned n1, unsigned n2, Vector_enter vec_inter, unsigned &amp;n) {
-//Pre: 0&lt;=n1,n2&lt;=N_MAX i vec1[0..n1-1] i vec2[0..n2-1] sense repetits i ordenats
-//Post: 0&lt;=n&lt;=min(n1,n2) i vec_inter[0..n-1] ordenat i &eacute;s la intersecci&oacute; de vec1[0..n1-1] i vec2[0..n2-1]
-        unsigned i1=0, i2=0;
-        n=0;
-        while(i1&lt;n1 and i2&lt;n2) {
-                if(vec1[i1]==vec2[i2]) { vec_inter[n]=vec1[i1]; i1++; i2++; n++; }
-                else if(vec1[i1]&lt;vec2[i2]) i1++;
-                else i2++; 
-        }
-}
+      <h3>Taules 8.3: Intersecció de dos vectors ordenats</h3>
+		<teoria>
+			Intersecció de dos vectors ordenats (sense repeticions en els vectors inicials).<br>
+			Nota: La unió conté tots els elements que apareixen en un dels dos vectors inicials i la intersecció només els que apareixen en els dos. Cap dels vectors conté elements repetits. Els vectors resultants han d'estar ordenats.
+		</teoria>
 
-int main() {&nbsp; &nbsp;
-        Vector_enter vec1, vec2, vec_inter; unsigned n1, n2, n;
-        ...
-        llegir_vector_enter(vec1,n1); ... llegir_vector_enter(vec2,n2);&nbsp; 
-        interseccio_vectors(vec1,vec2,n1,n2,vec_inter, n);
-        ...
-}</code></pre></solucio><br>
-      
-      <h2>Taules 8.4: Unió de dos vectors desordenats</h2><br>
-      Unió de dos vectors desordenats (sense repeticions en els vectors inicials). 
-      <button onclick="myFunction(P7_Taules_8_4)">Veure Solució</button><br>
-      <solucio id="P7_Taules_8_4">
-      <pre><code class="c++">void unio_vectors_desordenats(const Vector_enter vec1, const Vector_enter vec2, unsigned n1, unsigned n2, Vector_enter vec_unio, unsigned &amp;n) {
-//Pre: 0&lt;=n1+n2&lt;=N_MAX i vec1[0..n1-1] i vec2[0..n2-1] sense repetits
-//Post: 0&lt;=n&lt;=n1+n2 i vec_inio[0..n-1] &eacute;s la uni&oacute; de vec1[0..n1-1] i vec2[0..n2-1]
-        for(unsigned i1=0;i1&lt;n1;i1++) { vec_unio[i1]=vec1[i1]; }
-                n=n1;
-                for(unsigned i2=0;i2&lt;n2;i2++) { 
-                        if(not existeix(vec1,n1,vec2[i2])){ vec_unio[n]=vec2[i2]; n++; }
-                }
-}
 
-int main() {&nbsp; &nbsp;
-        Vector_enter vec1, vec2, vec_unio; unsigned n1, n2, n;
-        ...
-        llegir_vector_enter(vec1,n1); ... llegir_vector_enter(vec2,n2);&nbsp; 
-        unio_vectors_desordenats(vec1,vec2,n1,n2,vec_unio,n);&nbsp;&nbsp; &nbsp;
-        ...
-}</code></pre></solucio><br>
+	  <h3>Taules 8.4: Unió de dos vectors desordenats</h3>
+		<teoria>
+			Unió de dos vectors desordenats (sense repeticions en els vectors inicials). 
+		</teoria>
 
-      <h2>Taules 8.5: Intersecció de dos vectors desordenats</h2><br>
-      Intersecció de dos vectors desordenats (sense repeticions en els vectors inicials). 
-      <button onclick="myFunction(P7_Taules_8_5)">Veure Solució</button><br>
-      <solucio id="P7_Taules_8_5">
-      <pre><code class="c++">void interseccio_vectors_desordenats(const Vector_enter vec1, const Vector_enter vec2, unsigned n1, unsigned n2, Vector_enter vec_inter, unsigned &amp;n) {
-//Pre: 0&lt;=n1,n2&lt;=N_MAX i vec1[0..n1-1] i vec2[0..n2-1] sense repetits
-//Post: 0&lt;=n&lt;=min(n1,n2) i vec_inter[0..n-1] &eacute;s la intersecci&oacute; de vec1[0..n1-1] i vec2[0..n2-1]
-        for(unsigned i1=0;i1&lt;n1;i1++) {
-                if(existeix(vec2,n2,vec1[i1]){ 
-                        vec_inter[n]=vec1[i1]; 
-                        n++;
-                }
-        }
-}
-
-int main() {&nbsp; &nbsp;
-        Vector_enter vec1, vec2, vec_inter; unsigned n1, n2, n;
-        ...
-        llegir_vector_enter(vec1,n1); ... llegir_vector_enter(vec2,n2);&nbsp; 
-        interseccio_vectors_desordenats(vec1,vec2,n1,n2,vec_inter, n);&nbsp;&nbsp; &nbsp;
-        ...
-}</code></pre></solucio><br>
+      <h3>Taules 8.5: Intersecció de dos vectors desordenats</h3>
+		<teoria>
+			Intersecció de dos vectors desordenats (sense repeticions en els vectors inicials). 
+		</teoria>
 
 </teoria>
 
 <h4> Taules de tuples </h4>
 <teoria>
-    <h2>Taules 9.2: Cercar el punt més proper al (0,0) </h2><br>
-    Donada una taula de punts de tipus Punt_2d, cercar el punt que estigui més a la vora de l'origen (0,0). 
+    <h3>Taules 9.2: Cercar el punt més proper al (0,0) </h3>
+    <teoria>
+		Donada una taula de punts de tipus Punt_2d, cercar el punt que estigui més a la vora de l'origen (0,0). 
+	</teoria>
 
-    <button onclick="myFunction(P7_Taules_9_2)">Veure Solució</button><br>
-    <solucio id="P7_Taules_9_2">
-    <pre><code class="c++">#include &lt;cmath&gt;
-struct Punt {
-&nbsp; &nbsp; double x;
-&nbsp; &nbsp; double y;
-};
-const unsigned N_MAX=100;
-typedef Punt Vector_punts[N_MAX];
-struct Taula_punts{
-        Vector_punts vect;
-        unsigned n;
-}
-    
-double dist(Punt p, Punt q){
-        //Pre: cert
-        //Post: retorna la dist&agrave;ncia Euclidea entre els punts p i q
-        double dif_x=p.x-q.x, dif_y=p.y-q-y;
-        return sqrt(dif_x*dif_x+dif_y*dif_y);
-}
-
-Punt mes_proper_a_origen(Taula_punts punts, Punt p) {
-        //Pre: 0&lt;=punts.n&lt;=N_MAX
-        //Post: retorna el punt de punts.vect[0..punts.n-1] m&eacute;s proper a p Punt mes_proper=punts.vect[0];
-        double menor_dist= distancia(mes_proper,p);
-        int darrer = int(punts.n)-1;
-        for (unsigned i=1; i&lt;darrer; i++) {
-                double dist=distancia(punts.vector[i],p);
-                if(dist&lt;menor_dist){ menor_dist=dist; mes_proper=punts.vect[i];}
-        }
-        return mes_proper;
-}
-void llegir_vector_punts(Vector_punts vec, unsigned n) {
-        //Pre: 0&lt;=punts.n&lt;=N_MAX
-        //Post: punts.vec[0..punts.n-1] cont&eacute; successivament els Punts entrats
-        for (unsigned i=0; i&lt;n; i++) cin&gt;&gt;punts.vec[i].x&gt;&gt;punts.vec[i].y;
-}
-
-int main() {&nbsp; &nbsp;
-        Vector_punts punts; unsigned n;
-        cout&lt;&lt;&quot;Nombre de punts: &quot;; cin&gt;&gt;n;
-        llegir_vector_punts(punts,n); 
-        Punt proper_origen=mes_proper_a_origen(punts,n);&nbsp;&nbsp; &nbsp;
-        escriure_taula_punts (punts,n);&nbsp;&nbsp; &nbsp;
-        &hellip;
-}</code></pre>
-
-    <h2>Taules 9.5: Ordenar pila de cartes per coll+número
-    </h2><br>
-    Ordenar una pila de cartes, representada amb una taula de tuples Carta. Cada carta consta d'un pal {bastos, copes, espases o oros} i un enter {1, ..., 12} i es volen ordenar per ordre alfabètic dels pals i, dins de cada pal, numèricament. Exemple: el 12 de bastos és menor que el 2 de copes.
-
-    <button onclick="myFunction(P7_Taules_9_5)">Veure Solució</button><br>
-    <solucio id="P7_Taules_9_5">
-        Solució amb ordenació per inserció binaria:
-        <pre><code class="c++">struct Carta{
-        string pal;
-        unsigned num;
-};
-
-const unsigned N_MAX=48;
-typedef Carta Vector_cartes [N_MAX];
-
-struct Pila_cartes{
-        Vector_cartes vec;
-        unsigned n_cartes;
-};
-
-bool es_menor(Carta carta_a, Carta carta_b){
-//Pre: cert
-//Post: retorna cert si la carta_a &eacute;s menor (menor pal o en cas d&rsquo;igual pal menor n&uacute;mero) que la carta_b
-        bool menor=carta_a.pal&lt;carta_b.pal;
-        if(carta_a.pal==carta_b.pal) menor=carta_a.num&lt;carta_b.num; 
-        return menor;
-}
-
-unsigned posicio_insercio(const Pila_cartes&amp; pila, unsigned pos) {
-//Pre: pila.vec[0..pos-1] ordenat i 0&lt;pos&lt;pila.n_cartes 
-//Post: retorna la posici&oacute; d&rsquo;insercio de la carta pila.vect[pos] a pila.vect[0..pos]
-        int esquerre=0, dret=n-1, mig=0;   bool trobat=false;
-        Carta carta_nova=pila.vec[pos];
-        while(esquerre&lt;=dret and not trobat){
-                mig=(esquerre+dret)/2;
-                if(es_menor(carta_nova,pila.vec[mig])) dret=mig-1;
-                else if(es_menor(pila.vec[mig], carta_nova)) esqurre=mig+1;
-                else trobat=true;
-        }
-        if(trobat) pos=unsigned(mig); 
-        else pos=unsigned(esquerre);
-        return pos;
-}
-
-void insereix_a_pos(Pila_cartes&amp; pila, unsigned pos_carta, unsigned pos_insercio) {
-//Pre: pila.vec[0..pos_carta-1] ordenat i 0&lt;pos_carta&lt;pila.n_cartes i 0&lt;=pos_insercio&lt;=pos_carta i pila.vec=VEC
-//Post: pila.vec[0..pos_carta] ordenat i amb VEC[pos_carta] inserit a pos_inserci&oacute;
-        Carta carta_a_inserir=pila.vec[pos_carta];
-        for(unsigned i=pos_carta-1; i&gt;=pos_insercio;i++))
-                pila.vec[i+1]=pila.vec[i];
-        pila.vect[pos_insercio]=carta_a_inserir;
-}
-
-void ordena(Pila_cartes&amp; pila) {
-//Pre: 0&lt;=pila.n_cartes&lt;=N_MAX i pila.vec=VEC
-//Post: pila.vec[0..pila.n_cartes-1] cont&eacute; una permutaci&oacute; ordenada dels valors de VEC[0..pila.n_cartes-1]
-        for (int i=1; i&lt;int(pila.n_cartes)-1; i++) 
-                insereix_a_pos(pila, i, posicio_insercio(pila,i));
-}
-
-int main() {&nbsp; &nbsp;
-        Pila_cartes cartes; 
-        ...
-        ordenar(cartes);&nbsp;&nbsp; &nbsp;
-        ...
-}</code></pre>
-    </solucio>
-    
+    <h3>Taules 9.5: Ordenar pila de cartes per coll+número </h3>
+	<teoria>
+		Ordenar una pila de cartes, representada amb una taula de tuples Carta. Cada carta consta d'un pal {bastos, copes, espases o oros} i un enter {1, ..., 12} i es volen ordenar per ordre alfabètic dels pals i, dins de cada pal, numèricament. Exemple: el 12 de bastos és menor que el 2 de copes.
+	</teoria>
 </teoria>
   
 	
@@ -802,7 +162,7 @@ int main() {&nbsp; &nbsp;
 	
  </div>
 <p class = footer>
-<a class="backward" href="TuplesTaules_Estil.html"></a> <a class="forward" href=""></a>
+<a class="backward" href="TuplesTaules_Estil.html"></a>
   <center>
       <p class = footer>
       Copyright &copy; 2000&ndash;<span id="anyActual"></span>

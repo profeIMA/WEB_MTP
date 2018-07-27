@@ -35,9 +35,137 @@
   </center>
   
   
+  <h3>Qüestió 2</h3>
+  <teoria>
+	Considera dos subprogrames les capçaleres dels quals són:
+	<pre><code class="c++">void mostra_text(string text);
+int pow(int base, int exponent);</code></pre>
+	D’acord amb aquestes capçaleres digues si són correctes o no les següents crides:
+    <ol type="a">
+		<li> <pre><code class="c++">cout&lt;&lt;mostra_text(&quot;Hola&quot;)&lt;&lt;endl;</code></pre></li>
+		<li> <pre><code class="c++">cout&lt;&lt;pow(2,3)&lt;&lt;endl;</code></pre></li>
+		<li> <pre><code class="c++">if(mostra_text(&quot;Ad&eacute;u&quot;) &lt; mostra_text(&quot;Hola&quot;))
+      cout&lt;&lt;&quot;Ad&eacute;u&quot;&lt;&lt;endl;</code></pre></li>
+		<li> <pre><code class="c++">if(&quot;Ad&eacute;u&quot; &lt; &quot;Hola&quot;)
+      mostra_text(&quot;Ad&eacute;u&quot;);</code></pre></li>
+		<li> <pre><code class="c++">cout&lt;&lt;&quot;Entra dos enters&quot;&lt;&lt;endl;
+int a, b;
+cin&gt;&gt;a&gt;&gt;b;
+if(pow(2,3)&lt;pow(a,b))
+    mostra_text(&quot;El de l&rsquo;usuari &eacute;s major&quot;);</code></pre></li>
+	</ol>
+	<button onclick="myFunction(Q2)">Solució</button>
+	<solucio id="Q2">
+		<ol type="a">
+			<li>No, un coutno pot portar enmig una crida a una acció; si retornés un stringsí que es podria fer, però així no.</li>
+			<li>Sí, el coutmostra l’intretornat per la funció pow.</li>
+			<li>No, mostra_textés una acció; no retorna res i per tant no es pot comparar amb res.</li>
+			<li>Sí, es comparen els stringsentre ells i es mostra el text corresponent amb l’acció mostra_text.</li>
+			<li>Sí, es comparen els enters i es mostra el text corresponent.</li>
+		</ol>
+	</solucio>
+	
+  </teoria>
+  
+  <h3>Qüestió 3</h3>
+  <teoria>
+	Considera el codi següent i introdueix un subprograma que eviti duplicacions
+	<pre><code class="c++">int total_centims = unsigned(100*total+0.5);
+int total_centims_iva= unsigned(100*total*IVA+0.5);</code></pre>
+	<button onclick="myFunction(Q3)">Solució</button>
+	<solucio id="Q3">
+		En les dues instruccions s’arrodoneix una quantitat a cèntims, per tant fem un acció (a_centims) que ho faci. L’acció ha de rebre una quantitat real d’entrada (pas per valor) i ha de retornar un nombre natural.
+		<pre><code class = "c++">unsigned a_centims(doublequantitat){
+//Pre: quantitat>=0 (en euros)
+//Post: retorna la quantitat d’euros equivalent a quantitat arrodonida
+	return 100*quantitat+0,5;
+}</code></pre>
+		Les crides serien:
+		<pre><code class = "c++">int total_centims=a_centims(total);
+int total_cèntims_iva= a_cèntims(total*IVA);</code></pre>
+	</solucio>
+	</teoria>
+	
+	<h3>Qüestió 5</h3>
+	<teoria>
+		5.	A continuació hi ha tres accions que pretenen intercanviar el valor de dues variables. Analitza si aconsegueixen el seu propòsit. 
+		<ol type="a">
+			<li><pre><code class="c++">void swap1(int& a, int& b){	
+     a=b;
+     b=a;
+}</code></pre></li>
+			<li><pre><code class="c++">void swap2(int a, int b){	
+      int aux=a;	
+      a=b;
+      b=a;
+}</code></pre></li>
+			<li><pre><code class="c++">void swap3(int& a, int& b){	
+       a=a+b;
+       b=a-b;
+       a=a-b;
+}</code></pre></li>
+		</ol>
+		
+	<button onclick="myFunction(Q5)">Solució</button>
+	<solucio id="Q5">
+		<ul>
+			<li><b>swap1:</b> Si a l’inici a=A i b=B, al sortir a=B i b=B, les dues variables prenen el valor del d’entrada de b</li>
+			<li><b>swap2:</b> Intercanvia el valor dels dos paràmetres (que són d’entrada). Per tant, no es produeixen canvis on s’ha fet la crida.</li>
+			<li><b>swap3:</b> Fa l’intercanvi dels valors de les dues variables. Si a l’inici a=A i b=B, al final a=B i b=A. <br>
+			Fent la traça obtenim:<br>
+			&nbsp; &nbsp; a = A+B<br>
+			&nbsp; &nbsp; b = (A+B)-B = A<br>
+			&nbsp; &nbsp; a = (A+B)-A = B<br>
+			Si es fa la crida amb la mateixa variable, llavors a=X, b=X (a i b són dos àlies de la mateixa variable, fan referència a la mateixa posició de memòria). Per tant obtindríem un 0 de valor final ja que:<br>
+&nbsp; &nbsp; a = X + X = 2X (ara b també val 2X)<br>
+&nbsp; &nbsp; b = 2X -2X = 0 (ara a també val 0)<br>
+&nbsp; &nbsp; a = 0 –0 = 0<br></li>
+		</ul>
+	</solucio>
+	</teoria>
+	
+	<h3>Programa 8</h3>
+	<teoria>
+		Escriure un subprograma ordena2(int& a, int& b) que intercanvia a i b sempre que a sigui major que b, sinó no s’intercanvien els valors. 	
+		<br><button><a  target="_blank" href= "https://github.com/Onnion191/Exercicis-MTP1/blob/Estudiants/ExercicisT5/T5-EX8-ordena2.cpp">Veure Solució</a></button>
+	</teoria>
+	
+	<h3>Programa 9</h3>
+	<teoria>
+		Escriure un subprograma ordena3(int& a, int& b, int& c) que intercanvia els valors dels tres arguments perquè quedin ordenats de gran a petit. 
+		<br><button><a  target="_blank" href= "https://github.com/Onnion191/Exercicis-MTP1/blob/Estudiants/ExercicisT5/T5-EX9-ordena3.cpp">Veure Solució</a></button>
+	</teoria>
+	
+	<h3>Programa 10</h3>
+	<teoria>
+		Fer un subprograma que determini si un caràcter és o no un dígit (de '0' a '9'). 
+		<br><button><a  target="_blank" href= "https://github.com/Onnion191/Exercicis-MTP1/blob/Estudiants/ExercicisT5/T5-EX10-esDigit.cpp">Veure Solució</a></button>
+	</teoria>
+	
+	<h3>Programa 11</h3>
+	<teoria>
+		Fer un subprograma que determini si un natural major o igual que 2 és o no primer.
+		<br><button><a  target="_blank" href= "https://github.com/Onnion191/Exercicis-MTP1/blob/Estudiants/ExercicisT5/T5-EX11-esPrimer.cpp">Veure Solució</a></button>
+	</teoria>
+	
+	<h3>Programa 13</h3>
+	<teoria>
+		Determinar si un natural diferent de 0 és o no una potència d'un natural menor que ell.<br>
+		<button><a  target="_blank" href= "https://github.com/Onnion191/Exercicis-MTP1/blob/Estudiants/ExercicisT5/T5-EX13-esPotencia.cpp">Veure Solució</a></button>
+	</teoria>
+	
+	<h3>Programa 14</h3>
+	<teoria>
+		Esbrinar si un natural diferent de 0 és perfecte (igual a la suma de tots els seus divisors menors que ell).<br>
+		<button><a  target="_blank" href= "https://github.com/Onnion191/Exercicis-MTP1/blob/Estudiants/ExercicisT5/T5-EX14-esPerfecte.cpp">Veure Solució</a></button>
+	</teoria>
+  
+	  
+  
+  
  </div>
 <p class = footer>
-<a class="backward" href="AccionsFuncions_Estil.html"></a> <a class="forward" href=""></a>
+<a class="backward" href="AccionsFuncions_Estil.html"></a>
   <center>
       <p class = footer>
       Copyright &copy; 2000&ndash;<span id="anyActual"></span>
