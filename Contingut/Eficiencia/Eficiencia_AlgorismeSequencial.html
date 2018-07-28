@@ -53,8 +53,101 @@
         
         Així doncs, <b>per calcular el cost</b> simplement ens quedarem amb l'<b>ordre de magnitud més gran</b> de les instruccions que tenim. Per tant el cost és: <b>Max(S1 .... Sn)</b>.
     </teoria>
+    
+    
+    
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------ EXERCICIS -------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    
+    
+    <h4>Per Practicar</h4>
+    A continuació donarem un parell d'exercicis senzills perquè pogueu consolidar el temari: 
+    
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------ EXERCICI 1 ------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------->    
+    <h3>Exercici 1</h3>
+    <exercici>Calcular l'ordre de complexitat del següent algorisme:</exercici>
+    <pre><code class="C++">
+        double potencia (double base, unsigned exp){
+        //Pre: cert
+        //Post: retorna base elevat a exp
+            double potencia=1;                    
+            for(unsigned i=1; i&lt;=exp; i++)          
+                potencia=potencia*base;          
+                
+            return potencia;                     
+        }                                        
+    </code></pre>
+    
+    <!--------------solucio------------>
+ <button onclick="myFunction(Ex1)">Solucio</button>
+                
+   <solucio id="Ex1"><pre><code class="c++">
+      double potencia (double base, unsigned exp){
+    //Pre: cert
+    //Post: retorna base elevat a exp
+        double potencia=1;                    O(1)
+        for(unsigned i=1; i&lt;=exp; i++)          
+            potencia=potencia*base;           O(1) exp vegades --> O(exp)
+
+        return potencia;                      O(1) 
+    }                                        
+    </code></pre>
+    Per tant l'ordre final es O(n);
+    </solucio>
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------ EXERCICI 2 ------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------->  
+    
+    <h3>Exercici 2</h3>
+    <exercici>Calcular l'ordre de complexitat del següent algorisme:</exercici>
+    <pre><code class="C++">
+       double potencia2 (double base, unsigned exp){
+        //Pre: cert
+        //Post: retorna base elevat a exp
+            double potencia=1;                    
+            unsigned i=exp;                       
+            double b=base;                        
+
+            while(i&gt;1){          
+                if(i%2==1) potencia=potencia*b; 
+                b=b*b;                            
+                i=i/2;
+            }
+
+            return potencia;                      
+        }
+    </code></pre>
+    
+    <!--------------solucio------------>
+ <button onclick="myFunction(Ex2)">Solucio</button>
+                
+   <solucio id="Ex2"><pre><code class="c++">
+      double potencia2 (double base, unsigned exp){
+        //Pre: cert
+        //Post: retorna base elevat a exp
+            double potencia=1;                    O(1)
+            unsigned i=exp;                       O(1)
+            double b=base;                        O(1)
+
+            while(i&gt;1){          
+                if(i%2==1) potencia=potencia*b; 
+                b=b*b;                            O(1) cada iteració  -> O(nIter)
+                i=i/2;
+            }
+
+            return potencia;                      O(1) 
+        }
+    </code></pre>
+    Per tant l'ordre final es O(log (n));
+    </solucio>
+    
+    
 </div>
 <p class = footer>
+    <a class="backward" href="Eficiencia_OrdreComplexitat.html"></a>  <a class="forward" href="Eficiencia_Exercicis.html"></a>
   <center>
       <p class = footer>
       Copyright &copy; 2000&ndash;<span id="anyActual"></span>
