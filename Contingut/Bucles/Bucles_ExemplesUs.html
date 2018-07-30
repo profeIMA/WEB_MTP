@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      4.4 EXEMPLES D'ÚS
+    </h1>
+  </center>
+    <h4>Exemples d'ús</h4>
+    A continuació veurem com podem utilitzar diferents estratègies i exemples per utiltizar els bucles. També presentarem com poder fer simulacions amb l'ordinador i així comprovar el bon funcionament del nostre programa. 
+    
+    <h3>Validació d'entrada</h3>
+    <teoria>
+        Quan fem programes que requereixen una entrada per part de l'usuari, si no sabem el nombre de valors que ha d'entrar, no tenim forma de saber quan ha acabat d'entrar dades. Per això, s'utilitzen  <b>valors impossibles</b> o bé <b>valors incorrectes</b> per determinar que quan entra un d'aquests es 
+        considera que s'ha acabat el procés d'obtenció de dades. <br> 
+        Per exemple, si demanem a l'usuari que ens entri una sèrie de caràcters, podem dir que si entra qualsevol cosa que no sigui una lletra, aleshores, es considerarà que s'ha acabat l'obtenció de dades. <br> 
+        Per dur a terme aquesta validació, sovint es fa servir una funció de validació. Per més informació sobre funcions, consulteu l'apartat d'<a href="../AccionsFuncions/AccionsFuncions_Motivacions.html"> accions i funcions</a>. 
+        <br> <br> 
+        
+        Un exemple, es demana que una empresa entri tots els salaris dels seus treballadors per poder mostrar quina és la mitjana salarial de l'empresa. <br> 
+        El programa tindria el següent aspecte: 
+        <pre><code class="C++">
+        #include &lt;iostream&gt; 
+        
+        using namespace std; 
+        
+        int main()
+        {
+            double suma = 0; 
+            double salari; 
+            unsigned int comptador; 
+            
+            //Entrada de salaris
+            cout&lt;&lt;"Entra salaris, -1 per acabar"&lt;&lt;endl; //Expliquem quina és la condició de finalització,(els salaris no poden ser negatius)
+            cin&gt;&gt;salari; 
+            
+            while(salari&gt;-1)//Mentre els salaris siguin positius
+            {
+                suma += salari; 
+                comptador++;
+                
+                cin&gt;&gt;salari; //Preguntem pel següent salari
+            }
+            
+            //Càlcul i sortida
+            
+            if(comptador&gt;0)
+            {
+                double mitjana = suma / comptador; 
+                cout&lt;&lt;"La mitjana dels salaris: "&lt;&lt;mitjana&lt;&lt;endl; 
+            }
+            else 
+                cout&lt;&lt;"No hi ha suficients dades"&lt;&lt;endl;
+            
+            return 0;
+        }
+        
+        </code></pre>
+        
+    </teoria>
+    <h3>Simulacions</h3>
+    <teoria>
+        Les simulacions serveixen per comprovar el funcionament del programa, i també altres usos de prediccions o supòsits futurs, com pot ser el clima, anàlisis del trànsit d'una ciutat, etc.<br> 
+        Però abans d'entrar amb simulacions, cal explicar que són i com es fan servir els nombres aleatoris. 
+        <br>
+        
+        <h3>Nombres Aleatoris</h3>
+        <teoria> 
+            Els nombres aleatoris són aquells que nombres que l'usuari no sap quin valor tindran. La única força que té el programador és poder delimitar el rang que pot prendre, per exemple, un nombre aleatori entre 0 - 10. <br> 
+            Ara bé, en C++ quan s'utilitza la llibreria bàsica: <b>cstdlib</b>, aleshores no estem fent nombres aleatoris reals, sinó pseudoaleatoris ja que el seu funcionament és el següent: 
+            <ul> 
+                <li>1. <b>Consulta la llista</b>: El C++ té una llista immensa de valors pre-establerts dins una taula d'aleatoris, aleshores, mira quin és el següent nombre que toca de la llista.</li>
+                <li>2. <b>Adapta el valor:</b>: El valor de la llista té un rang molt elevat, (sovint 4 bytes). Així doncs, en comptes de mostrar el valor que tocaria, adapta aquell valor al rang que tu vols. Una forma senzilla de fer-ho: <b>(valor_taula / valor_maxim)*ValorMaxRang + ValorMinRang</b>. Per <i>exemple: si volem un enter entre 1 - 10, i la taula té un valor màxim de 2147483647. El valor que toca de la taula es de 1589705648. Aleshores el nostre valor es: <b>(1589705648 / 2147483647) * 10 + 1 = 8.4026437</b></i>. També hi ha altres mètodes per fer-ho. </li>
+                <li>3. <b>Actualitza la posició del taula:</b> Actualitza la següent posició que caldrà consultar per obtenir un nombre aleatori. </li>
+            </ul>
+            
+            Per utilitzar els nombres aleatoris cal: 
+            <pre><code class="C++">              
+                #include &lt;cstdlib&gt; // include per srand i rand
+                #include &lt;ctime&gt; // include per time
+                
+                srand(time(NULL)); // Agafa el valor de temps actual per determinar quina posició de la taula comença a mirar valors (inici "aleatori")
+                double random_value = rand()%10; //Random entre 0 - 9 (10 possibles valors);
+            </code></pre>
+        </teoria>
+        Un cop explicats els nombres aleatoris, ja podem avançar amb les simulacions. Les simulacions que veurem serveixen per entrar valors aleatoris per evitar haver d'introduir-los a mà. Per exemple, podem simular el resultats del llançament de daus. Un exemple seria el següent: 
+        
+        <pre><code class ="C++">
+        #include &lt;iostream&gt;
+        #include &lt;cstdlib&gt;
+        #include &lt;ctime&gt;
+
+        using namespace std;
+
+        int main() {
+
+                srand(time(0)); // fixem la llavor
+                for (unsigned i=1; i&lt;=10; i++)
+                {
+                    int dau1 = rand() % 6 + 1;
+                    int dau2 = rand() % 6 + 1;
+                    cout &lt;&lt; dau1 &lt;&lt; " " &lt;&lt; dau2 &lt;&lt; endl;
+                }
+
+                return 0;
+            }
+
+
+        </code></pre>
+    </teoria>
+	
+</div>
+<p class = footer>
+    <a class="backward" href="Bucles_BuclesNiats.html"></a> <a class="forward" href="Bucles_Errors.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
+ 

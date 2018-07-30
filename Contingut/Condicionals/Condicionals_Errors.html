@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      3.5 ERRORS FREQÜENTS
+    </h1>
+  </center>
+    <h4>Errors i problemes freqüents</h4>
+        A continuació farem un llistat dels errors més freqüents en programació de condicions i estructures alternatives:
+    <h3>Mal ús dels punt i coma</h3>
+    <teoria>
+        Hem vist que en C++ és necessari acabar les instruccions amb <b>;</b>. Però això no s'aplica amb les estructures, aleshores el següent codi és un error: 
+        <pre><code class="c++">
+            if(condicio);
+                fer_quelcom
+        </code></pre>
+        En aquest cas el <b>;</b>, està mal col·locat, però no és un error de programació ja que és un sentència vàlida. En C++, utilitzar el <b>;</b>, significa que no es vol fer res. Per tant en aquest cas estem dient que si es compleix la condició del <i>if</i> no volem fer res. I a continuació de "no fer res", s'executarà el <i>fer quelcom</i>.<br><br>
+        
+        Ara bé, per altra banda, es pot utilitzar el punt i coma de forma intencionada per remarcar que no vols fer res si es dóna el cas. Això significa que com a programador has pensat amb aquella possibilitat, però has determinat que no calia fer cap instrucció. <br>
+        
+        Un exemple: 
+        
+        <pre><code class="c++">
+        //Entrada: L'usuari entra un valor enter
+        //Sortida: retorna el valor absolut del nombre.
+        int digit; 
+        cout&lt;&lt;"Entra un enter";
+        cin&gt;&gt;digit;
+        if(ditigit&lt;0)
+            digit*=-1;
+        else ;//El digit ja es positiu, no cal fer res
+
+        </code></pre>
+        
+    </teoria>
+    
+    <h3>Mala indentació</h3>
+    <teoria>
+        Sabem que la indentació és molt important per saber dins de quina estructura ens trobem. Si no la respectem aleshores ens poden succeir errors dins del nostre codi. Exemple: 
+        <pre><code class="c++">
+            double cost_enviament ; //El cost d'enviament estàndard es de 10€
+            if(estat == "USA")//Si el paquet prové d'estats units
+                if(estat== "CA")//Estat == california
+                    cost_enviament = 12.0;
+            <alerta>else</alerta>// Aquest else què vol dir? que no sigui California o que no sigui d'Estats Units?
+                cost_enviament = 15.0€ 
+                    
+        </code></pre>
+    </teoria>
+    
+    <h3>Confusió entre igualtat i assignació</h3>
+    <teoria>
+        Com ja sabem de <a href="../TipusVariables/TipusVariables_TElemDades.html">les variables</a> podem tenir diferents operadors, entre ells hi ha l'Assignació, <b> = </b> i la comparació <b>==</b>. Els quals tenen
+        propòsits ben diferents, entre ells, un serveix per donar un valor a una variable, mentre que l'altre serveix per comparar dos valors. <br> 
+        
+        Si no els usem correctament, poden passar coses com les següents: <br> 
+        <pre><code class="c++">
+        int a = 5; 
+        
+        if(a = 2)//En aquest cas no estem comparant res, sinó assignant un valor a A.
+        {
+            cout&lt;&lt;"a val dos"&lt;&lt;endl;
+        }
+        else 
+        {
+        cout&lt;&lt;"a no val dos"&lt;&lt;endl;
+        }
+        </code></pre>
+        Quin seria el resultat de l'execució? 
+    </teoria>
+    
+    
+    <h3>Errors en operadors Lògics</h3>
+    <teoria>
+        També sabem que les variables lògiques permeten fer combinació d'operadors lògics, ara bé, hem d'anar amb compte en no escriure errors ja que després tindrem resultats no desitjats.<br> 
+        Els errors més freqüents que hi ha són els següents: 
+        <pre><code class="c++">
+            int a = 4;
+            if (a == 3 || 6 ) //Error, la segona condició està avaluant 6 per separat, i per tant sempre donarà true. (6 != 0)
+                a = 3; 
+            
+            //La forma correcte: 
+            if (a == 3 || a == 6)
+        </code></pre>
+        <pre><code class="c++">
+            int x = 3,y=8;
+            if(x && y &gt; 0)//Error, x s'avalua sola, i per tant sempre donarà certa la seva part. 
+                x = y; 
+                
+            //La forma correcte: 
+            if ( x &gt; 0 && y&gt;0)
+        </code></pre>
+    </teoria>
+</div>
+    
+<p class = footer>
+          <a class="backward" href="Condicionals_BonesPractiques.html"></a> <a class="forward" href="Condicionals_Exercicis.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
+ 

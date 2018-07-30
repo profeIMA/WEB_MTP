@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------- HEADERS, INCLUDE DE TOT ELS FITXERS I LINKS EXTERNS QUE NECESSITEM ----------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+<head>
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"> <!-- Estil de la plana web -->
+    <link rel="stylesheet" href="../../styles/vs.min.css"><!-- Estil del codi c++ -->
+    <meta charset="utf-8">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--AJAX -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script><!--JQuery -->
+    <script src="../../CustomScripts.js"></script> <!--Scripts propis
+-->
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+    
+    
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------- BODY, CONTINGUT DE LA WEB ------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div> <!--- serveix per afegir el menu de navegació que esta en un altre fitxer (menu.html) --->
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+     0.0 TEMA DE LA PLANA
+    </h1>
+  </center>
+    
+    <h4>TITOL PRINCIPAL</h4>
+    <h3>Estructura de la web</h3>
+        <teoria>
+            La web està estructurades per directoris que tenen la següent composició: 
+            <img style="width: 300px;height: 300px;" src="../../Recursos/Imatges/DirectoriWeb.png">
+        </teoria>
+    
+    
+       <h3>SUBTITULS</h3>
+    <teoria>
+        <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+        <!------------------------------------------------------------- EXPLICACIÓ TEORIA --------------------------------------------------------------------------------------------------------------->
+        <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+        Per introduir teoria utilitzem el tag teoria <b>&lt;teoria&gt; ... contingut .... &lt;/teoria&gt; </b><br>
+        Els blocs de teoria: 
+        <ul>
+            <li>S'obren sempre que s'escriu contingut en una pàgina de teoria.</li>
+            <li>Es tanquen després d'acabar aquell bloc. Sovint un bloc correspon a l'explicació de cada subtítol.</li>
+            <li><alerta>Si es vol introduir linies d'alerta, per remarcar el que calgui: &lt;alerta&gt; contingut alerta &lt;/alerta&gt;</alerta></li>
+        </ul>
+        <br><br>
+        
+        
+        
+        
+        
+        <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+        <!------------------------------------------------------------- EXPLICACIÓ TALLS DE CODI  ------------------------------------------------------------------------------------------------------->
+        <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+        <b>Podem introduir talls de codi dins de la teoria</b>, per fer-ho necessitem fer una cadena de tags: 
+        <ul>
+            <li><b>Pseudocodi: </b> si volem fer un tros de pseudocodi els tags són els següents: 
+                <b>&lt;pseudocodi&gt;&lt;pre&gt;&lt;code class="nohighlight"&gt; .... codi ... &lt;/code &gt;&lt;/pre&gt;&lt;/pseudocodi&gt;</b>
+            
+                <!--TEMPLATE PER PSEUDOCODI, COPY PASTE I CANVIAR CONTINGUT-->
+                <pseudocodi><pre><code class="nohighlight">
+                    Aixo és un exemple de pseudocodi
+                </code></pre></pseudocodi>
+            </li>
+            
+            
+            <li><b>C++: </b> si volem fer un tros de c++ únicament hem d'esborrar el pseudocodi, i canviar la classe del code al llenguatge que volem utilitzar, el nostre cas c++ 
+                <b>&lt;pre&gt;&lt;code class="c++"&gt; .... codi ... &lt;/code &gt;&lt;/pre&gt;</b>
+            
+                <!--TEMPLATE PER C++, COPY PASTE I CANVIAR CONTINGUT-->
+                <pre><code class="c++">
+                  "Aixo es un exemple de c++"
+                </code></pre>
+                
+            </li>
+            <alerta>Els blocs de codi només s'actualitzen si es refresca la pàgina</alerta>
+        </ul>
+    </teoria>
+
+    
+    
+    
+    
+    
+    
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------- EXPLICACIÓ BOTONS DE CODI ------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    
+ 
+    <h3>Codi amagat darrera un botó</h3>
+    <teoria>
+        Si volem fer que un codi només es vegi si es clica un botó, hem de fer exactament el mateix que quan afegim un tros de codi, però amb un tag extra i la creació del boto html. 
+        <ul>
+            <li><b>Creació del boto: </b> el botó es crearà de la següent manera: <b><i> &lt;button onclick="myFuntion(IDcodi)"&gt; nom visible del boto &lt;/button&gt; </i></b> <br>
+            
+                <alerta>El idCodi serà l'idintificador del nostre tros de codi, ha de ser ÚNIC en tota la pàgina, altrament tindrem un error de javascript.</alerta>
+            </li>
+            
+            <li><b>Creació del codi: </b>per fer el codi, utilitzarem els següents tags: <b>&lt;solucio id="idCodi"&gt;</b>&lt;pre&gt;&lt;code class="c++"&gt; .... codi ... &lt;/code &gt;&lt;/pre&gt;<b>&lt;/solucio&gt;</b>
+            <br>
+            Un exemple seria el següent: 
+                
+                
+             <!------TEMPLATE PER C++, COPY PASTE I CANVIAR CONTINGUT RECORIDAR A CANVIAR EL ID, TANT A myFunction(ID), com solucio id="ID"---->
+            <button onclick="myFunction(exemple)">exemple C++</button>
+                
+           <solucio id="exemple"><pre><code class="c++">
+              "Exemple codi C++"
+            </code></pre></solucio>
+                
+            
+            <!------TEMPLATE PER pseudocodi, COPY PASTE I CANVIAR CONTINGUT RECORIDAR A CANVIAR EL ID, TANT A myFunction(ID), com solucio id="ID"---->
+            <button onclick="myFunction(exemple2)">exemple pseudocodi</button>
+                
+           <solucio id="exemple2"><pseudocodi><pre><code class="c++">
+             Exemple Pseudocodi
+            </code></pre></pseudocodi></solucio>
+                
+                
+            </li>
+            
+            
+            <li><b>Exemple d'error: </b>Simplement per observar que passa quan no es canvia els ID dels blocs de codi i els butons: 
+            <button onclick="myFunction(error)">exemple pseudocodi</button>
+                
+           <solucio id="error"><pseudocodi><pre><code class="c++">
+             Exemple Pseudocodi
+            </code></pre></pseudocodi></solucio>
+            
+                 <button onclick="myFunction(error)">exemple C++</button>
+                
+           <solucio id="error"><pre><code class="c++">
+              "Exemple codi C++"
+            </code></pre></solucio>
+                <br><br>
+                <alerta>Si utilizeu google chrome (recomenat per eines de debugg), anant a la consola (F12 --> console) podem veure que ens dispara un error.</alerta>
+                <img src="../../Recursos/Imatges/errorBotonsID.PNG">
+            </li>
+        </ul>
+        
+        
+    </teoria>    
+    
+    
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------- EXPLICACIÓ BOTONS DE CODI GITHUB ------------------------------------------------------------------------------------------------>
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    
+    <h3> Butons a Github </h3>
+    <teoria> 
+        Si en comptes de voler un botó que mostri el codi, volem anar al github, usem el següent: <b>&lt;button&gt; &lt;a  target="_blank" href= "link a pàgina externa"&gt; Veure Solució &lt;/a&gt; &lt;/button&gt;</b>
+        
+        <button><a  target="_blank" href= "https://github.com/Onnion191/Exercicis-MTP1/blob/Estudiants/ExercicisT4/T4-EX5-ProgressioAritmetica.cpp">Veure Solució</a></button>
+    </teoria>
+    
+    
+    
+    
+    <br>
+    <h1>SEPARADOR TOTAL</h1>
+    <teoria>
+       Tenim la opció de trencar la pàgina web afegint un separador total: <b>&lt;h1&gt; ... contingut .... &lt;/h1&gt;</b>
+    </teoria>
+    
+    
+    
+    
+
+    
+</div>
+    
+    
+<p class = footer>
+    
+ <a class="forward" href="CanviColorsWeb.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
+ 

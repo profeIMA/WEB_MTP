@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="ca">
 
 <head>
 
-<link rel="stylesheet"  href="styles/Style.css" type="text/css" media="screen"></link>
-<link rel="stylesheet" href="styles/zenburn.css">
+
+<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
+<link rel="stylesheet" href="../../styles/vs.min.css">
 <meta charset="utf-8">
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script src="CustomScripts.js"></script> 
+<script src="/CustomScripts.js"></script> 
 <!-- Pels blocks de codi -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
@@ -22,14 +23,7 @@
 
 </head>
 
-<body>
-
-<script>
-function redirect(){
-	window.location.replace('./Contingut/Introduccio/index.html')
-	}
-	redirect();
-</script>
+<body onload="checkMenuById('#collapse-input-0');">
 
 <div id = "menu"></div>
 
@@ -39,6 +33,7 @@ function redirect(){
       TIPUS ELEMENTALS DE DADES I INSTRUCCIONS BÀSIQUES
     </h1>
   </center>
+    
 <!-- Contingut escrit -->
 <h4>Què és una variable?</h4>
 <teoria>
@@ -64,46 +59,18 @@ function redirect(){
     <h2>Implementació en c++</h2>
     <br><br>
     Com declarem aquestes variables en c++? Com les utilizem? 
-        <pre><code class="c++">
-        int main(){
-            int e; //Declarem un enter ( int ), però no està inicialitzat, el seu valor és desconegut.
-            e = 10; //Asignem el valor 10 a la variable entera  " e " 
 
-            unsigned int n; //Declarem un natural, observem que apareix el qualificatiu unsigned per definir que es un enter sense signe. 
-            n = 6; //Assignem el valor 6 a la varaible natural " n ";
-
-            float f;//Declarem un real ( float ).
-            f = -2;//Assignem el valor -2 a la variable
-
-            e = e+1;// Mètode 1: Incremetem el valor de e en 1; e = 11
-            e +=1; // Mètode 2: Incrementem el valor de e en 1; e = 12
-            e++; // Mètode 3: incrementem el valor de en 1; e = 13
-            cout&lt;&lt;"Valor de e ="&lt;&lt;e&lt;&lt;endl;
-
-            n = n/2; //Mètode 1: Dividim el valor de n per 2; n=3;
-            n /= 2; //Mètode 1: Dividim el valor de n per 2; n=1.5 ??? ALERTA, N ES NATURAL, NO PERMET DECIMALS --> n = ?
-            cout&lt;&lt;"Valor de n ="&lt;&lt;n&lt;&lt;endl;
-
-            f = f*0.5; //Mètode 1: Multipliquem el valor de f per 0.5; f = -1;
-            f *= 0.5; // Mètode 2: Multipliquem el valor de f per 0.5; f = -0.5;
-            cout&lt;&lt;"Valor de f ="&lt;&lt;f&lt;&lt;endl;
-
-
-            return 0;
-
-        }
-        </code></pre>
     Ara hem vist com declarem i operem amb variables numèriques, però hi ha més tipus de variables numèriques que ens permeten afinar més amb quin contenidor volem. A continuació trobem la taula de variables numèriques amb el cost de memòria que tenen i quin rang de dades poden agafar.
-    <img class="mitjana" src="Recursos/Imatges/TaulaVariablesNumeriques.PNG">
+    <img class="mitjana" src="../../Recursos/Imatges/TaulaVariablesNumeriques.PNG">
 </teoria>
  <br><br>
 <h4>Lògiques:</h4>
     Aquest tipus de variables està dissenyat per guardar valors com cert o fals, i permet fer diferents operacions lògiques amb aquestes operacions. En aquest cas, si entenem la variable booleà com un contenidor, aleshores simplement ocupariem un byte (8 bits). La raó per la qual ocupa 8 bits en comptes de 1, és perquè en c++ és necessàri que poguem referenciar el "contenidor" i el tamany mínim per això és un byte.
     <br><br>
     <h2>Taula d'operacions lògiques:</h2> <br>
-    <img src="Recursos/Imatges/OperacionsLogiques.PNG">
+    <img src="../../Recursos/Imatges/OperacionsLogiques.PNG">
     <br> 
-    <h2>Implementació:</h2><br>
+    <h2>Implementació en c++:</h2><br>
     <pre><code class="cpp">
         int main(){
             bool a; //Declarem un boolea. El contingut és incert perquè no esta inicialitzat
@@ -126,7 +93,57 @@ function redirect(){
         }
     </code></pre>
   <br><br>
-
+    <teoria>
+    <h4>Caràcters:</h4>
+    Com el seu nom indica, serveix per guardar caràcters, trobem dos tipus de variables: <h2>Caràcter</h2> i la <h2>Cadena de caràcters</h2>: 
+    <ul>
+        <li><h2>Caràcter: </h2>serveix per guardar un únic caràcter. Pot ser qualsevol que es trobi a la taula ASCII, (veure a continuació).</li>
+        <li><h2>Cadena de caràcters: </h2>com el seu nom indica, serveix per guardar un nombre indeterminat de caràcters. D'aquesta manera podem guardar lletres, paraules, i oracions.</li>
+    </ul>
+        
+    En c++ podem usar operadors amb els caràcters, però no són massa intuitius, per veure més informació mireu les <a href = "TipusVariables_C.html">particularitats del c++</a>.<br>
+        
+    <h3>Taula ASCII</h3><br>
+    <img class = "mitjana" src="../../Recursos/Imatges/ASCIITable.PNG" alt="Taula ASCII">
+        
+    <h2>Implementació em c++</h2>
+        
+    <pre><code class="c++">
+    #include &lt;iostream&gt;
+    #include &lt;string&gt;//Necessari per poder utilitzar les strings
+    using namespace std;
+    int main(){
+        char c = 'a'; //Assignem el valor ( a ) a la variable c. UTILITZEM '' PER DECLARAR UN CARÀCTER
+        cout&lt;&lt;"El valor de c es: "&lt;&lt;c&lt;&lt;endl;
+        
+        string cadena = "Oracio de mostra";//Assignem "Oracio de mostra" a la variable cadena. UTILITZEM " " PER DELCARAR UNA CADENA DE CARACTERS
+        cout&lt;&lt;"El valor de cadena es: "&lt;&lt;cadena&lt;&lt;endl;
+     }
+    </code></pre>
+        
+    </teoria>
+    
+    <h1>Constants</h1>
+    <br> 
+    <teoria>
+    Fins ara hem vist les variables, però hi ha un altre conjunt que són les constants. Com el seu nom indica, no varien el valor, podríem dir que són variables fixes. <br> 
+        Tenim dos tipus de constants, <h2>sense nom</h2> i <h2>amb nom</h2>: 
+        <ul>
+        <li><h2>Sense nom: </h2>en C++ es permet introduir un nombre directament, i això és considerat una constant. Per exemple, quan fem un assignació de variable ( int a = 6;) , aquest ' 6 ' és una constant sense nom.</li>
+        <li><h2>Amb nom: </h2>Les constants amb nom, són variables on el seu valor no canvia. Per aconseguir això s'afageix <h2>const</h2> en la declaració de la variable. També s'ha establert un conveni: els noms de les constants seràn amb majúscules.</li>
+        </ul>
+    Les constants, siguin amb nom o sense nom, poden ser de qualsevol tipus que hem vist anteriorment: enters, naturals, caràcters, lògics... 
+        <br> 
+        <h2>Implementació en c++</h2>
+        <pre><code class = "c++">
+            cout&lt;&lt;6/8&lt;&lt;endl; //6 i 8 són constants enteres sense nom. 
+            const double PI = 3.1416;//PI es el nom de la constant de valor 3.1416. 
+            cout&lt;&lt;PI&lt;&lt;endl;
+        
+        </code></pre>
+    </teoria>
+    
+</div>
   <p class = footer>
   <center>
       <p class = footer>
@@ -135,7 +152,6 @@ function redirect(){
       <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
       Tots els drets reservats.
   </center>
-</div>
 
 
 

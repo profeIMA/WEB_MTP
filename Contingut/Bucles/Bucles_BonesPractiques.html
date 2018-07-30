@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      4.5 BONES PRÀCTIQUES
+    </h1>
+  </center>
+    <h4>4.5 Bones Pràctiques</h4>
+    Ara hem vist alguns exemples d'ús de les estructures iteratives, hi ha petits trucs i bones pràctiques que podem utilitzar per tal d'assegurar-nos que la nostra estructura no tindrà errors greus, que no permetran acabar el programa. Mirem-ne alguns d'ells. 
+    <h3>Condició de finalització clara</h3>
+    <teoria>
+        Tant si utilitzem un <b>while</b> o un <b>for</b>, cal que tinguem clar quina és la condició de sortida de l'estructura iterativa. Per fer-ho és recomenable pensar en una condició que sempre es complirà en algun moment de l'execució. Sovint quan un es pensa la condició també pensa <b>com canviarà</b> el valor de la variable que itera. <br> <br>
+        
+        <b>És molt recomenable que abans d'introduir instruccions dins el bucle, s'hagi programat l'actualització de la variable que itera</b>. <br> <br> 
+        Alguns exemples: 
+        
+        <pre><code class="c++">
+            int i = 0; 
+            while(i &lt; 50)
+            {
+                //ESPAI EN BLANC PER POSSIBLES INSTRUCCIONS 
+                i++;
+            }
+        </code></pre>
+        
+    </teoria>
+    
+    <h3>Indentació</h3>
+    <teoria>
+        Com ja hem vist anteriorment en el cas de <a href="../Condicionals/Condicionals_BonesPractiques.html">les decisions</a>, la indentació és una de les pràctiques més importants, ja que dins de l'estructura iterativa hi pot haver més estructures. D'aquesta forma mantindrem un ordre dins de les estructures i facilitarem molt la feina a la resta d'usuaris del codi. 
+    </teoria>
+    </div>
+<p class = footer>
+    <a class="backward" href="Bucles_ExemplesUs.html"></a>  <a class="forward" href="Bucles_Errors.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+
+</body>
+
+</html>
+
+ 

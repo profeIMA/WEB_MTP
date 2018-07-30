@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      2.2 TIPUS ELEMENTAL DE LES DADES
+    </h1>
+  </center>
+    
+    <h4>Tipus Elementals de dades</h4>
+
+        <h3>Què és un tipus: </h3>
+        <teoria>
+        El tipatge és la naturalesa que tenen les dades, podem tenir diferents dades ja siguin numèriques, lògiques, caràcters, i altres. Cada una d'aquestes dades s'ha de tractar de diferent forma, de la mateixa manera que podem utilitzar operacions diferents en funció de les dades. D'aquí és on neix la necessitat de tipificar les dades.<br><br>
+        Un tipus es defineix per:
+        <ul>
+            <li><b>Conjunt de valors: </b> també anomenat domini. Són tots aquells valors que accepta el tipus, com podria ser nombres <b>enters</b>, nombres <b>decimals</b>, valors <b>lògics</b>, <b>caràcters</b> de l'alfabet, etc.</li>
+            <li><b>Operadors: </b>Un conjunt d'operacions que es poden dur a termes entre elements del mateix tipus. En el cas dels nombres els operadors seran: sumar, resta, multiplicar, dividir, i altres. Aquestes operacions i/o d'altres s'han de definit per cada tipus.</li>
+        </ul>
+        <br>
+    </teoria>
+        <h3>Tipus bàsics: </h3>
+    <teoria>
+        Els llenguatges de programació tenen de base una sèrie de tipus ja definits, que permeten al usuari utilitzar-los de forma directa. 
+        En el cas del c++, trobem de la següent naturalesa: <b>numèrics</b>, <b>lògics</b> i <b>caràcters</b>
+    </teoria>
+        <h4>TIPUS NUMÈRICS</h4>
+        El c++ ens dóna tres grans subgrups de tipus: <b>reals, enters, i natruals.</b> 
+        <h3>Reals</h3>
+    <teoria>
+        Els nombres reals són aquells que permeten ser positius i negatius, i tindre nombres decimals. 
+        Pel que fa els operadors, són: <b> + , - , * , / </b>. També s'utilitza el " . " com a separador de decimals. També ens permet utilitzar notació científica per expressar valors.<br>
+        En C++ tenim els següents tipus: 
+        <ul>
+            <li><b>Float:</b> aquest tipus permet gestionar nombres relativament petits (al voltant de 7 dígits), ja siguin de la part entera o decimal.</li>
+            <li><b>Double</b>: són més grans que el float, i permeten usar al voltant de 15 dígits.</li>
+        </ul>
+        <alerta>Alerta: Si operem entre dos reals, el resultat pot resultar un desbordament (ie: float de 8 dígits).</alerta>
+    </teoria>
+        <h3>Enters</h3>
+    <teoria>
+        Els nombres enters, són aquells que no permeten decimals, els operadors són: <b>+ , - , * , / , %</b>:
+        <ul>
+            <li><b> / :</b> la divisió és entera, per tant mai donarà decimals, sinó la part entera.</li>
+            <li><b> % :</b> el mòdul és el residu de la divisió que hi ha quant la divisió és entera.</li>
+            <li><b>Exemple: </b> la divisió entera entra 5 dividit entre 2: 5/2 = 2. Mentre que el mòdul 5%2 = 1. (2 * 2 +1 = 5).</li>
+        </ul>
+        
+        En C++ trobem el següents tipus: 
+        <ul>
+        <li><b>Int:</b> és el tipus predominant i s'usa de forma general. Permet arribar fins a +- 2,147,483,647.</li>
+        </ul>
+        Altres tipus menys importants: 
+        <ul>
+            <li><b>Short:</b> ocupa poc espai de memòria que el int, i ens permet arribar fins a +- 32,767.</li>
+        </ul>
+    </teoria>
+        <h3>Naturals</h3>
+    <teoria>
+        Els nombres naturals és un subconjunt dels enters, on només es permeten nombres positius. Les operacions són idèntiques als enters, però cal tenir cura amb les restes de no obtenir valors negatius.<br>
+        
+        Tipus en C++: 
+        <ul>
+            <li><b>Unsigned int:</b> també se'l pot anomenar <b>unsigned</b> i permet arribar a nombres dins del rang [0 - 4,294,967,295].</li>
+            <li><b>Short unsigned int:</b> aquest no es sol utilitzar quasi mai, i ens permet un rang de [0 - 65,535].</li>
+        </ul>
+        <br>
+        
+        
+        </teoria>
+        <h4>Lògics</h4>
+        Les dades de tipus lògiques (o booleanes) representen els estats comb <b>cert</b> o <b>fals</b>. Permeten fer les operacions de <b>negació</b> , <b>conjunció</b> i <b>disjunció</b>, que donen com a resultat una dada lògica. El c++ ens defineix el tipus bool:
+        <h3>Bool</h3>
+    <teoria>
+        És l'únic tipus de dada que defineix el c++, i només permet dos valors: <b>false</b> i <b>true</b>. Per defecte el C++ també converteix altres tipus de dades a booleanes, per exemple: 
+        <ul>
+            <li><b>False: </b>es considera fals, tota variable numèrica amb valor 0. També es considera fals els punters a null.</li>
+            <li><b>True: </b>es considera true, tota variable numèrica diferent de 0, i qualsevol punter vàlid (diferent de null).</li>
+        </ul>
+        Pel que fa les operacions, el llenguatge ens defineix:
+        <ul>
+        <li><b>Negació: </b>S'escriu amb el signe " ! " o bé amb " not ", i inverteix el valor lògic.</li>
+        <li><b>Conjunció: </b>S'escriu amb el signe "&&" o bé amb "and", i retorna cert si els dos operands són certs.</li>
+        <li><b>Disjunció: </b>S'escriu amb el signe "||" o bé amb "or", i retorna cert si un dels dos operands és cert.</li>
+        </ul>
+        Per més informació sobre les operacions vegeu la següent taula: 
+        
+        <img  height="150px" width="300px" src="../../Recursos/Imatges/OperacionsLogiques.PNG" alt="Taula de les operacions logiques"><br>
+        <img height = "350px" src="../../Recursos/Imatges/OperacionsLogiquesPropietats.PNG" alt="Taula de les propietats de les operacions logiques"><br><br>
+        
+    </teoria>
+        <h4>Caràcters</h4>
+        Les dades tipus caràcters s'utilitzen per representar <b>Lletres</b>, <b>dígits</b> (no el valor numèric, sinó la "escriptura"), <b>signes de puntuació</b> i <i>Caràcters de control</i>(aquests no són propis de cap alfabet, sinó que serveixen per donar controlar diferents formats de fitxer, dades, etc.). 
+        El c++ ens dóna els següents tipus: 
+        <h3>Char</h3>
+    <teoria>
+        Serveix per administrar dades de tipus caràcter, només es permet un caràcter per variable el qual es representa entre <b>' '</b>. També ens ofereix un conjunt d'operacions aritmètiques <b>+</b> i <b>-</b>. Per entendre com es pot operar amb caràcters, abans cal saber que els caràcters es poden transformar amb enters seguint la taula ASCII <i>(American Standard Code for Information Interchange)</i>. <br>
+        
+        <h2>Taula ASCII:</h2>
+        <img src="../../Recursos/Imatges/ASCIITable.PNG" alt="Taula ASCII">
+        <br> 
+        Amb aquesta taula podem passar de caràcter a enter, i al revés, per exemple: 'A' = 65, 113 = 'q'. Amb aquestes conversions podem fer les següents operacions:
+        <ul> 
+            <li><b>Suma: </b> Permet sumar caràcters i/o sumar caràcters amb enters. Per exemple: <b>'A' + 2 = 'C'</b>. O bé, <b>' = ' + ' &lt; ' = ' ( ' </b>.</li>
+            <li><b>Resta: </b> Permet restar caràcters i/o restar caràcters amb enters. Per exemple: <b>'a' - 30 = 'C'</b>. O bé, <b>'z' - '!' = 'Y'</b>.</li>
+        </ul> 
+    </teoria>
+        <h3>String</h3>
+    <teoria>
+        Un altre tipus és el string, aquest tipus no està inclòs del tot en el C++, i cal que incloem una llibreria: <b><i>#include &lt;string&gt;</i></b>, ens permet guardar una cadena de caràcters, i per tant podem guardar lletres, paraules, oracions, etc. <br> 
+        Aquesta llibreria permet diferents operacions, per més informació consulteu la <a target="_blank" href="http://www.cplusplus.com/reference/string/string/" >llibreria string</a>.<br>
+        Per assignar un valor a un string usem <b>" "</b>. <alerta>No confondre amb els caràcters que usen: <b>'  '</b> .</alerta>
+    </teoria>
+</div>
+    
+    
+    
+    
+<p class = footer>
+  <a class="backward" href="TipusVariables_Motivacions.html"></a> <a class="forward" href="TipusVariables_Variables.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

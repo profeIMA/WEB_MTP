@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      4.3 ESTRUCTURA ITERATIVA MÚLTIPLE
+    </h1>
+  </center>
+    <h4> Bucles Niats</h4>
+    <h3>Què són</h3>
+    <teoria>
+       Diem que hi ha bucles niats, quan tenim un <b>bucle dins d'un bucle</b>, de la mateixa manera que passava amb els <a href="../Condicionals/Condicionals_EstAltMultiple.html">condicionals</a> on teníem un dins de l'altre. 
+        La particularitat d'aquests bucles, és que el nombre d'execucions de les instruccions augmenten exponencialment, i per tant, cal vigilar molt bé quan s'utilitzen. <br><br>
+        
+        La seva principal funció és iterar dins de taules amb més de 1 dimensió, com seria una taula de files i columnes (2D), o una taula espaial (3D). <br> <br>
+        
+        Sovint, quan treballem amb un espai 2D, direm que tenim el <b>bucle exterior</b> i el <b>bucle interior</b>. Com els seus noms indiquen, l'exterior té a dins, el bucle interior. <br>
+        Per exemple, per omplir la següent taula: 
+        
+        <img src="../../Recursos/Imatges/TaulaBuclesNiats.PNG">
+        
+        Utilitzarem una estrcutura semblant a: 
+        <pseudocodi><pre><code class="nohighlight">
+            Algorisme TaulaExponencial
+                files = 10
+                columnes = 4
+                
+               <alerta> per i de 1 fins files fer </alerta>//Per cada fila ( 1 --> 10)
+                   <alerta>per j de 1 fins columnes fer </alerta>//Per cada columna d'una fila ( 1 --> 4)
+                        escriure i^j
+                    fi per //Podrem sortir si hem fet les 4 columnes
+                    
+                    escriure salt de línia //Acabem l'escriptura de la línia " i " 
+                    
+                fi per //Podrem sortir si hem acabat les 10 files
+        </code></pre></pseudocodi>
+        <alerta>Hem de tenir present que en C++ es comença a comptar a partir del 0, vegeu l'apartat de taules: </alerta><a href="../TuplesTaules/TuplesTaules_Taules.html">Temari Taules</a>.
+    </teoria>
+</div>
+    
+<p class = footer>
+    <a class="backward" href="Bucles_EstRepetitiva.html"></a> <a class="forward" href="Bucles_ExemplesUs.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
+ 

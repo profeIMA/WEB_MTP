@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      4.6 ERRORS FREQÜENTS
+    </h1>
+  </center>
+    <h4>Errors Freqüents</h4>
+        Quan es tracta d'estructures iteratives és fàcil confondre's d'estructura ja que amb totes les que hi ha es pot treure'n el resultat desitjat. Malgrat tot, unes poden tenir un sobre cost a la hora d'executar-se
+        que altres i per això no són les més adequades en aquell moment. Els principals errors, són: 
+        
+    <h3>For vs While</h3>
+    <teoria>
+        Utilitzar un for o un while depèn molt del que vulguem aconseguir, ja que sabem que: 
+        <ul>
+            <li><b>For:</b> controlem el nombre d'iteracions, i coneixem en cada moment per quina iteració passem.</li>
+            <li><b>While:</b> Desconeixem el nombre d'iteracions, desconeixem quina iteració passem, però sabem la condició de sortida. </li>
+        </ul>
+        
+        <br>
+        
+        <h2>Què pot passar si m'equivoco?</h2><br>
+            <teoria>
+                Equivocar-se en una estructura en el millor dels casos pot significar: 
+                <ul>
+                    <li>Fer més iteracions de les necessàries.</li>
+                    <li>No acabar el bucle (Iteració infinita).</li>
+                    <li>No iterar sobre tots els elements.</li>
+                </ul>
+            </teoria>
+        
+        Per poder veure si estem fent correctament una iteració, podem utilitzar la <b>Traça</b>, que com el seu nom indica, significa fer el seguiment del programa pas a pas. Alguns IDE permeten <b>Debuggar</b> el codi i comprovar la seva execució en els moments que ens interessa i comprovar l'estat del programa.<br>
+        En el nostre cas, utilitzarem missatges per pantalla per poder saber quin estat és el programa: 
+        
+        <h3>Traça</h3>        
+        <teoria>
+            La traça dins d'estructures iteratives cal que: 
+            <ul>
+                <li>Identifiqui clarament cada iteració.</li>
+                <li>Mostri únicament la informació rellevant, per tal d'evitar informació brossa.</li>
+            </ul>
+            Amb aquest parell de directrius, podem veure el funcionament de la traça en tot moment i sabem que esta fent. Un exemple seria el següent: 
+            <pre><code class="C++">
+            
+                cerr&lt;&lt;"INICI ESTRUCUTRA ITERATIVA"&lt;&lt;endl;
+                int suma = 0; 
+                cerr&lt;&lt;"VALORS INICIALS"&lt;&lt;endl; 
+                cerr&lt;&lt;"\t suma = "&lt;&lt;suma&lt;&lt;endl;
+                for(int i = 0; i &lt; 10; i++)
+                {
+                    cerr&lt;&lt;"Iteracio num: "&lt;&lt;i&lt;&lt;endl; 
+                    suma+=i; 
+                    cerr&lt;&lt;"\t valor suma: "&lt;&lt;suma&lt;&lt;endl;
+                }
+
+                cerr&lt;&lt;"VALORS FINALS"&lt;&lt;endl; 
+                cerr&lt;&lt;"\t suma = "&lt;&lt;suma&lt;&lt;endl;
+                cerr&lt;&lt;"FINAL ESTRUCUTRA ITERATIVA"&lt;&lt;endl;
+            </code></pre>
+            
+            Amb aquest codi, tenim tota la traça ben documentada de la nostre execució. Com heu pogut observar, en comptes d'utilitzar <b>cout</b>, utilitzem <b>cerr</b>, això és degut perquè utilitzem un altre canal (el qual també es mostra per pantalla), però és un canal dedicat a mostrar errors i informació rellevant pels desenvolupadors, que en la versió final del programa es pot fer que no es mostri.<br>
+            
+        </teoria>
+        
+    </teoria>
+    <h3>Errors per un pas</h3>
+    <teoria>
+        A vegades quan fem estructures alternatives ens equivoquem en pensar el nombre de iteracions i potser ens deixem de processar un element. D'aquests errors, en diem errors per un pas, i és que a vegades no és tant intuïtiu veure com ha d'anar una estructura. Un exemple: <br> 
+        <exercici>Volem fer que l'usuari entri lletres fins a una d. En tots els casos, si ha entrat una minúscula, entrarem una minúscula i viceversa.</exercici>
+        <pre><code class = "c++">
+            boolfi_sequencia; 
+            char c;
+            cout&lt;&lt;"Entra un caracter: ";
+            cin&gt;&gt;c;
+            
+            fi_sequencia = c == 'd';
+            while(!fi_sequencia)
+            {
+                cout&lt;&lt;"Has entrat la lletra: "&lt;&lt;MajusToMinusAndVice(c)&lt;&lt;endl; 
+                cout&lt;&lt;"Entra un caracter: ";
+                cin&gt;&gt;c;
+                fi_sequencia = c == 'd';
+            }
+            
+            return 0;//EIS QUE NO HEM PROCESSAT LA D!!!!
+        </code></pre>
+        
+        Aquest és un exemple d'un error per pas, on no hem processat l'últim element. Per trobar aquests errors també podem utilitzar la traça per veure el funcionament del nostre codi.
+    </teoria>
+</div>
+	
+	
+<p class = footer>
+    <a class="backward" href="Bucles_BonesPractiques.html"></a>  <a class="forward" href="Bucles_Exercicis.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
+ 

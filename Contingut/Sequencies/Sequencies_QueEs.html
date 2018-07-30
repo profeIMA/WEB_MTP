@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
+<link rel="stylesheet" href="../../styles/vs.min.css">
+<meta charset="utf-8">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="/CustomScripts.js"></script> 
+<!-- Pels blocks de codi -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- scale font size for MathJax -->
+<title>METODOLOGIA I TECNOLOGIA DE LA PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      6.2 QUÈ ÉS UNA SEQÜÈNCIA
+    </h1>
+  </center>
+    
+<!-- Contingut escrit -->
+
+    Una seqüència és una successió finita d'elements (normalment) del mateix tipus, podent ser naturals, enters, reals, caràcters o strings.
+	<br>S'accedeix de manera seqüencial als seus elements. No es pot anar endavant ni endarrere ni tampoc anar indiscriminadament on es vulgui. 
+	Això fa que calgui una marca de fi, per poder saber on acaben. Es poden associar a els canals d'entrada sortida estàndards (pantalla i teclat) o a un fitxer 
+	i tenen permisos de lectura o escriptura, mai ambdós.
+
+	<br><br>
+
+    <h2>Exemples de seqüencies</h2>
+   
+   <pre><code class = "c++">	
+		// Seqüència d’enters (positius)
+		2 34 23 34 76  12 4  6765 132 … 3 -1
+   
+		//Seqüència de reals (majors que 0)
+		2.34 23 34.76  12.34  67.65 12 … 1.2 0
+
+		//Seqüència de caràcters
+		avui fa sol#
+
+		//Seqüència de dates 
+		2 3 2023 3 12 2017 … 4 6 1999 0
+
+    </code></pre>
+    Podem veure que la marca de fi sempre està present, sent -1 en la primera, 0 en la segona, un # en la tercera, i en la última un 0.
+
+   
+   <br><br>
+   
+   
+    <h4>Marques de fi</h4>
+<teoria> 
+	Es poden donar dos tipus de marques de fi:
+	<ul>
+		<li><strong>Marca de fi lògica (explícita):</strong> Donada per un element distingit del mateix tipus que els de la seqüència, com ara els vists en l'exemple anterior.<br>
+		Pot ser usada tant en les seqüencies de teclat com les de fitxer.
+		<br><br>
+		<img class="allargatPetit" style="width:auto;" src="../../Recursos/Imatges/Sequencies_marquesFiLogiques.PNG" alt="exemple de marques de fi lògiques">
+		<br><br>
+		</li>
+		<li><strong>Marca de fi física (implícita):</strong> Donada per la marca de final de fitxer del sistema. Com es pot intuir, doncs, només es pot usar en fitxers.
+		<br><br>
+		<img class="allargatPetit" style="width:auto;" src="../../Recursos/Imatges/Sequencies_marquesFiFisiques.PNG" alt="exemple de marques de fi físiques">
+		<br><br>
+		</li>
+		
+	</ul>
+</teoria>
+	
+	
+<h4>
+Problemes de Seqüències</h4>
+<teoria>
+	Els problemes amb seqüències es resolen utilitzant els dos esquemes bàsics següents:
+	<ul>
+		<li> <strong>Recorregut:</strong> cal tractar tots els elements de la seqüència fins a arribar a la marca de fi. </li>
+		<li> <strong>Cerca:</strong> si trobem el que cerquem, parem (no cal arribar a la marca de fi), sinó, arribem al final. </li>
+	</ul>
+	<alerta> Si el problema no exigeix un recorregut, es considera incorrecte aplicar-li. <br></alerta>
+
+</teoria>
+
+</div>
+
+
+  <p class = footer>
+  <a class="backward" href="Sequencies_Motivacions.html"></a> <a class="forward" href="Sequencies_Problemes.html"></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;2018
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

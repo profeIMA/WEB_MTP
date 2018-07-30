@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+       2.6 ESTIL I BONES PRÀCTIQUES
+    </h1>
+  </center>
+    <h4>Bones pràctiques</h4>
+    Com hem vist amb els <a href="TipusVariables_TElemDades.html">tipus de dades</a> podem utilitzar diferents tipus per guardar una dada, això no significa que puguem utilitzar el tipus que vulguem de forma indiscriminada. És recomanable escollir el tipus més adequat en funció de la naturalesa de la variable. <i>Per exemple, si volem guardar dies, utilitzarem els naturals.</i><br> <br> 
+    <h3>Noms de variable</h3>
+    Un altre aspecte molt important és els <b>noms</b> de les variables, un mal ús dels noms sol portar a confusió i a no saber exactament per a què serveix exactament aquella variable. En programació és necessari que els noms de la variable siguin:
+    
+    <ul>
+        <li><b>Comencin amb minúscula</b>: tots els noms de variables cal que comencin amb minúscula, ja que és el conveni que s'ha adoptat.</li>
+        <li><b>Significatius</b>: amb el nom un ha de saber què guarda aquella variable i per a què s'utilitza. <i>Per exemple, si hem de guardar una suma, el nom de la variable serà <b>" suma "</b> i no " x " o " auxiliar ".</i></li>
+        <li><b>Han de complir la notació</b>: En C++ els noms de variables segueixen dos patrons: 
+            <ul>
+                <li><b>camelCase</b>: Aquesta notació indica que si el nom de la variable conté dos noms, com per exemple: <i>nom i usuari</i>, farem que cada paraula enganxada començarà en <b>majúscula</b>. D'aquesta forma es pot identificar visualment el seu nom.
+                    <pre><code class="c++">string nomUsuari;</code></pre>
+                </li>
+                <li><b>snake_case</b>: En aquest cas, si el nom de la variable és compost, aleshores totes les paraules aniran amb <b>minúscula</b> i separades per una <b>barra baixa</b>: 
+                    <pre><code class="c++">string nom_usuari;</code></pre>
+                </li>
+            </ul>
+        
+        </li>
+    </ul>
+        
+</div>
+<p class = footer>
+  <a class="backward" href="TipusVariables_EstSeq.html"></a> <a class="forward" href="TipusVariables_Exercicis.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
+ 

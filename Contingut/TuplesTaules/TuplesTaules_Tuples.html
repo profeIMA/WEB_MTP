@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="/CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      7.2 TUPLES
+    </h1>
+  </center>
+  
+  
+  <h4>Fonaments</h4>
+	<teoria>
+		Una tupla és una forma d'agrupar dades (camps), que poden ser de tipus diferents, sota d'un sol nom o identificador.<br>
+		<pre><code class ="c++">struct{
+	double x;
+	double y;
+} punt 1, punt 2;
+struct {
+	string nom;
+	string cognom;
+	unsigned edat;
+} persona;</code></pre>
+		 S'accedeix als valors amb l'operador .
+		 <pre><code class ="c++">punt1.x = 3.5;
+punt1.y = -5.7;
+punt2 = punt1; //Còpia de tuples del mateix tipus</code></pre>
+Amb això, punt1 passa a valdre (3.5,-5.7) i punt2 passa a valdre també (3.5,-5.7).
+		<pre><code class ="c++">persona.nom = "Anna";
+persona.cognom = "Cases";
+persona.edat = 19;</code></pre>
+
+		Li donem a persona el valor d'una persona amb nom Anna, cognom Cases i 19 anys d'edat.
+		
+		<h3> Tipus Tuples</h3>
+		
+		
+		<pre><code class ="c++">typedef struct {
+   double x; 
+   double y;
+} Punt_2d; //Majúscula primera lletra tipus!
+
+typedef struct {
+   string nom; 
+   string cognom;
+   unsigned edat;
+} Persona;
+//-------------------
+Punt_2d punt;
+Persona persona; </code></pre>
+		Ara podem usar punt i persona com hem fet anteriorment, accedint als seus valors amb l'operador .
+		
+		També es pot fer sense <strong> typedef</strong> (més usat actualment en C++).
+		<pre><code class ="c++">struct Punt_2d {
+   double x; 
+   double y;
+};
+
+struct Persona{
+   string nom; 
+   string cognom;
+   unsigned edat;
+};
+//-------------------
+Punt_2d punt;
+Persona persona; </code></pre>
+		
+		Petits exemples:
+		<pre><code class ="c++">struct Data {
+   unsigned dia; 
+   unsigned mes;
+   unsigned any;
+};
+struct Persona {
+   string nom; 
+   string cognom;
+   Data data_naix;
+};
+//---------------
+Data naixement;
+Persona persona;
+//---------------
+naixement.dia = 12;
+naixement.mes = 10;
+naixament.any = 1998;
+</code></pre>
+
+	Neixament queda així:
+	
+		<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Tuples_Exemple1.PNG" alt = "Imatge amb el contingut de neixament"/>
+		<pre><code class ="c++">persona.nom = "Anna";
+persona.cognom = "Cases";
+persona.data_naix = naixement;
+//---------------
+//Alternativament podriem fer:
+persona.data_naix.dia = 12;
+persona.data_naix.mes = 10;
+persona.data_naix.any = 1998;</code></pre>
+
+	persona quedaria així:
+	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Tuples_Exemple2.PNG" alt = "Imatge amb el contingut de neixament"/>
+	
+	
+	<h3>Pas de paràmetres</h3>
+	Es poden passar tuples per paràmetre de la mateixa manera que es fa amb un tipus elemental, per tant, s'admet pas d'entrada, de sortida, i d'entrada/sortida; també una funció pot retornar una tupla.<br>
+	En C++ el pas d'entrada es farà per valor o per referència constant i els passos d'entrada/sortida i de sortida per referència (igual que amb els tipus elementals).
+		
+	</teoria>
+	
+	<h4>Exemples</h4>
+	<teoria>
+		<h2>Pas de paràmetres</h2><br>
+		Entra import base d'una factura, la crea i la mostra
+		<button onclick="myFunction(P7_1)">Solució</button><br>
+		<solucio id="P7_1"><pre><code class = "c++">const double IVA=4;
+struct Factura {unsigned numero; double import; bool pagada;};
+Factura fer_factura(unsigned numero, double import_base) {
+// Pre: numero&gt;0 i import_base&gt;0
+// Post: retorna factura nova no pagada amb el n&uacute;mero indicat a partir de l'import_base i una constant d'IVA predefinida
+&nbsp; &nbsp; Factura factura;
+&nbsp; &nbsp; factura.numero=numero;
+&nbsp; &nbsp; factura.import=import_base*(1+IVA/100.0);
+&nbsp; &nbsp; factura.pagada=false;
+&nbsp; &nbsp; return factura;
+}
+void mostrar_factura(Factura factura)  { // Pre: cert; Post: mostra dades factura
+&nbsp; &nbsp; cout&lt;&lt;factura.numero&lt;&lt;&quot; -- &quot;&lt;&lt;factura.import&lt;&lt;&quot; -- &quot;&lt;&lt;boolalpha&lt;&lt;factura.pagada&lt;&lt;endl;
+}
+int main(){
+&nbsp; &nbsp; double import_base;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entrar import base: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;import_base;
+&nbsp; &nbsp; Factura factura=fer_factura(1,import_base);
+&nbsp; &nbsp; mostrar_factura(factura);
+&nbsp; &nbsp; return 0;
+}</pre></code></solucio><br>
+		
+		<h2>Distància entre dos punts en el pla</h2><br>
+		Donats dos punts (tipus Punt_2d) en el pla, construir una funció que retorni la distància entre ells. 
+		<button onclick="myFunction(P7_2)">Solució</button><br>
+		<solucio id="P7_2"><pre><code class = "c++">// Entrada: llegeix dos punts en el pla
+// Sortida: escriu la dist&agrave;ncia entre els dos punts entrats
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+
+struct Punt_2d {double x; double y;};
+
+double distancia_punts (Punt_2d punt1, Punt_2d punt2) {
+// Pre: cert; Post: retorna dist&agrave;ncia entre punt1 i punt2
+&nbsp; &nbsp; return sqrt(pow((punt1.x-punt2.x),2)+pow((punt1.y-punt2.y),2));
+}
+int main() {&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; // Entrada
+&nbsp; &nbsp; Punt_2d punt1, punt2;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra primer punt (coordenada x coordenada y) en el pla: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;punt1.x&gt;&gt;punt1.y;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra segon punt (coordenada x coordenada y) en el pla: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;punt2.x&gt;&gt;punt2.y;&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; // C&agrave;lcul i sortida
+&nbsp; &nbsp; cout&lt;&lt;&quot;Dist&agrave;ncia entre els punts = &quot;&lt;&lt;distancia_punts(punt1,punt2)&lt;&lt;endl; &nbsp;
+&nbsp; &nbsp; return 0;
+}
+</pre></code></solucio><br>
+		
+		<h2>En un pla, donat un punt, pertany a un cercle donat?</h2><br>
+		Donat un punt en el pla, que representa el centre d'un cercle, i un radi, construir una funció booleana que ens digui si un punt qualsevol està dins del cercle. 
+		<button onclick="myFunction(P7_3)">Solució</button><br>
+		<solucio id="P7_3"><pre><code class = "c++">// Entrada: llegeix el centre d'un cercle, el seu radi i un altre punt
+// Sortida: escriu si el punt entrat pertany o no al cercle llegit
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+
+struct Punt_2d {double x; double y;}; 
+
+double distancia_punts (Punt_2d punt1, Punt_2d punt2) {
+// Pre: cert; Post: retorna dist&agrave;ncia entre punt1 i punt2
+&nbsp; &nbsp; return sqrt(pow((punt1.x-punt2.x),2)+pow((punt1.y-punt2.y),2));
+}
+
+bool punt_pertany_cercle (Punt_2d centre, double radi, Punt_2d punt) {
+// Pre: radi&gt;0; Post: retorna cert si punt pertany al cercle (centre,radi), altr. fals&nbsp; &nbsp; 
+    return distancia_punts(centre,punt)&lt;=radi;
+}
+
+Punt_2d llegir_punt() {
+// Post: retorna el punt llegit per teclat 
+&nbsp; &nbsp; Punt_2d punt; 
+    cin&gt;&gt;punt.x&gt;&gt;punt.y;
+&nbsp; &nbsp; return punt;
+}
+int main() {
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; // Entrada
+&nbsp; &nbsp; Punt_2d centre, punt;
+&nbsp; &nbsp; double radi;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra centre del cercle (coordenada x coordenada y) en el pla: &quot;;
+&nbsp; &nbsp; centre=llegir_punt();
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra radi cercle: &quot;;
+&nbsp; &nbsp; cin&gt;&gt;radi;
+&nbsp; &nbsp; cout&lt;&lt;&quot;Entra punt (coordenada x coordenada y) en el pla: &quot;;
+&nbsp; &nbsp; punt=llegir_punt();
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; // C&agrave;lcul i sortida
+&nbsp; &nbsp; if (punt_pertany_cercle(centre,radi,punt) ) cout&lt;&lt;&quot;El punt est&agrave; dins del cercle&quot;&lt;&lt;endl;
+&nbsp; &nbsp; else cout&lt;&lt;&quot;El punt est&agrave; fora del cercle&quot;&lt;&lt;endl;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; return 0;
+}</pre></code></solucio><br>
+		
+	</teoria>
+	
+	
+	
+ </div>
+<p class = footer>
+<a class="backward" href="TuplesTaules_Motivacions.html"></a> <a class="forward" href="TuplesTaules_Taules.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

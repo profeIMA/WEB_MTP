@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="/CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      7.7 ESTIL I BONES PRÀCTIQUES
+    </h1>
+  </center>
+  
+  <h4>Bones Pràctiques</h4>
+  
+  <h2>Definició de tipus</h2><br><br>
+  <teoria>
+	Les definicions de tipus, tan de structs com amb typedef, s'acostumen a escriure abans de les accions, funcions i main. <br>
+	Per a la definició de tipus de taules es recomana usar constants juntament amb typedefs.
+  </teoria><br>
+  
+  <h2>Cerca</h2><br><br>
+  <teoria>
+	Cal pensar si volem que la cerca ens retorni si hi ha l'element (funció que retorna booleà), ens retorni l'element (funció que retorni el tipus del element),
+	ens retorni la posició (funció que retorni un enter o un natural) o una acció que tingui com a paràmetres de sortida l'element i la seva posició o si l'hem trobat i la seva posició. <br>
+	<alerta>Cal tenir en compte el cas de que no es trobi l'element</alerta> en els casos que no tornem si l'hem trobat, hem de indicar en l'especificació de la funció/acció com indiquem que no l'hem trobat.  
+	Sempre que el vector estigui ordenat, usar cerca dicotòmica. És molt més eficient que altres algorismes de cerca.
+  </teoria><br>
+  
+  <h2>Ordenació</h2><br><br>
+  <teoria>
+	Sempre usar els algorismes existents explicats, i no inventar-se'n de nous. <alerta> No cal reinventar-se la roda!! </alerta> <br>
+	En la ordenació segons criteris, cal evitar repeticions de codi. 
+  </teoria><br>
+  
+  <h2>Inserció Ordenada vs Ordenació</h2><br><br>
+  <teoria>
+	Sempre que s'hagi de mantenir el vector ordenat durant tot moment, per després fer cerques, la inserció ordenada, és avantatjosa. 
+	La ordenació és útil si cal reordenar segons un altre criteri respecte l'ordre inicial.
+  </teoria>
+  
+  
+  
+	
+	
+	
+ </div>
+<p class = footer>
+<a class="backward" href="TuplesTaules_ErrorsFreq.html"></a> <a class="forward" href="TuplesTaules_Exercicis.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

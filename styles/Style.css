@@ -1,16 +1,15 @@
 @import url("https://www.cs.princeton.edu/courses/archive/spring18/cos226/css/link-icons.css");
 
-body { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; }
+body { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; background: #E9EEE7;}
 p    { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; margin-top: 10px; margin-bottom: 0px; }
 
 /* size of footer */
-p.footer { font-size: 12px; font-style; italic; }
+p.footer { font-size: 12px; font-style: italic; height:50px;}
 
 /* size of footer hyperlink */
 a.footer { font-size: 12px; }
 
 /* size of blurb in introcs/home */
-/* p.blurb { font-size: 12px; font-style: italic; line-height: 125%; } */
 
 /* size of blurb in introcs/home */
 p.blurb { font-size: 16px; font-style: italic; font-weight: 350; line-height: 140%; }
@@ -18,13 +17,14 @@ p.blurb { font-size: 16px; font-style: italic; font-weight: 350; line-height: 14
 li {  font-size: 15px; margin-top: 6px;}
 
 hr   { height:1px; color:#444444; }
-code { font-family: "courier new", courier, mono; font-size: 14px; }
-tt   { font-family: "courier new", courier, mono; font-size: 14px; }
-blockquote { margin-left: 40px; margin-right: 0px; }
-blockquote pre { font-family: "courier new", courier, mono; font-size: 13px; background-color:#ebebeb; padding: 10px 15px 10px 15px; }
-blockquote pre.small { font-family: "courier new", courier, mono; font-size: 11px; background-color:#ebebeb;}
-blockquote pre.tiny { font-family: "courier new", courier, mono; font-size: 10px; background-color:#ebebeb;}
-pre { margin-left: 0px; font-family: "courier new", courier, mono; font-size: 13px; background-color:#ebebeb; padding: 10px 10px 10px 15px; }
+code { font-family: Consolas, monaco, monospace; font-size: 14px; }
+tt   { font-family: Consolas, monaco, monospace; font-size: 14px; }
+blockquote { margin-left: 40px; margin-right: 0px; background-color:lightgrey; }
+blockquote pre { font-family: Consolas, monaco, monospace; font-size: 13px; background-color:#ebebeb; padding: 10px 15px 10px 15px; }
+blockquote pre.small { font-family: Consolas, monaco, monospace; font-size: 11px; background-color:#ebebeb;}
+blockquote pre.tiny { font-family: Consolas, monaco, monospace; font-size: 10px; background-color:#ebebeb;}
+pre { margin-left: 0px; font-family: Consolas, monaco, monospace; font-size: 13px; background-color:#ebebeb; padding: 10px 10px 10px 15px; }
+
 
 em { font-style: italic; }
 
@@ -34,22 +34,22 @@ td { font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300
 th a { font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif; line-height: 1.5; font-weight: bold;  background-color: #666666; color:#ffffff; }
 td a { font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; margin-top: 20px;}
 
-td tt { font-family: "courier new", courier, mono; font-size: 13px; }
-
+td tt { font-family: Consolas, monaco, monospace; font-size: 13px; }
+/*  COLORS DELS TITOLS */
 h1 { font-size: 22px; font-weight:normal; font-variant:small-caps; 
-     background-color:#4e6994;   /* 221e1f = textbook black */
-     /* background-color:#0b5fb9; */  /* 221e1f = textbook black */
+     background-color:#307D75;
+   
      color:#FFFFFF; text-align: left; padding-right:15px; padding-left:20px;
      padding-top:6px;padding-bottom:6px;}
 
 h1.center {text-align:center; }
 
 h2 { font-size: 15px; display: inline; text-align: left; font-weight: bold; }
-h3 { font-size: 15px; display: inline; font-weight: bold; }
-h4 { font-size: 22px; font-weight: bold; color:#7c927b; }     /* shade of green */
-h4 a { font-size: 22px; font-weight: bold; color:#7c927b; }   /* for a name tages 00cc66 */
+h3 { font-size: 20px;font-weight: bold; color:#059667;}
+h4 { font-size: 22px; font-weight: bold; color:#1B6059; }     
+h4 a { font-size: 22px; font-weight: bold; color:#7c927b; }
 
-ol li        { list-style: decimal;     }
+ol li        { list-style: lower-alpha; }
 ol ol li     { list-style: lower-alpha; }
 ol ol ol li  { list-style: lower-roman; }
 
@@ -62,37 +62,24 @@ ul ul ul ul li { list-style: disc;    }
 
 a { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; text-decoration: none; }
 
-a:link    { color: #0b5fb9; }  /* shade of blue on cover = 436994 */
+a:link    { color: #0b5fb9; }  
 a:hover   { color: #aa3e3b; text-decoration: underline;  }
-
-
-/* google custom search */
-.gsc-search-button,.gsc-clear-button {
-    display: none;
-}
-.gsc-search-box .gsc-input {
-    margin-left: 15px;
-    width: 145px;
-    font-family: Arial, sans-serif;
-}
-
-table.gsc-completion-container {
- }
 
 
 #content  { margin-left: 204px;
             padding-right: 1.5cm; padding-left: 1cm;
-            padding-top: 0cm; padding-bottom: 0cm; }
+            padding-top: 0cm; padding-bottom: 0cm; min-height: calc(100vh - 150px);
+            font-family:Verdana, Geneva, sans-serif; 
+            font-size: 15px;}
 
-
-/* http://www.tanfa.co.uk/css/examples/menu/tutorial-v.asp */
 
 
 /***************************************************/
 
-/* white on black headings */
+
 #menu a.picture { color: #fff; background: #000;  text-decoration: none; font-size: 12px;
                  border-width: 0px; padding: 0px 0px;}
+
 
 
 #menu {
@@ -100,6 +87,7 @@ float: left;
 width: 190px;
 /* background: #eee; */
 background: #000;
+position:fixed;
 }
 
 #menu ul {
@@ -108,24 +96,24 @@ margin: 0;
 padding: 0;
 }
 
-/* added this to override bullets */
+/* evitar que els items surtin en format de llista */
 #menu ul li          { list-style: none; }
 #menu ul ul li       { list-style: none; }
 #menu ul ul ul li    { list-style: none; }
 #menu ul ul ul ul li { list-style: none; }
 
-/* added this to override 6px top margin */
+/* canviar el marge */
 #menu li { margin: 0px;}
 
 #menu a, #menu h2 {
-/* changed from 12px/16px for thicker menu items */
+
 font: bold 12px/18px arial, helvetica, sans-serif;
 display: block;
 border-width: 1px;
 border-style: solid;
 border-color: #ccc #888 #555 #bbb;
 margin: 0;
-padding: 2px 10px;  /* changed from 2px 3px */
+padding: 2px 10px;  
 }
 
 #menu a.book  {  
@@ -134,12 +122,12 @@ line-height: 180%;
 
 #menu a.booksite {  
 line-height: 180%;
-# margin: 0;
-# padding: 0px 0px;
+margin: 0;
+padding: 0px 0px;
 }
 
 #menu h2 {
-border-width: 0px;   /* added this - otherwise default is 1 from above */
+border-width: 0px;   /*Evitar desplaçament*/
 color: #fff;
 background: #000;
 }
@@ -148,36 +136,30 @@ background: #000;
 #menu a {
 color: #000;
 /* background: #efefef; */
-background: #cccccc;
+background: #93bcb9;
 text-decoration: none;
 }
 
 /* white on black headings */
-#menu a.title { color: #fff; background: #000; font-variant:small-caps; font-size: 105%; }
-#menu a.ex_easy {  color: #fff; background: #3F8; font-variant:small-caps; font-size: 105%; }
-#menu a.ex_medium {  color: #fff; background: #DD6; font-variant:small-caps; font-size: 105%; }
-#menu a.ex_hard {  color: #fff; background: #D33; font-variant:small-caps; font-size: 105%; }
+#menu a.title { color: #fff; background: #2A4341; cursor: pointer;}
+#menu a.ex_easy {  color: #000; background: #cccccc;}
+#menu a.ex_medium {  color: #000; background: #cccccc;}
+#menu a.ex_hard {  color: #000; background: #cccccc;}
 
-/* cover purple = 896e81 */
-/* cover blue   = 4e6994 */
-/* cover green  = 7c927b */
-/* cover purple = 896e81 */
-/* cover brown  = 907669 */
-/* cover aqua   = 639397 */
 
 #menu a:hover {
-color: #fff;
-background: #7c927b;
+color: #204962;
+background: #9EC4DB;
 }
 
 #menu ul ul a:hover {
 color: #fff;
-background: #896e81;
+background: #307D75;
 }
 
 #menu ul ul ul a:hover {
 color: #fff;
-background: #907669;
+background: #307D75;
 }
 
 
@@ -189,6 +171,10 @@ left: 0;
 
 
 #menu li {position: relative;}
+
+li.dropdown ul {
+    display : block;
+}
 
 #menu ul ul ul {
 position: absolute;
@@ -220,4 +206,113 @@ div#menu ul ul ul li:hover ul
 {display: block;}
 
 
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.codeGif{
+    width:300px;
+    height:150px;
+}
+
+.gran{
+    width:800px;
+    height:800px;
+}
+
+.mitjana{
+    width:500px; 
+    height:500px; 
+}
+
+.petita{
+    width:300px; 
+    height:300px;
+}
+
+
+.allargatPetit{
+    width:300px; 
+    height:55px;
+}
+.allargatMitja{
+    width:500px; 
+    height:100px;
+}
+
+.allargatTaula{
+	max-height: 150px;
+	height: auto;
+	width: auto;
+}
+.menucontent{
+    display: none;
+}
+[id^=collapse-input-] {
+    display: none;
+}
+input:checked ~ .menucontent {
+    display:block;
+}
+
+alerta{
+    color:crimson;
+    font-weight: bold;
+}
+
+teoria{
+    text-align: justify;
+    margin-left: 2cm;
+    display:block;
+    
+}
+exercici{
+    font-style: italic;
+    display = "block"
+}
+
+pseudocodi{
+    font-style: italic;
+    font-weight: bold;
+}
+
+exercici::first-line{
+    font-weight: bold;
+}
+
+strong {
+    font-weight: bold;
+}
+
+example button:active{
+    display: none;
+}
+
+solucio{
+    display: none;
+}
+.execucio{
+	background-color:black;
+	color: white;
+	font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
+
+
+a.forward {
+    padding-top: 50px;
+    content:url(../Recursos/Imatges/IconaAvans.png); 
+    float: right;
+    padding-bottom: 30px;
+}
+
+a.backward {
+    padding-top: 50px;
+    content:url(../Recursos/Imatges/IconaRetroces.png); 
+    float:left;
+    padding-bottom: 30px;
+
+}
 

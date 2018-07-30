@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      0.1 CANVIS COLOR DE LA WEB
+    </h1>
+  </center>
+    <h4>CANVIS EN EL MENÚ</h4>
+    <teoria>
+        Fer el canvi de color és simplement canviar el codi de color, el problema és saber a quina línia del fitxer css és la que toca. Per això us deixo un index: (Sempre que afegim linies al fitxer d'estils, les afegirem a sota per tal de no modificar les linies de referència:)<br>
+        Anar al fitxer <b>Style.css</b>
+        <ul>
+            <li>
+                <b>Canvi del fons del menú: </b> referint al recuadre negre de la part surperior, anar a: #menu (linia 85), canviar propietat <b>background</b>.
+            </li>
+            
+            <li>
+                <b>Canvi del color de les capçaleres: </b> (Iniciació a la programació, etc.), buscar: #menu a.title (linia 144) i modificar <b>Color</b> per la lletra, i <b>Background</b> pel color de fons.
+                <br><br>
+                Si en canvi es vol canviar els colors de quan està seleccionat, buscar: #menu a:hover (linia 150) i canviar <b>color i background.</b><br><br>
+            </li>
+            
+            <li>
+                <b>Canvi de color dels apartats: </b> de dins les capçaleres (Introducció, Tipus elementals... ), buscar: #menu a (linia 136), i canviar els paràmetres: <b>color i background</b>.
+                <br><br>
+                 Si en canvi es vol canviar els colors de quan està seleccionat, buscar: #menu ul ul a:hover (linia 155) i canviar <b>color i background.</b><br><br>
+            </li>
+            
+            <li>
+                <b>Canvi de color dels sub-apartats</b>, es a dir els desplagables, hereden dels apartats, de no voler-se així haura de crear un #menu ul ul a{ color: xxxx; Background: xxx }
+                
+                <br><br>
+                 Si en canvi es vol canviar els colors de quan està seleccionat, buscar: #menu ul ul ul a:hover (linia 160) i canviar <b>color i background.</b><br><br>
+            </li>
+        
+        </ul>
+    </teoria>
+    
+    <h3>Canvi de color de la pàgina</h3>
+    <teoria>
+       Dins el mateix fitxer <b>style.css</b>, tenim les linies de la 39 - 50 que codifiquen els colors del titols (&lt;h1&gt;,&lt;h2&gt;,&lt;h3&gt;,&lt;h4&gt;). <br><br>
+        Si en canvi es volgués fer un canvi a tota la pàgina, cal modificar el #content: (linia 69), o bé, si es vol englobar tots els elements de la pàgina, aleshores cal modificar el body: (Linia 3). <alerta>modificar el body pot ser perillós.</alerta>
+    </teoria>
+	
+</div>
+<p class = footer>
+    <a class="backward" href="Plantilla-Teoria.html"></a> 
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
+ 

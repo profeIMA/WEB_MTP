@@ -1,0 +1,400 @@
+﻿<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
+<link rel="stylesheet" href="../../styles/vs.min.css">
+<meta charset="utf-8">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+     5.2 SUBPROGRAMES 
+    </h1>
+  </center>
+    
+<!-- Contingut escrit -->
+<h4>Què és un subprograma</h4>
+<teoria>
+    Un subprograma és un tall de codi que es separa del programa principal i queda a ús del programador perquè l'utilitzi sempre que vulgui. D'aquesta manera, es pot organitzar el codi per funcionalitats, de tal manera que un tros servirà per fer escriure per pantalla i un altre tros servirà per calcular arrels quadrades de nombres enters, per exemple. <br> 
+    Per fer aquesta extracció de codi del programa principal, primer cal saber especificar de forma concreta què fa aquell codi, quins valors de variables pot prendre, quan no s'hauria d'utilitzar i quan si, etc. <br>
+    <alerta>Els subprogrames s'executen en un entorn local, això significa que no coneixen RES no estigui declarat en un <a href="Entorns_Teoria.html">entorn global</a></alerta>
+    <br>
+    <h2>Exemple</h2>
+    <pre><code class = "c++">
+        #include &lt;iostream&gt;
+        
+        using namespace std; 
+        
+        int suma(int a, int b) //CAPÇALERA: Declarem la acció i/o funció
+        {//PRE: a i b dos enters
+        //POST: retorna la suma entre a i b
+            int c = a + b;//Instruccions a executar
+            return c;//RETORN: valor que ha de retornar (IMPORTANT: c és un enter igual que el retorn de la funció )
+        }
+        
+        int main(){
+            int x = 4; 
+            int y = 3; 
+            
+            int z = suma(x,y);//INVOCACIÓ: Cridem a la nostra funció declarada ANTERIORMENT, i li passem dues variables, x,y( dos enters), que són les mateixes que la funció espera (a,b).
+            cout&lt;&lt;"El valor de z es: "&lt;&lt;z&lt;&lt;endl;
+        }
+        
+
+    </code></pre>
+    Hem vist un exemple real d'una funció. Per entendre millor què és el que està passant tractarem un a un, les diferents parts de les accions i funcions.
+   <br>
+   <br>
+    <h3>Capçalera</h3>
+    <br>
+    La capçalera és la declaració de l'acció o funció, (Igual que les variables, les accions i funcions també s'han de declarar). A la capçalera i figura: <h2>Quin valor retorna</h2> si és que en retorna cap, <h2>el nom</h2> de que tindrà, els <h2>paràmetres d'entrada</h2> que cal subministrar a la funció o acció, i la <h2>especificació</h2>. <br>
+    <ul>
+        <li><h2>Retorn: </h2> Una funció pot retornar qualsevol tipus de variable unitària, és a dir, només pot retornar una dada.  <alerta>REPASSAR!!</alerta></li>
+        <li><h2>Nom: </h2>És el nom que tindrà la funció, no té importància a nivell de programa.</li>
+        <li><h2>Paràmetres entrada: </h2> Són tots els paràmetres que envies a la funció, aquests paràmetres poden ser per <h2> constants </h2>,<h2>per referència</h2>, <h2>per paràmetre</h2><br>
+			<ul>
+				<li><h2>Constants: </h2>com el seu nom indica són valors que no canvien durant el curs de l'execució dins de la funció.</li>
+				<li><h2>Per paràmetre:</h2> s'envia una còpia de la variable original a la funció. D'aquesta manera es pot modificar el valor de la variable sense afectar el valor original</li>
+				<li><h2>Per referència:</h2> s'envia la ubicació de memòria de la variable original, això doncs, es tracta en tot moment amb la variable real.</li>
+				<li><h2>Per referència i constant: </h2>una opció per optimitzar el programa és enviar la referència de memòria però declarar-la constant per evitar modificacions. És considerat una bona pràctica.</li>
+			</ul>
+		</li>
+        <li><h2>Especificació: </h2> ha d'informar al usuari la pre-condició i la post-condició:
+			<ul>
+				<li><h2>La pre-condició: </h2>indica quines condicions s'han de donar per executar aquella funció, sovint, es demana que els paràmetres d'entrada compleixin uns requisits. Com per exemple que un enter no sigui 0 ja que podria portar problemes. També es pot donar el cas que no hi hagi precondició, és a dir, que sempre funciona correctament.</li>
+				<li><h2>La post-condició: </h2>Explica què fa el programa amb les variables entrades, i què retorna. Si durant l'execució canvia alguna dada o estructura de dades, també cal informar.</li>
+			</ul></li>
+    </ul>
+    
+    Exemples de declaracions de funcions: 
+    <pre><code class ="c++">
+        void accio1();
+        int funcio1(int p1); //pas de parametre
+        
+        void accio2(int &a); //Pass per referència de a 
+        bool funcio2(int a, const char &c)//pas per parametre de " a " i pas per referència i constant de " c "
+    
+    </code></pre>
+
+    <br><br>
+    <h3>Implementació</h3>
+    <br> 
+    La implementació són el conjunt d'instruccions que executarà la funció cada cop que sigui cridada. La implementació pot ser just després de la capçalera o bé en qualsevol altre punt (posterior a la capçalera). <br> 
+    Si la funció ha de retornar algun valor, cal utilitzar la comanda return. <br> 
+    <h2>Implementació c++</h2>
+    <pre><code class = "c++">
+        unsigned int funcioA(int p1)//Exemple d'una funció que calcula el quadrat d'un nombre
+        {//PRE:
+        //POST: retorna el quadrat de p1.
+            unsigned int quadrat = p1*p1; 
+            return quadrat;
+        }
+        
+        void accioB(bool& b, const float &f)
+        {//PRE: ----
+         //POST: Comprova si f és major que 100 i en guarda el resultat a b. També mostra per pantalla el resultat en forma de text.
+            b = f &gt; 100;
+            if(b)
+                cout&lt;&lt;"Hem arribat al 100%"&lt;&lt;endl; 
+            else 
+                cout&lt;&lt;"No hem arribat al 100%"&lt;&lt;endl;
+            
+        }
+    </code></pre>
+	<h3>
+    Accions vs funcions
+	</h3>
+    Entre les accions i les funcions hi ha petites diferències que cal remarcar: <br> 
+    <ul>
+        <li><h2>Acció: </h2> és aquell codi que implementa una sèrie de tasques on no s'espera que es retorni cap valor, però sí que pot modificar els valors d'entrada. Per exemple, que ens escrigui per pantalla, executarà les comandes necessesàries i acabarà.</li>
+        <li><h2>Funció:</h2> és aquell codi on calcula un valor específic, i el retorna. Un exemple clar és una funció que ens suma dos valors, el seu retorn serà el valor de la suma, i no modificarà el valor dels dos valors incials.</li>
+    </ul>
+   </teoria>
+   
+   <h4>Exemples</h4>
+   <teoria>
+	   <strong>Càlcul de l’àrea del cercle i del quadrat més gran inscrit en aquest. </strong>
+	   <button onclick="myFunction(P5_1)">Solució</button><br>
+		<solucio id="P5_1">
+		<span style="color:MediumTurquoise">Cal obtenir dos valors (area_cercle,  area_quadrat), per tant ha de ser una acció amb dos paràmetres de sortida (pas per referència).</color>
+		<pre><code class = "c++">
+ const double PI=3.14159;
+ 
+ void area_cercle_i_quadrat(double radi, double&amp; area_c, double&amp; area_q) {
+ //Pre: radi&gt;0
+ //Post: area_c= PI*radi^2 area_q=2*r^2 (&agrave;rea quadrat inscrit en el cercle)
+	 area_c=PI*radi*radi;
+	 area_q=2*radi*radi;
+ } </code></pre></solucio>
+		<br>
+
+
+		<strong>Càlcul del màxim de dos nombres reals.</strong>
+		<button onclick="myFunction(P5_2)">Solució</button><br>
+		<solucio id="P5_2">
+		<span style="color:MediumTurquoise">Cal obtenir un valor (màxim), per tant ha de ser una funció real que rep dos reals d’entrada (pas per valor)</span>
+		<pre><code class = "c++">
+double maxim(double x, double y) {
+ //Pre: cert
+ //Post: retorna el m&agrave;xim d'x i de y
+	 double max=x;
+	 if (y&gt;max) max=y;
+	 return max;
+}</code></pre></solucio>
+
+		<br>
+
+		<strong>Suma dels naturals des de 1 a n</strong>
+		 <button onclick="myFunction(P5_3)">Solució</button><br>
+		<solucio id="P5_3">
+		<span style="color:MediumTurquoise">Cal obtenir dos valors (area_cercle,  area_quadrat), per tant ha de ser una acció amb dos paràmetres de sortida (pas per referència).</span>
+		<pre><code class = "c++">
+unsigned suma_naturals(unsigned n) {
+//Pre: cert
+//Post: retorna la suma dels naturals desde 1 a n
+	unsignedsuma=0;
+	for (unsignedi=1; i&lt;=n; i++) {
+		suma=suma+i;
+	}
+	returnsuma;
+ } </code></pre></solucio>
+		
+		
+		<br>
+		
+		<strong>Divisió per restes successives</strong>
+		<br>Donat dos naturals, dividend i divisor amb divisor>0, determinar el quocient i el residu mitjançant restes successives
+		<button onclick="myFunction(P5_4)">Solució</button><br>
+		<solucio id="P5_4">
+		<span style="color:MediumTurquoise">Cal obtenir dos valors a partir de dos naturals, per tant és una acció amb dos paràmetres d’entrada (pas per valor): dividend i divisor; 
+		i dos paràmetres de sortida (pas per referència): quocient i residu</span>
+		<pre><code class = "c++">
+void divisio_restant(unsigned dividend, unsigned divisor, unsigned&amp; quocient, unsigned&amp; residu) {
+/* Pre: divisor&gt;0
+Post: residu&lt;divisor, dividend=quocient*divisor+residu(quocient i residu s&oacute;n el quocient i residu de dividir dividend per divisor) */
+quocient=0;
+residu=dividend;
+	while(residu&gt;=divisor) {
+		quocient++;
+		residu=residu-divisor;
+	}
+}</code></pre></solucio>
+
+		<br>
+
+		<strong>Esbrinar si un nombre és parell</strong>
+		 <button onclick="myFunction(P5_5)">Solució</button><br>
+		<solucio id="P5_5">
+		<span style="color:MediumTurquoise">Cal calcular un valor booleà (és_parell), per tant és una funció booleana que rep un nombre natural (pas per valor).</span>
+		<pre><code class = "c++">
+bool es_parell(unsigned n){
+//Pre: cert
+//Post: retorna cert si n és parell, fals altrament
+	return n%2==0;
+} </code></pre></solucio>
+
+		<br>
+
+		<strong>Simular el llançament d’un dau</strong>
+		 <button onclick="myFunction(P5_6)">Solució</button><br>
+		<solucio id="P5_6">
+		<span style="color:MediumTurquoise">Cal obtenir un valor natural (dau), per tant és una funció natural sense paràmetres</span>
+		<pre><code class = "c++">
+#include&lt;cstdlib&gt;
+#include&lt;ctime&gt;
+//...
+unsigned dau() {
+/* Pre: cert
+Post: retorna un natural entre 1 i 6 simulant el llan&ccedil;ament d&rsquo;un dau */
+	return rand()%6+1;
+}
+int main(){
+	srand(time(0));
+	//...
+	cout&lt;&lt;&quot;Dau: &quot;&lt;&lt;dau()&lt;&lt;endl;
+	//...
+	return 0;
+} </code></pre></solucio>
+
+		<br>
+
+		<strong>Esbrinar si un nombre té un dígit parell.</strong><br>
+		Fer un subprograma per determinar si un nombre té un dígit parell
+		 <button onclick="myFunction(P5_7)">Solució</button><br>
+		<solucio id="P5_7">
+		<span style="color:MediumTurquoise">Cal obtenir un valor booleà (te_parell), per tant és una funció booleana amb un paràmetre natural d’entrada (pas per valor)</span>
+		<pre><code class = "c++">
+bool es_parell(unsigned n){
+//Pre: cert
+//Post: retorna cert si n és parell, fals altrament
+	return n%2==0;
+}
+
+bool te_digit_parell(unsigned n){
+//Pre: cert
+//Post: retorna cert si n t&eacute; un d&iacute;git parell, fals altrament
+	unsigned digit=n%10;
+	//FI: n t&eacute; un &uacute;nic d&iacute;git o el d&iacute;git analitzat &eacute;s parell
+	while(not es_parell(digit) and n&gt;9){
+		// cout&lt;&lt;&quot;-&quot;&lt;&lt;digit&lt;&lt;&quot; no parell&quot;&lt;&lt;endl;
+		n=n/10;
+		digit=n%10;
+	}
+	return es_parell(digit);
+} </code></pre></solucio>
+   </teoria>
+   
+   <h4>Disseny Descendent</h4>
+   
+   <teoria>
+	
+	És una tècnica de disseny modular de programes en dividir un problema complex en subproblemes més senzills. Això ens permet fer refinaments successius a partir d'un esquema d'alt nivell.
+	Un bon disseny descendent basat en subprogrames permet:
+	<ul>
+		<li>Modularitat</li>
+		<li>Simplicitat, claredat, llegibilitat</li>
+		<li>Reusabilitat</li>
+		<li>Facilitació en la detecció d'errors i modificació dels algorismes</li>
+		<li>Evitar duplicacions de codi</li>
+	</ul>
+	
+	<h3>Exemples</h3>
+	
+	<strong>Primer nombre primer >=n</strong>
+	<button onclick="myFunction(P5_12)">Solució</button><br>
+		<solucio id="P5_12">
+		<pre><code class = "c++">
+//Entrada: un natural n &gt;1
+//Sortida: mostra el primer nombre primer &gt;=n
+...
+bool es_primer(unsigned n){
+//Pre: cert
+//Post: retorna cert si n &eacute;s primer, fals altrament
+	bool primer=n==2;
+	if(n&gt;2){
+		unsigned divisor=2;
+		while(n%divisor!=0 and divisor*divisor&lt;n) divisor++;
+		primer=n%divisor!=0;
+	}
+	return primer;
+}
+int main(){
+	//Entrada
+	cout &lt;&lt; &quot;Entra un natural&gt;1:&quot; &lt;&lt; endl;
+	unsigned n;
+	cin&gt;&gt;n;
+	//C&agrave;lcul
+	unsigned candidat=n;
+	while(not es_primer(candidat)) candidat++;
+	//Sortida
+	cout&lt;&lt;&quot;Primer nombre primer &gt; &quot;&lt;&lt;n&lt;&lt;&quot;: &quot;&lt;&lt;candidat&lt;&lt;endl;
+	return 0;
+} </code></pre></solucio>
+   
+   <br>
+   	<strong>Nombres amics</strong><br>
+	Donat un natural n>1, fer un programa que escrigui per pantalla totes les parelles (a,b) 
+	de nombres amics en què almenys un dels membres sigui menor o igual que n, excloent repeticions i parelles on a sigui igual a b.<br>
+
+<a href="http://ca.wikipedia.org/wiki/Nombres_amics"> Nombres amics</a>: dos nombres són amics quan cadascun és igual a la suma dels divisors de l’altre (exceptuant el mateix nombre).
+
+Exemple:  220 i 284 són amics
+<ul>
+	<li>Suma dels divisors de 220 exceptuant el 220<br>1 + 2 + 4 + 5 + 10 + 11 + 20 + 22 + 44 + 55 + 110 = 284</li>
+	<li>Suma dels divisors de 284 exceptuant el 284<br>1 + 2 + 4 + 71 + 142 = 220</li>
+</ul>
+	
+	<button onclick="myFunction(P5_16)">Solució</button><br>
+		<solucio id="P5_16">
+		Ens demanen parelles (a,b) amb:
+		<ul>
+			<li>un dels dos < n</li>
+			<li>evitar repetits</li>
+			<li>volem a != b</li>
+		</ul>
+		Això cal que es reflecteixi en l'especificació del programa:<br>
+		<span style="color:MediumTurquoise">
+			//Entrada: un natural >1
+			//Sortida: mostrar les parelles (a,b) de nombres amics amb a&lt;b i a&lt;=n
+		</span>
+		
+		L'estretegia a seguir, doncs, és:
+		<pseudocodi><pre><code class = "nohighlight">
+llegir n un natural
+per a des de 2 fins a n fer
+	natural b=suma dels divisors d’a – a //candidat a amic d’a
+	si b > a llavors //miro si la parella a,b té possibilitats de ser mostrada
+		natural suma_b=suma dels divisors de b – b //miro si són amics
+		si suma_b==a llavors escriure la parella (a, b)
+		</code></pre></pseudocodi>
+
+		<pre><code class = "c++">
+//Entrada: un nombre natural n &gt;0
+//Sortida: mostra per pantalla totes les parelles (a,b) de nombres amics amb
+almenys un dels dos &lt;n, excloent repeticions i parelles amb a==b
+int main() {
+	unsigned n;
+	cout&lt;&lt;&quot;Entra un natural:&quot;&lt;&lt;endl;
+	cin&gt;&gt;n;
+	for (unsigned a=2;a&lt;=n;a++) {
+		unsigned b=suma_divisors(a)-a; // agafem l&rsquo;&uacute;nic candidat a ser amic d&rsquo;a
+		if (b&gt;a) { // eliminem parelles repetides i parelles amb a==b
+			unsigned suma_b=suma_divisors(b)-b;
+			if (suma_b==a) cout&lt;&lt;&quot;(&quot;&lt;&lt;a&lt;&lt;&quot;, &quot;&lt;&lt;b&lt;&lt;&quot;)&quot;&lt;&lt;endl; // a i b s&oacute;n amics
+		}
+	}
+	return 0;
+} </code></pre>
+
+	Faltaria fer la implementació de la funció suma_divisors
+	
+	<pre><code class="c++">
+unsigned suma_divisors(unsigned nombre){
+//Pre: cert
+//Post: retorna la suma de tots els divisors de nombre
+...
+}</code></pre>
+
+</solucio>
+   </teoria>
+    
+</div>
+
+  <p class = footer>
+<a class="backward" href="AccionsFuncions_Motivacions.html"></a> <a class="forward" href="AccionsFuncions_Especificacio.html"></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;2018
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

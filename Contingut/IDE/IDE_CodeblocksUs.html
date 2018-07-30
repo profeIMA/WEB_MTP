@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-6');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      ENTORNS DE PROGRAMACIÓ
+    </h1>
+  </center>
+    <h4>Ús del Code::Blocks</h4>
+    <h3>Creació d'un nou projecte</h3>
+    <teoria>
+        L'ús del Code::Blocks és senzill, sempre hi quan s'hagin seguit el passos de la <a href="IDE_CodeblocksInstall.html">instal·lació</a>. El primer que cal fer és crear un nou projecte: 
+        <ul> 
+            <li>Tenim dues opcions: 
+            <ul>
+                <li><b>1.</b> Des de la pantalla d'inici poden fer click a <b>Create new project</b>.</li>
+                <li><b>2.</b> Anar a la barra superior i: File -> New Project.</li>
+            </ul></li>
+            <li>Escollir el tipus de projecte, nosaltres <b>sempre</b> utilitzarem la opció <b>Console Application</b>.</li>
+            <li>Ens demanarà si volem fer un projecte de C o C++. Nosaltres usem <b>C++</b>.</li>
+            <li>Seguidament haurem de donar un nom al nostra projecte.</li>
+            <li>Finalment haurem d'escollir el compilador. Si la instal·lació ha estat correcte, aleshores podrem escollir el GNU GCC Compiler. Tota la resta de paràmetres els deixarem per defecte.</li>
+        </ul>
+    </teoria>
+    
+    <h3>Compil·lació i executació</h3>
+    <teoria>
+        Un cop tenim el projecte creat, per defecte ens crearà el main.cpp, que és el fitxer on treballarem. El primer que cal fer és compilar-lo per així assegurar que l'opció del compilador està ben configurat. Per fer-ho tenim dues opcions: 
+        <ul> 
+            <li>A les barres superior trobarem l'icona d'un engrenatge: <img style="width:1200px;height: 100px" src="../../Recursos/Imatges/IDE_CompileShortCut.PNG" alt="Barra on es troba el botó de compil·lació"></li>
+            <li>A la barra superior a l'apartat de <b>build</b>, i la primera opció del desplegable <b>Compile</b>.</li>
+        </ul>
+        Es possible que ens surti un error dient que no ha trobat el compilador, per solucionar això <alerta>(No es pot solucionar si no hem seguit correctament la instal·lació del Code::Blocks i en crear el projecte no ens ha detectat el compilador)</alerta> hem d'anar a: <i>Settings->Compiler->(pestanya)ToolChain Executables-> Escollir el compilador(GNU GCC Compiler) i Autodetect -> OK. </i> <br> 
+        Amb aquest procés podem solucionar el problema del compilador. 
+        <br><br> 
+        
+        Un cop tenim el projecte compil·lat, aleshores ja el podem executar, per fer-ho només cal prémer el botó de <b><i>play</i></b> que trobem al costat de la roda de compil·lar. O bé, anar a la pestanya <b>Build -> Run</b>. <br>
+        Observarem que se'ns obra un terminal amb el resultat de l'execució. En aquest terminal podem escriure per teclat si es requereix entrar dades. 
+    </teoria>
+    
+    <h3>Multiples Projectes</h3>
+    <teoria>
+        El Code::Blocks pot tenir diferents projectes oberts al mateix temps, però només un pot estar actiu. Per escollir quin és l'actiu, a la secció de projectes (Finestra a l'esquerra de tot), veurem que n'hi ha un amb negreta. Aquest és el que està actiu. Si volem activar un altre, només cal fer click dret sobre el projecte escollit i <b>Activate Project</b>. <img src="../../Recursos/Imatges/IDE_MultipleProject.PNG">
+        Cal tenir pesent que només es compil·la i s'executa el projecte actiu.
+    </teoria>
+    
+    <h3>Programes No acabats</h3>
+    <teoria>
+        A vegades fem errors programant i hem executat un programa que no acaba mai. Code::Blocks ens dóna una eina per poder atutar la execució, i és tancant la finestra de terminal que ens ha generat el compilador. També funciona utilitzar Control + C.
+    </teoria>
+    <h3>Ajuts amb IDE</h3>
+    <teoria>
+        De moment només hem fet una ullada a les prestacions més bàsiques del nostra entorn de treball. Hi ha moltes més coses que permet fer però que no tractarem aquí. Recomanem per tots aquells que estiguin interesats en aprendre més a fer una ullada al <a href="http://www.codeblocks.org/docs/main_codeblocks_en.html" target="_blank">manual de l'usuari</a>. <br>
+        També us deixem a la vostra disposició tot un conjunt d' <a target="_blank" href="http://wiki.codeblocks.org/index.php/Keyboard_Shortcuts">accesos ràpids</a> del programa.
+    </teoria>
+</div>
+<p class = footer>
+    <a class="backward" href="IDE_CodeblocksInstall.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
+ 

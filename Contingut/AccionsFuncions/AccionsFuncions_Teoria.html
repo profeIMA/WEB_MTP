@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
+<link rel="stylesheet" href="../../styles/vs.min.css">
+<meta charset="utf-8">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      ACCIONS I FUNCIONS 
+    </h1>
+  </center>
+    
+<!-- Contingut escrit -->
+<h4>Què és una acció o funció</h4>
+<teoria>
+    Les accions i funcions són talls de codi que es separen del programa principal i queden a ús del programador perquè les utilitzi sempre que vulguin. D'aquesta manera, es pot organitzar el codi per funcionalitats, de tal manera que un tros servirà per fer escriure per pantalla i un altre tros servirà per calcular arrels quadrades de nombres enters, per exemple. <br> 
+    Per fer aquesta extracció de codi del programa principal, primer cal saber especificar de forma concreta què fa aquell codi, quins valors de variables pot prendre, quan no s'hauria d'utilitzar i quan si, etc. <br>
+    <alerta>Les accions i funcions s'executen en un entorn local, això significa que no conèixen RES no estigui declarat en un <a href="Entorns_Teoria.html">entorn global</a></alerta>
+    <br>
+    <h2>Exemple</h2>
+    <pre><code class = "c++">
+        #include &lt;iostream&gt;
+        
+        using namespace std; 
+        
+        int suma(int a, int b) //CAPÇALERA:Declarem la acció i/o funció
+        {//PRE: a i b dos enters
+        //POST: retorna la suma entre a i b
+            int c = a + b;//Instruccions a executar
+            return c;//RETORN: valor que ha de retornar (IMPORTANT: c és un enter igual que el retorn de la funcio )
+        }
+        
+        int main(){
+            int x = 4; 
+            int y = 3; 
+            
+            int z = suma(x,y);//INVOCACIÓ:Cridem a la nostra funció declarada ANTERIORMENT, i li passem dues variables, x,y( dos enters), que són les mateixes que la funció espera (a,b).
+            cout&lt;&lt;"El valor de z es: "&lt;&lt;z&lt;&lt;endl;
+        }
+        
+
+    </code></pre>
+    Hem vist un exemple real d'una funció. Per entendre millor què és el que està passant tractarem un a un, les diferents parts de les accions i funcions.
+</teoria>
+   <br>
+<h1>
+    ACCIONS VS FUNCIONS
+</h1>
+<teoria>
+    Entre les accions i les funcions hi ha petites diferències que cal remarcar: <br> 
+    <ul>
+        <li><h2>Acció: </h2> és aquell codi que implementa una sèrie de tasques on no s'espera que es retorni cap valor, però sí que pot modificar els valors d'entrada. Per exemple, que ens escrigui per pantalla, executarà les comandes necessesàries i acabarà.</li>
+        <li><h2>Funció:</h2> és aquell codi on calcula un valor específic, i el retorna. Un exemple clar és una funció que ens suma dos valors, el seu retorn serà el valor de la suma, i no modificarà el valor dels dos valors incials.</li>
+    </ul>
+    
+    Abans de seguir, cal que expliquem totes les parts de les accions i funcions, i entenguem per a què serveix cada una d'elles. 
+    <br>
+    <h4>Capçalera</h4>
+    <br>
+    La capçalera és la declaració de l'acció o funció, (Igual que les variables, les accions i funcions també s'han de declarar). A la capçalera i figura: <h2>Quin valor retorna</h2> si és que en retorna cap, <h2>el nom</h2> de que tindrà, els <h2>paràmetres d'entrada</h2> que cal subministrar a la funció o acció, i la <h2>especificació</h2>. <br>
+    <ul>
+        <li><h2>Retorn: </h2> Una funció pot retornar qualsevol tipus de variable unitària, és a dir, només pot retornar una dada.  <alerta>REPASSAR!!</alerta></li>
+        <li><h2>Nom: </h2>És el nom que tindrà la funció, no té importancia a nivell de programa.</li>
+        <li><h2>Paràmetres entrada: </h2> Són tots els paràmetres que envies a la funció, aquests paràmetres poden ser per <h2> constants </h2>,<h2>per referència</h2>, <h2>per paràmetre</h2><br><ul>
+            <li><h2>Constants: </h2>com el seu nom indica són valors que no canvien durant el curs de l'execució dins de la funció.</li>
+            <li><h2>Per paràmetre:</h2> s'envia una còpia de la variable original a la funció. D'aquesta manera es pot modificar el valor de la variable sense efectar el valor original</li>
+            <li><h2>Per referència:</h2> s'envia la ubicació de memòria de la variable original, aixó doncs, es tracta en tot moment amb la varible real.</li>
+            <li><h2>Per referència i constant: </h2>una opció per otpimitzar el programa és enviar la referència de memòria però declarar-la constant per evitar modificacions. És considerat una bona pràctica.</li>
+            <li><h2>Especificació: </h2> ha d'informar al usuàri la pre-condició i la post-condició:
+                <ul>
+                    <li><h2>La pre-condició: </h2>indica quines condicions s'han de donar per executar aquella funció, sovint, es demana que els paràmetres d'entrada compleixin uns requisits. Com per exemple que un enter no sigui 0 ja que podria portar problemes. També es pot donar el cas que no hi hagi precondició, és a dir, que sempre funciona correctament.</li>
+                    <li><h2>La post-condició: </h2>Explica què fa el progama amb les variables entrades, i què retorna. Si durant l'execució canvia alguna dada o estructura de dades, també cal infomrar.</li>
+                </ul></li>
+        </ul></li>
+    </ul>
+    
+    Exemples de declaracions de funcions: 
+    <pre><code class ="c++">
+        void accio1();
+        int funcio1(int p1); //pas de parametre
+        
+        void accio2(int &a); //Pass per referència de a 
+        bool funcio2(int a, const char &c)//pas per parametre de " a " i pas per referència i constant de " c "
+    
+    </code></pre>
+
+    <br><br>
+    <h4>Implementació</h4>
+    <br> 
+    La implementació són el conjunt d'instruccions que executarà la funció cada cop que sigui cridada. La implementació pot ser just després de la capçalera o bé en qualsevol altre punt (posterior a la capçalera). <br> 
+    Si la funció ha de retornar algun valor, cal utilitzar la comanda return. <br> 
+    <h2>Implementació c++</h2>
+    <pre><code class = "c++">
+        unsigned int funcioA(int p1)//Exemple d'una funció que calcula el quadrat d'un nombre
+        {//PRE:
+        //POST: retorna el quadrat de p1.
+            unsigned int quadrat = p1*p1; 
+            return quadrat;
+        }
+        
+        void accioB(bool& b, const float &f)
+        {//PRE: ----
+         //POST: Comprova si f és major que 100 i en guarda el resultat a b. També mostra per pantalla el resultat en forma de text.
+            b = f &gt; 100;
+            if(b)
+                cout&lt;&lt;"Hem arribat al 100%"&lt;&lt;endl; 
+            else 
+                cout&lt;&lt;"No hem arribat al 100%"&lt;&lt;endl;
+            
+        }
+        
+        
+    </code></pre>
+    </teoria>   
+    
+ <br><br>
+</div>
+    
+
+  <p class = footer>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;2018
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="/CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      5.5 ESTIL I BONES PRÀCTIQUES
+    </h1>
+  </center>
+  
+  <h4>Implementació de subprogrames</h4>
+	<teoria>
+		Per implementar un subprograma cal:
+		<ul>
+			<li>Escollir un nom representatiu pel subprograma.</li>
+			<li>Determinar si és convenient que sigui una acció o una funció.</li>
+			<li>Si és una funció, identificar el tipus del valor retornat.</li>
+			<li>Determinar els paràmetres del subprograma i donar-los un nom significatiu i el tipus adequat.</li>
+			<li>Fer l'<a href = "AccionsFuncions_Especificacio.html">especificació</a>.</li>
+		</ul>
+		En els fitxers .cpp, la implementació dels subprogrames es col·loca abans de l’int main(); la implementació d’un subprograma ha d’aparèixer abans de que sigui cridat.
+		
+	<h3>Bones pràctiques</h3>
+	Validar la correctesa dels subprogrames fent un int main() exclusivament destinat a validar el funcionament del subprograma.<br>
+	Documentar bé els subprogrames donant una explicació del significat dels paràmetres (si no és evident) 
+	i l'especificació que no ha de duplicar la informació de la capçalera, i
+	ha d'explicar el què i no el com.<br>
+	Dissenyar una estratègia per resoldre el problema, buscant sempre crear subprogrames curts (en general, que no ocupin més d'una pantalla) i intentar fer-los el més genèrics i reutilitzables possible. <br>
+	<h3>Noms i identació</h3>
+	Els noms dels subprogrames comencen en minúscules i s'escriuen utilitzant l'estil camel o snake. Han de ser descriptius (indicar què fa el subprograma).<br>
+	Els noms dels paràmetres han de3 ser significatius (en el si del subprograma) i els algorismes s'han d'escriure amb claredat.<br>
+	El codi s'ha d'identar(La capçalera, l'especificació  i la clau que tanca el subprograma estan alienats, i el codi identat cap a la dreta). <br>
+	<pre><code class = "c++">bool es_primer(unsigned nombre) {
+//Pre: --
+//Post: cert si nombre és primer
+    unsigned aux=2;
+    bool es_primer=nombre>1; //es considera primer d’entrada, tot nombre >1
+    while(es_primer and aux*aux<=nombre) {
+        es_primer=nombre%aux!=0;
+        aux++;
+    }
+    return es_primer;
+}</code></pre>
+	</teoria>
+	
+	<h4>Entrons globals</h4>
+	<teoria>
+		<h3>Constants Globals</h3>
+		El C++ ens permet definir constants globals que són visibles des de tot arreu. Són recomanables per evitar duplicacions. Es defineixen al principi del fitxer sense estar a dins de cap bloc 
+		de codi. Quan una constant es necessita en diferents parts del codi, es recomana utilitzar constants globals. <br>
+		
+		<pre><code class = "c++">//Directives del compilador
+#include&lt;iostream&gt;
+using namespace std;
+
+//Definici&oacute; de constants globals
+const double PI=3.14159;
+
+//Implementaci&oacute; de subprogrames
+double volum_esfera(double costat) { ... }
+
+double superficie_esfera(double radi) { ... }
+
+//Implementaci&oacute; del programa principal
+int main() {...}</code></pre>
+
+		<h3>Ús de variables globals enlloc de pas de paràmetres</h3>
+		El C++ permet declarar variables globals; una vegada declarades (a fora de tots els blocs de codi) són accessibles des de tot arreu. Les variables globals poden ser modificades 
+		des de qualsevol lloc i no es té control d’on es modifiquen. Els subprogrames tenen accés a les variables globals i per tant, no és tant fàcil saber què fan 
+		(quines variables utilitzen o modifiquen), deixant de ser caixes negres que treballen amb el paràmetres que reben i complicant la comprensió del codi.
+		<alerta>Cal evitar l’ús de variables globals!</alerta>
+	</teoria>
+	
+	<h4>Prototipus</h4>
+	El C++ permet usar prototipus; és a dir, es poden escriure primer les capçaleres dels subprogrames i implementar-los més tard. S'escriuen les capçaleres seguides de ;  al principi del fitxer. <br>
+	En els prototipus els noms dels paràmetres són opcionals, encara que és recomanable posar-los per tal que ajudin a identificar els paràmetres.<br> 
+	Usar prototipus implica duplicar les capçaleres (apareixen en el prototipus i en la implementació); si hi ha canvis, cal fer-los per duplicat
+
+	<pre><code class = "c++">double volume_sphere(double radius); //prototipus
+void some_geometry(); //prototipus
+...
+void some_geometry() {//implementació
+    double v=volume_sphere(1.0);
+    ...
+}
+
+double volume_sphere(double radius) {//implementació
+    return 4.0*Pi*radius*radius*radius/3.0;
+}
+</code></pre>
+	
+	
+ </div>
+ 
+ 
+<p class = footer>
+<a class="backward" href="AccionsFuncions_ErrorsFreq.html"></a> <a class="forward" href="AccionsFuncions_Exercicis.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

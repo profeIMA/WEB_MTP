@@ -1,0 +1,290 @@
+﻿<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
+<link rel="stylesheet" href="../../styles/vs.min.css">
+<meta charset="utf-8">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- scale font size for MathJax -->
+<title>METODOLOGIA I TECNOLOGIA DE LA PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+       6.3 TREBALL AMB SEQÜÈNCIES
+    </h1>
+  </center>
+   
+
+	Hem vist que hi ha dues maneres diferents de tractar seqüències, el recorregut i la cerca. Anem a veure-les amb detall.
+	<br><br>
+	<h4>Recorregut</h4>
+<teoria>
+	<br>
+	Esquema en pseudocodi:
+		
+	<br><br><pseudocodi>
+	<pre><code class = "nohighlight">	
+		inicialitzar tractament
+		llegir element
+		mentre no fi de la seqüència fer
+			tractar element actual
+			llegir element	
+		tractament final
+    </code></pre>
+	</pseudocodi>
+	
+	En el recorregut cal veure que en el bucle, processem tots els elements de la seqüència, o sigui, fins a trobar la marca de fi.
+	
+	<br>L'esquema equivalent en c++ seria així:<br><br>
+	<pre><code class = "c++">	
+	...
+	const tipus EOS=element_marca_fi; 
+	...
+	int main(){
+	   ... 
+	   inicialitzar_tractament(...);
+	   cin>>element; //llegir el primer
+	   //mentre no fi: not element==EOS
+	   while(element != EOS) {
+		  tractar_element(element,...);
+		  cin>>element; //llegir el següent
+	   }
+	   tractament_final(...);
+	   ...
+	   return 0;
+	}
+    </code></pre>
+	<br><br>
+	
+	<h2> Exemples </h2><br>
+	
+	<br>Comptar la quantitat de nombres parells que hi ha en una seqüència de naturals >0.
+	<button onclick="myFunction(P6_1)">Solució</button><br>
+	<solucio id="P6_1"><pre><code class = "c++">
+//Entrada: una seq&uuml;&egrave;ncia de nombres naturals &gt;0 acabada en 0
+//Sortida: la quantitat de nombres parells menors que n
+#include&lt;iostream&gt;
+using namespace std;
+
+const unsigned EOS=0;
+
+int main(){
+    unsigned comptador=0; //inicialitzaci&oacute;
+    
+    unsigned element;
+    cin&gt;&gt;element; //llegir el 1r element
+    while(element!=EOS){ //mentre no final
+        //processar l'element
+        if(element%2==0) comptador++;
+        cin&gt;&gt;element; //llegir el seg&uuml;ent
+    }
+    
+    //processament final
+    cout&lt;&lt;&quot;S'han trobat &quot;&lt;&lt;comptador&lt;&lt;&quot; nombres parells&quot;&lt;&lt;endl;
+    
+    return 0;
+}
+    </code></pre></solucio>
+	
+	<br>Comptar el nombre de vegades que apareix una 'a' en un seqüència de caràcters.
+	<button onclick="myFunction(P6_2)">Solució</button><br>
+	<solucio id="P6_2"><pre><code class = "c++">
+//Entrada: una seq&uuml;&egrave;ncia de car&agrave;cters acabada en '#'
+//Sortida: la quantitat de car&agrave;cters 'a' trobats
+#include&lt;iostream&gt;
+using namespace std;
+
+const char EOS='#';
+
+unsigned comptar_caracters(char lletra){
+//Pre:: cert
+//Post: compta el nombre d'aparicions de lletra fins a arribar a EOS
+    unsigned comptador=0; //inicialitzaci&oacute;
+    char element;
+    cin&gt;&gt;element; //llegir el 1r element
+    while(element!=EOS){ //mentre no final
+        if(element==lletra) comptador++; //processar l'element
+        cin&gt;&gt;element; //llegir el seg&uuml;ent
+    }
+    return comptador;
+}
+
+int main(){
+    cout&lt;&lt;&quot;Entra una seq&uuml;&egrave;ncia acabada en '&quot;&lt;&lt;EOS&lt;&lt;&quot;'&quot;&lt;&lt;endl;
+    cout&lt;&lt;&quot;S'han trobat &quot;&lt;&lt;comptar_caracters('a')&lt;&lt;&quot; caracters 'a'&quot;&lt;&lt;endl;
+    return 0;
+}
+    </code></pre></solucio>
+	
+</teoria>
+	<h4>Cerca</h4>
+<teoria>
+<br>
+	
+	Esquema en pseudocodi:
+		
+	<br><br><pseudocodi>
+	<pre><code class = "nohighlight">	
+		inicialitzar tractament
+		llegir element
+		mentre no fi de la seqüència i no trobat fer
+			tractar element actual
+			llegir element	
+		tractament final
+    </code></pre>
+	</pseudocodi>
+	
+	En la cerca cal veure que en el bucle, processem només els elements necessaris fins que detectem la marca de fi de la seqüència o es troba el que es busca.	
+	
+    <img class ="codeGif" src="../../Recursos/Gif/GifCerca_d.gif" alt="Gif del funcionament de l'esquema de cerca">
+	
+	<br>L'esquema equivalent en c++ seria així:<br><br>
+	<pre><code class = "c++">	
+	... 
+	const tipus EOS=element_marca_fi;
+	...
+	int main() {
+	   ...
+	   inicialitzar_tractament(trobat,...); //trobat=false
+	   cin>>element; //llegir el primer
+	   //mentre no fi: not(element==EOS or trobat)
+	   while(element != EOS and not trobat) {
+		  tractar_element(element,trobat,...);
+		  if(not trobat) 
+			 cin>>element; //llegir el següent
+	   }
+	   tractament_final(trobat,...);
+	   ...
+	   return 0;
+	}
+
+    </code></pre>
+	<br><br>
+	<h2> Exemples </h2><br>
+	
+	<br>Donada una seqüència de caràcters, determinar si hi ha una 'z'.
+	<button onclick="myFunction(P6_3)">Solució</button><br>
+	<solucio id="P6_3"><pre><code class = "c++">
+//Entrada: una seq&uuml;&egrave;ncia de car&agrave;cters acabada en '#'
+//Sortida: diu si la seq&uuml;&egrave;ncia t&eacute; o no una 'z'
+#include&lt;iostream&gt;
+using namespace std;
+
+const char EOS='#';
+
+bool conte_caracter(char lletra){
+//Pre: cert
+//Post: retorna cert si s'ha entrat la lletra per teclat, fals altrament
+     char caracter; 
+     cin&gt;&gt;caracter; //primer element
+     while(caracter!=EOS and caracter!=lletra) //mentre no final
+        cin&gt;&gt;caracter; //seg&uuml;ent
+     return caracter!=EOS;
+}
+
+int main(){
+    cout&lt;&lt;&quot;Entra una seq&uuml;&egrave;ncia de caracters acabada en &quot;&lt;&lt;EOS&lt;&lt;endl;
+    cout&lt;&lt;&quot;Cont&eacute; una 'z'? :&quot;&lt;&lt;boolalpha&lt;&lt;conte_caracter('z')&lt;&lt;endl;
+    return 0;
+}
+    </code></pre></solucio>
+	
+	<br>Donada una seqüència de naturals (>0), determinar si hi ha algun múltiple de 7. 
+	<button onclick="myFunction(P6_4)">Solució</button><br>
+	<solucio id="P6_4"><pre><code class = "c++">
+//Entrada: una seq&uuml;&egrave;ncia de naturals acabada en 0
+//Sortida: diu si la seq&uuml;&egrave;ncia t&eacute; o no un m&uacute;ltiple de 7
+#include&lt;iostream&gt;
+using namespace std;
+
+const unsigned EOS=0;
+
+bool conte_un_multiple(unsigned divisor){
+//Pre: divisor&gt;0
+//Post: retorna cert si es llegeix un m&uacute;liple de divisor !=EOS, fals altrament
+   unsigned nombre;
+   cin&gt;&gt;nombre; //primer element
+   while(nombre!=EOS and nombre%divisor!=0) //mentre no fi
+      cin&gt;&gt;nombre; //seg&uuml;ent
+   return nombre!=EOS;
+}
+
+int main(){
+   cout&lt;&lt;&quot;Entra una seq&uuml;&egrave;ncia de naturals acabada en &quot;&lt;&lt;EOS&lt;&lt;endl;
+   cout&lt;&lt;&quot;Cont&eacute; un multiple de 7? &quot;&lt;&lt;boolalpha&lt;&lt;conte_un_multiple(7)&lt;&lt;endl;
+   return 0;
+}
+    </code></pre></solucio>
+
+	<br>Comptar el nombre de caràcters anteriors a la primera 'a' en un text. Si no hi ha cap 'a', fer-ho explícit.
+	<button onclick="myFunction(P6_5)">Solució</button><br>
+	<solucio id="P6_5"><pre><code class = "c++">
+//Entrada: una seq&uuml;&egrave;ncia de car&agrave;cters acabada en #
+//Sortida: diu el nombre de car&agrave;cters d'abans de la primera 'a'
+#include&lt;iostream&gt;
+using namespace std;
+
+const char EOS='#';
+
+int comptar_abans_aparicio(char lletra){
+//Pre: lletra != ws
+//Post:  retorna el nombre de car&agrave;cters d'abans de llegir lletra o -1 si no es llegeix.
+     unsigned comptador=0; //inicialitzaci&oacute;
+     char element;
+     cin&gt;&gt;element; //primer element
+     while(element!=EOS and element!=lletra){ //mentre no fi
+        comptador++; //processar element
+        cin&gt;&gt;element; //seg&uuml;ent
+     }
+     if(element==EOS) comptador=-1;
+     return comptador;
+}
+int main(){
+    cout&lt;&lt;&quot;Entra una seq&uuml;&egrave;ncia acabada en &quot;&lt;&lt;EOS&lt;&lt;endl;
+    int comptador=comptar_abans_aparicio('a');
+    if(comptador==-1) cout&lt;&lt;&quot;No s'ha trobat cap 'a'&quot;&lt;&lt;endl;
+    else cout&lt;&lt;&quot;S'han llegit &quot;&lt;&lt;comptador&lt;&lt;&quot; car&agrave;cters abans de la primera 'a'&quot;&lt;&lt;endl;
+    return 0;
+}
+    </code></pre></solucio>
+	
+</teoria>    
+ 
+</div>
+
+
+  <p class = footer>
+  <a class="backward" href="Sequencies_QueEs.html"></a> <a class="forward" href="Sequencies_Streams.html"></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;2018
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+</body>
+
+</html>
+

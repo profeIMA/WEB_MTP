@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
+<link rel="stylesheet" href="../../styles/vs.min.css">
+<meta charset="utf-8">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- scale font size for MathJax -->
+<title>METODOLOGIA I TECNOLOGIA DE LA PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+	6.6 ERRORS I PROBLEMES FREQÜENTS
+    </h1>
+  </center>
+  
+  <h4>Ús dels fstreams: errors</h4>
+  <teoria>
+  
+  Pel C++ són errors:
+  <ul>
+	<li>Obrir un fitxer d'entrada inexistent</li>
+	<li>Una lectura o escriptura en un fstream no oberta (o ja tancat).</li>
+	<li>Una lectura després d'haver detectat la marca de fi de fitxer.</li>
+	<li>Un unget després d'haver detectat la marca de fi de fitxer.</li>
+	<li>Una lectura en un ofstream, o escriptura en un ifstream.</li>
+	<li>Una lectura o escriptura en fstreams no vàlids.</li>
+  </ul><br>
+  </teoria>
+  
+  
+  
+  <h4>Ús dels fstreams: funcions</h4>
+  <teoria>
+	Funcions per a la detecció d'errors en C++:
+	<ul>
+		<li><strong>var.is_open();</strong> retorna cert si el fitxer està obert, fals altrament.</li>
+		<li><strong>var.eof();</strong> retorna cert si s'ha llegit la marca de fi, fals altrament.</li>
+		<li><strong>var.fail();</strong> retorna cert si s'ha produït un error, fals altrament.</li>
+		<li><strong>var.good();</strong> retorna cert si var és vàlid (obert, sense haver llegit la marca de fi ni haver-se produit cap error), fals altrament.</li>
+		<li><strong>var.clear();</strong> esborra els errors comesos; un cop cridat permet tornar a utilitzar l'fstream.</li>
+	</ul><br>
+	<i>cin</i> i <i>cout</i> també tenen les funcions .clear(), .fail() i .good().
+	</teoria>
+  
+  </div>
+  <p class = footer>
+  <a class="backward" href="Sequencies_Paraules.html"></a> <a class="forward" href="Sequencies_Estil.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

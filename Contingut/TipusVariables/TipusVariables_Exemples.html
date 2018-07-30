@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="../text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>MODEL DE WEB MTP</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      TIPUS ELEMENTALS DE DADES I INSTRUCCIONS BÀSIQUES
+    </h1>
+  </center>
+    
+<!-- Contingut escrit -->
+<exercici>
+    <h2>Problema 3</h2><br><br>
+   Per facilitar la tasca de càlcul de preus amb descompte i la gestió d'una botiga, es vol fer un programa que calculi el preu final d'una compra a la que cal aplicar un descompte, i també el canvi que cal tornar al client. Es vol fer sabent el preu de compra, el % de descompte i la quantitat lliurada pel client. El programa ens ha de calcular el preu final de la compra i el canvi que cal tornar. 	<br>
+    
+    <button onclick="myFunction(Problema3)">Try it</button>
+    
+    <pre><code id ="Problema3" class="c++">
+        #include&lt;iostream&gt;
+        #include&lt;iomanip&gt;
+        
+        //Entrada: llegeix (preu inicial i diners) dos nombres reals i descompte un nombre natural
+        //Sortida: mostra el preu final un cop aplicat el descompte a 
+        int main(){
+            cout&lt;&lt;"Preu: "&lt;&lt;endl;
+            double preu_inicial;
+            cin&gt;&gt;preu_inicial; 
+            
+            cout&lt;&lt;"Descompte: ";
+            unsigned descompte; 
+            cin&gt;&gt;descompte;
+            
+            double a_pagar = preu_inicial*(1-descompte/100);
+            a_pagar = int(a_pagar*100+0.5)/100;
+            cout.setf(ios::fixed);
+            cout.precision(2);
+            cout&lt;&lt;"Total :"&lt;&lt;a_pagar&lt;&lt;endl;
+            
+            cout&lt;&lt;"Quantitat Lliurada: ";
+            double diners; 
+            cin&gt;&gt;diners;
+            
+            double canvi = diners - a_pagar; 
+            cout&lt;&lt;"Canvi: "&lt;&lt;canvi&lt;&lt;endl;
+            
+            return 0;
+        }
+    </code></pre>
+</exercici>
+</div>
+
+  <p class = footer>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;2018
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

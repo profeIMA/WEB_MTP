@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      3.2 ESTRUCTURA ALTERNATIVA SIMPLE
+    </h1>
+  </center>
+    <h4>Estructura Alternativa Simple If - else </h4>
+        Una estructura alternativa és aquella que permet tenir diferents execucions en funció de l'estat del programa. Per determinar quina execució cal dur a terme per un estat determinat del programa, utilitzem <b>condicions</b>. Tota condició té assignada un tall de codi, de manera que quan la condició és certa, aleshores s'executa el tall de codi. I quan la condició és falsa, simplement s'ignora aquest tall. <br> 
+    
+        Els llenguatges de programació proporcionen dos tipus de condicions possibles: <br> 
+        <ul> 
+            <li><b>if(condició): </b>Aquest cas ens permet entrar una condició, la que nosaltres decidim. <i>Per exemple: i == 4</i>. Aquesta estructura demana que la condició retorni un valor booleà, és a dir, que només podem utilitzar operadors booleans per efectuar la condició. Si la condició falla, aleshores salta tot el que estigui compres dins de l'estructura, i executa el <b>else</b>, si n'hi ha.</li>
+            <li><b>else: </b> Aquesta estructura s'executa quan la condició del <b>if</b> falla. Així doncs, sempre ha d'anar a posteriori d'una condició if. 
+        </ul>
+    
+    Per poder visualitzar millor el seu funcionament, mirem el següent exemple: 
+    <i>Es fa una "loteria" on es demana al usuari que encerti el nombre amagat.</i>
+    
+    <pre><code class= "c++">
+        //Entrada: un natural entre 1 i 10. 
+        //Sortida: mostra si ha encertat el nombre secret o no.
+            unsigned int nombre_amagat = 3;
+
+            cout&lt;&lt;"Entra un natural entre 1 i 10"&lt;&lt;endl;
+            unsigned int a;
+            cin&gt;&gt;a; 
+
+            //Presa de decisio:
+
+            if(a == nombre_amagat)//Si el nombre que ha entrat és igual a nombre_amagat = (3) |(condició a == 3)|
+                cout&lt;&lt;"Has encertat el nombre secret"&lt;&lt;endl; 
+            else //Si no es igual a 3
+                cout&lt;&lt;"Ho sento, no has encertat el nombre secret"&lt;&lt;endl;
+
+    </code></pre>
+    
+    <h3>Estructura Alternativa Simple If</h3>
+    <teoria>
+    Amb l'exemple anterior com a base, intentarem fer l'exemple de l'ascensor <i>(veure pàgina 76 del llibre).</i><alerta>Hem d'indicar quin llibre és.</alerta><br> 
+    L'exercici ens diu el següent: <br>
+    <exercici>Volem fer el programa que controla un bloc de pisos que li falta el pis numero 13. Aleshores, cal compensar aquest pis que manca per tal que l'ascensor arribi correctament a tots els pisos.</exercici>
+    Tenim dues formes de resoldre el problema: 
+    <ul>
+        <li><b>Amb una estructura simple completa (if - else): </b>utilitzant l'esquema anterior podem resoldre l'exercici. <br>
+            <button onclick="myFunction(Ex11)">Veure Solució</button>
+            <solucio id="Ex11"><pseudocodi><pre><code class="nohighlight">
+               algorisme Control_ascensor 
+                   natural pis
+                   llegir pis
+                   natural pis_real 
+                   si pis>13
+                      pis_real=pis-1
+                   altrament
+                      pis_real=pis
+                   escriure pis_real
+            </code></pre></pseudocodi></solucio>
+            
+            
+            <button onclick="myFunction(Ex11C)">Veure Solució C++</button>
+           <solucio id="Ex11C"><pre><code class="c++">
+               // Entrada: llegeix un nombre natural (pis) diferent de 13
+                // Sortida: escriu el pis real (pis_real) al qual ha d'anar l'ascensor en funció del pis entrat
+
+                #include &lt;iostream&gt;
+                using namespace std; 
+
+                int main() {
+                   unsigned pis;
+                   cout&lt;&lt;"Pis: ";
+                   cin&gt;&gt;pis;
+                   unsigned pis_real;
+                   if (pis&gt;13) {
+                      pis_real=pis-1;
+                   }
+                   else {
+                      pis_real=pis;
+                   }
+                   cout&lt;&lt;"L'ascensor pujarà al pis real "&lt;&lt;pis_real&lt;&lt;endl;
+                   return 0;
+                }
+
+            </code></pre></solucio>
+            
+        </li>
+        <li><b>Amb una estructura simple incomplerta ( if): </b>aquesta estructura li falta l'else o altrament. Per això es diu que és incomplerta.<br>
+            
+         <button onclick="myFunction(Ex12)">Veure Solució</button>
+            <solucio id="Ex12"><pseudocodi><pre><code class="nohighlight">
+              algorisme Control_ascensor 
+                   natural pis
+                   llegir pis
+                   natural pis_real
+                   pis_real=pis
+                   si pis>13
+                      pis_real=pis-1
+                   escriure pis_real
+            </code></pre></pseudocodi></solucio>
+            
+             <button onclick="myFunction(Ex12C)">Veure Solució C++</button>
+           <solucio id="Ex12C"><pre><code class="c++">
+               // Entrada: llegeix un nombre natural (pis) diferent de 13
+                // Sortida: escriu el pis real (pis_real) al qual ha d'anar l'ascensor en funció del pis entrat
+
+                #include &lt;iostream&gt;
+                using namespace std; 
+
+                int main() {
+                   unsigned pis;
+                   cout&lt;&lt;"Pis: ";
+                   cin&gt;&gt;pis;
+                   unsigned pis_real;
+                   pis_real=pis;
+                   
+                   if (pis>13)
+                      pis_real=pis-1;
+                   
+                   cout&lt;&lt;"L'ascensor pujarà al pis real "&lt;&lt;pis_real&lt;&lt;endl;
+                   return 0;
+                }
+
+            </code></pre></solucio>
+            
+        </li>
+    </ul>
+    </teoria>
+    
+    <h3>Us de variables booleanes</h3>
+    Fins el moment hem vist que les condicions són expressions booleanes que si es compleixen s'entra dins del condicional. El que està passant realment és que el resultat d'avaluar l'expressió és un booleà, i aquest valor s'utilitza per informar al condicional de si cal entrar o no.<br> 
+    Així doncs, el que realment necessitem és un <b>valor booleà</b>, ja sigui <b>fruit d'una expressió o bé una variable booleana</b>. <br> 
+    
+    Un exemple seria el següent: 
+    <pseudocodi><pre><code class="nohighlight">
+            // Entrada: llegeix un nombre natural (any) 
+            // Sortida: escriu si any és o no un any de traspàs 
+
+        /************************************************************************
+                                EXPRESSIÓ LÒGICA
+        /************************************************************************
+            algorisme Any_traspàs 
+               natural any
+               llegir any 
+               <alerta>si (any mod 400==0) o (any mod 4==0 i any mod 100!=0)</alerta>
+                  escriure any, " és de traspàs" 
+               altrament 
+                  escriure any, " no és de traspàs"
+
+
+        /************************************************************************
+                                VARIABLE BOOLEANA 
+        /************************************************************************
+        algorisme Any_traspàs 
+           natural any
+           llegir any
+           booleà traspàs
+           <alerta>traspàs=(any mod 400==0) o (any mod 4==0 i any mod 100!=0)</alerta>
+           si traspàs
+              escriure any, " és de traspàs"
+           altrament
+              escriure any, " no és de traspàs"
+
+    </code></pre></pseudocodi>
+    
+    Per veure l'exemple en C++:<button onclick="myFunction(BoolC)">Veure exemple en C++</button>
+           <solucio id="BoolC"><pre><code class="c++">
+                // Entrada: llegeix un nombre natural (any) 
+                // Sortida: escriu si any és o no un any de traspàs 
+                
+                #include &lt;iostream&gt;
+                using namespace std;                
+
+                int main() {
+                    unsigned any;
+                    cout&lt;&lt;"Any gregorià: ";
+                    cin&gt;&gt;any;
+                    bool traspas= (any % 400==0) or (any % 4==0 and any % 100!=0);
+                    if (traspas)
+                        cout&lt;&lt;"L'any "&lt;&lt;any&lt;&lt;" és de traspàs"&lt;&lt;endl;
+                    else
+                        cout&lt;&lt;"L'any "&lt;&lt;any&lt;&lt;" no és de traspàs"&lt;&lt;endl;
+                    return 0;
+                }
+            </code></pre></solucio>
+    
+    <h4>Altres exemples:</h4>
+    A continuació hi ha diferents exemples per acabar de veure diferents opcions. 
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!---------------------------------------------------------------------EXEMPLE 1------------------------------------------------------------------------------------------------>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <h3>Exemple 1: Valor absolut</h3>
+   <exercici> Es demana un programa on l'usuari entri un valor per teclat, i el programa retorna el seu valor absolut. Només podem implementar operacions senzilles (es descarten potències i arrels quadrades).</exercici>
+    
+    <br>
+       
+       <pseudocodi><pre><code class="nohighlight">
+            // Entrada: llegeix un nombre enter (nombre)
+            // Sortida: escriu valor absolut de nombre
+
+            algorisme Valor_absolut 
+               enter nombre 
+               llegir nombre 
+               natural valor_absolut
+               si nombre&gt;=0
+                  valor_absolut=nombre
+               altrament
+                  valor_absolut=-nombre   
+               escriure valor_absolut
+
+
+        </code></pre></pseudocodi>
+    
+    <button onclick="myFunction(Ex22)">Solució Estructura if</button>
+       <solucio id="Ex22"><pseudocodi><pre><code class="nohighlight">
+            // Entrada: llegeix un nombre enter (nombre)
+            // Sortida: escriu valor absolut de nombre
+
+             algorisme Valor_absolut 
+               enter nombre 
+               llegir nombre 
+               natural valor_absolut
+               valor_absolut=nombre
+               si nombre&lt;0
+                  valor_absolut=-nombre   
+               escriure valor_absolut 
+
+
+
+        </code></pre></pseudocodi></solucio>
+    
+    
+    
+    
+      <button onclick="myFunction(Ex21C)">Solució Estructura if-else C++</button>
+           <solucio id="Ex21C"><pre><code class="c++">
+               // Entrada: llegeix un nombre natural (pis) diferent de 13
+                // Sortida: escriu el pis real (pis_real) al qual ha d'anar l'ascensor en funció del pis entrat
+
+                #include &lt;iostream&gt;
+                using namespace std; 
+
+                int main() {
+                    int nombre;
+                    cout&lt;&lt;"Nombre enter: ";
+                    cin&gt;&gt;nombre;
+                    unsigned valor_absolut;
+                    if (nombre&gt;=0)
+                        valor_absolut=nombre;
+                    else
+                        valor_absolut=-nombre;
+                    cout&lt;&lt;"El valor absolut de "&lt;&lt;nombre&lt;&lt;" és "&lt;&lt;valor_absolut&lt;&lt;endl;
+                    return 0;
+
+                }
+
+            </code></pre></solucio>
+    
+         <button onclick="myFunction(Ex22C)">Solució Estructura if C++</button>
+           <solucio id="Ex22C"><pre><code class="c++">
+               // Entrada: llegeix un nombre natural (pis) diferent de 13
+                // Sortida: escriu el pis real (pis_real) al qual ha d'anar l'ascensor en funció del pis entrat
+
+                #include &lt;iostream&gt;
+                using namespace std; 
+
+                int main() {
+                   unsigned pis;
+                   cout&lt;&lt;"Pis: ";
+                   cin&gt;&gt;pis;
+                 unsigned valor_absolut=nombre;
+                if (nombre&lt;0)
+                    valor_absolut=-nombre;
+                   
+                   cout&lt;&lt;"L'ascensor pujarà al pis real "&lt;&lt;pis_real&lt;&lt;endl;
+                   return 0;
+                }
+
+            </code></pre></solucio>
+    
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!---------------------------------------------------------------------EXEMPLE 2------------------------------------------------------------------------------------------------>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    
+    <h3>Exemple2: Màxim i mínim de dos enters</h3>
+    <exercici>Es demana que l'usuari entri dos valors enters, i el programa digui quin és el màxim i quin el mínim</exercici>
+    
+   
+      <pseudocodi><pre><code class="nohighlight">
+       
+        // Entrada: llegeix dos nombres enters (nombre1,nombre2)
+        // Sortida: escriu màxim(nombre1,nombre2) i mínim(nombre1,nombre2)
+
+        algorisme Màxim_mínim 
+           enter nombre1, nombre2
+           llegir nombre1
+           llegir nombre2
+           enter max, min
+           si nombre1&gt;=nombre2
+              max=nombre1 
+              min=nombre2
+           altrament
+              max=nombre2 
+              min=nombre1
+           escriure max,min 
+
+        </code></pre></pseudocodi>
+    
+    <button onclick="myFunction(Ex32)">Solució Estructura if</button>
+       <solucio id="Ex32"><pseudocodi><pre><code class="nohighlight">
+            // Entrada: llegeix dos nombres enters (nombre1,nombre2)
+            // Sortida: escriu màxim(nombre1,nombre2) i mínim(nombre1,nombre2)
+
+            algorisme Màxim_mínim 
+               enter nombre1, nombre2
+               llegir nombre1
+               llegir nombre2
+               enter max, min
+               max=nombre1 
+               min=nombre2
+               si nombre1&lt;nombre2
+                  max=nombre2 
+                  min=nombre1
+               escriure max,min 
+
+        </code></pre></pseudocodi></solucio>
+    
+    
+    
+    
+      <button onclick="myFunction(Ex31C)">Solució Estructura if-else C++</button>
+           <solucio id="Ex31C"><pre><code class="c++">
+            // Entrada: llegeix dos nombres enters (nombre1,nombre2)
+            // Sortida: escriu màxim(nombre1,nombre2) i mínim(nombre1,nombre2)
+            
+                #include &lt;iostream&gt;
+                using namespace std; 
+
+                int main() {
+                    int nombre1, nombre2;
+                    cout&lt;&lt;"Primer nombre enter: ";
+                    cin>>nombre1;
+                    cout&lt;&lt;"Segon nombre enter: ";
+                    cin>>nombre2;
+                    int max, min;
+                    if (nombre1&gt;=nombre2) {
+                        max=nombre1;
+                        min=nombre2;
+                    }
+                    else {
+                        max=nombre2;
+                        min=nombre1;
+                    }
+                    cout&lt;&lt;"Màxim de "&lt;&lt;nombre1&lt;&lt;" i "&lt;&lt;nombre2&lt;&lt;" és "&lt;&lt;max&lt;&lt;endl;
+                    cout&lt;&lt;"Mínim de "&lt;&lt;nombre1&lt;&lt;" i "&lt;&lt;nombre2&lt;&lt;" és "&lt;&lt;min&lt;&lt;endl;
+
+                    return 0;
+
+                }
+
+            </code></pre></solucio>
+    
+         <button onclick="myFunction(Ex32C)">Solució Estructura if C++</button>
+           <solucio id="Ex32C"><pre><code class="c++">
+            // Entrada: llegeix dos nombres enters (nombre1,nombre2)
+            // Sortida: escriu màxim(nombre1,nombre2) i mínim(nombre1,nombre2)
+
+                #include &lt;iostream&gt;
+                using namespace std; 
+
+                int main() {
+                    int nombre1, nombre2;
+                    cout&lt;&lt;"Primer nombre enter: ";
+                    cin>>nombre1;
+                    cout&lt;&lt;"Segon nombre enter: ";
+                    cin>>nombre2;
+                    int max=nombre1, min=nombre2;
+                    if (nombre1&lt;nombre2) {
+                        min=nombre1;
+                        max=nombre2;
+                    }
+
+                    cout&lt;&lt;"Màxim de "&lt;&lt;nombre1&lt;&lt;" i "&lt;&lt;nombre2&lt;&lt;" és "&lt;&lt;max&lt;&lt;endl;
+                    cout&lt;&lt;"Mínim de "&lt;&lt;nombre1&lt;&lt;" i "&lt;&lt;nombre2&lt;&lt;" és "&lt;&lt;min&lt;&lt;endl;
+                    
+                    return 0;
+                }
+
+            </code></pre></solucio>
+    
+        
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!---------------------------------------------------------------------FI EXEMPLES------------------------------------------------------------------------------------------------>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+    
+    
+</div>
+    
+<p class = footer>
+          <a class="backward" href="Condicionals_Motivacions.html"></a> <a class="forward" href="Condicionals_EstAltMultiple.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
+ 

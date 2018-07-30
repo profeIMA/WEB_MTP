@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-1');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      1.2 ESTUDI DE L'EFICIÈNCIA
+    </h1>
+  </center>
+    <h4>Estudi de l'eficiència</h4>
+    <h3>Què mesurem?</h3>
+    <teoria>
+        La <b>eficiència</b> està directament relacionada amb els recursos que utilitza el sistem. En el nostre cas ens centrerem en saber el <b>temps</b> que tarda el nostre algorisme a fer totes les instruccions. Malgrat tot, els temps dels algorismes poden variar en funció de variables <i>aleatòries</i>.<br>
+        Per exemple, un algorisme que ha de buscar un valor en un vector, el seu temps canviarà si el valor buscat és el primer o l'últim. Per aquest motiu, sempre es busca el <b>pitjor</b> i el <b>millor</b> dels casos.<br>
+        Sovint es prefereix utiltizar el <b>pitjor dels casos que el millor.</b><br>
+        Aquests temps, solen dependre directament de la <b>quantitat de dades</b> de les que disposem. 
+    </teoria>
+    
+    <h3>Grandària de les dades</h3>
+    <teoria>
+        Com hem vist a <a href="../TipusVariables/TipusVariables_TElemDades.html"> tipus de variables</a>, cada tipus té un cost diferent de memòria. És per això que quan volem saber la grandària de les nostres dades mirem: 
+        <ul>
+            <li><b>Nombre de bits</b>: necessàris per reprensentar / guardar les nostres dades. És un dels factors més importants i es representa per la lletra <b>n</b>.</li>
+            <li><b>Exemples:</b>
+                <ul>
+                    <li>Un vector d'enters de <b>m</b> elements: Si cada posició són 32 bits, aleshores, la mida serà de <b>nombres guardats * 32 = m</b>. I aixo equival a: <b> n = m </b></li>
+                    <li>El càlcul d'un factorial !a, aleshores n = log<sub>2</sub>(m)</li>
+                </ul>
+            </li>
+        </ul>
+    </teoria>
+        
+    <h3>Cost de les operacions</h3>
+    <teoria>
+        Un altre problema que ens sorgeix és a la hora de definir <b>quant costa fer una operació</b>, no tenim un mètode enpíric precís ja que cada ordinador té un hardware i software diferent. <br>
+        Per solucionar el problema utiltizarem les <b>unitats de temps</b>, sense especificar la equivalència entre unitats de temps i segons. Per altre banda també definirem quines són les <b>operacions unitàries</b> que només <b>utilitzen una unitat de temps</b> per calcular-se.<br>
+        Aquestes operacions són: 
+        <ul>
+            <li><b>Les operacions aritmètiques: </b>+ , - ,/ ,* , log(), exp(), sin(), cos(), etc. <alerta>L'exponent no és una d'elles</alerta></li>
+            <li><b>Comparadors lògics: </b> &lt;, &gt;,&lt;=, &gt;=, ==, !=.</li>
+            <li><b>Lectura i escriptura a qualsevol registre de memòria: </b> Sovint es fa mitjantçant punters.</li>
+        </ul>
+        Totes la resta d'operacions que pot fer el programa de segur que és una composició de les operacions unitàries, i per tant, en podrem saber el cost que tenen. Això ens permet <b>analitzar la eficència teòrica</b>, que vindrà donada pel nombre d'operacions simples i la <b>complexitat</b> de l'algorisme.
+    </teoria>
+</div>
+
+    
+<p class = footer>
+    <a class="backward" href="Eficiencia_Motivacions.html"></a>  <a class="forward" href="Eficiencia_OrdreComplexitat.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+</div>
+
+
+
+</body>
+
+</html>
+
+ 

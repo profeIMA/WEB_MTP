@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="/CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      7.3 TAULES
+    </h1>
+  </center>
+  
+  
+  <h4>Fonaments</h4>
+  
+  <teoria>
+	Les taules són estructures de dades (elements) del mateix tipus (tipus base) sota d'un nom o identificador.<br>
+	Declaració (+ reserva de memòria):
+	<ul>
+		<li> <strong>Una dimensió:</strong> tipus nom [capacitat] //capacitat és un nombre natural</li>
+		<li> <strong>Dues dimensions:</strong> nom[capacitat_files][capacitat_columnes]</li>
+	</ul>
+	
+	<pre><code class = "c++"> int a[10]; // vector
+int b[]; // matriu o vector de vectors
+	</code></pre>
+	La representació gràfica de a i b podria ser una cosa així:
+	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple1.PNG" alt = "Exemple de taula d'una dimensió"/><br>
+	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple2.PNG" alt = "Exemple de taula de dues dimensions"/><br>
+	
+	La posició de cada element està especificada per índexs naturals en el rang [0..capacitat-1]. 
+	Per accedir a un element fem servir l'operador [] i els índexs que indiquen la posició del element: <br>
+	<ul>
+		<li>nom[índex] per a una dimensió</li>
+		<li>nom[índex_fila] [índex_columna] per a dues dimensions</li>
+	</ul>
+	
+	Usant les taules a i b  declarades anteriorment l'accés seria així:<br>
+	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple3.PNG" alt = "Exemple de accés a un element d'una taula d'una dimensió"/><br>
+	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple4.PNG" alt = "Exemple de accés a un element d'una taula de dues dimensions"/><br>
+		
+	Cal distingir entre ocupació i capacitat. Mai podem sobrepassar la capacitat, però podem tenir posicions "desocupades". Caldrà tenir un control sobre les posicions ocupades.
+	
+	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple5.PNG" alt = "Exemple d'ocupació en una taula d'una dimensió."/><br>
+	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple6.PNG" alt = "Exemple d'ocupació en una taula de dues dimensions."/><br>
+	
+	El tipus base d'una taula pot ser qualsevol tipus elemental, a més de qualsevol struct o taula. <br>
+	Els elements a[i] o b[i][j], corresponents a un vector o a una matriu d'un determinat tipus, són tractats com a simples variables d'aquest tipus. <br>
+	<strong> Indexació i accessos fora de rang</strong>: 
+	En C++, els índexs dels elements d'un array de capacitat N van de 0 a N-1. Quan s'accedeix a un element que no existeix (per exemple a la posició N), 
+	es produeix un accés fora de rang, que és un error greu. C++ no dona cap missatge especial quan es produeix un accés fora de rang; pot ser un error difícil de detectar, 
+	així que cal verificar amb cura que el nostre codi no en tingui cap.
+	<h3>Tipus taula</h3>
+	
+	<teoria>
+		
+	
+		<pre><code class="c++">struct Punt_2d {double x; double y;};
+
+typedef int Vector_enter[100];
+typedef int Matriu_enter[50][100];
+// typedef Vector_enter Matriu_enter[50];
+typedef Punt_2d Matriu_punt_2d[50][100];
+typedef double Vector_real[100];
+typedef char Vector_caracter[100];
+
+int main(){
+    Vector_enter vec;
+    Matriu_enter mat;
+    Matriu_punt_2d mat_punt_2d;
+    ...
+}</code></pre>
+
+		També es pot fer usant typedef i constants, així:
+		<pre><code class="c++">const unsigned N_MAX=100, N_FIL_MAX=100, N_COL_MAX=100;
+
+struct Punt_2d {double x; double y;};
+
+typedef int Vector_enter[N_MAX]; 
+typedef int Matriu_enter[N_FIL_MAX][N_COL_MAX];
+// typedef Vector_enter Matriu_enter[N_FIL_MAX];
+typedef Punt_2d Matriu_punt_2d[N_FIL_MAX][N_COL_MAX];
+typedef double Vector_real[N_MAX];
+typedef char Vector_caracter[N_MAX];
+
+int main(){
+    Vector_enter vec;
+    Matriu_enter mat;
+    Matriu_punt_2d mat_punt_2d;
+    ...
+}</code></pre>
+
+
+  </teoria>
+	
+	<h3>Esquemes sobre vector</h3>
+	<teoria>
+		Els esquemes de treball sobre vectors són els següents (iguals que els de les seqüències):
+		<ul>
+			<li><strong>Recorregut:</strong> En general, coneixem per endavant el nombre d'elements i es fa amb un for.
+				<ul>
+					<li> <strong> Esquema simple de recorregut (vector)</strong>
+					<pseudocodi><pre><code class ="nohighlight">inicialització tractament
+per index de 0 fins n-1 fer
+    tractar element[index]
+tractament final</code></pre></pseudocodi>
+					</li>
+					<li> <strong> Esquema simple de recorregut (matriu n*m)</strong>
+					<pseudocodi><pre><code class ="nohighlight">inicialització tractament
+per index_fila de 0 fins n-1 fer
+	per index_columna de 0 fins m-1 fer
+		tractar element[index_fila][index_columna]
+tractament final</code></pre></pseudocodi>
+					</li>
+				</ul>
+			</li>
+			<li><strong>Cerca:</strong> Recorrem fins que es compleix una condició o arriba al final amb un while.
+				<ul>
+					<li> <strong> Esquema simple de cerca (vector)</strong>
+					<pseudocodi><pre><code class ="nohighlight">index=0
+trobat=fals
+mentre index&lt;n i no trobat fer
+	tractar element (index, trobat)
+tractament final</code></pre></pseudocodi>
+					</li>
+					<li> <strong> Esquema simple de cerca (matriu n*m)</strong>
+					<pseudocodi><pre><code class ="nohighlight">index_fila=0
+index_columna=0
+trobat=fals
+mentre index_fila&lt;n i no trobat fer
+	mentre index_columna&lt;n i no trobat fer
+		tractar element (index_columna, trobat)
+	index_fila=index_fila+1
+tractament final</code></pre></pseudocodi>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</teoria>
+	</teoria>
+	
+	
+	
+ </div>
+<p class = footer>
+<a class="backward" href="TuplesTaules_Tuples.html"></a> <a class="forward" href="TuplesTaules_Basic.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
