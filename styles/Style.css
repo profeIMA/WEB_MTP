@@ -302,13 +302,16 @@ solucio{
 
 
 a.forward {
+	height: 30px;
     padding-top: 50px;
-    content:url(../Recursos/Imatges/IconaAvans.png); 
+    content:url(../Recursos/Imatges/IconaAvans.png);
     float: right;
     padding-bottom: 30px;
 }
 
 a.backward {
+    margin-left: 208px;
+	height: 30px;
     padding-top: 50px;
     content:url(../Recursos/Imatges/IconaRetroces.png); 
     float:left;
