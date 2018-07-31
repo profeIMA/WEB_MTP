@@ -70,20 +70,20 @@
             Amb aquest parell de directrius, podem veure el funcionament de la traça en tot moment i sabem que esta fent. Un exemple seria el següent: 
             <pre><code class="C++">
             
-                cerr&lt;&lt;"INICI ESTRUCUTRA ITERATIVA"&lt;&lt;endl;
-                int suma = 0; 
-                cerr&lt;&lt;"VALORS INICIALS"&lt;&lt;endl; 
-                cerr&lt;&lt;"\t suma = "&lt;&lt;suma&lt;&lt;endl;
-                for(int i = 0; i &lt; 10; i++)
-                {
-                    cerr&lt;&lt;"Iteracio num: "&lt;&lt;i&lt;&lt;endl; 
-                    suma+=i; 
-                    cerr&lt;&lt;"\t valor suma: "&lt;&lt;suma&lt;&lt;endl;
-                }
+        cerr&lt;&lt;"INICI ESTRUCUTRA ITERATIVA"&lt;&lt;endl;
+        int suma = 0; 
+        cerr&lt;&lt;"VALORS INICIALS"&lt;&lt;endl; 
+        cerr&lt;&lt;"\t suma = "&lt;&lt;suma&lt;&lt;endl;
+        for(int i = 0; i &lt; 10; i++)
+        {
+            cerr&lt;&lt;"Iteracio num: "&lt;&lt;i&lt;&lt;endl; 
+            suma+=i; 
+            cerr&lt;&lt;"\t valor suma: "&lt;&lt;suma&lt;&lt;endl;
+        }
 
-                cerr&lt;&lt;"VALORS FINALS"&lt;&lt;endl; 
-                cerr&lt;&lt;"\t suma = "&lt;&lt;suma&lt;&lt;endl;
-                cerr&lt;&lt;"FINAL ESTRUCUTRA ITERATIVA"&lt;&lt;endl;
+        cerr&lt;&lt;"VALORS FINALS"&lt;&lt;endl; 
+        cerr&lt;&lt;"\t suma = "&lt;&lt;suma&lt;&lt;endl;
+        cerr&lt;&lt;"FINAL ESTRUCUTRA ITERATIVA"&lt;&lt;endl;
             </code></pre>
             
             Amb aquest codi, tenim tota la traça ben documentada de la nostre execució. Com heu pogut observar, en comptes d'utilitzar <b>cout</b>, utilitzem <b>cerr</b>, això és degut perquè utilitzem un altre canal (el qual també es mostra per pantalla), però és un canal dedicat a mostrar errors i informació rellevant pels desenvolupadors, que en la versió final del programa es pot fer que no es mostri.<br>

@@ -57,26 +57,26 @@
     Abans de seguir amb les instruccions cal saber utilitzar correctament les variables en C++. És per això que a continuació farem un repàs de com s'utilitzaven: 
     
             <pre><code class="c++">
-        #include &lt;string&gt;
-        
-        using namespace std; 
-            int main()
-            {
-                int variableEntera; // Declaració d'una variable entera usant notació camel. 
-                variableEntera = 5; // Assignació d'una variable entera amb una constant sense nom (5 és una constant sense nom).
-                
-                bool VARIABLE_LOGICA = true; //Declaració i inicialització d'una constant lògica utilitzant la notació de barra baixa. 
-                
-                char variable_caracter = 'P'; //Declaració i inicialització d'una variable caràcter utilitzant la notació de barra baixa. 
-                
-                unsigned int variable_natural, variableNatural; //Declaració de dues variables naturals. 
-                variable_natural = 10; //Assignació d'una variable natural. 
-                variableNatural = variable_natural; //Assignació d'una variable natural usant una altre variable natural.
-                
-                string missatgeError= "Error, torna a introduir les dades", missatgeOK = "Finalitzacio correcte";//Declaració i inicialització de dues variables tipus string (cadena de caràcters).
-            
-                return 0;
-            }
+#include &lt;string&gt;
+
+using namespace std; 
+    int main()
+    {
+        int variableEntera; // Declaració d'una variable entera usant notació camel. 
+        variableEntera = 5; // Assignació d'una variable entera amb una constant sense nom (5 és una constant sense nom).
+
+        bool VARIABLE_LOGICA = true; //Declaració i inicialització d'una constant lògica utilitzant la notació de barra baixa. 
+
+        char variable_caracter = 'P'; //Declaració i inicialització d'una variable caràcter utilitzant la notació de barra baixa. 
+
+        unsigned int variable_natural, variableNatural; //Declaració de dues variables naturals. 
+        variable_natural = 10; //Assignació d'una variable natural. 
+        variableNatural = variable_natural; //Assignació d'una variable natural usant una altre variable natural.
+
+        string missatgeError= "Error, torna a introduir les dades", missatgeOK = "Finalitzacio correcte";//Declaració i inicialització de dues variables tipus string (cadena de caràcters).
+
+        return 0;
+    }
         
         </code></pre>
     
@@ -89,21 +89,21 @@
     <teoria>
         La assignació és el procés de canviar el valor a una variable, sobreescrivint el valor anterior. En C++ utilitzem el <b>=</b> per assignar el valor de la dreta, a la variable de l'esquerra. 
         
-        <img  src="../../Recursos/Gif/assignacio.gif" alt = "Gif del funcionament de l'assignació" style="width: 450px;height: 280px;">
+       <!-- <img  src="../../Recursos/Gif/assignacio.gif" alt = "Gif del funcionament de l'assignació" style="width: 450px;height: 280px;">-->
         
             Com sabem aquestes variables permeten fer operacions entre elles, en el cas de les numèriques tenim les operacions bàsiques de les matemàtiques. El C++ ens permet utilitzar aquestes operacions de diferents formes, les explícites i les compactes: 
     <ul>
         <li><b>Explícites:</b> l'usuari escriu ell mateix com vol que sigui els operands, i assigna el resultat fina la una variable. Per exemple: 
             <pre><code class="c++">
-                int a = 5; //Inicialització de a = 5; 
-                a = a * 2;// Operació explicita a * 2. 
+int a = 5; //Inicialització de a = 5; 
+a = a * 2;// Operació explicita a * 2. 
             </code></pre>
         </li>
         
         <li><b>Compactes:</b> les compactes només necessitem un operand ja que el segon operand es sobreentén que és sobre la variable que estem fent la assignació. 
             <pre><code = "c++">
-                int a = 5; //Inicialització de a = 5; 
-                a*=2; // Operació compacte, multipliquem a*2 i assignem el resultat a " a ". 
+int a = 5; //Inicialització de a = 5; 
+a*=2; // Operació compacte, multipliquem a*2 i assignem el resultat a " a ". 
             </code></pre>
         </li>
     </ul>
@@ -140,7 +140,7 @@
                     <ul>
                         <li><b>Escollir quin caràcter omplir els forats en blanc</b>: com hem vist abans, el <b>setw</b> ens genera espais en blanc. Podem escollir que en comptes d'espais en blanc, usi un altre caràcter
                         <pre><code class="c++">
-                            cout&lt;&lt;setfill('.')&lt;&lt;set(8)&lt;&lt;2.3; //Mostrara:.....2.3 (5 punts i 2.3 = 8)
+cout&lt;&lt;setfill('.')&lt;&lt;set(8)&lt;&lt;2.3; //Mostrara:.....2.3 (5 punts i 2.3 = 8)
                         </code></pre>
                         </li>
                     </ul>
@@ -150,8 +150,8 @@
                 
                 <li><b>Escollir la precisió:</b> podem triar quants decimals volem mostrar per pantalla. 
                     <pre><code class="c++">
-                        cout.setf(ios::fixed); 
-                        cout.precision(2);//A partir d'ara tots els reals que es mostrin tindran 2 decimals.
+cout.setf(ios::fixed); 
+cout.precision(2);//A partir d'ara tots els reals que es mostrin tindran 2 decimals.
                     </code></pre>
                 </li>
                 
@@ -167,25 +167,25 @@
         En C++ usarem la instrucció <b>cin</b> que requereix incloure la llibreria <b>&lt;iomanip&gt;</b>. De la mateixa forma que en el cas de la sortida on utilitzàvem la instrucció <i>cout</i> seguida de l'operador <i>&lt;&lt;</i>. En el nostre cas usarem <b>cin</b> seguit de l'operador <b>&gt;&gt;</b> que ens separarà les diferents entrades que vulguem llegir. <br>
         Exemple: 
         <pre><code class="c++">
-         #include &lt;iostream&gt;
-            ...
-            int var_entera;
-            cin&gt;&gt;var_entera;//Llegim un enter per teclat
-            ...
+#include &lt;iostream&gt;
+...
+int var_entera;
+cin&gt;&gt;var_entera;//Llegim un enter per teclat
+...
         </code></pre>
         Podem veure que en funció de la variable on vulguem guardar l'entrada, el programa llegirà un enter, un real, un caràcter, etc. Per això és important saber quines dades esperem que entrin i informar a l'usuari. <alerta>Si intentem guardar un tipus de dada a una variable de diferent tipus, podem tenir resultats indesitjats.</alerta><br><br>
         
         Sovint abans de demanar una entrada de teclat s'informa a l'usuari quina dada ha d'introduir: 
         
         <pre><code class="c++">
-            #include &lt;iostream&gt;
-            ...
-            cout&lt;&lt;"Introdueix la teva edat i el teu nom"&lt;&lt;endl;
-            
-            unsigned int edat; 
-            string nom;
-            cin&gt;&gt;edat&gt;&gt;nom;//Llegeix un natural i el guarda a edat --> Llegeix una cadena de caràcters i el guarda a nom.
-            ...
+#include &lt;iostream&gt;
+...
+cout&lt;&lt;"Introdueix la teva edat i el teu nom"&lt;&lt;endl;
+
+unsigned int edat; 
+string nom;
+cin&gt;&gt;edat&gt;&gt;nom;//Llegeix un natural i el guarda a edat --> Llegeix una cadena de caràcters i el guarda a nom.
+...
         </code></pre>
     </teoria>
     
