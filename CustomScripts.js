@@ -24,7 +24,17 @@ $(document).ready(
         document.getElementById("anyActual").innerHTML = new Date().getFullYear();
         document.getElementsByTagName("title")[0].innerHTML = "Algorismes i estructures de dades";
         $('head').append('<link rel="shortcut icon" href="../../favicon.ico"></link>');
-          }
+        elements = document.getElementsByClassName("backward round");
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = "&#8249;";
+        }
+        elements = document.getElementsByClassName("forward round");
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = "&#8250;";
+        }
+    
+    }
+
 );
 
 
