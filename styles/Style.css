@@ -313,6 +313,9 @@ a.forward {
     text-decoration: none;
     /* display: inline-block; */
     padding: 8px 16px;
+	font-size: 20px;
+    vertical-align: middle;
+    text-align: center;
     
 }
 
@@ -334,6 +337,9 @@ a.backward {
     text-decoration: none;
     /* display: inline-block; */
     padding: 8px 16px;
+	font-size: 20px;
+    vertical-align: middle;
+    text-align: center;
 }
 
 a.backward:hover {

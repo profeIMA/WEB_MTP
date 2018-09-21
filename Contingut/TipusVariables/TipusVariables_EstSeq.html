@@ -43,7 +43,6 @@
             <li>El programa mai retrocedirà línies de codi, de manera que no hi ha forma de tornar a un estat "anterior". (Amb l'excepció dels bucles) <alerta>Cal posar link als bucles!!</alerta></li>
         </ul>
         Quan es compleixen tots els requisits direm que hi ha un bon algorisme seqüencial.
-    </teoria>
     
     <h3>Algorisme</h3>
     Un algorisme és un conjunt d'instruccions per tal d'efectuar una tasca. Sovint això implica la modificació i tractament de les dades que té el programa, les quals defineixen una <b>successió d'estats</b> que al final donaran un estat final.<br>
@@ -125,14 +124,33 @@
     <teoria>
         En el nostre cas el C++, tot i que usualment tots els llenguatges de programació utilitzen formes i maneres semblants. <br>
         El programa que elaborem haurà de seguir la següent estructura:
-        <img alt="Estructura d'un codi en C++" src="../../Recursos/Imatges/estructura_sequencial_C++.png" style="width:500px;height: 350px;" >
+
+        <br><br><h2>Estructura d'un codi en C++</h2><br><br>
+        <teoria>
+        <ol type="1">
+            <li style="list-style: decimal;">Especificació: Entrada / Sortida</li>
+            <li style="list-style: decimal;">#include de les llibreries necessàries</li>
+            <li style="list-style: decimal;">using namespace std;</li>
+            <li style="list-style: decimal;">
+                int main(){
+                    entre les claus d'obrir i tencar el main (entre { i }):
+                    <ul>
+                        <li>definició de les variables i constants necessàries</li>
+                        <li>totes les instruccions del programa</li>
+                    </ul>
+                    return 0;
+                }
+            </li>
+        </ol></teoria>
+
+        <!-- <img alt="Estructura d'un codi en C++" src="../../Recursos/Imatges/estructura_sequencial_C++.png" style="width:500px;height: 350px;" > -->
         
-        <ul>
-            <li><b>1.</b> L'especificació no tindrà variació respecte a la que hem vist amb el pseudocodi.</li>
-            <li><b>2.</b> Les llibreries necessàries com és el cas de <i><b>iostream o cmath</b></i> sempre es posen al principi de tot.</li>
-            <li><b>3.</b> Using namespace std; s'utilitza per definir que treballem amb un entorn <b>estàndard</b>.</li>
-            <li><b>4.</b> Aquí és on comença el nostre codi, la funció <b>main</b> és la que executarà el nostre ordinador.</li>
-        </ul>
+        <ol>
+            <li style="list-style: decimal;">L'especificació no tindrà variació respecte a la que hem vist amb el pseudocodi.</li>
+            <li style="list-style: decimal;">Les llibreries necessàries com és el cas de <i><b>iostream o cmath</b></i> sempre es posen al principi de tot.</li>
+            <li style="list-style: decimal;">Using namespace std; s'utilitza per definir que treballem amb un entorn <b>estàndard</b>.</li>
+            <li style="list-style: decimal;">Aquí és on comença el nostre codi, la funció <b>main</b> és la que executarà el nostre ordinador.</li>
+        </ol>
         
         Vegem els exemples anteriors passats a C++: <br><br> 
           
@@ -211,6 +229,8 @@
         
     </code></pre></solucio>
    </teoria> 
+   
+</teoria>
 </div>
 
 
