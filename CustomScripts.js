@@ -22,7 +22,7 @@ $(function() {
 $(document).ready(
     function(){
         document.getElementById("anyActual").innerHTML = new Date().getFullYear();
-        document.getElementsByTagName("title")[0].innerHTML = "Algorismes i estructures de dades";
+        document.getElementsByTagName("title")[0].innerHTML = "Algorismes i Estructures de Dades";
         $('head').append('<link rel="shortcut icon" href="../../favicon.ico"></link>');
         elements = document.getElementsByClassName("backward round");
         for (var i = 0; i < elements.length; i++) {
