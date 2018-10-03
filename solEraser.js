@@ -1,5 +1,4 @@
-$(document).ready(
-    function(){
+jQuery(function(){
 		var temes = ["1","2","3","4","5","6","7"];
 		for (var i = 0; i < temes.length; i++){
 			var nom_classe = "a_solucio_".concat(temes[i]);;
