@@ -77,8 +77,8 @@ a:hover   { color: #aa3e3b; text-decoration: underline;  }
 /***************************************************/
 
 
-#menu a.picture { color: #fff; background: #000;  text-decoration: none; font-size: 12px;
-                 border-width: 0px; padding: 0px 0px;}
+#menu p.logo {border-width: 1px; padding: 0px 0px; border-color: #2A4341; border-style:solid;
+background: #93bcb9;}
 
 
 
@@ -86,7 +86,6 @@ a:hover   { color: #aa3e3b; text-decoration: underline;  }
 float: left;
 width: 190px;
 /* background: #eee; */
-background: #000;
 position:fixed;
 }
 
