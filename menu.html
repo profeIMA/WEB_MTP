@@ -1,22 +1,14 @@
-
+<script src="../../desMenu.js"></script>
 <p class = "logo" >
     <br>
 	<img class = "logo" height="auto" width="200px" src="../../Recursos/Imatges/logo.png" alt="Logo: Programació">
     <br>
 </p>
-
-<!-- Coses de implementació:
-    el input necessita id del tipus collapse-input-X on X pot ser qualsevol cosa per poder mantenir estil
-    el label fa referencia al seu input sino al clicar desplegarà un menú que no toca o cap.
-    el primer ul del desplegable ha de ser de classe menucontent, la resta no en necessiten.
-
--->
-
 <ul>
     <li> <input type="checkbox" id="collapse-input-0"> <label for = "collapse-input-0"> <a class = "title">Iniciació a la programació</a> </label>
             <ul class = "menucontent" id="iniciacio">
 			<li> <a href = "">1.&nbsp;&nbsp;Introducció</a>
-                    <ul>
+                    <ul id="cont_1_1">
                         <li> <a href = "../Introduccio/Introduccio_Motivacions.html">1.1&nbsp;&nbsp;Objectius i motivació</a></li>
                         <li> <a href = "../Introduccio/Introduccio_Informatica.html">1.2&nbsp;&nbsp;Què és la informàtica</a></li>
                         <li> <a href = "../Introduccio/Introduccio_EstructuraPrograma.html">1.3&nbsp;&nbsp;Estructura d'un programa</a></li>
@@ -24,7 +16,7 @@
                     </ul>
                 </li>
                 <li> <a href = "">2.&nbsp;&nbsp;Tipus elementals de dades i instruccions bàsiques</a>
-                    <ul>
+                    <ul id="cont_1_2">
                         <li> <a href = "../TipusVariables/TipusVariables_Motivacions.html">2.1&nbsp;&nbsp;Objectius i motivació</a></li>
                         <li> <a href = "../TipusVariables/TipusVariables_TElemDades.html">2.2&nbsp;&nbsp;Tipus elementals de dades</a></li>
                         <li> <a href = "../TipusVariables/TipusVariables_Variables.html">2.3&nbsp;&nbsp;Constants, variables i expressions</a></li>
@@ -36,7 +28,7 @@
                 </li>
 
                 <li> <a href = "">3.&nbsp;&nbsp;Decisions</a>
-                    <ul>
+                    <ul id="cont_1_3">
                         <li> <a href = "../Condicionals/Condicionals_Motivacions.html">3.1&nbsp;&nbsp;Objectius i motivació</a></li>
                         <li> <a href = "../Condicionals/Condicionals_EstAltSimple.html">3.2&nbsp;&nbsp;Estructura alternativa simple</a></li>
                         <li> <a href = "../Condicionals/Condicionals_EstAltMultiple.html">3.3&nbsp;&nbsp;Múltiples casos</a></li>
@@ -47,7 +39,7 @@
                 </li>
 
                 <li> <a href = "">4.&nbsp;&nbsp;Bucles</a>
-                    <ul>
+                    <ul id="cont_1_4">
                         <li> <a href = "../Bucles/Bucles_Motivacions.html">4.1&nbsp;&nbsp;Objectius i motivació</a></li>
                         <li> <a href = "../Bucles/Bucles_EstRepetitiva.html">4.2&nbsp;&nbsp;Estructura repetitiva</a></li>
                         <li> <a href = "../Bucles/Bucles_BuclesNiats.html">4.3&nbsp;&nbsp;Bucles niats</a></li>
@@ -59,7 +51,7 @@
                 </li>
 
                 <li> <a href = "">5.&nbsp;&nbsp;Accions i funcions, disseny descendent</a>
-                    <ul>
+                    <ul id="cont_1_5">
                         <li> <a href = "../AccionsFuncions/AccionsFuncions_Motivacions.html">5.1&nbsp;&nbsp;Objectius i motivació</a></li>
                         <li> <a href = "../AccionsFuncions/AccionsFuncions_Subprogrames.html">5.2&nbsp;&nbsp;Subprogrames</a></li>
                         <li> <a href = "../AccionsFuncions/AccionsFuncions_Especificacio.html">5.3&nbsp;&nbsp;Especificació</a></li>
@@ -71,7 +63,7 @@
                 </li>
 
                 <li> <a href = "">6.&nbsp;&nbsp;Seqüències</a>
-                    <ul>
+                    <ul id="cont_1_6">
                         <li> <a href = "../Sequencies/Sequencies_Motivacions.html">6.1&nbsp;&nbsp;Objectius i motivació</a></li>
                         <li> <a href = "../Sequencies/Sequencies_QueEs.html">6.2&nbsp;&nbsp;Què és una seqüència</a></li>
                         <li> <a href = "../Sequencies/Sequencies_Problemes.html">6.3&nbsp;&nbsp;Treball amb seqüències</a></li>
@@ -85,7 +77,7 @@
                 </li>
                 
                 <li> <a href = "">7.&nbsp;&nbsp;Tuples i taules</a>
-                    <ul>
+                    <ul id="cont_1_7">
                         <li> <a href = "../TuplesTaules/TuplesTaules_Motivacions.html">7.1&nbsp;&nbsp;Objectius i motivació</a></li>
                         <li> <a href = "../TuplesTaules/TuplesTaules_Tuples.html">7.2&nbsp;&nbsp;Tuples</a></li>
                         <li> <a href = "../TuplesTaules/TuplesTaules_Taules.html">7.3&nbsp;&nbsp;Taules</a></li>
@@ -98,7 +90,7 @@
                     </ul>
                 </li>
 				<li> <a href = "">8.&nbsp;&nbsp;Recursivitat</a>
-                    <ul>
+                    <ul id="cont_1_8">
                         <li> <a href = "">8.1&nbsp;&nbsp;Objectius i motivació</a></li>
                     </ul>
                 </li>

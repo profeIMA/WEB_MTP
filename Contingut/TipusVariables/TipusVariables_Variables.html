@@ -45,12 +45,12 @@
     
     En C++ hi ha tres parts referents a l'ús de les variables: 
         <ul>
-            <li><b>Declaració:</b> es defineix el nom i el tipus de la variable. <b><i>tipus nom_variable;</i></b></li>
+            <li><b>Declaració:</b> es defineix el nom i el tipus de la variable. <b><codi>tipus nom_variable;</codi></b></li>
             <li><b>Inicialització i/o assignació:</b> aquesta fase és la que es dóna un valor a la variable, pot ser en la mateixa declaració o bé en un moment posterior: 
             
             <ul>
-            <li><b>En la inicialització:</b> En el moment de la declaració, se li assigna una valor. <b><i>tipus nom_variable = valor;</i></b></li>    
-                <li><b>A posteriori:</b> en qualsevol moment podem donar un valor a la variable: <b><i>nom_variable = valor;</i></b></li>
+            <li><b>En la inicialització:</b> En el moment de la declaració, se li assigna una valor. <b><codi>tipus nom_variable = valor;</codi></b></li>    
+                <li><b>A posteriori:</b> en qualsevol moment podem donar un valor a la variable: <b><codi>nom_variable = valor;</codi></b></li>
             </ul>
             </li>
             
@@ -62,7 +62,7 @@
         Una constant és una variable que el seu valor no varia durant l'execució del programa. Tenim dos tipus de constants. 
         <ul>
         <li><b>Sense Nom:</b> són aquelles que es dóna el seu valor directament com podria ser: 8, "hola", 'A', true, -2.5 .</li>
-            <li><b>Amb Nom:</b> són aquelles que tenen un tipus i nom donats pel programador. Es comporten igual que les variables que hem vist anteriorment. <br> La única diferència és que en la declaració s'utilitza la paraula clau <b><i>const</i></b>. Exemple: <b><i>const tipus nom_variable = valor</i></b>.</li>
+            <li><b>Amb Nom:</b> són aquelles que tenen un tipus i nom donats pel programador. Es comporten igual que les variables que hem vist anteriorment. <br> La única diferència és que en la declaració s'utilitza la paraula clau <b><codi>const</codi></b>. Exemple: <b><codi>const tipus nom_variable = valor</codi></b>.</li>
         </ul>
         <alerta>Les constants amb nom sempre usarem Majúscules i utilitzant una barra baixa per separar paraules. </alerta>
     </teoria>
@@ -146,10 +146,8 @@ int main(){
     <h3>Funcions predefinides</h3>
         <teoria>
         Els operadors matemàtics anteriors no són suficients per realitzar totes les operacions, per solucionar aquesta mancança apareixen les llibreries. La llibreria <b>&lt;cmath&gt;</b> que ens dóna les suficients eines per fer tot tipus d'operacions matemàtiques. <br>
-        Per utilitzar-la cal fer el següent <b>include</b>:
-        
-        <pre><code class="C++"> #include &lt;cmath&gt;</code></pre>
-    
+        Per utilitzar-la cal fer el següent <b>include</b>: <b><codi>#include &lt;cmath&gt;</codi></b>
+		<br>
         A continuació us mostrem les funcions més significatives de la llibreria: 
         <br><br> 
         <img alt="Llistat funcions cmath" src="../../Recursos/Imatges/FuncionsCmath.PNG">

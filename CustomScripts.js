@@ -1,14 +1,12 @@
 ﻿
-
-$(function() {
-	
-    $("#menu").load("../../menu.html");
-
-});
+// $(function() {
+    // $("#menu").load("../../menu.html");
+// });
 
 
 $(document).ready(
     function(){
+		$("#menu").load("../../menu.html");
         document.getElementById("anyActual").innerHTML = new Date().getFullYear();
         //document.getElementsByTagName("title")[0].innerHTML = "Algorismes i Estructures de Dades";
 		document.getElementsByTagName("title")[0].innerHTML = "Programació";
@@ -22,7 +20,7 @@ $(document).ready(
             elements[i].innerHTML = "&#8250;";
         }
     
-    }
+	}
 
 );
 
