@@ -48,7 +48,7 @@
     
     Per executar instruccions en C++ cal seguir unes pautes per tal d'evitar errors de compilació: 
     <ul>
-    <li>Totes les instruccions acaben amb un <b>;</b> al final. (exemple: llegir(); escriure();). <alerta>Si no es posen, no podrem compilar el programa.</alerta></li>
+    <li>Totes les instruccions acaben amb un <b><codi>;</codi></b> al final. (exemple: llegir(); escriure();). <alerta>Si no es posen, no podrem compilar el programa.</alerta></li>
     <li>Les instruccions es llegeixen de dalt a baix i de forma ordenada. Això obliga a <b>declarar variables abans de poder-les utilitzar.</b></li>
     </ul>
 </teoria>   
@@ -56,29 +56,26 @@
     <teoria>
     Abans de seguir amb les instruccions cal saber utilitzar correctament les variables en C++. És per això que a continuació farem un repàs de com s'utilitzaven: 
     
-            <pre><code class="c++">
-#include &lt;string&gt;
+            <pre><code class="c++">#include &lt;string&gt;
 
 using namespace std; 
-    int main()
-    {
-        int variableEntera; // Declaració d'una variable entera usant notació camel. 
-        variableEntera = 5; // Assignació d'una variable entera amb una constant sense nom (5 és una constant sense nom).
+int main()
+{
+    int variableEntera; // Declaració d'una variable entera usant notació camel. 
+    variableEntera = 5; // Assignació d'una variable entera amb una constant sense nom (5 és una constant sense nom).
 
-        bool VARIABLE_LOGICA = true; //Declaració i inicialització d'una constant lògica utilitzant la notació de barra baixa. 
+    bool VARIABLE_LOGICA = true; //Declaració i inicialització d'una constant lògica utilitzant la notació de barra baixa. 
 
-        char variable_caracter = 'P'; //Declaració i inicialització d'una variable caràcter utilitzant la notació de barra baixa. 
+    char variable_caracter = 'P'; //Declaració i inicialització d'una variable caràcter utilitzant la notació de barra baixa. 
 
-        unsigned int variable_natural, variableNatural; //Declaració de dues variables naturals. 
-        variable_natural = 10; //Assignació d'una variable natural. 
-        variableNatural = variable_natural; //Assignació d'una variable natural usant una altre variable natural.
+    unsigned int variable_natural, variableNatural; //Declaració de dues variables naturals. 
+    variable_natural = 10; //Assignació d'una variable natural. 
+    variableNatural = variable_natural; //Assignació d'una variable natural usant una altre variable natural.
 
-        string missatgeError= "Error, torna a introduir les dades", missatgeOK = "Finalitzacio correcte";//Declaració i inicialització de dues variables tipus string (cadena de caràcters).
+    string missatgeError= "Error, torna a introduir les dades", missatgeOK = "Finalitzacio correcte";//Declaració i inicialització de dues variables tipus string (cadena de caràcters).
 
-        return 0;
-    }
-        
-        </code></pre>
+    return 0;
+}</code></pre>
     
     Per més informació es pot consultar la secció de <a href="TipusVariables_Variables.html">variables</a><br><br>
     
@@ -87,24 +84,20 @@ using namespace std;
     
 <h3>Assignació</h3>
     <teoria>
-        La assignació és el procés de canviar el valor a una variable, sobreescrivint el valor anterior. En C++ utilitzem el <b>=</b> per assignar el valor de la dreta, a la variable de l'esquerra. 
+        La assignació és el procés de canviar el valor a una variable, sobreescrivint el valor anterior. En C++ utilitzem el <b><codi>=</codi></b> per assignar el valor de la dreta, a la variable de l'esquerra. 
         
        <!-- <img  src="../../Recursos/Gif/assignacio.gif" alt = "Gif del funcionament de l'assignació" style="width: 450px;height: 280px;">-->
         
             Com sabem aquestes variables permeten fer operacions entre elles, en el cas de les numèriques tenim les operacions bàsiques de les matemàtiques. El C++ ens permet utilitzar aquestes operacions de diferents formes, les explícites i les compactes: 
     <ul>
         <li><b>Explícites:</b> l'usuari escriu ell mateix com vol que sigui els operands, i assigna el resultat fina la una variable. Per exemple: 
-            <pre><code class="c++">
-int a = 5; //Inicialització de a = 5; 
-a = a * 2;// Operació explicita a * 2. 
-            </code></pre>
+            <pre><code class="c++">int a = 5; //Inicialització de a = 5; 
+a = a * 2;// Operació explicita a * 2. </code></pre>
         </li>
         
         <li><b>Compactes:</b> les compactes només necessitem un operand ja que el segon operand es sobreentén que és sobre la variable que estem fent la assignació. 
-            <pre><code = "c++">
-int a = 5; //Inicialització de a = 5; 
-a*=2; // Operació compacte, multipliquem a*2 i assignem el resultat a " a ". 
-            </code></pre>
+            <pre><code = "c++">int a = 5; //Inicialització de a = 5; 
+a*=2; // Operació compacte, multipliquem a*2 i assignem el resultat a " a ". </code></pre>
         </li>
     </ul>
         
@@ -114,35 +107,32 @@ a*=2; // Operació compacte, multipliquem a*2 i assignem el resultat a " a ".
     </teoria>
 <h3>Escriptura</h3>
     <teoria>
-        El procés d'escriptura consisteix en mostrar informació al usuari, el mètode més normal és mostrar aquesta informació per la pantalla. En c++ utilitzarem la llibreria <b> &lt;iostream&gt;</b> i necessitem utilitzar el nom d'espais <b>std.</b>
-        <pre><code class="c++">
-        #include &lt;iostream&gt;
+        El procés d'escriptura consisteix en mostrar informació al usuari, el mètode més normal és mostrar aquesta informació per la pantalla. En c++ utilitzarem la llibreria <b><codi>&lt;iostream&gt;</codi></b> i necessitem utilitzar el nom d'espais <b><codi>std</codi></b>.
         
-        using namespace std;
-        </code></pre>
-        La instrucció que utilitzarem és <b>cout</b> que permet mostrar per pantalla la informació que desitja l'usuari. Per utilitzar es fa de la següent manera: instrucció &lt;&lt;informació a mostrar&lt;&lt;ó a mostrar; <br><br> 
-        Com es pot veure hi ha dues óns a mostrar, això és degut a que cada element que es vulgui mostrar ha d'estar separat per l'operador <b>&lt;&lt;</b>. Per tant, si volem mostrar dues variables utilitzarem la següent instrucció;
-        <pre><code class="c++">
-            cout&lt;&lt;meva_variable&lt;&lt;meva_variable2&lt;&lt;endl;
-        </code></pre>
+        <pre><code class="c++">#include &lt;iostream&gt;
         
-        <b>endl</b> s'utilitza per fer un salt de línia, d'aquesta manera la següent informació que es mostri sortirà en una nova línia. 
+using namespace std;</code></pre>
+
+        La instrucció que utilitzarem és <b><codi>cout</codi></b> que permet mostrar per pantalla la informació que desitja l'usuari. Per utilitzar es fa de la següent manera: instrucció <codi>&lt;&lt;</codi>informació a mostrar<codi>&lt;&lt;</codi>ó a mostrar; <br><br> 
+        Com es pot veure hi ha dues óns a mostrar, això és degut a que cada element que es vulgui mostrar ha d'estar separat per l'operador <b><codi>&lt;&lt;</codi></b>. Per tant, si volem mostrar dues variables utilitzarem la següent instrucció;
+        
+        <pre><code class="c++">  cout&lt;&lt;meva_variable&lt;&lt;meva_variable2&lt;&lt;endl;  </code></pre>
+        
+        <b><codi>endl</codi></b> s'utilitza per fer un salt de línia, d'aquesta manera la següent informació que es mostri sortirà en una nova línia. 
         
         <br><br><h2>Formateig de la sortida</h2><br><br>
         <teoria>
             Hi ha la possibilitat de triar com volem que surti la sortida, per exemple, escollir quants decimals volem que es mostrin, si volem que la línia ocupi una mida màxima, etc. Per poder utilitzar aquestes opcions, cal que afegim una nova llibreria <b>&lt;iomanip&gt;</b>. Algunes de les coses que es poden fer: 
             <ul>
                 <li><b>Escollir l'amplada:</b> permet escollir quants caràcters es mostraran per cada sortida. <i>Entenem que cada element entre &lt;&lt; és una sortida.</i>
-                <pre><code class="c++">
-                cout&lt;&lt;setw(8)&lt;&lt;2.3; // Mostrara:     2.3 (5 espais i 2.3 = 8); 
-                </code></pre>
+               
+                    <pre><code class="c++"> cout&lt;&lt;setw(8)&lt;&lt;2.3; // Mostrara:     2.3 (5 espais i 2.3 = 8); </code></pre>
                     
                     
                     <ul>
-                        <li><b>Escollir quin caràcter omplir els forats en blanc</b>: com hem vist abans, el <b>setw</b> ens genera espais en blanc. Podem escollir que en comptes d'espais en blanc, usi un altre caràcter
-                        <pre><code class="c++">
-cout&lt;&lt;setfill('.')&lt;&lt;set(8)&lt;&lt;2.3; //Mostrara:.....2.3 (5 punts i 2.3 = 8)
-                        </code></pre>
+                        <li><b>Escollir quin caràcter omplir els forats en blanc</b>: com hem vist abans, el <b><codi>setw</codi></b> ens genera espais en blanc. Podem escollir que en comptes d'espais en blanc, usi un altre caràcter
+                        
+                            <pre><code class="c++"> cout&lt;&lt;setfill('.')&lt;&lt;set(8)&lt;&lt;2.3; //Mostrara:.....2.3 (5 punts i 2.3 = 8)</code></pre>
                         </li>
                     </ul>
                     
@@ -150,10 +140,9 @@ cout&lt;&lt;setfill('.')&lt;&lt;set(8)&lt;&lt;2.3; //Mostrara:.....2.3 (5 punts 
                 </li>
                 
                 <li><b>Escollir la precisió:</b> podem triar quants decimals volem mostrar per pantalla. 
-                    <pre><code class="c++">
-cout.setf(ios::fixed); 
-cout.precision(2);//A partir d'ara tots els reals que es mostrin tindran 2 decimals.
-                    </code></pre>
+                    
+                    <pre><code class="c++">cout.setf(ios::fixed); 
+cout.precision(2);//A partir d'ara tots els reals que es mostrin tindran 2 decimals. </code></pre>
                 </li>
                 
                 
@@ -165,29 +154,26 @@ cout.precision(2);//A partir d'ara tots els reals que es mostrin tindran 2 decim
     <h3>Lectura</h3>
     <teoria>
         El procés de lectura (o entrada) consisteix en llegir dades externes al programa i guardar-les en una variable. És una de les instruccions més importants ja que permet la interacció entre programa - usuari que és gairebé obligada en molts casos. En el nostre cas actual ens centrarem en llegir dades des del teclat, malgrat que també les podem llegir des de altres fonts com podria ser: un fitxer, internet, etc. <br><br> 
-        En C++ usarem la instrucció <b>cin</b> que requereix incloure la llibreria <b>&lt;iomanip&gt;</b>. De la mateixa forma que en el cas de la sortida on utilitzàvem la instrucció <i>cout</i> seguida de l'operador <i>&lt;&lt;</i>. En el nostre cas usarem <b>cin</b> seguit de l'operador <b>&gt;&gt;</b> que ens separarà les diferents entrades que vulguem llegir. <br>
+        En C++ usarem la instrucció <b><codi>cin</codi></b> que requereix incloure la llibreria <b><codi>&lt;iomanip&gt;</codi></b>. De la mateixa forma que en el cas de la sortida on utilitzàvem la instrucció <i><codi>cout</codi></i> seguida de l'operador <b><codi>&lt;&lt;</codi></b>. En el nostre cas usarem <b><codi>cin</codi></b> seguit de l'operador <b><codi>&gt;&gt;</codi></b> que ens separarà les diferents entrades que vulguem llegir. <br>
         Exemple: 
-        <pre><code class="c++">
-#include &lt;iostream&gt;
+        
+        <pre><code class="c++">#include &lt;iostream&gt;
 ...
 int var_entera;
 cin&gt;&gt;var_entera;//Llegim un enter per teclat
-...
-        </code></pre>
+... </code></pre>
         Podem veure que en funció de la variable on vulguem guardar l'entrada, el programa llegirà un enter, un real, un caràcter, etc. Per això és important saber quines dades esperem que entrin i informar a l'usuari. <alerta>Si intentem guardar un tipus de dada a una variable de diferent tipus, podem tenir resultats indesitjats.</alerta><br><br>
         
         Sovint abans de demanar una entrada de teclat s'informa a l'usuari quina dada ha d'introduir: 
         
-        <pre><code class="c++">
-#include &lt;iostream&gt;
+        <pre><code class="c++">#include &lt;iostream&gt;
 ...
 cout&lt;&lt;"Introdueix la teva edat i el teu nom"&lt;&lt;endl;
 
 unsigned int edat; 
 string nom;
 cin&gt;&gt;edat&gt;&gt;nom;//Llegeix un natural i el guarda a edat --> Llegeix una cadena de caràcters i el guarda a nom.
-...
-        </code></pre>
+... </code></pre>
     </teoria>
     
 </teoria>

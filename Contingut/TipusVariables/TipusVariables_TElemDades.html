@@ -61,8 +61,8 @@
         Pel que fa els operadors, són: <b> + , - , * , / </b>. També s'utilitza el " . " com a separador de decimals. També ens permet utilitzar notació científica per expressar valors.<br>
         En C++ tenim els següents tipus: 
         <ul>
-            <li><b>Float:</b> aquest tipus permet gestionar nombres relativament petits (al voltant de 7 dígits), ja siguin de la part entera o decimal.</li>
-            <li><b>Double</b>: són més grans que el float, i permeten usar al voltant de 15 dígits.</li>
+            <li><b><codi>float:</codi></b> aquest tipus permet gestionar nombres relativament petits (al voltant de 7 dígits), ja siguin de la part entera o decimal.</li>
+            <li><b><codi>double:</codi></b> són més grans que el <codi>float</codi>, i permeten usar al voltant de 15 dígits.</li>
         </ul>
         <alerta>Alerta: Si operem entre dos reals, el resultat pot resultar un desbordament (ie: float de 8 dígits).</alerta>
     </teoria>
@@ -77,11 +77,11 @@
         
         En C++ trobem el següents tipus: 
         <ul>
-        <li><b>Int:</b> és el tipus predominant i s'usa de forma general. Permet arribar fins a +- 2,147,483,647.</li>
+        <li><b><codi>int:</codi></b> és el tipus predominant i s'usa de forma general. Permet arribar fins a +- 2,147,483,647.</li>
         </ul>
         Altres tipus menys importants: 
         <ul>
-            <li><b>Short:</b> ocupa poc espai de memòria que el int, i ens permet arribar fins a +- 32,767.</li>
+            <li><b><codi>short:</codi></b> ocupa menys espai de memòria que el <codi>int</codi>, i ens permet arribar fins a +- 32,767.</li>
         </ul>
     </teoria>
         <h3>Naturals</h3>
@@ -90,8 +90,8 @@
         
         Tipus en C++: 
         <ul>
-            <li><b>Unsigned int:</b> també se'l pot anomenar <b>unsigned</b> i permet arribar a nombres dins del rang [0 - 4,294,967,295].</li>
-            <li><b>Short unsigned int:</b> aquest no es sol utilitzar quasi mai, i ens permet un rang de [0 - 65,535].</li>
+            <li><b><codi>unsigned int:</codi></b> també se'l pot anomenar <b><codi>unsigned</codi></b> i permet arribar a nombres dins del rang [0 - 4,294,967,295].</li>
+            <li><b><codi>short unsigned int:</codi></b> aquest no es sol utilitzar quasi mai, i ens permet un rang de [0 - 65,535].</li>
         </ul>
         <br>
         
@@ -104,8 +104,8 @@
     <teoria>
         És l'únic tipus de dada que defineix el c++, i només permet dos valors: <b>false</b> i <b>true</b>. Per defecte el C++ també converteix altres tipus de dades a booleanes, per exemple: 
         <ul>
-            <li><b>False: </b>es considera fals, tota variable numèrica amb valor 0. També es considera fals els punters a null.</li>
-            <li><b>True: </b>es considera true, tota variable numèrica diferent de 0, i qualsevol punter vàlid (diferent de null).</li>
+            <li><b><codi>false: </codi></b>es considera fals, tota variable numèrica amb valor 0. També es considera fals els punters a null.</li>
+            <li><b><codi>true: </codi></b>es considera true, tota variable numèrica diferent de 0, i qualsevol punter vàlid (diferent de null).</li>
         </ul>
         Pel que fa les operacions, el llenguatge ens defineix:
         <ul>
@@ -124,7 +124,7 @@
         <teoria>
         Les dades tipus caràcters s'utilitzen per representar <b>Lletres</b>, <b>dígits</b> (no el valor numèric, sinó la "escriptura"), <b>signes de puntuació</b> i <i>Caràcters de control</i>(aquests no són propis de cap alfabet, sinó que serveixen per donar controlar diferents formats de fitxer, dades, etc.). 
         El c++ ens dóna els següents tipus: 
-        <h3>Char</h3>
+        <h3>char</h3>
     <teoria>
         Serveix per administrar dades de tipus caràcter, només es permet un caràcter per variable el qual es representa entre <b>' '</b>. També ens ofereix un conjunt d'operacions aritmètiques <b>+</b> i <b>-</b>. Per entendre com es pot operar amb caràcters, abans cal saber que els caràcters es poden transformar amb enters seguint la taula ASCII <i>(American Standard Code for Information Interchange)</i>. <br>
         <br>
