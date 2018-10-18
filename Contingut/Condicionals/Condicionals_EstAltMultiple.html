@@ -41,66 +41,59 @@
     <h3>Declaració i funcionament</h3>
     <teoria>
         Una forma de fer una estructura alternativa múltiple és encadenar diferents estructures simples fent així una cascada de condicionals que pot arribar fins a tants nivells com es desitji. D'aquesta pràctica se'n diuen condicionals niats.<br>
-        Tot i això, també apareix el <b>altrament si, o else if</b> que substitueix els condicionals niats per una altre nomenclatura i que simplement serveix com a "sintantic sugar". És a dir, a nivell d'execució no hi ha diferència entre ells, però si que pot ajudar a fer més net el codi.<br>
+        Tot i això, també apareix el <b>altrament si, o <codi>else if</codi></b> que substitueix els condicionals niats per una altre nomenclatura i que simplement serveix com a "sintantic sugar". És a dir, a nivell d'execució no hi ha diferència entre ells, però si que pot ajudar a fer més net el codi.<br>
         A continuació veurem un exemple de cada:
         <br>
         <h2>Condicionals niats</h2>
         
-        <pseudocodi><pre><code class="nohighlight">
-            si(condició 1)
-                    si (condició 1.1)
-                        <i>fer quelcom</i>
-                    altrament
-                        <i>fer quelcom</i>
-            altrament
-                si(condició 2)
-                    <i>fer quelcom</i>
-                altrament
-                    si(condició 3)
-                        si (condició 3.1)
-                            <i>fer quelcom</i>
-                        altrament 
+        <pseudocodi><pre><code class="nohighlight">si(condició 1)
+        si (condició 1.1)
+            <i>fer quelcom</i>
+        altrament
+            <i>fer quelcom</i>
+altrament
+    si(condició 2)
+        <i>fer quelcom</i>
+    altrament
+        si(condició 3)
+            si (condició 3.1)
+                <i>fer quelcom</i>
+            altrament 
                     
-            <i>Continuació del codi després de l'estructura</i>
-        </code></pre></pseudocodi>
-        <br>
-        Per veure millor el funcionament, mirem un exemple en C++: <br>
-       <!--<img src="../../Recursos/Imatges/nestedif.gif">-->
+            <i>Continuació del codi després de l'estructura</i></code></pre></pseudocodi>
         <br>
         <h2>Altrement si:</h2>
         
-        <pseudocodi><pre><code class="nohighlight">
-            si(condició1)
-                fer quelcom
-            altrament si(condició 2)
-                fer quelcom 2
-            altrament si (condició 3)
-                fer quelcom 3
-            .... 
-            ....
-            altrament
-                fer quelcom n
-        </code></pre></pseudocodi>
+        <pseudocodi><pre><code class="nohighlight">si(condició1)
+    fer quelcom
+altrament si(condició 2)
+    fer quelcom 2
+altrament si (condició 3)
+    fer quelcom 3
+.... 
+....
+altrament
+    fer quelcom n</code></pre></pseudocodi>
         
         
     </teoria>
     
     <h4>Switch</h4>
-    <teoria>Una altre estructura que podem utilitzar és el <b>switch</b>. Aquesta estructura ens permet fer diferents execucions en funció del valor d'una variable. <br>
+    <teoria>Una altre estructura que podem utilitzar és el <b><codi>switch</codi></b>. Aquesta estructura ens permet fer diferents execucions en funció del valor d'una variable. <br>
             L'estructura té la següent forma: 
         
-            <pre><code class="c++">
-        unsigned int digit;
-        switch(digit){
-            case 0: cout&lt;&lt;"Numero 0"; break;
-            case 1: cout&lt;&lt;"Numero 1"; break; 
-            case 2: cout&lt;&lt;"Numero 2"; break;
-            case 3: cout&lt;&lt;"Numero 3"; break;
-            default: cout&lt;&lt;"Numero major que 3"; break;                
-        }
-            </code></pre>
-        El seu funcionament és el següent: Agafa el valor de la variable "digit" i comprova un a un cada " case " fins a trobar el valor que li correspon. <br>És a dir, primer comprova si <i>digit == 0</i>, després <i>digit == 1</i>, i així successivament fins a trobar la condició correcta, aleshores executa el case corresponent, <b>i tots els posteriors</b>. <br>Si no troba la condició correcta, aleshores executarà la branca "<b>default</b>".<br>
-       <alerta> Al final de cada case, cal utilitzar la comanda "<b>break</b>", ja que de no ser així, l'estructura seguiria executant tots els casos posteriors a ell. </alerta>   
+            <pre><code class="c++">unsigned int digit;
+switch(digit){
+    case 0: cout&lt;&lt;"Numero 0"; break;
+    case 1: cout&lt;&lt;"Numero 1"; break; 
+    case 2: cout&lt;&lt;"Numero 2"; break;
+    case 3: cout&lt;&lt;"Numero 3"; break;
+    default: cout&lt;&lt;"Numero major que 3"; break;                
+        }</code></pre>
+        El seu funcionament és el següent: Agafa el valor de la variable "digit" i comprova un a un cada " case " fins a trobar el valor que li correspon. 
+        <br>És a dir, primer comprova si <i>digit == 0</i>, després <i>digit == 1</i>, i així successivament fins a trobar la condició correcta, aleshores executa el case corresponent, <b>i tots els posteriors</b>. 
+        <br>Si no troba la condició correcta, aleshores executarà la branca "<b><codi>default</codi></b>".<br>
+       <alerta> Al final de cada case, cal utilitzar la comanda "<b><codi>break</codi></b>", ja que de no ser així, l'estructura seguiria executant tots els casos posteriors a ell. </alerta>   
     </teoria>
     <h4>Altres exemples:</h4>
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
@@ -113,36 +106,33 @@
         <img class="petita" style="width:auto;" src="../../Recursos/Imatges/EscalaRichtard.PNG">
     
               Per veure la solució: <button onclick="myFunction(Ex1)">Solució </button>
-                <solucio id="Ex1"><pre><code class="c++">
+                <solucio id="Ex1"><pre><code class="c++">//Entrada: l'usuari entra un nombre real entre  0-10
+//Sortida: mostra els efectes del terratrèmol.
 
-                //Entrada: l'usuari entra un nombre real entre  0-10
-                //Sortida: mostra els efectes del terratrèmol.
-                
-                #include &lt;iostream&gt;
-                using namespace std; 
-                
-                int main(){             
-                
-                    double richter; 
-                    cout&lt;&lt;"Entra el nivell del terratremol,(0-10)"&lt;&lt;endl;
-                    cin&gt;&gt;richter;
-                    
-                    if (richter&gt;=8.0)
-                       cout&lt;&lt;"Most structures fall";
-                    else if (richter&gt;=7.0)
-                       cout&lt;&lt;"Many buildings destroyed";
-                    else if (richter&gt;=6.0)
-                       cout&lt;&lt;"Many buildings considerably damaged, some collapse";
-                    else if (richter&gt;=4.5)
-                       cout&lt;&lt;"Damage to poorly constructed buildings";
-                    else
-                       cout&lt;&lt;"No destruction of buildings";
-                    
-                    <alerta>//Què passaria si es canviés l'ordre de les condicions?</alerta>
-                    
-                    return 0;
-                    }
-            </code></pre></solucio>
+#include &lt;iostream&gt;
+using namespace std; 
+
+int main(){             
+
+    double richter; 
+    cout&lt;&lt;"Entra el nivell del terratremol,(0-10)"&lt;&lt;endl;
+    cin&gt;&gt;richter;
+    
+    if (richter&gt;=8.0)
+        cout&lt;&lt;"Most structures fall";
+    else if (richter&gt;=7.0)
+        cout&lt;&lt;"Many buildings destroyed";
+    else if (richter&gt;=6.0)
+        cout&lt;&lt;"Many buildings considerably damaged, some collapse";
+    else if (richter&gt;=4.5)
+        cout&lt;&lt;"Damage to poorly constructed buildings";
+    else
+        cout&lt;&lt;"No destruction of buildings";
+    
+    <alerta>//Què passaria si es canviés l'ordre de les condicions?</alerta>
+    
+    return 0;
+                    } </code></pre></solucio>
     </exercici>
     
     

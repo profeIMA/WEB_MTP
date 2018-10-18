@@ -46,43 +46,40 @@
         
         Un exemple, es demana que una empresa entri tots els salaris dels seus treballadors per poder mostrar quina és la mitjana salarial de l'empresa. <br> 
         El programa tindria el següent aspecte: 
-        <pre><code class="C++">
-        #include &lt;iostream&gt; 
+        <pre><code class="C++">#include &lt;iostream&gt; 
+
+using namespace std; 
+
+int main()
+{
+    double suma = 0; 
+    double salari; 
+    unsigned int comptador; 
+    
+    //Entrada de salaris
+    cout&lt;&lt;"Entra salaris, -1 per acabar"&lt;&lt;endl; //Expliquem quina és la condició de finalització,(els salaris no poden ser negatius)
+    cin&gt;&gt;salari; 
+    
+    while(salari&gt;-1)//Mentre els salaris siguin positius
+    {
+        suma += salari; 
+        comptador++;
         
-        using namespace std; 
-        
-        int main()
-        {
-            double suma = 0; 
-            double salari; 
-            unsigned int comptador; 
-            
-            //Entrada de salaris
-            cout&lt;&lt;"Entra salaris, -1 per acabar"&lt;&lt;endl; //Expliquem quina és la condició de finalització,(els salaris no poden ser negatius)
-            cin&gt;&gt;salari; 
-            
-            while(salari&gt;-1)//Mentre els salaris siguin positius
-            {
-                suma += salari; 
-                comptador++;
-                
-                cin&gt;&gt;salari; //Preguntem pel següent salari
-            }
-            
-            //Càlcul i sortida
-            
-            if(comptador&gt;0)
-            {
-                double mitjana = suma / comptador; 
-                cout&lt;&lt;"La mitjana dels salaris: "&lt;&lt;mitjana&lt;&lt;endl; 
-            }
-            else 
-                cout&lt;&lt;"No hi ha suficients dades"&lt;&lt;endl;
-            
-            return 0;
-        }
-        
-        </code></pre>
+        cin&gt;&gt;salari; //Preguntem pel següent salari
+    }
+    
+    //Càlcul i sortida
+    
+    if(comptador&gt;0)
+    {
+        double mitjana = suma / comptador; 
+        cout&lt;&lt;"La mitjana dels salaris: "&lt;&lt;mitjana&lt;&lt;endl; 
+    }
+    else 
+        cout&lt;&lt;"No hi ha suficients dades"&lt;&lt;endl;
+    
+    return 0;
+} </code></pre>
         
     </teoria>
     <h3>Simulacions</h3>
@@ -94,7 +91,7 @@
         <h3>Nombres aleatoris</h3>
         <teoria> 
             Els nombres aleatoris són aquells que nombres que l'usuari no sap quin valor tindran. La única força que té el programador és poder delimitar el rang que pot prendre, per exemple, un nombre aleatori entre 0 - 10. <br> 
-            Ara bé, en C++ quan s'utilitza la llibreria bàsica: <b>cstdlib</b>, aleshores no estem fent nombres aleatoris reals, sinó pseudoaleatoris ja que el seu funcionament és el següent: 
+            Ara bé, en C++ quan s'utilitza la llibreria bàsica: <b><codi>cstdlib</codi></b>, aleshores no estem fent nombres aleatoris reals, sinó pseudoaleatoris ja que el seu funcionament és el següent: 
             <ul> 
                 <li>1. <b>Consulta la llista</b>: El C++ té una llista immensa de valors pre-establerts dins una taula d'aleatoris, aleshores, mira quin és el següent nombre que toca de la llista.</li>
                 <li>2. <b>Adapta el valor:</b>: El valor de la llista té un rang molt elevat, (sovint 4 bytes). Així doncs, en comptes de mostrar el valor que tocaria, adapta aquell valor al rang que tu vols. Una forma senzilla de fer-ho: <b>(valor_taula / valor_maxim)*ValorMaxRang + ValorMinRang</b>. Per <i>exemple: si volem un enter entre 1 - 10, i la taula té un valor màxim de 2147483647. El valor que toca de la taula es de 1589705648. Aleshores el nostre valor es: <b>(1589705648 / 2147483647) * 10 + 1 = 8.4026437</b></i>. També hi ha altres mètodes per fer-ho. </li>
@@ -102,38 +99,32 @@
             </ul>
             
             Per utilitzar els nombres aleatoris cal: 
-            <pre><code class="C++">              
-        #include &lt;cstdlib&gt; // include per srand i rand
-        #include &lt;ctime&gt; // include per time
+            <pre><code class="C++">#include &lt;cstdlib&gt; // include per srand i rand
+#include &lt;ctime&gt; // include per time
 
-        srand(time(NULL)); // Agafa el valor de temps actual per determinar quina posició de la taula comença a mirar valors (inici "aleatori")
-        double random_value = rand()%10; //Random entre 0 - 9 (10 possibles valors);
-            </code></pre>
+srand(time(NULL)); // Agafa el valor de temps actual per determinar quina posició de la taula comença a mirar valors (inici "aleatori")
+double random_value = rand()%10; //Random entre 0 - 9 (10 possibles valors);</code></pre>
         </teoria>
         Un cop explicats els nombres aleatoris, ja podem avançar amb les simulacions. Les simulacions que veurem serveixen per entrar valors aleatoris per evitar haver d'introduir-los a mà. Per exemple, podem simular el resultats del llançament de daus. Un exemple seria el següent: 
         
-        <pre><code class ="C++">
-        #include &lt;iostream&gt;
-        #include &lt;cstdlib&gt;
-        #include &lt;ctime&gt;
+        <pre><code class ="C++">#include &lt;iostream&gt;
+#include &lt;cstdlib&gt;
+#include &lt;ctime&gt;
 
-        using namespace std;
+using namespace std;
 
-        int main() {
+int main() {
 
-                srand(time(0)); // fixem la llavor
-                for (unsigned i=1; i&lt;=10; i++)
-                {
-                    int dau1 = rand() % 6 + 1;
-                    int dau2 = rand() % 6 + 1;
-                    cout &lt;&lt; dau1 &lt;&lt; " " &lt;&lt; dau2 &lt;&lt; endl;
-                }
+        srand(time(0)); // fixem la llavor
+        for (unsigned i=1; i&lt;=10; i++)
+        {
+            int dau1 = rand() % 6 + 1;
+            int dau2 = rand() % 6 + 1;
+            cout &lt;&lt; dau1 &lt;&lt; " " &lt;&lt; dau2 &lt;&lt; endl;
+        }
 
-                return 0;
-            }
-
-
-        </code></pre>
+        return 0;
+    }</code></pre>
     </teoria>
 	
 </div>  

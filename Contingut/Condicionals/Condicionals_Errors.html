@@ -38,18 +38,15 @@
     <h3>Mal ús dels punt i coma</h3>
     <teoria>
         Hem vist que en C++ és necessari acabar les instruccions amb <b>;</b>. Però això no s'aplica amb les estructures, aleshores el següent codi és un error: 
-        <pre><code class="c++">
-if(condicio);
-	fer_quelcom
-        </code></pre>
+        <pre><code class="c++">if(condicio);
+	fer_quelcom</code></pre><br>
         En aquest cas el <b>;</b>, està mal col·locat, però no és un error de programació ja que és un sentència vàlida. En C++, utilitzar el <b>;</b>, significa que no es vol fer res. Per tant en aquest cas estem dient que si es compleix la condició del <i>if</i> no volem fer res. I a continuació de "no fer res", s'executarà el <i>fer quelcom</i>.<br><br>
         
         Ara bé, per altra banda, es pot utilitzar el punt i coma de forma intencionada per remarcar que no vols fer res si es dóna el cas. Això significa que com a programador has pensat amb aquella possibilitat, però has determinat que no calia fer cap instrucció. <br>
         
         Un exemple: 
         
-        <pre><code class="c++">
-//Entrada: L'usuari entra un valor enter
+        <pre><code class="c++">//Entrada: L'usuari entra un valor enter
 //Sortida: retorna el valor absolut del nombre.
 int digit; 
 cout&lt;&lt;"Entra un enter";
@@ -63,14 +60,12 @@ else ;//El digit ja es positiu, no cal fer res</code></pre>
     <h3>Mala indentació</h3>
     <teoria>
         Sabem que la indentació és molt important per saber dins de quina estructura ens trobem. Si no la respectem aleshores ens poden succeir errors dins del nostre codi. Exemple: 
-        <pre><code class="c++">
-double cost_enviament ; //El cost d'enviament estàndard es de 10€
+        <pre><code class="c++">double cost_enviament ; //El cost d'enviament estàndard es de 10€
 if(estat == "USA")//Si el paquet prové d'estats units
 	if(estat== "CA")//Estat == california
 		cost_enviament = 12.0;
 <alerta>else</alerta>// Aquest else què vol dir? que no sigui California o que no sigui d'Estats Units?
-	cost_enviament = 15.0€ 
-        </code></pre>
+	cost_enviament = 15.0€ </code></pre>
     </teoria>
     
     <h3>Confusió entre igualtat i assignació</h3>
@@ -79,8 +74,7 @@ if(estat == "USA")//Si el paquet prové d'estats units
 	propòsits ben diferents, entre ells, un serveix per donar un valor a una variable, mentre que l'altre serveix per comparar dos valors. <br> 
 	
 	Si no els usem correctament, poden passar coses com les següents: <br> 
-	<pre><code class="c++">
-int a = 5; 
+	<pre><code class="c++">int a = 5; 
 if(a = 2)//En aquest cas no estem comparant res, sinó assignant un valor a A.
 {
 	cout&lt;&lt;"a val dos"&lt;&lt;endl;
@@ -88,8 +82,7 @@ if(a = 2)//En aquest cas no estem comparant res, sinó assignant un valor a A.
 else 
 {
 cout&lt;&lt;"a no val dos"&lt;&lt;endl;
-}</code></pre>
-        Quin seria el resultat de l'execució? 
+}</code></pre>Quin seria el resultat de l'execució? 
     </teoria>
     
     
@@ -97,21 +90,18 @@ cout&lt;&lt;"a no val dos"&lt;&lt;endl;
     <teoria>
         També sabem que les variables lògiques permeten fer combinació d'operadors lògics, ara bé, hem d'anar amb compte en no escriure errors ja que després tindrem resultats no desitjats.<br> 
         Els errors més freqüents que hi ha són els següents: 
-        <pre><code class="c++">
-int a = 4;
+        <pre><code class="c++">int a = 4;
 if (a == 3 || 6 ) //Error, la segona condició està avaluant 6 per separat, i per tant sempre donarà true. (6 != 0)
 	a = 3; 
 
 //La forma correcte: 
 if (a == 3 || a == 6)</code></pre>
-        <pre><code class="c++">
-int x = 3,y=8;
+        <pre><code class="c++">int x = 3,y=8;
 if(x && y &gt; 0)//Error, x s'avalua sola, i per tant sempre donarà certa la seva part. 
 	x = y; 
 	
 //La forma correcte: 
-if ( x &gt; 0 && y&gt;0)
-        </code></pre>
+if ( x &gt; 0 && y&gt;0)</code></pre>
     </teoria>
 </div>
     

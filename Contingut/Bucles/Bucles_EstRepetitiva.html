@@ -47,12 +47,10 @@
 <teoria>
     Entenem un "mentre" una estructura iterativa que MENTRE es compleix una condició va iterant sobre ella mateixa. En el moment que la condició no es compleix, aleshores es trenca el bucle i segueix executant el programa amb normalitat. Un cop la condició és falsa, <alerta> no es torna a executar el codi del bucle!</alerta>. Un exemple seria escriure nombres del 0 al 9 en format bucle. Mentre el nombre que ha d'escriure sigui menor que 9, escriure per pantalla i incrementar el nombre.<br>
     <pseudocodi>
-        <pre><code class="nohighlight">
-            mentre n menor 9
-                escriurePantalla
-                incrementar n
-            fi mentre
-        </code></pre>
+        <pre><code class="nohighlight">mentre n menor 9
+    escriurePantalla
+    incrementar n
+fi mentre </code></pre>
     </pseudocodi>
     <h2>Repassem la execució d'aquest tall de codi:</h2> <br><br>
     Per tal d'agilitzar l'execució, en comptes de fer fins a 9, hem il·lustrat fins a 2. El mecanisme és el mateix:
@@ -65,21 +63,16 @@
     <br><br>
     <h2>Implementació en c++</h2>
     <br>
-    <pre><code class="c++">
-            int n = 0;
-        while(n &lt; 9)
-        {
-            cout&lt;&lt;"El valor de n es: "&lt;&lt;n&lt;&lt;endl;
-            n++;
-        }
-        cout&lt;&lt;"El valor de n es major de 9"&lt;&lt;endl;
-    </code></pre>
+    <pre><code class="c++">int n = 0;
+while(n &lt; 9)
+{
+    cout&lt;&lt;"El valor de n es: "&lt;&lt;n&lt;&lt;endl;
+    n++;
+}
+cout&lt;&lt;"El valor de n es major de 9"&lt;&lt;endl;</code></pre>
 
-</teoria>    
- <br><br>
-    
+</teoria>        
 <h3>Per:</h3>   
-    <br><br>
 <teoria>
    El " per " és una altre estructura iterativa amb un nombre d'iteracions fixat, on una variable de control va modificant el seu valor fins a incomplir una condició, quan això passa es trenca el bucle. D'aquests paràmetres se'n diuen inicialització, finalització i pas:
     <ul>
@@ -90,11 +83,9 @@
     <br>
     En pseudocodi utilitzem la següent expressió: 
         <pseudocodi>
-        <pre><code class="nohighlight">
-            per var_control de valor_inicial fins valor_final pas +1 fer 
-                FerQuelcom();
-            fi per 
-        </code></pre>
+        <pre><code class="nohighlight">per var_control de valor_inicial fins valor_final pas +1 fer 
+    FerQuelcom();
+fi per </code></pre>
     </pseudocodi>
     
    <!--- <img style="height: 170px;width: 250px;" src="../../Recursos/Gif/BuclePer.gif" alt="Gif mostrant com funciona el per" > -->
@@ -117,12 +108,10 @@
     
     <h2>Implementació en c++</h2><br>
     Exemple: bucle "per" que fa 9 iteracions:<br>
-    <pre><code class="c++">
-    for(unsigned int x = 0; x &lt; 9; x++)
-    {
-        cout&lt;&lt;"El valor de x es: "&lt;&lt;x&lt;&lt;endl; 
-    }    
-    </code></pre>
+    <pre><code class="c++">for(unsigned int x = 0; x &lt; 9; x++)
+{
+    cout&lt;&lt;"El valor de x es: "&lt;&lt;x&lt;&lt;endl; 
+}    </code></pre>
     </teoria>
     
     
@@ -148,112 +137,100 @@
     </exercici>
     
     <button onclick="myFunction(Ex10)">Solució per Pseudocodi</button>
-       <solucio id="Ex10"><pseudocodi><pre><code class="nohighlight">
-         //Entrada: llegeix dos nombres naturals (base, exponent) amb base&gt;0
-         //Sortida: escriu el resultat de base^exponent
+       <solucio id="Ex10"><pseudocodi><pre><code class="nohighlight">//Entrada: llegeix dos nombres naturals (base, exponent) amb base&gt;0
+//Sortida: escriu el resultat de base^exponent
+
+algorisme Potència
+    natural base, exponent // entrada
+    natural resultat // sortida
+    natural comptador // auxiliar
+
+    llegir base // base>0
+    llegir exponent // exponent>=0
+    // base>0 i exponent>=0             
+    
+    resultat= 1 
+    per comptador de 1 fins exponent
+        resultat=resultat*base
         
-           algorisme Potència
-               natural base, exponent // entrada
-               natural resultat // sortida
-               natural comptador // auxiliar
-
-               llegir base // base>0
-               llegir exponent // exponent>=0
-               // base>0 i exponent>=0             
-               
-               resultat= 1 
-              per comptador de 1 fins exponent
-                  resultat=resultat*base
-                  
-               // resultat=base^exponent
-               escriure resultat
-
-        </code></pre></pseudocodi></solucio>
+    // resultat=base^exponent
+    escriure resultat</code></pre></pseudocodi></solucio>
     
         <button onclick="myFunction(Ex11)">Solució mentre Pseudocodi</button>
-       <solucio id="Ex11"><pseudocodi><pre><code class="nohighlight">
-         //Entrada: llegeix dos nombres naturals (base, exponent) amb base&gt;0
-         //Sortida: escriu el resultat de base^exponent
+       <solucio id="Ex11"><pseudocodi><pre><code class="nohighlight">//Entrada: llegeix dos nombres naturals (base, exponent) amb base&gt;0
+//Sortida: escriu el resultat de base^exponent
+
+algorisme Potència
+    natural base, exponent // entrada
+    natural resultat // sortida
+    natural comptador // auxiliar
+
+    llegir base // base>0
+    llegir exponent // exponent>=0
+    // base>0 i exponent>=0             
+    
+    resultat= 1 
+    comptador=1
+    
+    mentre comptador&lt;=exponent 
+        resultat=resultat*base
+        comptador=comptador+1
         
-           algorisme Potència
-               natural base, exponent // entrada
-               natural resultat // sortida
-               natural comptador // auxiliar
-
-               llegir base // base>0
-               llegir exponent // exponent>=0
-               // base>0 i exponent>=0             
-               
-               resultat= 1 
-               comptador=1
-               
-               mentre comptador&lt;=exponent 
-                  resultat=resultat*base
-                  comptador=comptador+1
-                  
-               // resultat=base^exponent
-               escriure resultat
-
-        </code></pre></pseudocodi></solucio>
+    // resultat=base^exponent
+    escriure resultat</code></pre></pseudocodi></solucio>
     
     
     <button onclick="myFunction(Ex12)">Solució for C++</button>
-    <solucio id="Ex12"><pre><code class="c++">
+    <solucio id="Ex12"><pre><code class="c++">//Entrada: llegeix dos nombres naturals (base, exponent) amb base&gt;0
+//Sortida: escriu el resultat de base^exponent
 
-        //Entrada: llegeix dos nombres naturals (base, exponent) amb base&gt;0
-        //Sortida: escriu el resultat de base^exponent
+#include &lt;iostream&gt;
+using namespace std; 
 
-        #include &lt;iostream&gt;
-        using namespace std; 
+int main(){             
+    unsigned base;
+    cout&lt;&lt;"Entra base: ";
+    cin&gt;&gt;base; // base&gt;
 
-        int main(){             
-            unsigned base;
-            cout&lt;&lt;"Entra base: ";
-            cin&gt;&gt;base; // base&gt;
+    unsigned exponent;
+    cout&lt;&lt;"Entra exponent: ";
+    cin>>exponent; // exponent>=0
+    
+    unsigned resultat=1;
 
-            unsigned exponent;
-            cout&lt;&lt;"Entra exponent: ";
-            cin>>exponent; // exponent>=0
-            
-            unsigned resultat=1;
+    for (unsigned comptador=1; comptador&lt;=exponent; comptador++)
+        resultat=resultat*base;
 
-            for (unsigned comptador=1; comptador&lt;=exponent; comptador++)
-                resultat=resultat*base;
-
-            cout&lt;&lt;base&lt;&lt;"^"&lt;&lt;exponent&lt;&lt;" = "&lt;&lt;resultat&lt;&lt;endl;
-            return 0;
-        }
-</code></pre></solucio>
+    cout&lt;&lt;base&lt;&lt;"^"&lt;&lt;exponent&lt;&lt;" = "&lt;&lt;resultat&lt;&lt;endl;
+    return 0;
+}</code></pre></solucio>
     
     <button onclick="myFunction(Ex13)">Solució while C++</button>
-    <solucio id="Ex13"><pre><code class="c++">
+    <solucio id="Ex13"><pre><code class="c++">//Entrada: llegeix dos nombres naturals (base, exponent) amb base&gt;0
+//Sortida: escriu el resultat de base^exponent
 
-        //Entrada: llegeix dos nombres naturals (base, exponent) amb base&gt;0
-        //Sortida: escriu el resultat de base^exponent
+#include &lt;iostream&gt;
+using namespace std; 
 
-        #include &lt;iostream&gt;
-        using namespace std; 
+int main(){             
+    unsigned base;
+    cout&lt;&lt;"Entra base: ";
+    cin&gt;&gt;base; // base&gt;
 
-        int main(){             
-            unsigned base;
-            cout&lt;&lt;"Entra base: ";
-            cin&gt;&gt;base; // base&gt;
+    unsigned exponent;
+    cout&lt;&lt;"Entra exponent: ";
+    cin>>exponent; // exponent>=0
+    
+    unsigned resultat=1;
 
-            unsigned exponent;
-            cout&lt;&lt;"Entra exponent: ";
-            cin>>exponent; // exponent>=0
-            
-            unsigned resultat=1;
-
-            unsigned comptador=1; // =0
-            while (comptador&lt;=exponent) { // comptador&lt;exponent
-                resultat=resultat*base;
-                comptador++;
-            } 
-            
-            cout&lt;&lt;base&lt;&lt;"^"&lt;&lt;exponent&lt;&lt;" = "&lt;&lt;resultat&lt;&lt;endl;
-            return 0;
-        }
+    unsigned comptador=1; // =0
+    while (comptador&lt;=exponent) { // comptador&lt;exponent
+        resultat=resultat*base;
+        comptador++;
+    }     
+    cout&lt;&lt;base&lt;&lt;"^"&lt;&lt;exponent&lt;&lt;" = "&lt;&lt;resultat&lt;&lt;endl;
+    return 0;
+}
 </code></pre></solucio>
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!---------------------------------------------------------------------EXEMPLE 2------------------------------------------------------------------------------------------------>

@@ -37,19 +37,17 @@
     Ara hem vist alguns exemples d'ús de les estructures iteratives, hi ha petits trucs i bones pràctiques que podem utilitzar per tal d'assegurar-nos que la nostra estructura no tindrà errors greus, que no permetran acabar el programa. Mirem-ne alguns d'ells. 
     <h3>Condició de finalització clara</h3>
     <teoria>
-        Tant si utilitzem un <b>while</b> o un <b>for</b>, cal que tinguem clar quina és la condició de sortida de l'estructura iterativa. Per fer-ho és recomenable pensar en una condició que sempre es complirà en algun moment de l'execució. Sovint quan un es pensa la condició també pensa <b>com canviarà</b> el valor de la variable que itera. <br> <br>
+        Tant si utilitzem un <b><codi>while</codi></b> o un <b><codi>for</codi></b>, cal que tinguem clar quina és la condició de sortida de l'estructura iterativa. Per fer-ho és recomenable pensar en una condició que sempre es complirà en algun moment de l'execució. Sovint quan un es pensa la condició també pensa <b>com canviarà</b> el valor de la variable que itera. <br> <br>
         
         <b>És molt recomenable que abans d'introduir instruccions dins el bucle, s'hagi programat l'actualització de la variable que itera</b>. <br> <br> 
         Alguns exemples: 
         
-        <pre><code class="c++">
-            int i = 0; 
-            while(i &lt; 50)
-            {
-                //ESPAI EN BLANC PER POSSIBLES INSTRUCCIONS 
-                i++;
-            }
-        </code></pre>
+        <pre><code class="c++">int i = 0; 
+while(i &lt; 50)
+{
+    //ESPAI EN BLANC PER POSSIBLES INSTRUCCIONS 
+    i++;
+}</code></pre>
         
     </teoria>
     
