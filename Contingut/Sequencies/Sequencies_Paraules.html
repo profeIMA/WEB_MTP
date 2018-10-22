@@ -54,41 +54,32 @@ mentre no fi de seqüència [i no trobat] fer
 tractament final
 </code></pre></pseudocodi>
 
-<h4>Implementació amb .unget()</h4>
+<h4>Implementació amb <codi>.unget()</codi></h4>
 
 <teoria>
 	<button onclick="myFunction(unget)">Veure</button><br>
 	<solucio id="unget">
   Pel tractament de paraules usarem subprogrames per:<br>
   <br><strong> Detectar separadors</strong> (ws, . ; ! " ' etc) 
-  <pre> <code class = "c++">
-bool es_separador(char caracter);
-//retorna cert si caràcter no és una lletra 
-  </code> </pre><br>
+  <pre> <code class = "c++">bool es_separador(char caracter);
+//retorna cert si caràcter no és una lletra </code> </pre><br>
   
   <strong>Passar separadors</strong> (ws,.;!’” etc) 
-  <pre> <code class = "c++">
-void passar_separadors(ifstream& fitxer);
-//passa tots els separadors fins a detectar la marca de fi o un no separador (que serà el pròxim caràcter llegit)
-  </code> </pre><br>  
+  <pre> <code class = "c++">void passar_separadors(ifstream& fitxer);
+//passa tots els separadors fins a detectar la marca de fi o un no separador (que serà el pròxim caràcter llegit)</code> </pre><br>  
   
   <strong>Passar paraules</strong> (caràcters fins a detectar un separador) 
-  <pre> <code class = "c++">
-void passar_paraula(ifstream& fitxer);
-//llegeix tota una paraula fins a trobar la marca de fi o un separador que serà el pròxim a ser llegit
-</code> </pre><br>  
+  <pre> <code class = "c++">void passar_paraula(ifstream& fitxer);
+//llegeix tota una paraula fins a trobar la marca de fi o un separador que serà el pròxim a ser llegit</code> </pre><br>  
  
  <strong> Detectar fi de seqüència lògica</strong>
-  <pre> <code class = "c++">
-bool fi_sequencia(ifstream& fitxer);
-//retorna cert si s’ha arribat a EOS, fals altrament
-</code> </pre><br>
+  <pre> <code class = "c++">bool fi_sequencia(ifstream& fitxer);
+//retorna cert si s’ha arribat a EOS, fals altrament</code> </pre><br>
 
-En totes les funcions que el tenen, <alerta>l’ifstream& només és necessari si s’usa un fitxer</alerta>
+En totes les funcions que el tenen, <alerta>l’<codi>ifstream&</codi> només és necessari si s’usa un fitxer</alerta>
 
 <h3>Funció per detectar separadors</h3>
-	<pre> <code class="c++">
-const char EOS ='#';
+	<pre> <code class="c++">const char EOS ='#';
 
 bool es_separador(char lletra){
 /*Pre: cert
@@ -107,55 +98,47 @@ bool es_separador(char lletra){
       }
    }
    return separador;
-}
-	</code></pre>
+}	</code></pre>
 	
 	<h3>Acció per passar separadors</h3>
 	Usant marca de fi lògica:
 	
-	<pre><code class = "c++">
-void passar_separadors(){
+	<pre><code class = "c++">void passar_separadors(){
 /*Pre: EOS no llegida
   Post: s&rsquo;han llegit tots els separadors i EOS no llegida*/
    char lletra=cin.get(); 
    while(es_separador(lletra)) 
      cin.get(lletra); 
    cin.unget(); //cal per detectar EOS precedida de separadors
-}
-	</code></pre>
+}	</code></pre>
 	
 	Usant marca de fi física:
 	
-	<pre><code class = "c++">
-void passar_separadors(ifstream&amp; fitxer){
+	<pre><code class = "c++">void passar_separadors(ifstream&amp; fitxer){
 /*Pre: fitxer obert
   Post: s&rsquo;han llegit tots els separadors del fitxer*/
    char lletra=' ';
    while(not fitxer.eof() and es_separador(lletra)) 
      fitxer.get(lletra); 
    if(not fitxer.eof()) fitxer.unget(); //pot no ser necessari
-}
-	</code></pre>
+}	</code></pre>
 	
 	<h3>Acció per passar paraules</h3>
 	Mentre es passa la paraula pot ser necessari haver de processar els caràcters per extreure'n informació.<br>
 	
 	Usant marca de fi lògica:
-	<pre><code class = "c++">
-void passar_paraula(){
+	<pre><code class = "c++">void passar_paraula(){
 /*Pre: apunt de llegir el 1r car&aacute;cter d&rsquo;una paraula, EOS no llegida
   Post: s&rsquo;ha llegit tota una paraula i EOS no llegida */
    char lletra=cin.get(); 
    while(lletra!=EOS and not es_separador(lletra)) 
       cin.get(lletra); 
    cin.unget(); //cal per detectar EOS precedida de lletra 
-}
-	</code></pre>
+}	</code></pre>
 	
 	Usant marca de fi física:
 	
-	<pre><code class = "c++">
-void passar_paraula(ifstream&amp; fitxer){
+	<pre><code class = "c++">void passar_paraula(ifstream&amp; fitxer){
 /*Pre: fitxer v&agrave;lid i apunt de llegir el 1r car&aacute;cter d&rsquo;una paraula
   Post: s&rsquo;ha llegit tota una paraula del fitxer */
    char lletra=fitxer.get(); 
@@ -163,24 +146,21 @@ void passar_paraula(ifstream&amp; fitxer){
       fitxer.get(lletra);
    }
    if(not fitxer.eof()) fitxer.unget(); //pot no ser necessari
-}
-	</code></pre>
+}	</code></pre>
 	
 	<h3>Funció per detectar el fi de seqüència</h3>
 	
 	Amb marca de fi lògica.
-	<pre><code class="c++">
-bool fi_sequencia(){
+	<pre><code class="c++">bool fi_sequencia(){
 /*Pre: EOS no llegida
   Post: retorna cert si es detecta EOS, fals altrament */
    char lletra=cin.get(); //agafem el seg&uuml;ent car&agrave;cter
    bool final=lletra==EOS; //mirem si indica el final
    if(not final) cin.unget(); //si no &eacute;s EOS es retorna pq sigui llegit
    return final; 
-}
-	</code></pre>
+}	</code></pre>
 
-Amb marca de fi física (fitxers), es pot usar directament fitxer.eof().
+Amb marca de fi física (fitxers), es pot usar directament <codi>fitxer.eof()</codi>.
 	</solucio>
 </teoria>    
  
@@ -201,37 +181,30 @@ Amb marca de fi física (fitxers), es pot usar directament fitxer.eof().
 
 Per aquesta implementació s'usaràn els següents subprogrames:<br>
   <br><strong> Detectar separadors</strong> (ws, . ; ! " ' etc) 
-  <pre> <code class = "c++">
-bool es_separador(char caracter);
-//retorna cert si caràcter no és una lletra
-  </code> </pre><br>
+  <pre><code class = "c++">bool es_separador(char caracter);
+//retorna cert si caràcter no és una lletra  </code></pre><br>
   S'usarà la mateixa implementació que abans en aquesta funció.
   
   <strong>Passar separadors</strong> (ws) 
-  <pre> <code class = "c++">
-char passar_separadors(char c, ifstream& fitxer);
+  <pre><code class = "c++">char passar_separadors(char c, ifstream& fitxer);
 //si c és separador, passa tots els separadors fins a detectar un no separador que és retornat; si c no és separador, retorna c
 void passar_separadors(char& c, ifstream& fitxer);
-//si a l’inici c és un separador passa tots els separadors fins a detectar un no separador (que és el valor final de c), altr. no fa res
- </code> </pre><br>  
+//si a l’inici c és un separador passa tots els separadors fins a detectar un no separador (que és el valor final de c), altr. no fa res </code></pre><br>  
   
   <strong>Passar paraules</strong> (caràcters fins a detectar un separador) 
-  <pre> <code class = "c++">
-char passar_paraula(ifstream& fitxer);
+  <pre><code class = "c++">char passar_paraula(ifstream& fitxer);
 //llegeix tota una paraula fins a trobar un separador que és retornat
 char passar_paraula(char inici_paraula, ifstream& fitxer);
 //llegeix tota una paraula i retorna el 1r separador trobat
 void passar_paraula_comptant(char& lletra, unsigned& long, ifstream& fitxer);
-//llegeix una paraula comptant el nombre de lletres que té; al final lletra té el primer separador trobat
-</code> </pre><br>  
-Igual que abans, <alerta>l’ifstream& només és necessari si s’usa un fitxer</alerta>
+//llegeix una paraula comptant el nombre de lletres que té; al final lletra té el primer separador trobat</code></pre><br>  
+Igual que abans, <alerta>l’<codi>ifstream&</codi> només és necessari si s’usa un fitxer</alerta>
 
 
 <h3>Funció per passar separadors</h3>
 
 	Amb marca de fi lógica:
-	<pre> <code class = "c++">
-char passar_separadors(char lletra){
+	<pre><code class = "c++">char passar_separadors(char lletra){
 /*Pre: lletra=LLETRA &eacute;s el darrer car&agrave;cter llegit de teclat
   Post: retorna el primer car&agrave;cter no separador detectat (LLETRA si no &eacute;s un separador, o el primer car&agrave;cter no separador llegit de teclat altrament) 
 */
@@ -239,12 +212,10 @@ char passar_separadors(char lletra){
       cin.get(lletra); //lletra=cin.get();
    
    return lletra;
-}
-	</code> </pre><br>  
+}	</code></pre><br>  
 
 	Amb marca de fi física:
-	<pre> <code class = "c++">
-char passar_separadors(char lletra, ifstream&amp; dades){
+	<pre><code class = "c++">char passar_separadors(char lletra, ifstream&amp; dades){
 /*Pre: lletra=LLETRA &eacute;s el darrer car&agrave;cter llegit de dades que &eacute;s v&agrave;lid
   Post: retorna el primer car&agrave;cter no separador detectat (LLETRA si no &eacute;s un separador, o el primer car&agrave;cter no separador llegit de dades altrament) 
 */
@@ -252,39 +223,33 @@ char passar_separadors(char lletra, ifstream&amp; dades){
       dades.get(lletra); //lletra=dades.get();
    
    return lletra;
-}
-	</code> </pre><br> 
+}	</code></pre><br> 
 	
 <h3>Acció per passar els separadors</h3>
 
 	Amb marca de fi lógica:
-	<pre> <code class = "c++">
-void passar_separadors(char&amp; lletra){
+	<pre><code class = "c++">void passar_separadors(char&amp; lletra){
 /*Pre: lletra=LLETRA &eacute;s el darrer car&agrave;cter llegit de teclat
   Post: lletra &eacute;s el primer car&agrave;cter no separador detectat (LLETRA si no &eacute;s un separador, o el primer car&agrave;cter no separador llegit de teclat altrament) 
 */
    while(es_separador(lletra)) 
       cin.get(lletra); //lletra=cin.get();
    
-}
-	</code> </pre><br>  
+}	</code></pre><br>  
 
 	Amb marca de fi física:
-	<pre> <code class = "c++">
-void passar_separadors(char&amp; lletra, ifstream&amp; dades){
+	<pre><code class = "c++">void passar_separadors(char&amp; lletra, ifstream&amp; dades){
 /*Pre: lletra=LLETRA &eacute;s el darrer car&agrave;cter llegit de dades que &eacute;s v&agrave;lid
   Post: lletra &eacute;s el primer car&agrave;cter no separador detectat (LLETRA si no &eacute;s un separador, o el primer car&agrave;cter no separador llegit de dades altrament)
 */
    while(not dades.eof() and es_separador(lletra)) 
       dades.get(lletra); //lletra=dades.get();
    
-}
-	</code> </pre><br> 
+}	</code></pre><br> 
 
 	<h3>Funció passar paraula</h3>
 	Amb marca de fi lógica:
-	<pre> <code class = "c++">
-char passar_paraula(char lletra){
+	<pre><code class = "c++">char passar_paraula(char lletra){
 /*Pre: lletra &amp;eacute;s el darrer car&amp;agrave;cter llegit de teclat i inici de paraula
   Post: retorna el primer car&amp;agrave;cter que no pertany a la paraula despr&amp;eacute;s d&amp;rsquo;haver-se saltat tots els car&amp;agrave;cters de la paraula
 */
@@ -293,12 +258,10 @@ char passar_paraula(char lletra){
       cin.get(lletra); //lletra=cin.get();
    
    return lletra;
-}
-	</code> </pre><br>  
+}	</code></pre><br>  
 
 	Amb marca de fi física:
-	<pre> <code class = "c++">
-char passar_paraula(char lletra, ifstream&amp; dades){
+	<pre><code class = "c++">char passar_paraula(char lletra, ifstream&amp; dades){
 /*Pre: lletra (darrer car&agrave;cter llegit de dades) inici de paraula, dades v&agrave;lid 
   Post: retorna el primer car&agrave;cter que no pertany a la paraula despr&eacute;s d&rsquo;haver-se saltat tots els car&agrave;cters de la paraula
 */
@@ -307,38 +270,32 @@ char passar_paraula(char lletra, ifstream&amp; dades){
       dades.get(lletra); //lletra=dades.get();
    
    return lletra;
-}
-	</code> </pre><br> 
+}	</code></pre><br> 
 	
 <h3>Acció passar paraula</h3>
 	Amb marca de fi lógica:
-	<pre> <code class = "c++">
-void passar_paraula(char& lletra){
+	<pre><code class = "c++">void passar_paraula(char& lletra){
 /*Pre: lletra és el darrer caràcter llegit de teclat i inici de paraula
   Post: lletra és el primer caràcter que no pertany a la paraula després d’haver-se saltat tots els caràcters de la paraula
 */
    cin.get(lletra); //lletra=cin.get();
    while(lletra!=EOS and not es_separador(lletra)) 
       cin.get(lletra); //lletra=cin.get();   
-}
-	</code> </pre><br>  
+}	</code></pre><br>  
 
 	Amb marca de fi física:
-	<pre> <code class = "c++">
-void passar_paraula(char&amp; lletra, ifstream&amp; dades){
+	<pre><code class = "c++">void passar_paraula(char&amp; lletra, ifstream&amp; dades){
 /*Pre: lletra (darrer car&agrave;cter llegit de dades) inici de paraula, dades v&agrave;lid 
   Post: lletra &eacute;s el primer car&agrave;cter que no pertany a la paraula despr&eacute;s d&rsquo;haver-se saltat tots els car&agrave;cters de la paraula
 */
    dades.get(lletra); //lletra=dades.get();
    while(not dades.eof() and not es_separador(lletra)) 
       dades.get(lletra); //lletra=cin.get();   
-}
-	</code> </pre><br> 
+}	</code></pre><br> 
 	
 	<h3>Acció passar paraula comptant</h3>
 	Amb marca de fi lógica:
-	<pre> <code class = "c++">
-void passar_paraula_comptant(char&amp; lletra, unsigned&amp; longitud){
+	<pre><code class = "c++">void passar_paraula_comptant(char&amp; lletra, unsigned&amp; longitud){
 /*Pre: lletra &eacute;s el darrer car&agrave;cter llegit de teclat i inici de paraula
   Post: lletra &eacute;s el primer car&agrave;cter que no pertany a la paraula despr&eacute;s
   d&rsquo;haver-se saltat tots els car&agrave;cters de la paraula de mida longitud */
@@ -348,12 +305,10 @@ void passar_paraula_comptant(char&amp; lletra, unsigned&amp; longitud){
       cin.get(lletra); //lletra=cin.get();   
       longitud++;
    }
-}
-	</code> </pre><br>  
+}	</code></pre><br>  
 
 	Amb marca de fi física:
-	<pre> <code class = "c++">
-void passar_paraula_comptant(char&amp; lletra, ifstream&amp; dades, unsigned&amp; longitud){
+	<pre><code class = "c++">void passar_paraula_comptant(char&amp; lletra, ifstream&amp; dades, unsigned&amp; longitud){
 /*Pre: lletra inici de paraula (darrer car&agrave;cter llegit de dades), dades v&agrave;lid 
   Post: lletra &eacute;s el primer car&agrave;cter que no pertany a la paraula despr&eacute;s 
   d&rsquo;haver-se saltat tots els car&agrave;cters de la paraula de mida longitud */
@@ -363,8 +318,7 @@ void passar_paraula_comptant(char&amp; lletra, ifstream&amp; dades, unsigned&amp
       cin.get(lletra); //lletra=cin.get();   
       longitud++;
    }
-}
-	</code> </pre><br> 
+}	</code></pre><br> 
 	
 	</solucio>
 </teoria>

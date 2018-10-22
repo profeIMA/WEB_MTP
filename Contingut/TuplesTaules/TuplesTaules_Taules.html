@@ -45,9 +45,8 @@
 		<li> <strong>Dues dimensions:</strong> nom[capacitat_files][capacitat_columnes]</li>
 	</ul>
 	
-	<pre><code class = "c++"> int a[10]; // vector
-int b[]; // matriu o vector de vectors
-	</code></pre>
+	<pre><code class = "c++">int a[10]; // vector
+int b[]; // matriu o vector de vectors	</code></pre>
 	La representació gràfica de a i b podria ser una cosa així:
 	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple1.PNG" alt = "Exemple de taula d'una dimensió"/><br>
 	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple2.PNG" alt = "Exemple de taula de dues dimensions"/><br>
@@ -95,7 +94,7 @@ int main(){
     ...
 }</code></pre>
 
-		També es pot fer usant typedef i constants, així:
+		També es pot fer usant <codi>typedef</codi> i constants, així:
 		<pre><code class="c++">const unsigned N_MAX=100, N_FIL_MAX=100, N_COL_MAX=100;
 
 struct Punt_2d {double x; double y;};

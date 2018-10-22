@@ -44,8 +44,7 @@
 		el conjunt dels possibles estats inicials vàlids.
 		En general caldria procurar que els predicats de la pre fossin el més febles (genèriques) com sigui possible.
 		
-		<pre><code class="c++">
-void quocient_i_residu(int dividend, int divisor, int& q, int& r)
+		<pre><code class="c++">void quocient_i_residu(int dividend, int divisor, int& q, int& r)
 //Pre: divisor>0  (aquesta és més forta, restrictiva)
 //Pre: divisor!=0  (aquesta és més feble, menys restrictiva)
 
@@ -54,8 +53,7 @@ double arrel(double valor)
 
 void intercanvi(double& x, double& y)
 //Pre: -- 
-//Pre: cert  
-		</code></pre>
+//Pre: cert  </code></pre>
 		
    </teoria>
    
@@ -64,27 +62,22 @@ void intercanvi(double& x, double& y)
    <teoria>
 		Són els requeriments sobre la sortida, s'ha d'expressar en funció dels paràmetres d'entrada. Són les obligacions del programador assumint que la precondició es compleix i 
 		representa el conjunt dels possibles estats finals vàlids. Convenim que els paràmetres d'entrada no es modifiquen.
-		<pre><code class = "c++">
-void quocient_i_residu(int dividend, int divisor, int& q, int& r)
+		<pre><code class = "c++">void quocient_i_residu(int dividend, int divisor, int& q, int& r)
 //Pre: divisor!=0 
 //Post: |divisor|>r>=0 i dividend=divisor*q+r
 
 double arrel_quadrada(double valor)
 //Pre: valor>=0
-//Post: retorna arrel tal que arrel*arrel=valor
-		</code></pre>
+//Post: retorna arrel tal que arrel*arrel=valor		</code></pre>
 		Per referir-nos als valors d'entrada dels paràmetres, s'acostuma a fer-ho amb el nom del paràmetre en majúscula.
-		<pre><code class = "c++">
-void intercanvi(int& x, int& y)
+		<pre><code class = "c++">void intercanvi(int& x, int& y)
 //Pre: x=X i y=Y
-//Post: x=Y i y=X
-		</code></pre>
+//Post: x=Y i y=X </code></pre>
    </teoria>
    
    <h4>Invariants d’un programa i disseny iteratiu</h4>
    L’especificació i els invariants permeten fer una anàlisi acurada dels algorismes que requereixen disseny iteratiu.
-   		<pre><code class = "c++">
-unsigned potencia(unsigned base, unsigned exponent) {
+   		<pre><code class = "c++">unsigned potencia(unsigned base, unsigned exponent) {
 //Pre: base&gt;0
 //Post: retorna base^exponent
 
@@ -99,8 +92,7 @@ unsigned potencia(unsigned base, unsigned exponent) {
     }
     // Invariant: resultat=base^exponent
     return resultat;
-}
-		</code></pre>
+}		</code></pre>
    
    
    

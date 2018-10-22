@@ -76,7 +76,7 @@ Punt_2d punt;
 Persona persona; </code></pre>
 		Ara podem usar punt i persona com hem fet anteriorment, accedint als seus valors amb l'operador .
 		
-		També es pot fer sense <strong> typedef</strong> (més usat actualment en C++).
+		També es pot fer sense <strong><codi>typedef</codi></strong> (més usat actualment en C++).
 		<pre><code class ="c++">struct Punt_2d {
    double x; 
    double y;
@@ -162,7 +162,7 @@ int main(){
 }</pre></code></solucio><br>
 		
 		<h2>Distància entre dos punts en el pla</h2><br>
-		Donats dos punts (tipus Punt_2d) en el pla, construir una funció que retorni la distància entre ells. 
+		Donats dos punts (tipus <codi>Punt_2d</codi>) en el pla, construir una funció que retorni la distància entre ells. 
 		<button onclick="myFunction(P7_2)">Solució</button><br>
 		<solucio id="P7_2"><pre><code class = "c++">// Entrada: llegeix dos punts en el pla
 // Sortida: escriu la dist&agrave;ncia entre els dos punts entrats
@@ -186,8 +186,7 @@ int main() {&nbsp;&nbsp; &nbsp;
 &nbsp; &nbsp; // C&agrave;lcul i sortida
 &nbsp; &nbsp; cout&lt;&lt;&quot;Dist&agrave;ncia entre els punts = &quot;&lt;&lt;distancia_punts(punt1,punt2)&lt;&lt;endl; &nbsp;
 &nbsp; &nbsp; return 0;
-}
-</pre></code></solucio><br>
+}</pre></code></solucio><br>
 		
 		<h2>En un pla, donat un punt, pertany a un cercle donat?</h2><br>
 		Donat un punt en el pla, que representa el centre d'un cercle, i un radi, construir una funció booleana que ens digui si un punt qualsevol està dins del cercle. 

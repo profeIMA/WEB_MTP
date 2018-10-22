@@ -72,32 +72,30 @@ Seqüències amb fitxers
 
 	Per poder treballar amb un fitxer cal incloure la llibreria fstream, declarar una variable stream del tipus corresponent i associar-la a un fitxer, obrint-lo o associant-lo al declarar-lo.
 	En els següents exemples es pot veure les diferents maneres d'obrir un fitxer. 
-	<pre><code class="c++"> 
-	#include<fstream>
+	<pre><code class="c++">#include<fstream>
+...
+int main(){
 	...
-	int main(){
-		...
-		ifstream f_entrada;
-		f_entrada.open("dades.dat"); //pot tenir qualsevol extensió
-		...								
-		ofstream f_sortida;
-		<strong>//El fitxer ha de estar en el mateix directori que el .cpp, si no hi és hem d'indicar el directori complet</strong>
-		f_sortida.open("C:\\prova\\out.txt"); /*les rutes en Windows porten el
-			símbol \, que en C++ es representa com a \\ (en UNIX s’usa /)*/
-		...
-		string nom_fitxer;
-		cin>>nom_fitxer;   
-		ifstream fitxer_in(nom_fitxer.c_str()); <strong>//cal usar .c_str() si tenim el nom en una variable.</strong>
-		...
-		fstream fitxer("dades.dat",fstream::in); //fstream de lectura. Al usar fstream cal activar lectura o escriptura (fstream::in o fstream::out)
-		...
-	}
-	</code></pre>
+	ifstream f_entrada;
+	f_entrada.open("dades.dat"); //pot tenir qualsevol extensió
+	...								
+	ofstream f_sortida;
+	<strong>//El fitxer ha de estar en el mateix directori que el .cpp, si no hi és hem d'indicar el directori complet</strong>
+	f_sortida.open("C:\\prova\\out.txt"); /*les rutes en Windows porten el
+		símbol \, que en C++ es representa com a \\ (en UNIX s’usa /)*/
+	...
+	string nom_fitxer;
+	cin>>nom_fitxer;   
+	ifstream fitxer_in(nom_fitxer.c_str()); <strong>//cal usar .c_str() si tenim el nom en una variable.</strong>
+	...
+	fstream fitxer("dades.dat",fstream::in); //fstream de lectura. Al usar fstream cal activar lectura o escriptura (fstream::in o fstream::out)
+	...
+}</code></pre>
 	<br><h3>Funcions fstreams</h3>
 	<h2>Associació variable i fitxer</h2>
 	<br> <ul>
-		<li><strong>var.open(nom_fitxer);</strong> associa el fitxer a la variable</li>
-		<li><strong>var.close();</strong> Tanca el fitxer desvinculant-lo. Es fa automàticament quan la variable deixa d'existir, però és necessari si la variable s'ha d'associar a un segon fitxer o si el fitxer ha de canviar de modalitat (entrada <-> sortida)</li>
+		<li><strong><codi>var.open(nom_fitxer);</codi></strong> associa el fitxer a la variable</li>
+		<li><strong><codi>var.close();</codi></strong> Tanca el fitxer desvinculant-lo. Es fa automàticament quan la variable deixa d'existir, però és necessari si la variable s'ha d'associar a un segon fitxer o si el fitxer ha de canviar de modalitat (entrada <-> sortida)</li>
 	</ul>
 			
 </teoria>
@@ -110,24 +108,21 @@ Seqüències d'entrada i seqüències de sortida.
 
 Per llegir una seqüència es pot usar:
 <ul>
-	<li> <strong>L'operador d'extraccio >></strong> que llegeix amb format (d'acord amb el tipus de la variable). <br>
+	<li> <strong>L'operador d'extraccio <codi>>></codi></strong> que llegeix amb format (d'acord amb el tipus de la variable). <br>
 	Exemple: 
-	<pre><code class="c++">
-	ifstream fitxer("nom_fitxer.txt"); 
-	unsigned n;      fitxer>>n;        //cin>>n;
-	string paraula;  fitxer>>paraula;  //cin>>paraula;
-	char lletra;     fitxer>>lletra;   //cin>>lletra;
-	</code></pre>
+	<pre><code class="c++">ifstream fitxer("nom_fitxer.txt"); 
+unsigned n;      fitxer>>n;        //cin>>n;
+string paraula;  fitxer>>paraula;  //cin>>paraula;
+char lletra;     fitxer>>lletra;   //cin>>lletra;	</code></pre>
 	Pels tipus numèrics i les strings, >> llegeix fins a trobar-se un white-space (ws) i converteix el valor llegit al tipus de la variable. Els white-spaces (WS) són els caràcters no visibles del codi ASCII. El C++ els empra en la lectura amb format. El més habituals són: ' '(espai) '\r'(enter) '\n'(salt de línia) '\t'(tabulador).
 	Si és un caràcter, llegeix només un caràcter, ometent els espais en blanc.
 	</li>
 	<li>
 	<strong>Lectura de caràcters:</strong>
 		<ul>
-			<li> .get() llegeix caràcters sense ometre ws. Aquest efecte també es pot aconseguir amb >> usant l'opció <strong>noskipws</strong>
-			<pre> <code class="c++"> 
-			char lletra = fitxer.get(); //lletra=cin.get();
-			fitxer.get(lletra);         //cin.get(lletra);</code></pre> 
+			<li> <b><codi>.get()</b></codi> llegeix caràcters sense ometre ws. Aquest efecte també es pot aconseguir amb <b><codi>>></b></codi> usant l'opció <strong><codi>noskipws<codi></strong>
+			<pre> <code class="c++"> char lletra = fitxer.get(); //lletra=cin.get();
+fitxer.get(lletra);         //cin.get(lletra);</code></pre> 
 			</li>
 			<li> .unget torna a fer accessible (només) el darrer caràcter llegit.
 			</li>
@@ -138,7 +133,7 @@ Per llegir una seqüència es pot usar:
 
 <h2> Validació d'entrada</h2><br>
 
-	L’operador &gt;&gt; i el .get(char&) retornen un booleà indicant si s’ha pogut fer la lectura correctament (equivalent a <i>not variable_stream.failed()</i>). Quan es retorna un fals no es pot fer cap més lectura a l'stream.
+	L’operador <b><codi>&gt;&gt;</b></codi> i el <b><codi>.get(char&)</b></codi> retornen un booleà indicant si s’ha pogut fer la lectura correctament (equivalent a <i><b><codi>not variable_stream.failed()</i></b></codi>). Quan es retorna un fals no es pot fer cap més lectura a l'stream.
 
 	<pre><code class="c++">
 //Entrada per teclat fins a detectar un error de format (lletra)
@@ -156,28 +151,24 @@ while(in_file.get(caracter))
         n_caracter++;
 	</code></pre>
 	
-<h2>Lectura d’un string fins a intro: .getline()</h2><br>
-	L'operador &gt;&gt; seguit d'una string, llegeix fins a trobar un WS, (cal usar skipws). Es pot llegir tot una línia sencera (inclosos espais en blanc) utilitzant el getline(stream, variable_string).
+<h2>Lectura d’un string fins a intro: <b><codi>.getline()</b></codi></h2><br>
+	L'operador <b><codi>&gt;&gt;</b></codi> seguit d'una string, llegeix fins a trobar un WS, (cal usar skipws). Es pot llegir tot una línia sencera (inclosos espais en blanc) utilitzant el <b><codi>getline(stream, variable_string)</b></codi>.
 	
-	<pre><code class="c++">
-//Exemple entrada per teclat
+	<pre><code class="c++">//Exemple entrada per teclat
 string variable;
-getline(cin,variable); //llegeix fins a trobar un salt de línia
-	</code></pre>
-	Quan s’usen fstreams, retorna cert si s’ha pogut llegir la línia i fals si s’ha detectat l’eof (podem ignorar el booleà obtingut)
-	<pre><code class="c++">
-//Exemple entrada per fitxer fins a eof
+getline(cin,variable); //llegeix fins a trobar un salt de línia	</code></pre>
+	Quan s’usen fstreams, retorna cert si s’ha pogut llegir la línia i fals si s’ha detectat l’<b><codi>EOF</b></codi> (podem ignorar el booleà obtingut)
+	<pre><code class="c++">//Exemple entrada per fitxer fins a eof
 string linia;
 ifstream in_file("prova.txt");
 while(getline(in_file,linia))
-//processem la línia
-	</code></pre>
+//processem la línia</code></pre>
 <h2> Marca de fi </h2><br><br>
 
 Cal tenir en compte que ha de ser detectada al ser llegida, <alerta>és un error continuar llegint!</alerta>
 A més, també és recomanable que, si n'hi ha, la marca de fi lògica vagi seguida d'un WS, per evitar problemes en la detecció.
 <br>
-El fi de seqüència física, en C++, es detecta amb la funció .eof() que retorna un booleà que dona cert si s'ha arribat a la marca de fi.
+El fi de seqüència física, en C++, es detecta amb la funció <b><codi>.eof()</b></codi> que retorna un booleà que dona cert si s'ha arribat a la marca de fi.
 Pel cas de una marca de fi lògica, podem definir una constant EOS, donant-li el valor que volem que tingui la marca de fi, llavors per detectar-la, és una simple comparació d'igualtat (==).
 
 
@@ -186,30 +177,25 @@ Pel cas de una marca de fi lògica, podem definir una constant EOS, donant-li el
 Per escriure en una seqüència d'entrada es pot usar:
 <ul>
 	<li>
-		<strong> L'operador d'inserció &lt;&lt; </strong> que ens permet escriure elements de tipus conegut. 
-		<pre><code class="c++">
-ofstream fitxer; 
+		<strong> L'operador d'inserció <codi>&lt;&lt;</codi></strong> que ens permet escriure elements de tipus conegut. 
+		<pre><code class="c++">ofstream fitxer; 
 fitxer.open(&quot;arxiu.txt&quot;);
 //Escriptura amb format
 char caracter='a';
 unsigned n=15; 
 cout&lt;&lt;caracter&lt;&lt;&quot; enter: &quot;&lt;&lt;n&lt;&lt;endl; 
-fitxer&lt;&lt;caracter&lt;&lt;&quot; enter: &quot;&lt;&lt;n&lt;&lt;endl;
-		</code></pre>
+fitxer&lt;&lt;caracter&lt;&lt;&quot; enter: &quot;&lt;&lt;n&lt;&lt;endl;		</code></pre>
 		<br> Aquest codi ens escriuria en el fitxer i en pantalla el següent: <br>
 		<img class="allargatPetit" src="../../Recursos/Imatges/SequenciesFitxers_escriptura.PNG" alt="resultat del codi anterior"/><br>
 		Com veiem, escriu tant el caràcter com el enter en el format corresponent. El \r\n correspondria al salt de línia en Windows. 
 		
 	</li>
 	<li>
-		<strong> .put()</strong> que permet escriure caràcters (d'un en un). 
-		<pre> <code class="c++">
-//Escriptura d’un caràcter
+		<strong><codi>.put()</codi></strong> que permet escriure caràcters (d'un en un). 
+		<pre> <code class="c++">//Escriptura d’un caràcter
 char caracter='.';
 fitxer.put(caracter); //Escriu el caràcter
-cout.put(caracter); //Escrivim el caràcter a la pantalla
-
-		</code> </pre>
+cout.put(caracter); //Escrivim el caràcter a la pantalla</code> </pre>
 		<br> Afegint aquest codi al anterior, ens resultaria en el següent:<br><br>
 		<img class="allargatPetit" src="../../Recursos/Imatges/SequenciesFitxers_escriptura2.PNG" alt="resultat del codi anterior"/><br>
 		Com veiem s'afegeix el punt després del salt de línia, on hi havia el cursor.

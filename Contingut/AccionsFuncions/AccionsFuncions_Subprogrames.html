@@ -42,28 +42,24 @@
     <alerta>Els subprogrames s'executen en un entorn local, això significa que no coneixen RES no estigui declarat en un <a href="Entorns_Teoria.html">entorn global</a></alerta>
     <br>
     <h2>Exemple</h2>
-    <pre><code class = "c++">
-        #include &lt;iostream&gt;
-        
-        using namespace std; 
-        
-        int suma(int a, int b) //CAPÇALERA: Declarem la acció i/o funció
-        {//PRE: a i b dos enters
-        //POST: retorna la suma entre a i b
-            int c = a + b;//Instruccions a executar
-            return c;//RETORN: valor que ha de retornar (IMPORTANT: c és un enter igual que el retorn de la funció )
-        }
-        
-        int main(){
-            int x = 4; 
-            int y = 3; 
-            
-            int z = suma(x,y);//INVOCACIÓ: Cridem a la nostra funció declarada ANTERIORMENT, i li passem dues variables, x,y( dos enters), que són les mateixes que la funció espera (a,b).
-            cout&lt;&lt;"El valor de z es: "&lt;&lt;z&lt;&lt;endl;
-        }
-        
+    <pre><code class = "c++">#include &lt;iostream&gt;
 
-    </code></pre>
+using namespace std; 
+
+int suma(int a, int b) //CAPÇALERA: Declarem la acció i/o funció
+{//PRE: a i b dos enters
+//POST: retorna la suma entre a i b
+	int c = a + b;//Instruccions a executar
+	return c;//RETORN: valor que ha de retornar (IMPORTANT: c és un enter igual que el retorn de la funció )
+}
+
+int main(){
+	int x = 4; 
+	int y = 3; 
+	
+	int z = suma(x,y);//INVOCACIÓ: Cridem a la nostra funció declarada ANTERIORMENT, i li passem dues variables, x,y( dos enters), que són les mateixes que la funció espera (a,b).
+	cout&lt;&lt;"El valor de z es: "&lt;&lt;z&lt;&lt;endl;
+        }</code></pre>
     Hem vist un exemple real d'una funció. Per entendre millor què és el que està passant tractarem un a un, les diferents parts de les accions i funcions.
    <br>
    <br>
@@ -71,9 +67,9 @@
     <br>
     La capçalera és la declaració de l'acció o funció, (Igual que les variables, les accions i funcions també s'han de declarar). A la capçalera i figura: <h2>Quin valor retorna</h2> si és que en retorna cap, <h2>el nom</h2> de que tindrà, els <h2>paràmetres d'entrada</h2> que cal subministrar a la funció o acció, i la <h2>especificació</h2>. <br>
     <ul>
-        <li><h2>Retorn: </h2> Una funció pot retornar qualsevol tipus de variable unitària, és a dir, només pot retornar una dada.  <alerta>REPASSAR!!</alerta></li>
+        <li><h2>Retorn: </h2> Una funció pot retornar qualsevol tipus de variable unitària, és a dir, només pot retornar una dada. </li>
         <li><h2>Nom: </h2>És el nom que tindrà la funció, no té importància a nivell de programa.</li>
-        <li><h2>Paràmetres entrada: </h2> Són tots els paràmetres que envies a la funció, aquests paràmetres poden ser per <h2> constants </h2>,<h2>per referència</h2>, <h2>per paràmetre</h2><br>
+        <li><h2>Paràmetres entrada: </h2> Són tots els paràmetres que envies a la funció, aquests paràmetres poden ser per <h2>constants</h2>, <h2>per referència</h2>, <h2>per paràmetre</h2><br>
 			<ul>
 				<li><h2>Constants: </h2>com el seu nom indica són valors que no canvien durant el curs de l'execució dins de la funció.</li>
 				<li><h2>Per paràmetre:</h2> s'envia una còpia de la variable original a la funció. D'aquesta manera es pot modificar el valor de la variable sense afectar el valor original</li>
@@ -89,14 +85,11 @@
     </ul>
     
     Exemples de declaracions de funcions: 
-    <pre><code class ="c++">
-        void accio1();
-        int funcio1(int p1); //pas de parametre
-        
-        void accio2(int &a); //Pass per referència de a 
-        bool funcio2(int a, const char &c)//pas per parametre de " a " i pas per referència i constant de " c "
-    
-    </code></pre>
+    <pre><code class ="c++">void accio1();
+int funcio1(int p1); //pas de parametre
+
+void accio2(int &a); //Pass per referència de a 
+        bool funcio2(int a, const char &c)//pas per parametre de " a " i pas per referència i constant de " c "</code></pre>
 
     <br><br>
     <h3>Implementació</h3>
@@ -104,25 +97,23 @@
     La implementació són el conjunt d'instruccions que executarà la funció cada cop que sigui cridada. La implementació pot ser just després de la capçalera o bé en qualsevol altre punt (posterior a la capçalera). <br> 
     Si la funció ha de retornar algun valor, cal utilitzar la comanda return. <br> 
     <h2>Implementació c++</h2>
-    <pre><code class = "c++">
-        unsigned int funcioA(int p1)//Exemple d'una funció que calcula el quadrat d'un nombre
-        {//PRE:
-        //POST: retorna el quadrat de p1.
-            unsigned int quadrat = p1*p1; 
-            return quadrat;
-        }
-        
-        void accioB(bool& b, const float &f)
-        {//PRE: ----
-         //POST: Comprova si f és major que 100 i en guarda el resultat a b. També mostra per pantalla el resultat en forma de text.
-            b = f &gt; 100;
-            if(b)
-                cout&lt;&lt;"Hem arribat al 100%"&lt;&lt;endl; 
-            else 
-                cout&lt;&lt;"No hem arribat al 100%"&lt;&lt;endl;
-            
-        }
-    </code></pre>
+    <pre><code class = "c++">unsigned int funcioA(int p1)//Exemple d'una funció que calcula el quadrat d'un nombre
+{//PRE:
+//POST: retorna el quadrat de p1.
+	unsigned int quadrat = p1*p1; 
+	return quadrat;
+}
+
+void accioB(bool& b, const float &f)
+{//PRE: ----
+ //POST: Comprova si f és major que 100 i en guarda el resultat a b. També mostra per pantalla el resultat en forma de text.
+	b = f &gt; 100;
+	if(b)
+		cout&lt;&lt;"Hem arribat al 100%"&lt;&lt;endl; 
+	else 
+		cout&lt;&lt;"No hem arribat al 100%"&lt;&lt;endl;
+	
+}</code></pre>
 	<h3>
     Accions vs funcions
 	</h3>
@@ -139,8 +130,7 @@
 	   <button onclick="myFunction(P5_1)">Solució</button><br>
 		<solucio id="P5_1">
 		<span style="color:MediumTurquoise">Cal obtenir dos valors (area_cercle,  area_quadrat), per tant ha de ser una acció amb dos paràmetres de sortida (pas per referència).</color>
-		<pre><code class = "c++">
- const double PI=3.14159;
+		<pre><code class = "c++"> const double PI=3.14159;
  
  void area_cercle_i_quadrat(double radi, double&amp; area_c, double&amp; area_q) {
  //Pre: radi&gt;0
@@ -154,9 +144,8 @@
 		<strong>Càlcul del màxim de dos nombres reals.</strong>
 		<button onclick="myFunction(P5_2)">Solució</button><br>
 		<solucio id="P5_2">
-		<span style="color:MediumTurquoise">Cal obtenir un valor (màxim), per tant ha de ser una funció real que rep dos reals d’entrada (pas per valor)</span>
-		<pre><code class = "c++">
-double maxim(double x, double y) {
+		<span style="color:MediumTurquoise"> Cal obtenir un valor (màxim), per tant ha de ser una funció real que rep dos reals d’entrada (pas per valor)</span>
+		<pre><code class = "c++"> double maxim(double x, double y) {
  //Pre: cert
  //Post: retorna el m&agrave;xim d'x i de y
 	 double max=x;
@@ -170,8 +159,7 @@ double maxim(double x, double y) {
 		 <button onclick="myFunction(P5_3)">Solució</button><br>
 		<solucio id="P5_3">
 		<span style="color:MediumTurquoise">Cal obtenir dos valors (area_cercle,  area_quadrat), per tant ha de ser una acció amb dos paràmetres de sortida (pas per referència).</span>
-		<pre><code class = "c++">
-unsigned suma_naturals(unsigned n) {
+		<pre><code class = "c++"> unsigned suma_naturals(unsigned n) {
 //Pre: cert
 //Post: retorna la suma dels naturals desde 1 a n
 	unsignedsuma=0;
@@ -190,8 +178,7 @@ unsigned suma_naturals(unsigned n) {
 		<solucio id="P5_4">
 		<span style="color:MediumTurquoise">Cal obtenir dos valors a partir de dos naturals, per tant és una acció amb dos paràmetres d’entrada (pas per valor): dividend i divisor; 
 		i dos paràmetres de sortida (pas per referència): quocient i residu</span>
-		<pre><code class = "c++">
-void divisio_restant(unsigned dividend, unsigned divisor, unsigned&amp; quocient, unsigned&amp; residu) {
+		<pre><code class = "c++"> void divisio_restant(unsigned dividend, unsigned divisor, unsigned&amp; quocient, unsigned&amp; residu) {
 /* Pre: divisor&gt;0
 Post: residu&lt;divisor, dividend=quocient*divisor+residu(quocient i residu s&oacute;n el quocient i residu de dividir dividend per divisor) */
 quocient=0;
@@ -208,8 +195,7 @@ residu=dividend;
 		 <button onclick="myFunction(P5_5)">Solució</button><br>
 		<solucio id="P5_5">
 		<span style="color:MediumTurquoise">Cal calcular un valor booleà (és_parell), per tant és una funció booleana que rep un nombre natural (pas per valor).</span>
-		<pre><code class = "c++">
-bool es_parell(unsigned n){
+		<pre><code class = "c++"> bool es_parell(unsigned n){
 //Pre: cert
 //Post: retorna cert si n és parell, fals altrament
 	return n%2==0;
@@ -221,8 +207,7 @@ bool es_parell(unsigned n){
 		 <button onclick="myFunction(P5_6)">Solució</button><br>
 		<solucio id="P5_6">
 		<span style="color:MediumTurquoise">Cal obtenir un valor natural (dau), per tant és una funció natural sense paràmetres</span>
-		<pre><code class = "c++">
-#include&lt;cstdlib&gt;
+		<pre><code class = "c++">#include&lt;cstdlib&gt;
 #include&lt;ctime&gt;
 //...
 unsigned dau() {
@@ -245,8 +230,7 @@ int main(){
 		 <button onclick="myFunction(P5_7)">Solució</button><br>
 		<solucio id="P5_7">
 		<span style="color:MediumTurquoise">Cal obtenir un valor booleà (te_parell), per tant és una funció booleana amb un paràmetre natural d’entrada (pas per valor)</span>
-		<pre><code class = "c++">
-bool es_parell(unsigned n){
+		<pre><code class = "c++">bool es_parell(unsigned n){
 //Pre: cert
 //Post: retorna cert si n és parell, fals altrament
 	return n%2==0;
@@ -285,8 +269,7 @@ bool te_digit_parell(unsigned n){
 	<strong>Primer nombre primer >=n</strong>
 	<button onclick="myFunction(P5_12)">Solució</button><br>
 		<solucio id="P5_12">
-		<pre><code class = "c++">
-//Entrada: un natural n &gt;1
+		<pre><code class = "c++">//Entrada: un natural n &gt;1
 //Sortida: mostra el primer nombre primer &gt;=n
 ...
 bool es_primer(unsigned n){
@@ -341,17 +324,14 @@ Exemple:  220 i 284 són amics
 		</span>
 		
 		L'estretegia a seguir, doncs, és:
-		<pseudocodi><pre><code class = "nohighlight">
-llegir n un natural
+		<pseudocodi><pre><code class = "nohighlight">llegir n un natural
 per a des de 2 fins a n fer
 	natural b=suma dels divisors d’a – a //candidat a amic d’a
 	si b > a llavors //miro si la parella a,b té possibilitats de ser mostrada
 		natural suma_b=suma dels divisors de b – b //miro si són amics
-		si suma_b==a llavors escriure la parella (a, b)
-		</code></pre></pseudocodi>
+		si suma_b==a llavors escriure la parella (a, b) 		</code></pre></pseudocodi>
 
-		<pre><code class = "c++">
-//Entrada: un nombre natural n &gt;0
+		<pre><code class = "c++">//Entrada: un nombre natural n &gt;0
 //Sortida: mostra per pantalla totes les parelles (a,b) de nombres amics amb
 almenys un dels dos &lt;n, excloent repeticions i parelles amb a==b
 int main() {
@@ -370,8 +350,7 @@ int main() {
 
 	Faltaria fer la implementació de la funció suma_divisors
 	
-	<pre><code class="c++">
-unsigned suma_divisors(unsigned nombre){
+	<pre><code class="c++">unsigned suma_divisors(unsigned nombre){
 //Pre: cert
 //Post: retorna la suma de tots els divisors de nombre
 ...
