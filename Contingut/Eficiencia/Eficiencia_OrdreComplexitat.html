@@ -41,13 +41,11 @@
     <teoria>
         Per fer el càlcul del nombre d'operacions només cal que fem la traça de tot el programa i anem contant quantes operacions està realitzen el nostre algorisme. <br> <br> 
         Per exemple: 
-        <pre><code class="C++">
-            int suma = 0; 
-            for(int i = 0; i != 9; i++)
-            {
-                suma+=i; //Cost unitàri, operació aritmètica.
-            }
-        </code></pre>
+        <pre><code class="C++">int suma = 0; 
+for(int i = 0; i != 9; i++)
+{
+    suma+=i; //Cost unitàri, operació aritmètica.
+}</code></pre>
         El nombre d'operacions que es fan són: <b>9 Sumes + 1 assignació = 10</b>. <br><br>
         
         Està clar aque aquest programa és exageradament simple, però què passaria si tinguessim un programa molt més extens?. La resposta és que ens tocaria contar de la mateixa forma que hem fet anteriorment, fet que torna el càlcul de l'eficiència ineficient. <br> 
@@ -64,7 +62,7 @@
             <img src="../../Recursos/Imatges/OrdreComplexitat.PNG" alt="Ordres de complexitat">
         
         En un primer cop d'ull potser no es pot veure la gran diferència entre aquestes funcions, de manera que anirem a posar alguns valors: <i>(Hem considerat que una operació unitària tarda 1 microsegon)</i>
-        <img src="../../Recursos/Imatges/OrdreComplexitatTemps.PNG" alt="Temps dels ordres de complexitat">
+        <br><br><img src="../../Recursos/Imatges/OrdreComplexitatTemps.PNG" alt="Temps dels ordres de complexitat"><br><br>
         De color <span style="color:forestgreen">verd</span> tenim tots aquells ordres que es poden donar a la vida real i, podem acceptar. En canvi en <span style="color:red">vermell</span> tenim tots aquells que no són tractables i per tant, si mai ens surt un algorisme d'aquest ordre cal buscar la forma d'optimitzar-lo.<br><br>
         <h3>Operacions entre ordres</h3>
         <teoria>

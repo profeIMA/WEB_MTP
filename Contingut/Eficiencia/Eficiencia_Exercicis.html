@@ -43,34 +43,32 @@
         <exercici>Donat una sèrie d'algorismes trobar el seu ordre de complexitat: </exercici>
             <ol>
                <li>
-                   <pre><code class="c++">
-                        //ACCIONS I FUNCIONS
-                             void intercanvi(int& x, int& y) {
-                                int aux=x; x=y; y=aux;                                     
-                            }
+                   <pre><code class="c++">//ACCIONS I FUNCIONS
+        void intercanvi(int& x, int& y) {
+        int aux=x; x=y; y=aux;                                     
+    }
 
-                            int pos_minim_des_de(const Vector_enter vec, unsigned m, unsigned pos) {
-                                //Pre: 1&lt;m=N_MAX i 0&lt;=pos&lt;m
-                                //Post: retorna la posició del mínim de vec[pos..m-1]
-                                int pos_min=pos;                                   
-                                for (unsigned i=pos+1; i&lt;m; i++) 
-                                    if(vec[i]&lt;vec[pos_min]) pos_min=i;   
+    int pos_minim_des_de(const Vector_enter vec, unsigned m, unsigned pos) {
+        //Pre: 1&lt;m=N_MAX i 0&lt;=pos&lt;m
+        //Post: retorna la posició del mínim de vec[pos..m-1]
+        int pos_min=pos;                                   
+        for (unsigned i=pos+1; i&lt;m; i++) 
+            if(vec[i]&lt;vec[pos_min]) pos_min=i;   
 
-                                return pos_min;                                
-                            }
+        return pos_min;                                
+    }
 
 
-                        //PROGRAMA
-                            void ordenacio_seleccio_directa(Vector_enter vec, unsigned m) {
+//PROGRAMA
+    void ordenacio_seleccio_directa(Vector_enter vec, unsigned m) {
 
-                                //Pre: 0&lt;m&lt;=N_MAX i vec=VEC
-                                //Post: vec[0..m-1] conté una permutació ordenada dels valors de VEC[0..m-1]
-                                for (unsigned i=0; i&lt;m-1; i++) {
-                                    unsigned pos_min= pos_minim_des_de(vec,m,i);  
-                                    intercanvi(vec[i],vec[pos_min]);	
-                                }
-                            }
-                </code></pre>
+        //Pre: 0&lt;m&lt;=N_MAX i vec=VEC
+        //Post: vec[0..m-1] conté una permutació ordenada dels valors de VEC[0..m-1]
+        for (unsigned i=0; i&lt;m-1; i++) {
+            unsigned pos_min= pos_minim_des_de(vec,m,i);  
+            intercanvi(vec[i],vec[pos_min]);	
+        }
+    }</code></pre>
                   <button onclick="myFunction(Ex1)">Solucio</button>
                     <solucio id="Ex1">
                         <ul>
@@ -89,21 +87,19 @@
                 
                 
                 <li>
-                <pre><code class="c++">
-                        bool diagonal_positiva(Matriu_enter matriu){
-                        //Pre: matriu.n&lt;=N_MAX_FILES i matriu.m &lt;= N_MAX_COL  i matriu.n=matriu.m
-                        //Post: retorna cert matriu.mat[0..matriu.n-1,0..matriu.m-1] té la diagonal >=0
-                        
-                            bool positiva=true;                       
-                            unsigned i=0;                              
-                            while(i&lt;matriu.n and positiva){            
-                                if(matriu.mat[i][i]&lt;0) positiva=false;   
-                                else i++;                                                                                              
-                            }
-                            return positiva;                         
+                <pre><code class="c++">bool diagonal_positiva(Matriu_enter matriu){
+//Pre: matriu.n&lt;=N_MAX_FILES i matriu.m &lt;= N_MAX_COL  i matriu.n=matriu.m
+//Post: retorna cert matriu.mat[0..matriu.n-1,0..matriu.m-1] té la diagonal >=0
 
-                        }                             
-                </code></pre>
+    bool positiva=true;                       
+    unsigned i=0;                              
+    while(i&lt;matriu.n and positiva){            
+        if(matriu.mat[i][i]&lt;0) positiva=false;   
+        else i++;                                                                                              
+    }
+    return positiva;                         
+
+}</code></pre>
                    <button onclick="myFunction(Ex2)">Solucio</button>
                     <solucio id="Ex2">
                         <ul>

@@ -41,13 +41,11 @@
     <teoria>
         Un algorisme seqüencial consta d'un seguit d'instruccions conseqÑutives, per tant si tenim un programa com aquest: <br>
         
-        <pseudocodi><pre><code class="nohighligh">
-            instrucció 1 (Cost S1)
-            instrucció 2 (Cost S2)
-            instrucció 3 (Cost S3)
-            ...
-            instrucció n (Cost n)
-        </code></pre></pseudocodi>
+        <pseudocodi><pre><code class="nohighligh">instrucció 1 (Cost S1)
+instrucció 2 (Cost S2)
+instrucció 3 (Cost S3)
+...
+instrucció n (Cost n)</code></pre></pseudocodi>
         Per determinar quin és el cost del nostre algorisme aplicariem la següent expressió. &sum;(S<sub>i</sub>), sumant tots els costos tindriem el cost total. <br>
         Ara bé, en el pitjor dels casos, tindrem un nombre de dades tendint a infinit, i per tant hi ha molts <b>costos que són despreciables</b> en contra d'altres que són realments importants. Per exemple, si tenim un cost constant enfront a un cost quadràtic (n <sup>2</sup>), aleshores el constant és menyspreable. <br> <br>
         
@@ -69,32 +67,28 @@
 <!------------------------------------------------------------------------------------------------------------------------------------------------------------->    
     <h3>Exercici 1</h3>
     <exercici>Calcular l'ordre de complexitat del següent algorisme:</exercici>
-    <pre><code class="C++">
-        double potencia (double base, unsigned exp){
-        //Pre: cert
-        //Post: retorna base elevat a exp
-            double potencia=1;                    
-            for(unsigned i=1; i&lt;=exp; i++)          
-                potencia=potencia*base;          
-                
-            return potencia;                     
-        }                                        
-    </code></pre>
+    <pre><code class="C++">double potencia (double base, unsigned exp){
+//Pre: cert
+//Post: retorna base elevat a exp
+    double potencia=1;                    
+    for(unsigned i=1; i&lt;=exp; i++)          
+        potencia=potencia*base;          
+        
+    return potencia;                     
+}</code></pre>
     
     <!--------------solucio------------>
  <button onclick="myFunction(Ex1)">Solucio</button>
                 
-   <solucio id="Ex1"><pre><code class="c++">
-      double potencia (double base, unsigned exp){
-    //Pre: cert
-    //Post: retorna base elevat a exp
-        double potencia=1;                    O(1)
-        for(unsigned i=1; i&lt;=exp; i++)          
-            potencia=potencia*base;           O(1) exp vegades --> O(exp)
+   <solucio id="Ex1"><pre><code class="c++">double potencia (double base, unsigned exp){
+//Pre: cert
+//Post: retorna base elevat a exp
+    double potencia=1;                    O(1)
+    for(unsigned i=1; i&lt;=exp; i++)          
+        potencia=potencia*base;           O(1) exp vegades --> O(exp)
 
-        return potencia;                      O(1) 
-    }                                        
-    </code></pre>
+    return potencia;                      O(1) 
+}</code></pre>
     Per tant l'ordre final es O(n);
     </solucio>
 <!------------------------------------------------------------------------------------------------------------------------------------------------------------->
@@ -103,44 +97,40 @@
     
     <h3>Exercici 2</h3>
     <exercici>Calcular l'ordre de complexitat del següent algorisme:</exercici>
-    <pre><code class="C++">
-       double potencia2 (double base, unsigned exp){
-        //Pre: cert
-        //Post: retorna base elevat a exp
-            double potencia=1;                    
-            unsigned i=exp;                       
-            double b=base;                        
+    <pre><code class="C++">       double potencia2 (double base, unsigned exp){
+//Pre: cert
+//Post: retorna base elevat a exp
+    double potencia=1;                    
+    unsigned i=exp;                       
+    double b=base;                        
 
-            while(i&gt;1){          
-                if(i%2==1) potencia=potencia*b; 
-                b=b*b;                            
-                i=i/2;
-            }
+    while(i&gt;1){          
+        if(i%2==1) potencia=potencia*b; 
+        b=b*b;                            
+        i=i/2;
+    }
 
-            return potencia;                      
-        }
-    </code></pre>
+    return potencia;                      
+}</code></pre>
     
     <!--------------solucio------------>
  <button onclick="myFunction(Ex2)">Solucio</button>
                 
-   <solucio id="Ex2"><pre><code class="c++">
-      double potencia2 (double base, unsigned exp){
-        //Pre: cert
-        //Post: retorna base elevat a exp
-            double potencia=1;                    O(1)
-            unsigned i=exp;                       O(1)
-            double b=base;                        O(1)
+   <solucio id="Ex2"><pre><code class="c++">double potencia2 (double base, unsigned exp){
+//Pre: cert
+//Post: retorna base elevat a exp
+    double potencia=1;                    O(1)
+    unsigned i=exp;                       O(1)
+    double b=base;                        O(1)
 
-            while(i&gt;1){          
-                if(i%2==1) potencia=potencia*b; 
-                b=b*b;                            O(1) cada iteració  -> O(nIter)
-                i=i/2;
-            }
+    while(i&gt;1){          
+        if(i%2==1) potencia=potencia*b; 
+        b=b*b;                            O(1) cada iteració  -> O(nIter)
+        i=i/2;
+    }
 
-            return potencia;                      O(1) 
-        }
-    </code></pre>
+    return potencia;                      O(1) 
+}</code></pre>
     Per tant l'ordre final es O(log (n));
     </solucio>
     

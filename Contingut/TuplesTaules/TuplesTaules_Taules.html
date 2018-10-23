@@ -41,8 +41,8 @@
 	Les taules són estructures de dades (elements) del mateix tipus (tipus base) sota d'un nom o identificador.<br>
 	Declaració (+ reserva de memòria):
 	<ul>
-		<li> <strong>Una dimensió:</strong> tipus nom [capacitat] //capacitat és un nombre natural</li>
-		<li> <strong>Dues dimensions:</strong> nom[capacitat_files][capacitat_columnes]</li>
+		<li> <strong>Una dimensió:</strong> <codi>tipus nom [capacitat] //capacitat és un nombre natural</codi> </li>
+		<li> <strong>Dues dimensions:</strong> <codi>nom[capacitat_files][capacitat_columnes]</codi></li>
 	</ul>
 	
 	<pre><code class = "c++">int a[10]; // vector
@@ -54,8 +54,8 @@ int b[]; // matriu o vector de vectors	</code></pre>
 	La posició de cada element està especificada per índexs naturals en el rang [0..capacitat-1]. 
 	Per accedir a un element fem servir l'operador [] i els índexs que indiquen la posició del element: <br>
 	<ul>
-		<li>nom[índex] per a una dimensió</li>
-		<li>nom[índex_fila] [índex_columna] per a dues dimensions</li>
+		<li><codi>nom[índex]</codi> per a una dimensió</li>
+		<li><codi>nom[índex_fila] [índex_columna]</codi> per a dues dimensions</li>
 	</ul>
 	
 	Usant les taules a i b  declarades anteriorment l'accés seria així:<br>
@@ -68,7 +68,7 @@ int b[]; // matriu o vector de vectors	</code></pre>
 	<img class = "allargatTaula" src = "../../Recursos/Imatges/TuplesTaules_Taules_Exemple6.PNG" alt = "Exemple d'ocupació en una taula de dues dimensions."/><br>
 	
 	El tipus base d'una taula pot ser qualsevol tipus elemental, a més de qualsevol struct o taula. <br>
-	Els elements a[i] o b[i][j], corresponents a un vector o a una matriu d'un determinat tipus, són tractats com a simples variables d'aquest tipus. <br>
+	Els elements <codi>a[i]</codi> o <codi>b[i][j]</codi>, corresponents a un vector o a una matriu d'un determinat tipus, són tractats com a simples variables d'aquest tipus. <br>
 	<strong> Indexació i accessos fora de rang</strong>: 
 	En C++, els índexs dels elements d'un array de capacitat N van de 0 a N-1. Quan s'accedeix a un element que no existeix (per exemple a la posició N), 
 	es produeix un accés fora de rang, que és un error greu. C++ no dona cap missatge especial quan es produeix un accés fora de rang; pot ser un error difícil de detectar, 
