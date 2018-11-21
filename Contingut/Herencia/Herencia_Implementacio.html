@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+</head>
+
+<body onload="checkMenuById('#collapse-input-2');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+     2.3 IMPLEMENTACIÓ DE LA RELACIÓ D'HERÈNCIA
+    </h1>
+  </center>
+
+  <teoria>
+    <h4>Implementació de la classe base</h4>
+    <teoria>
+        La classe base tindria la següent estructura:
+        <pre><code class="c++">classClasse_base
+{
+public:  
+    //Interfície  de  la  classe  accessible  des  de  tot  arreu
+protected:
+    //Atributs  i  mètodes  de  la  Classe_base accessibles  també  des  de  les  Classes_derivades 
+private:
+    //Atributs  i  mètodes  privats  de  la  Classe_base només  accessibles  des  d'aquesta  classe
+}; </code></pre>
+
+        Com es pot veure en el codi anterior, aquells mètodes o atributs que han de poder ser accessibles des de les classes derivades però no des de fora d'aquestes es posen com a elements protected.
+
+    </teoria>
+
+    <h4>Implementació d'una classe derivada</h4>
+
+    Al definir la classe cal indicar quina és la seva classe base amb <codi>:</codi>. Així tindrà accés a tots els mètodes públics i protected de la classe base.
+    Cal afegir tots els trets que la diferencien de la classe base:
+    <ul>
+        <li>nous atributs</li>
+        <li>nous mètodes</li>
+        <li>mètodes que cal redefinir</li>
+    </ul>
+    <pre><code class = "c++">class Classe_derivada:  public Classe_base 
+//el public defineix una relació d'herència pública, la interfície de  la  Classe_base passa  a  ser  interfície  de  la  Classe_derivada.  
+//Si  no  s'hi  posa,  l'herència  és  privada  i  la  interfície  de  la  classe  base  passa  a  la  part  privada  de  la  classe  derivada  i  per  tant  només  és  accessible  des  de  dins  de  la  Classe_derivada
+{
+public:  
+    //Mètodes  nous  o  que  calgui  canviar-ne  la  implementació
+private:
+    //Atributs  addicionalsMètodes  privats  nous  o  que  calgui  canviar-ne  la  implementació
+}; </code></pre>
+
+    La classe derivada no té accés a la part privada de la Classe base, es poden cridar, però, els constructors d'aquesta. El constructor per defecte es crida de forma automàtica, la resta es poden cridar de la següent forma:
+    <pre><code class = "c++"> Classe_derivada::Classe_derivada(parametres):Classe_base(arguments_classe_base)
+{
+    Inicialització  dels  atributs  específics  de  la  classe  derivada
+}; </code></pre>
+
+  </teoria>
+  
+  
+</div>
+
+  <p class = footer>
+<a class="backward round" href=""></a> <a class="forward round" href=""></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
