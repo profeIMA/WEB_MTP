@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+</head>
+
+<body onload="checkMenuById('#collapse-input-2');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+     2.2 RELACIÓ D'HERÈNCIA
+    </h1>
+  </center>
+  
+  En el disseny de classes apareix la relació d'herència. Aquesta s'estableix entre una classe més general (<b>classe base</b>) i una de més especialitzada (<b>classe derivada</b>). Aquesta segona <b>hereta dades i comportament</b> de la classe base. 
+  <img style="height:400px ;width:auto;" src="../../Recursos/Imatges/Herencia_RelacioHerencia_Exemple1.png" alt="Herència de la classe vehicles.">
+  
+  <h4>Operacions</h4>
+  <teoria>
+	La classe derivada hereta tots els mètodes (consultors, modificadors i mètodes de classe) de la classe base, excepte el constructor, implicant que cada classa (derivada o base) necessita els seus propis constructors. Per tant, la interfície (sense els constructors) de la classe base és un subconjunt de la interfície de la classe derivada.
+	<br>
+	Les classes derivades han de tenir elements diferenciadors (noves operacions o especialitzacions de les existents).
+	<br>
+	La herència és transitiva: si B hereta d'A i C her3eta de B, C també hereta d'A.
+  </teoria>
+	<h4>Relació entre classes</h4>
+	Hem vist dos tipus de relacions entre classes:
+	<ul>
+		<li><b>Ús:</b> Una classe B fa servir una classe A. <ul>
+		<li><b>Composició:</b> un objecte de tipus B conté un objecte de tipus A.</li>
+		</ul></li>
+		<li><b>Herència:</b> un objecte de tipus B "és" de tipus A, és una especialitzaicó d'un objecte de tiups A.
+			<ul>
+				<li>classe A és la classe base o superclasse</li>
+				<li>classe B és la classe derivada o subclasse</li>
+			</ul>
+		</li>
+	</ul>
+	
+  </teoria>
+  
+</div>
+
+  <p class = footer>
+<a class="backward round" href=""></a> <a class="forward round" href=""></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
