@@ -36,15 +36,96 @@
 	  </ul>
 	  Per aconseguir-ho cal treballar amb punters. 
 	
-	<h2>Subtipatge</h2><br>
-	
+	<br><br><h2>Subtipatge</h2><br>
+	<teoria>
 	Podem treballar amb una col·lecció de punters a la classe base i guardar-hi objectes de les classes derivades posat que tots els punters tenen la mateixa mida i que una relació d'herència estableix una relació de subtipatge: si una classe B deriva d'una classe A, el tipus B és subtipus d'A.
-	<h2>Principi bàsic de subtipatge: </h2><br>
+	<br><br><h2>Principi bàsic de subtipatge: </h2><br>
 	<teoria>
 		Si B és subtipus d'A, on es pugui posar un objecte de tipus A també se n'hi pot posar un de tipus B (no visceversa!).
 	</teoria>
-	
+	<br><br>
 	Per tant, un punter al tipus base pot apuntar a un objecte d'un subtipus seu i permet veure l'objecte com si fos de la classe base.
+	</teoria>
+	<br><br>
+	Sovint cal treballar amb col·leccions d'objectes que contenen objectes de les diferents classes d'una jerarquia: Es treballa amb una col·lecció de punters a la classe base (tipus aparent) i s'hi guarden objectes creats com a objectes de les classes derivades que corresponguin (tipus real).
+	<pre><code>const unsigned MAX=4;
+Vehicle* taula[MAX]; //Taula guarda els punters a Vehicles, els seus objectes són vistos com a tal, per tant tenen el tipus aparent de Vehicle
+//creació d'objectes
+taula[0] = new Motorcycle;
+taula[1] = new Truck;
+taula[2] = new Sedan;
+taula[3] = new Vehicle;
+
+Car* cotxes[MAX];
+cotxes[0]  =  newSedan;
+cotxes[1]  =  newCar;cotxes[2]  =  newVehicle;  //ERROR!!!
+cotxes[3]  =  taula[2];  //ERROR!!  (no  hi  ha  garantia  que  sigui  un  Car...)
+taula[0]  =  cotxes[0];  //OK  (amb  aliasing...)</code></pre>
+	</teoria>
+	<h4>Mètodes Virtuals</h4>
+	<teoria>
+	Es pot invocar un mètode sobre una col·lecció d'objectes amb igual tipus aparent i diferent tipus real i aconsegur que s'executi el del tipus real identificant-lo com a mètode virtual. Quan es crida un mètode virtual, es consideraq el tipus real (determinat en temps d'execució) de l'objecte sobre el qual es fa la crida. Si un mètode no virtual en crida un de virtual, l'execució del virtual també es farà d'acord amb el tipus real del objecte.
+	<pre><code>const unsigned MAX=4;
+Vehicle* taula[MAX]; 
+//creació d'objectes
+taula[0] = new Motorcycle;
+taula[1] = new Truck;
+taula[2] = new Sedan;
+taula[3] = new Vehicle;
+
+for(unsigned i =0; i<MAX; i++)
+	taula[i]-> mostrar();//Perquè no s'exeuti el mostrar del tipus aparent (Vehicle) sinó el del tipus real cal identificar el mètode mostrar com a mètode virtual.</code></pre>
+	
+	Els mètodes s'identifiquen com a virtuals només al .h de la classe base (no cal posar-ho a les classes derivades).
+	
+	<pre><code>class Vehicle{
+public:
+	...
+	virtual void mostrar() const;
+	...
+};
+
+class Motorcycle: public Vehicle{
+public:
+	...
+	void mostrar() const;
+	...
+};
+class Truck: public Vehicle{
+public:
+	...
+	void mostrar() const;
+	...
+};</code></pre>
+	</teoria>
+	
+	<h4>Sobrecàrrega vs sobreescriptura</h4>
+	La <b>Sobrecàrrega</b> consisteix en tenir una classe amb dos o més mètodes que es diuen iguals(o constructors) que tenen diferent signatura, difernit en els paràmetres, poguent-se identificar el mètode que s'executarà en temps de compilació.
+	<br>
+	La <b>sobreescriptura (overriding)</b> consistex en la especialització d'un mètode virtual heretat en la classe derivada, sovint ja implementat a la classe base. Tenen la mateixa signatura (paràmetres), i retorn; i el mètode a executar s'identifica en temps d'execució segons el tipus real de l'objecte.
+	
+	</teoria>
+	
+	<h4>Mètodes i classes abstractes</h4>
+	<teoria>
+	Existeixen mètodes abstractes, els quals són mètodes que no s'implementen a la classe base, però sí a les derivades.<br>
+	<codi>virtual tipus_retorn nom_mètode(paràmetres) = 0;</codi>
+	
+	Una classe amb un mètode abstracta és una classe abstracta. No s´en poden crear objectes, pero es poden usar punters a objectes de la classe, definint un tipus aparent. S'usa pel poliformisme.
+		<pre><code>class Vehicle{
+public:
+	...
+	virtual void mostrar()  const=  0;
+	...
+};
+
+const unsigned MAX=4;
+Vehicle* taula[MAX]; //CORRECTE!
+//creació d'objectes
+taula[0] = new Motorcycle;
+taula[1] = new Truck;
+taula[2] = new Sedan;
+taula[3] = new Vehicle; //ERROR!</code></pre>
 	
 	
 	</teoria>
