@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+</head>
+
+<body onload="checkMenuById('#collapse-input-2');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+     2.2 POLIMORFISME I FUNCIONS VIRTUALS
+    </h1>
+  </center>
+  
+  <h4> Poliformisme</h4>
+	<teoria>
+	El tipus i comportament dels objectes pot variar al llarg de l'execució:
+	  <ul>
+		<li>els objectes d'una classe derivada poden ser vistos com a objectes de la classe base, es coneix com a polimorfisme.</li>
+		<li>un objecte d'una classe derivada vist com a objecte de la classe base es comportarà com a objecte de la classe derivada quan s'executi un mètode virtual.</li>
+	  </ul>
+	  Per aconseguir-ho cal treballar amb punters. 
+	
+	<h2>Subtipatge</h2><br>
+	
+	Podem treballar amb una col·lecció de punters a la classe base i guardar-hi objectes de les classes derivades posat que tots els punters tenen la mateixa mida i que una relació d'herència estableix una relació de subtipatge: si una classe B deriva d'una classe A, el tipus B és subtipus d'A.
+	<h2>Principi bàsic de subtipatge: </h2><br>
+	<teoria>
+		Si B és subtipus d'A, on es pugui posar un objecte de tipus A també se n'hi pot posar un de tipus B (no visceversa!).
+	</teoria>
+	
+	Per tant, un punter al tipus base pot apuntar a un objecte d'un subtipus seu i permet veure l'objecte com si fos de la classe base.
+	
+	
+	</teoria>
+  
+  
+  
+</div>
+
+  <p class = footer>
+<a class="backward round" href=""></a> <a class="forward round" href=""></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
+ 
