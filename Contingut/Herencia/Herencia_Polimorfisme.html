@@ -41,7 +41,7 @@
 	Podem treballar amb una col·lecció de punters a la classe base i guardar-hi objectes de les classes derivades posat que tots els punters tenen la mateixa mida i que una relació d'herència estableix una relació de subtipatge: si una classe B deriva d'una classe A, el tipus B és subtipus d'A.
 	<br><br><h2>Principi bàsic de subtipatge: </h2><br>
 	<teoria>
-		Si B és subtipus d'A, on es pugui posar un objecte de tipus A també se n'hi pot posar un de tipus B (no visceversa!).
+		Si B és subtipus d'A, on es pugui posar un objecte de tipus A també se n'hi pot posar un de tipus B (no viceversa!).
 	</teoria>
 	<br><br>
 	Per tant, un punter al tipus base pot apuntar a un objecte d'un subtipus seu i permet veure l'objecte com si fos de la classe base.
@@ -57,8 +57,9 @@ taula[2] = new Sedan;
 taula[3] = new Vehicle;
 
 Car* cotxes[MAX];
-cotxes[0]  =  newSedan;
-cotxes[1]  =  newCar;cotxes[2]  =  newVehicle;  //ERROR!!!
+cotxes[0]  =  new Sedan;
+cotxes[1]  =  new Car;
+cotxes[2]  =  new Vehicle;  //ERROR!!! Vehicle no és subtipus de Car
 cotxes[3]  =  taula[2];  //ERROR!!  (no  hi  ha  garantia  que  sigui  un  Car...)
 taula[0]  =  cotxes[0];  //OK  (amb  aliasing...)</code></pre>
 	</teoria>
@@ -73,8 +74,9 @@ taula[1] = new Truck;
 taula[2] = new Sedan;
 taula[3] = new Vehicle;
 
-for(unsigned i =0; i<MAX; i++)
-	taula[i]-> mostrar();//Perquè no s'exeuti el mostrar del tipus aparent (Vehicle) sinó el del tipus real cal identificar el mètode mostrar com a mètode virtual.</code></pre>
+for(unsigned i =0; i&lt;MAX; i++)
+	taula[i]-&gt; mostrar();
+	//Perquè no s'exeuti el mostrar del tipus aparent (Vehicle) sinó el del tipus real cal identificar el mètode mostrar com a mètode virtual.</code></pre>
 	
 	Els mètodes s'identifiquen com a virtuals només al .h de la classe base (no cal posar-ho a les classes derivades).
 	
@@ -100,7 +102,7 @@ public:
 	</teoria>
 	
 	<h4>Sobrecàrrega vs sobreescriptura</h4>
-	La <b>Sobrecàrrega</b> consisteix en tenir una classe amb dos o més mètodes que es diuen iguals(o constructors) que tenen diferent signatura, difernit en els paràmetres, poguent-se identificar el mètode que s'executarà en temps de compilació.
+	La <b>sobrecàrrega</b> consisteix en tenir una classe amb dos o més mètodes que es diuen iguals(o constructors) que tenen diferent signatura, difernit en els paràmetres, poguent-se identificar el mètode que s'executarà en temps de compilació.
 	<br>
 	La <b>sobreescriptura (overriding)</b> consistex en la especialització d'un mètode virtual heretat en la classe derivada, sovint ja implementat a la classe base. Tenen la mateixa signatura (paràmetres), i retorn; i el mètode a executar s'identifica en temps d'execució segons el tipus real de l'objecte.
 	
@@ -111,7 +113,7 @@ public:
 	Existeixen mètodes abstractes, els quals són mètodes que no s'implementen a la classe base, però sí a les derivades.<br>
 	<codi>virtual tipus_retorn nom_mètode(paràmetres) = 0;</codi>
 	
-	Una classe amb un mètode abstracta és una classe abstracta. No s´en poden crear objectes, pero es poden usar punters a objectes de la classe, definint un tipus aparent. S'usa pel poliformisme.
+	Una classe amb un mètode abstracta és una classe abstracta. No s'en poden crear objectes, pero es poden usar punters a objectes de la classe, definint un tipus aparent. S'usa pel poliformisme.
 		<pre><code>class Vehicle{
 public:
 	...
