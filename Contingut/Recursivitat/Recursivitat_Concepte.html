@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
+<link rel="stylesheet" href="../../styles/vs.min.css">
+<meta charset="utf-8">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+    8.2 CONCEPTE I DISSENY RECURSIU
+    </h1>
+  </center>
+
+  <h3>CONCEPTE</h3>
+  <teoria>
+  Una acció o funció recursiva és aquella que es crida a ella mateixa. 
+  
+  <ul>
+    <li>Hi ha equivalència amb la iteració. </li>
+    <li>Es genera una seqüència o arbre de crides: el nombr ede crides és finit i cada crida té el seu propi espai de variables i paràmetres a la memòria.</li>
+    <li><b>Avantatges: </b> en general els algorismes recursius són més senzills (i elegants) que les seves versions iteratives i resulten més fàcils de verificar.</li>
+    <li><b>Eficiència: </b> el cost asimptòtic en temps és el mateix que el de la corresponent versió iterativa (però, amb un petit increment de temps). El cost en espai de memòria augmenta i, en ocasions, pot ser crític.</li>
+  </ul>
+  
+  
+  </teoria>
+
+  <h3>DISSENY RECURSIU</h3>
+
+  <teoria>
+  <h4>Classificació</h4>
+  Podem classificar egons el nombre de crides generades, la recursivitat pot ser 
+  <ul>
+    <li><b>simple:</b> cada crida genera com a molt una altre crida</li>
+    <li><b>múltiple:</b> cada crida pot generar vàries crides</li>
+  </ul>
+
+  També podem classificar segons el que fa després de la crida. Un algorisme recursiu simple pot ser
+  <ul>
+    <li><b>final:</b> la crida recursiva és el últim que fa</li>
+    <li><b>no final:</b> hi ha operacions posteriors a la crida recursiva</li>
+  </ul>
+
+  Hi ha altres formes de classificació:
+
+  <ul>
+    <li>Esquema pur: no fa servir la iteració</li>
+    <li>Esquema mixt: combina recursivitat i iteració</li>
+    <li>Recursivitat indirecta: quan una funció A crida una funció B i B crida A.</li>
+  </ul>
+
+  </teoria>
+  
+
+  
+</div>
+  <p class = footer>
+  
+  <a class="forward round" href=""></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
