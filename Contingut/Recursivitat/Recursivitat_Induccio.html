@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
+<link rel="stylesheet" href="../../styles/vs.min.css">
+<meta charset="utf-8">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+    8.1 RAONANT SOBRE LA RECURSIVITAT
+    </h1>
+  </center>
+  <br>
+  Raonament mitjançant el qual volem remuntar de la part al tot, del particular al general, de l'efecte a la causa... Mètode per tal de demostrar la validesa d'una successió numerable de proposicions P<sub>1</sub>, P<sub>2</sub>, ..., P<sub>n</sub>, ... que consisteix a demostrar la proposició P<sub>1</sub> i que la validesa de P<sub>n</sub>, implica la validesa de P<sub>n+1</sub>. 
+
+  <h3>Mètode d'inducció</h3>
+  <teoria>
+  Sigui una seqüència (infinita) d'elements e<sub>0</sub>, e<sub>1</sub>, ..., e<sub>k</sub>,... i una propietat P sobre aquests elements:
+  <ul>
+      <li><b>Base: </b>Demostrarem que P es compleix per al primer element: P(e<sub>0</sub>).</li>
+      <li><b>Hipòtesi: </b>Suposem que P es compleix per a tots els elements anteriors a e<sub>k</sub> (i, en particular, per a e<sub>k-1</sub>): P(e<sub>0</sub>), ...,P(e<sub>k-1</sub>).</li>
+      <li><b>Pas: </b>Demostrem que P també es compleix per a e<sub>k</sub>: P(e<sub>k</sub>)</li>
+      <li>Llavors podem afirmar que P es compleix per a tots els elements de la seqüència.</li>
+  </ul>
+
+  <b>Per a dissenyar algorismes recursius (i analitzar la seva correctesa) ens basarem en el raonament d'inducció</b> <br><br>
+
+  
+  <h2>Exemple:</h2> volem demostrar que <codi>s(n)=1+2+3+4+ .. +n = n(n+1)/2</codi><br>
+  <ol>
+      <li>Per n=1, <codi>s(1)=1=1(1+1)/2</codi></li>
+      <li>Suposant que <codi>s(n-1)=(n-1)n/2</codi>, cal demostrar que <codi>s(n)=n(n+1)/2</codi>:<br>
+            SI afegim n a cada costat de la identitat, <codi>s(n-1)+n = (n-1)n/2+n</codi>. Així tenim que <codi>s(n)=(n<sup>2</sup>-n+2n)/2 = n(n+1)/2</codi>, com volíem demostrar.
+    </li>
+  </ol> 
+
+  Hi ha una connexió natural entre la inducció matemàtica i la recursivitat:
+  <ul>
+      <li><b>Seqüència d'elements:</b> valors que pren el paràmetre sobre el que apliquem la recursivitat. Per exemple: en el factorial de n, la seqüència és 0,1,..,n</li>
+      <li><b>Propietat P:</b> P(x) significa que l'algorisme és correcte pel valor x.</li>
+      <li><b>Cas base:</b> Demostrem que la branca directa és correcta (o les branques directes són correctes).</li>
+      <li><b>Hipòtesi d'inducció:</b> Demostrem que la crida és correcta (o les crides són correctes) respecte al problema reduït.</li>
+      <li><b>Pas d'inducció:</b> Demostrem la correctesa de la branca recursiva per al problema original.</li>
+  </ul>
+
+  <h2>Exemple en el factorial: </h2> <teoria>
+
+  <pre><code class = "c++">unsigned factorial(unsigned n) {
+// Pre: cert
+// Post: retorna n!
+    unsigned f;
+    if(n == 0)  // branca directa
+        f = 1;      // cas base: factorial(0) = 0!= 1
+    else{       // branca recursiva
+        f = factorial(n-1); 
+        // hip&ograve;tesi d'inducci&oacute;: factorial(n-1) = (n-1)! 
+        f = f * n; 
+        // pas d'inducci&oacute;: factorial(n) = (n-1)!*n = n!
+        return f;
+    }
+}</code></pre>
+
+    n!: problema original
+    <br>
+    (n-1)!: problema reduït
+    <br><br>
+    La reducció del problema ens ha d'apropar a la branca directa
+</teoria>
+
+<h4>Raonament sobre recursivitat: Correctesa</h4>
+
+<pre><code class="c++">unsigned fibonacci(unsigned n) {
+    // Pre: cert
+    // Post: retorna fibonacci(n)
+        int fib;
+        if(n &lt; 2)   //1. Casos ben construits
+            fib= n; //2. Correctesa de la branca directa
+        else 
+            fib = fibonacci(n-1) + fibonacci(n-2); //3. crides legals: El problema redu&iuml;t ha de complir la precondici&oacute;
+            //4. Pas d'inducci&oacute;: hip&ograve;tesi d'inducci&oacute; + el que es fa despr&eacute;s de la crida ens ha de conduir a la postcondici&oacute;
+            //5. Acabament Garantit: la reducci&oacute; del problema ens ha d'apropar a la branca directe.
+        return fib;
+    }</code></pre>
+    
+</teoria>
+
+
+</div>
+  <p class = footer>
+  
+  <a class="forward round" href=""></a>
+  <a class="backward round" href="Recursivitat_Concepte.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

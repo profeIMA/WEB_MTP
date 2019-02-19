@@ -29,7 +29,7 @@
 <div id = "content">
   <center>
     <h1 class = "center">
-    8.2 CONCEPTE I DISSENY RECURSIU
+    8.1 CONCEPTE I DISSENY RECURSIU
     </h1>
   </center>
 
@@ -51,7 +51,7 @@
 
   <teoria>
   <h4>Classificació</h4>
-  Podem classificar egons el nombre de crides generades, la recursivitat pot ser 
+  Podem classificar segons el nombre de crides generades, la recursivitat pot ser 
   <ul>
     <li><b>simple:</b> cada crida genera com a molt una altre crida</li>
     <li><b>múltiple:</b> cada crida pot generar vàries crides</li>
@@ -71,14 +71,151 @@
     <li>Recursivitat indirecta: quan una funció A crida una funció B i B crida A.</li>
   </ul>
 
+  <h4>Exemples</h4>
+
+  <h2>Factorial<br></h2>
+
+  <teoria>
+    Definició del factorial: <codi>n! = n&bull;(n-1)&bull;(n-2)&bull;...&bull;2&bull;1</codi> 
+    <br>
+    Definició recursiva del factorial: <codi>n! = n&bull;(n-1)!</codi>, per <codi>n>0</codi> i <codi>0!=1</codi> <br><br>
+
+    <h2>Solució Iterativa</h2>
+    
+    <button onclick="myFunction(P8_1_1)">Veure Codi</button><br>
+		<solucio id="P8_1_1">
+      <pre><code class = "c++">unsigned factorial(unsigned n) {
+// Pre: cert
+// Post: retorna n!
+    unsigned f = 1;
+    for(unsigned i = 1; i &lt;= n; i++) f = f*i;
+    return f;
+}</code></pre></solucio>
+
+  <h2>Solucions Recursives:</h2>
+  <ul>
+    <li>Simple final 1 <button onclick="myFunction(P8_1_2)">Veure Codi</button><br> </li>
+    <li>Simple final 2 <button onclick="myFunction(P8_1_3)">Veure Codi</button><br> </li>
+    <li>Simple no final <button onclick="myFunction(P8_1_4)">Veure Codi</button><br> </li>
+  </ul>
+
+  <solucio id="P8_1_2">
+    <pre><code class = "c++">unsigned factorial(unsigned n) {
+// Pre: cert
+// Post: retorna n!
+    unsigned f;
+    if(n == 0) f = 1;  //branca directa
+    else f = n * factorial(n-1); //branca recursiva
+    return f;
+}</code></pre></solucio>
+
+<solucio id="P8_1_3">
+    <pre><code class = "c++">unsigned factorial(unsigned n) {
+// Pre: cert
+// Post: retorna n!
+    if(n == 0) return 1;
+    else return  n * factorial(n-1);
+}</code></pre></solucio>
+
+<solucio id="P8_1_4">
+    <pre><code class = "c++">unsigned factorial(unsigned n) {
+// Pre: cert
+// Post: retorna n!
+    unsigned f;
+    if(n == 0) f = 1;
+    else {
+        f = factorial(n-1); 
+        f = f * n;    
+    }
+    return f;
+}</code></pre></solucio>
+
   </teoria>
+
+  <h2>Fibonacci:</h2><br>
+  <teoria>
+    Sèrie de Fibonacci <codi>0,1,1,2,3,5,8,13,21,34,55..</codi> <br>
+    Definició recursiva: <codi>fib(n): fib(n-1) + fib(n-2)</codi> per <codi>n>=2</codi>; <codi>fib(n) = n</codi> per <codi>n==1 || n==2</codi>
+    <br><br>
+    <b>Solució </b>
+    <button onclick="myFunction(P8_1_5)">Veure Codi</button><br>
+		<solucio id="P8_1_5">
+        <pre><code class = "c++">unsigned fibonacci(unsigned n) {
+// Pre: cert
+// Post: retorna fibonacci(n)
+    int fib;
+    if(n &lt; 2) fib = n;
+    else fib = fibonacci(n-1) + fibonacci(n-2);
+    return fib;
+}</code></pre>
+
+    Cal veure que aquesta solució es ineficient posat que calculem la seqüència per els dos valors en el <codi>else</codi>. En apartats posteriors, es veurà una solució més eficient.
+    </solucio>
+    </teoria><br>
+  
+  <h2>Potència:</h2>  <button onclick="myFunction(P8_1_6)">Veure Codi Solució 1</button> <button onclick="myFunction(P8_1_7)">Veure Codi Solució 2</button><br><br>
+  <solucio id="P8_1_6"><pre><code class = "c++">unsigned potencia(unsigned base, unsigned exponent) {
+// Pre: base&gt;0 
+// Post: retorna base^exponent
+    unsigned resultat;
+    if(exponent== 0) resultat= 1;
+    else resultat = base * potencia(base,exponent-1);
+    return resultat;
+}</code></pre></solucio>
+
+<solucio id="P8_1_7"><pre><code class = "c++">double potencia(int base, int exponent) {
+// Pre: base&lt;&gt;0
+// Post: retorna base^exponent
+    double resultat;
+    if (exponent == 0) resultat = 1.0;
+    else {
+        if(exponent&gt;0) resultat = base * potencia(base,exponent-1);
+        else resultat= 1.0/base*potencia(base,exponent+1);
+    }
+    return resultat;
+}</code></pre></solucio>
+
+
+<h2>Suma dígits:</h2>   <button onclick="myFunction(P8_1_8)">Veure Codi</button> <br>
+
+<solucio id="P8_1_8"><pre><code class = "c++">unsigned suma_digits(unsigned n){
+// Pre: cert
+// Post: retorna la suma dels d&iacute;gits de n 
+    unsigned resultat;
+    if (n &lt; 10) resultat = n;
+    else resultat = n%10 + suma_digits(n/10);
+    return resultat;
+}</code></pre></solucio> <br>
+
+<h2>Mostrar capgirat d'un nombre: </h2>   <button onclick="myFunction(P8_1_9)">Veure Codi</button> <br>
+
+<solucio id="P8_1_9"><pre><code class = "c++">void mostra_capgirat(unsigned n){
+// Pre: cert 
+// Post: escriu el capgirat de n
+    if(n &lt; 10) cout&lt;&lt; n;
+    else{
+        cout &lt;&lt; n%10;
+        mostra_capgirat(n/10);
+    }
+} </code></pre></solucio><br>
+
+<h2>Màxim comú divisor amb l'algorisme d'Euclides: </h2>   <button onclick="myFunction(P8_1_10)">Veure Codi</button> <br>
+
+<solucio id="P8_1_10"><pre><code class = "c++">unsigned mcd(unsigned a, unsigned b){
+// Pre: a&gt;0 i b&gt;0
+// Post: retorna m.c.d.(a,b)
+    if (a%b== 0) return b;
+    else return mcd(b,a%b);
+} </code></pre></solucio><br>
+
+</teoria>
   
 
   
 </div>
   <p class = footer>
   
-  <a class="forward round" href=""></a>
+  <a class="forward round" href="Recursivitat_Induccio.html"></a>
   <center>
       <p class = footer>
       Copyright &copy; 2000&ndash;<span id="anyActual"></span>
