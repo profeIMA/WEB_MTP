@@ -149,7 +149,7 @@
     return fib;
 }</code></pre>
 
-    Cal veure que aquesta solució es ineficient posat que calculem la seqüència per els dos valors en el <codi>else</codi>. En apartats posteriors, es veurà una solució més eficient.
+    Cal veure que aquesta solució es ineficient posat que calculem la seqüència per els dos valors en el <codi>else</codi>. <a href = "Recursivitat_Immersiu.html">En l'apartat de disseny immersiu, es veu una solució més eficient.</a>
     </solucio>
     </teoria><br>
   
@@ -240,6 +240,18 @@
         cout &lt;&lt; n &lt;&lt; &quot; &quot;&lt;&lt; from &lt;&lt; &quot;-&gt;&quot; &lt;&lt; to &lt;&lt; endl;
         hanoi(n-1,aux,to,from);
     }
+}</code></pre></solucio><br>  
+
+<h2>Cerca en un vector: </h2>   <button onclick="myFunction(P8_1_14)">Veure Codi</button> <br>
+
+<solucio id="P8_1_14"><pre><code class = "c++">bool existeix(const Vector_enter a, unsigned n, unsigned x) {
+//Pre: 0&lt;n&lt;=MAX
+//Post: retorna cert si x existeix a a[0..n-1], altrament fals
+    bool trobat;
+    if(n==1) trobat = a[0]==x;
+    else if(a[n-1]==x) trobat = true;
+    else trobat = existeix(a,n-1,x);
+    return trobat;
 }</code></pre></solucio><br>
   
 </teoria>

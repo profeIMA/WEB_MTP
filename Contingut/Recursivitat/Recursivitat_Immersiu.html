@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
+<link rel="stylesheet" href="../../styles/vs.min.css">
+<meta charset="utf-8">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+    8.3 DISSENY IMMERSIU
+    </h1>
+  </center>
+
+  La immersió consisteix en crear una nova funció o acció afegint paràmetres a l'original. Poden ser paràmetres d'entrada i/o sortida. Això es fa amb la intenció de permetre el disseny, millorar l'eficiència i assolir recursivitat final.
+  <br><b>Particularització:</b> la funció original crida la funció d'immersió.<br><br>
+
+  <h3>Exemples</h3>
+  <teoria>
+      <b>Suma vector:  </b>
+    <button onclick="myFunction(P8_3_1)">Veure Codi</button>
+    <solucio id="P8_3_1"><pre><code class = "c++">int i_suma_vector_enter(const Vector_enter a, unsigned n) {
+//Pre: 0&lt;=n&lt;=MAX 
+//Post: retorna suma de a[0..n-1]
+    int suma;
+    if(n==0) suma = 0;
+    else suma = i_suma_vector_enter(a,n-1)+a[n-1];
+    return suma;
+}
+int suma_vector_enter(constVector_entera) {
+//Pre: cert
+//Post: retorna suma de a[0..MAX-1]
+    return i_suma_vector_enter(a,MAX)
+}</code></pre></solucio>
+
+<br><br><b>Màxim vector:  </b>
+<button onclick="myFunction(P8_3_2)">Veure Codi</button>
+<solucio id="P8_3_2"><pre><code class = "c++">int i_maxim_vector_enter(const Vector_enter a, unsigned n) {
+//Pre: 0&lt;n&lt;=MAX
+//Post: retorna m&agrave;xim de a[0..MAX-1]
+    int max;
+    if(n==1) max = a[n-1];
+    else{max= i_maxim_vector_enter(a,n-1);
+        if(a[n-1]&gt;max) max = a[n-1];
+    }
+    return max;
+}
+int maxim_vector_enter(const Vector_enter a) {
+//Pre: cert
+//Post: retorna m&agrave;xim de a[0..MAX-1]
+    return i_maxim_vector_enter(a,MAX);
+}</code></pre></solucio>
+
+<br><br><b>Cerca dicotòmica:  </b>
+<button onclick="myFunction(P8_3_3)">Veure Codi</button>
+<solucio id="P8_3_3"><pre><code class = "c++">int i_posicio_element_dicotomic(const Vector_enter a, unsigned n, int x, int esq, int dre) {
+//Pre: 0&lt;n&lt;=MAX i a[0..n-1] ordenat creixentment i 0&lt;=esq&lt;=dre+1&lt;=n
+//Post: si x existeix a a[0..n-1] retorna una de les seves posicions, altrament -1
+    int mig, pos;
+    if(esq&gt;dre) pos = -1;
+    else{
+        mig= (esq+dre)/2;
+        if(a[mig]==x) pos = mig;
+        else if(x&lt;a[mig]) pos = i_posicio_element_dicotomic(a,n,x,esq,mig-1);
+        else pos = i_posicio_element_dicotomic(a,n,x,mig+1,dre);
+    }
+    return pos;
+}
+int posicio_element_dicotomic(const Vector_enter a, unsigned n, int x) {
+//Pre: 0&lt;n&lt;=MAX i a[0..n-1] ordenat creixentment
+//Post: si x existeix a a[0..n-1] retorna una de les seves posicions, altrament-1
+    return i_posicio_element_dicotomic(a,n,x,0,n-1);
+} </code></pre></solucio>
+
+  
+
+<br><br><b>Capgirar vector:  </b>
+<button onclick="myFunction(P8_3_4)">Veure Codi</button>
+<solucio id="P8_3_4"><pre><code class = "c++">void intercanvi(int&amp; x, int&amp; y) {
+// Pre: x=X i y=Y; Post: x=Y i y=X
+    int aux = x;
+    x = y;
+    y = aux;
+}
+
+void i_capgirar_vector_enter(Vector_enter a, unsigned n, unsigned esq, unsigned dre) {
+//Pre: 0&lt;=n&lt;=MAX i a=A i 0&lt;=esq&lt;=n-1 i 0&lt;=dre&lt;=n-1
+//Post: a[esq..dre] cont&eacute; els valors de A[esq..dre] en ordre invers 
+    if(esq&lt;dre) {
+        intercanvi(a[esq],a[dre]);
+        i_capgirar_vector_enter(a,n,esq+1,dre-1);
+    }
+}
+
+void capgirar_vector_enter(Vector_enter a, unsigned n) {
+//Pre: 0&lt;=n&lt;=MAX i a=A
+//Post: a[0..n-1] cont&eacute; els valors de A[0..n-1] en ordre invers 
+    i_capgirar_vector_enter(a,n,0,n-1);
+}</code></pre></solucio>
+
+<br><br><b>Factorial amb recursivitat final:  </b>
+<button onclick="myFunction(P8_3_5)">Veure Codi</button>
+<solucio id="P8_3_5"><pre><code class = "c++">unsigned i_factorial(unsigned n, unsigned k, unsigned f_k) {
+// Pre: 0&lt;=k&lt;=n i f_k=k!} 
+// Post: retorna n!
+    unsigned f;
+    if(n==k) f = f_k;
+    else f = i_factorial(n,k+1,f_k*(k+1));
+    return f;
+}
+
+unsigned factorial(unsigned n) {
+// Pre: cert
+// Post: retorna n!
+    return i_factorial(n,0,1);
+}</code></pre></solucio>
+
+<br><br><b>Fibonacci més eficient:  </b>
+<button onclick="myFunction(P8_3_6)">Veure Codi</button>
+<solucio id="P8_3_6"><pre><code class = "c++">void i_fibonacci(unsigned n, unsigned &amp; f, unsigned &amp; f_ant) {
+// Pre: cert
+// Post: f=fib(n) i f_ant=fib(n-1) (si n=0, f_ant=1)}
+    unsigned temp;
+    if (n == 0) {f = 0; f_ant=1;}
+    else {
+        i_fibonacci(n-1,f,f_ant);
+        temp = f; f = f+f_ant; f_ant = temp;
+    }
+}
+    
+unsigned fibonacci(unsigned n) {
+    // Pre: cert
+    // Post: retorna fibonacci(n)
+    unsigned f, f_ant;
+    i_fibonacci(n,f,f_ant); //f,f_ant: indeterminats en la crida
+    return f;
+}</code></pre></solucio>
+
+  </teoria>
+
+  <h3>Conclusió</h3>
+
+  La funció d'immersió (recursiva) és obtinguda a partir d'afegir paràmetres a la funció original. La funció original és un cas particular de la funció d'immersió. 
+  La particularització és la crida (des de la funció original) a la funció d'immersió, on cal donar valors adients als paràmetres d'entrada.
+  <br>
+  Hi ha dissenys recursius que no es poden fer sense immersió. En certs casos la immersió s'utilitza per millorar l'eficiència o per assolir recursivitat final.
+
+
+
+</div>
+  <p class = footer>
+  
+  <a class="forward round" href=""></a>
+  <a class="backward round" href="Recursivitat_Concepte.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
