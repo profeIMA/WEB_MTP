@@ -208,6 +208,40 @@
     else return mcd(b,a%b);
 } </code></pre></solucio><br>
 
+
+<h2>Arrel digital: </h2>   <button onclick="myFunction(P8_1_11)">Veure Codi</button> <br>
+
+<solucio id="P8_1_11"><pre><code class = "c++"> unsigned arrel_digital(unsigned n) {
+// Pre: cert 
+// Post: retorna l'arrel digital de n
+    if(n &lt; 10 )return n;
+    else return arrel_digital(suma_digits(n));
+}</code></pre></solucio><br>
+
+
+  <h2>Canvi de Base: </h2>   <button onclick="myFunction(P8_1_12)">Veure Codi</button> <br>
+
+  <solucio id="P8_1_12"><pre><code class = "c++">unsigned canvi_base(unsigned n, unsigned b){
+// Pre: b&gt;=2 i b&lt;=9
+// Post: retorna n en base b 
+    unsigned resultat;
+    if(n &lt; b) resultat = n;
+    else resultat= canvi_base(n/b,b)*10 + n%b;
+    return resultat;
+}</code></pre></solucio><br>
+  
+<h2>Torres de Hanoi: </h2>   <button onclick="myFunction(P8_1_13)">Veure Codi</button> <br>
+
+<solucio id="P8_1_13"><pre><code class = "c++">void hanoi(unsigned n, char from, char to, char aux){
+// Pre: cert[n &eacute;s el nombre de discos i from, to i aux s&oacute;n els s&iacute;mbols de les piles]
+// Post: escriu els moviments de n discos de from a to usant aux 
+    if(n &gt; 0){
+        hanoi(n-1,from,aux,to);
+        cout &lt;&lt; n &lt;&lt; &quot; &quot;&lt;&lt; from &lt;&lt; &quot;-&gt;&quot; &lt;&lt; to &lt;&lt; endl;
+        hanoi(n-1,aux,to,from);
+    }
+}</code></pre></solucio><br>
+  
 </teoria>
   
 
