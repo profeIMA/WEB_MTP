@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
+<link rel="stylesheet" href="../../styles/vs.min.css">
+<meta charset="utf-8">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+    8.4 ALGORISMES D'ORDENACIÓ RECURSIUS
+    </h1>
+  </center>
+
+  Vàlids per ordenar qualsevol vector encara que els exemples que es presenten estan aplicats a un vector d'enters.
+
+  <ul>
+      <li><b>Mergesort: </b><ul>
+          <li>no és in situ, però és estable</li>
+          <li>requereix d'un procés iteratiu (fusió; algorisme mixt)</li>
+          <li>	&Theta;(n log n)</li>
+      </ul> </li>
+      <li><b>Quicksort: </b><ul>
+          <li>és in situ, però no és estable</li>
+          <li>requereix d'un procés iteratiu (partició; algorisme mixt)</li>
+          <li>millor algorisme d'ordenació, &Theta;(n log n) en el cas mig, tot i ser &Theta;(n<sup>2</sup>)</li>
+      </ul> </li>
+  </ul>
+
+  <br>
+
+  <img alt="Diferents algorismes d'ordenació" src="../../Recursos/Imatges/Recursivitat_Ordenacio.png" height="250px">  
+
+  <h3>Mergesort</h3>
+  <teoria>
+  <b>Idea intuïtiva:</b> dividim el vector en 2 meitats; cridem recursivament sobre cada meitat; per HI, les 2 meitats queden ordenades
+  <br><br>
+  <img alt="Exemple visual del Mergesort" src="../../Recursos/Imatges/Recursivitat_Mergesort.png" height="150px"> 
+  <br><br>
+  Però encara falta un post-proc;es en el que s'ha de fer una fusió de les 2 meitats; fa falta una taula auxiliar.
+  <br><br>
+  <img alt="Exemple visual del Mergesort" src="../../Recursos/Imatges/Recursivitat_Mergesort_2.png" height="150px"> 
+
+  <br><h2> Codi del Mergesort: </h2><button onclick="myFunction(P8_4_1)">Veure Codi</button> <br>
+
+  <solucio id="P8_4_1">
+  <pre><code class = "c++">void merge_sort(Vector_enter a, unsigned n) {
+// Pre: 0&lt;n&lt;=MAX i a=A
+// Post: a[0..n-1] cont&eacute; una permutaci&oacute; ordenada dels valors de A[0..n-1]
+    i_merge_sort(a,n,0,n-1);
+}
+
+void i_merge_sort(Vector_enter a, unsigned n, int esq, int dre) {
+// Pre: 0&lt;=esq&lt;=dre&lt;n&lt;=MAX i a=A
+// Post: a[esq..dre] cont&eacute; una permutaci&oacute; ordenada dels valors de A[esq..dre]
+    int mig;
+    if(esq&lt;dre){
+        mig=(esq+dre)/2;
+        i_merge_sort(a,n,esq,mig);
+        i_merge_sort(a,n,mig+1,dre);
+        fusio(a,n,esq,mig+1,dre);
+    }
+}
+
+void fusio(Vector_enter a, unsigned n, int esq, int ini2, int dre){
+// Pre: 0&lt;=esq&lt;ini2&lt;=dre&lt;n&lt;=MAX i  a ordenat creixentment de esq a ini2-1 i de ini2 fins dret i a=A
+// Post: a[esq..dre] cont&eacute; una permutaci&oacute; ordenada dels valors de A[esq..dre]
+    Vector_enter aux; // cal taula auxiliar (dret-esq+1 posicions)
+    int n_elem = dre-esq+1; int i_aux=0;  // indexaci&oacute; d&rsquo;aux
+    for (int k=esq; k&lt;ini2; k++) {
+        aux[i_aux]=a[k]; i_aux++;
+    }
+    for (int k=dre; k&gt;=ini2; k--) {   // a l&rsquo;inrev&egrave;s
+        aux[i_aux]=a[k]; i_aux++;
+    }
+    int i = 0; int j = n_elem-1; int k = esq;
+    while (i&lt;= j) { // recorrem la taula auxiliar, cal tractar i..j
+        if (aux[i] &lt;= aux[j]) { // volem estable, per tant &lt;=
+            a[k]=aux[i]; i++;
+        }
+        else {
+            a[k]=aux[j]; j--;
+        }
+        k++;
+    }
+}</code></pre></solucio>
+
+
+
+</teoria>
+
+</div>
+  <p class = footer>
+  
+  <a class="forward round" href=""></a>
+  <a class="backward round" href="Recursivitat_Immersiu.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
