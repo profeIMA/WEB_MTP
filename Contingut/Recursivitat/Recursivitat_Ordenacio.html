@@ -105,15 +105,94 @@ void fusio(Vector_enter a, unsigned n, int esq, int ini2, int dre){
         k++;
     }
 }</code></pre></solucio>
+<br>
+<h2>Càlcul de l'eficiència: </h2>
+<teoria>
+Es recomana veure abans el tema d'eficiència, sobretot l'apartat sobre <a href = "../Eficiencia/Eficiencia_Recursivitat.html">algorismes recursius</a>
+<br><b>Fòrmula: </b>
+<img alt="Formula càlcul eficiència divisió" src="../../Recursos/Imatges/Eficiencia_recursivitat_2.png" height="120px">  
 
-
+<codi>a</codi> és 2, <codi>c</codi> és 2, <codi>k</codi> és 1 (fusió). Com veiem, amb aquestes dades és el primer cas de la fórmula, quedant &Theta;(n log n).
+</teoria>
 
 </teoria>
+
+
+<h3>Quicksort</h3>
+<teoria>
+        <b>Idea intuïtiva:</b> fem una partició del vector en 2 parts (no iguals), posant en una els elements menors (o iguals) que un cert element (el pivot) i a l'altre els majors (o iguals); després cridem recursivament sobre cada part.
+        <br><br>
+        <img alt="Exemple visual del Quicksort" src="../../Recursos/Imatges/Recursivitat_Quicksort.png" height="250px"> 
+        <br><h2> Codi del Quicksort: </h2><button onclick="myFunction(P8_4_2)">Veure Codi</button> <br>
+
+        <solucio id="P8_4_2">
+        <pre><code class = "c++">void intercanvi(int&amp; x, int&amp; y) {
+    int aux=x;
+    x=y;
+    y=aux;
+}
+    
+void particio(Vector_enter a, unsigned n, int esq, int dre, int &amp; pos_pivot) {
+// Pre: 0&lt;=esq&lt;=dre&lt;n&lt;=MAX i a=A
+// Post: d&rsquo;esq a pos_pivot-1, tots s&oacute;n &lt;a[pos_pivot], de pos_pivot+1 a dre, tots s&oacute;n &gt;=a[pos_pivot], esq&lt;=pos_pivot&lt;=dre 
+//       i a[esq..dre] &eacute;s una permutaci&oacute; de A[esq..dre]
+    int pivot= a[dre];
+    pos_pivot= esq;
+    for (int i=esq; i&lt;=dre-1; i++) {
+        // esq.. posPivot-1 s&oacute;n &lt; pivot, de posPivot a i-1
+        // tots s&oacute;n &gt;=pivot, de i fins dret-1 no explorats
+        if (a[i] &lt; pivot) {
+            intercanvi(a[i],a[pos_pivot]);
+            pos_pivot++;
+        }
+    }
+    intercanvi(a[dre],a[pos_pivot]);
+}
+    
+void i_quick_sort(Vector_enter a, unsigned n, int esq, int dre) {
+    //Pre: 0&lt;=esq&lt;=dre+1&lt;=n&lt;=MAX i a=A
+    //Post: a[esq..dre] cont&eacute; una permutaci&oacute; ordenada dels valors de A[esq..dre]
+    int k;
+    if (esq&lt;dre) {
+        particio(a,n,esq,dre,k);
+        // esq..k-1 tots &lt; que t[k] (pivot)
+        // k+1..dre tots &gt;= que t[k]
+        // l&rsquo;element de la posici&oacute; k ja no caldr&agrave; tocar-lo
+        i_quick_sort(a,n,esq,k-1);
+        i_quick_sort(a,n,k+1,dre);
+    }
+}
+    
+    
+void quick_sort(Vector_enter a, unsigned n) {
+    //Pre: 0&lt;n&lt;=MAX i a=A
+    //Post: a[0..n-1] cont&eacute; una permutaci&oacute; ordenada dels valors de A[0..n-1]
+    i_quick_sort(a,n,0,n-1);
+} </code></pre></solucio>
+<br>
+<h2>Càlcul de l'eficiència en el casos òptim</h2>
+<teoria>
+Es recomana veure abans el tema d'eficiència, sobretot l'apartat sobre <a href = "../Eficiencia/Eficiencia_Recursivitat.html">algorismes recursius</a>
+<br><b>Fòrmula: </b>
+<img alt="Formula càlcul eficiència divisió" src="../../Recursos/Imatges/Eficiencia_recursivitat_2.png" height="120px">  
+
+El cas òptim sería aquell en què sempre es dividís per la meitat:</b> <codi>a</codi> és 2, <codi>c</codi> és 2, <codi>k</codi> és 1 (partició). Com veiem, amb aquestes dades és el primer cas de la fórmula, quedant &Theta;(n log n).
+</teoria>
+<h2>Càlcul de l'eficiència en el casos pitjor</h2>
+<teoria>
+<br><b>Fòrmula: </b>
+<img alt="Formula càlcul eficiència divisió" src="../../Recursos/Imatges/Eficiencia_recursivitat_1.png" height="100px">  
+
+El cas pitjor seria aquell en què a totes les particions una de les parts sigui buida:</b> <codi>a</codi> és 1, <codi>c</codi> és 1, <codi>k</codi> és 1 (partició). Com veiem, amb aquestes dades és el primer cas de la fórmula, quedant &Theta;(n<sup>2</sup>).
+</teoria>
+</teoria>
+
+
 
 </div>
   <p class = footer>
   
-  <a class="forward round" href=""></a>
+  <a class="forward round" href="Recursivitat_Exercicis.html"></a>
   <a class="backward round" href="Recursivitat_Immersiu.html"></a>
   <center>
       <p class = footer>
