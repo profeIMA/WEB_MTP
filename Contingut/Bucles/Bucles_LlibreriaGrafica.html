@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+	<script src="../../solEraser.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      4.8 EXERCICIS AMB LA LLIBRERIA GRÀFICA WINDOW ADD-ON
+    </h1>
+  </center>
+  
+  <h2>Exercici 1</h2>
+  <teoria>
+    Espiral quadrada. Escriu un programa que dibuixi una espiral quadrada des del centre de la pantalla. El programa ha de deixar de dibuixar l’espiral un cop aquesta sobresurti de la pantalla. No cal que es freni just abans de sortir de la finestra, simplement quan un costat dibuixat intersequi els marcs d'aquesta, es para de dibuixar. L’últim costat dibuixat pot sobresortir. Pista: useu tortugues. Els moviments relatius són més simples amb aquestes, però no estàs obligat a usar-les.
+    <br><button><a  target="_blank"  class="a_solucio_4" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT4/Window%20Add-on/T4_W01_espiralQuadrada.cpp">Veure Solució</a></button><br><br>
+  </teoria>
+  
+  <h2>Exercici 2</h2>
+  <teoria>
+        Quadrats concèntrics. Escriu un programa que donada la mida d'un quadrat inicial, i un nombre màxim de quadrats, vagi dibuixant quadrats concèntrics reduint a cada pas la mida del costat del quadrat en 10 unitats (píxels). Fica un límit de manera que no es dibuixin quadrats amb menys de 5 unitats de costat.
+        <br><button><a  target="_blank"  class="a_solucio_4" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT4/Window%20Add-on/T4_W02_quadratsConcentrics.cpp">Veure Solució</a></button><br><br>
+  </teoria>
+  
+  <h2>Exercici 3</h2>
+  <teoria>
+        Ventall de quadrats. Escriu un programa que dibuixi a la finestra un ventall de quadrats, és a dir, una successió de quadrats desfasats un cert angle entre ells que comparteixen el mateix vèrtex d'origen. T’hauria de quedar quelcom semblant al dibuix de la figura següent: 
+
+        <br><br><img alt="Ventall de quadrats" src="../../Recursos/Imatges/Bucles_ex3_ventallQuadratsImg.PNG" height="220px">  
+
+	    <br><button><a  target="_blank"  class="a_solucio_4" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT4/Window%20Add-on/T4_W03_ventallQuadrats.cpp">Veure Solució</a></button><br><br>
+  </teoria>
+  
+  <h2>Exercici 4</h2>
+  <teoria>
+        Espiral de quadrats. Escriu un programa que dibuixi a la finestra una espiral de quadrats, és a dir, una successió de quadrats desfasats un cert angle entre ells que comparteixen el mateix vèrtex d'origen i que a més la mida del costat es va incrementant a cada pas. Mireu la il·lustració per a obtenir una referència visual del que s'espera del programa. Pista: feu primer l’exercici 3, la solució és similar.
+        <br><br><img alt="Ventall de quadrats" src="../../Recursos/Imatges/Bucles_ex4_espiralQuadratsImg.PNG" height="220px">  
+
+        
+        <br><button><a  target="_blank"  class="a_solucio_4" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT4/Window%20Add-on/T4_W04_espiralQuadrats.cpp">Veure Solució</a></button><br><br>
+  </teoria>
+
+  <h2>Exercici 5</h2>
+  <teoria>
+        Quadrats concèntrics deformats. Escriu un programa que donat l'angle de les cantonades d'un “quadrat”, dibuixi a la finestra un seguit de quadrats concèntrics, és a dir, una successió de quadrats desfasats un cert angle entre ells que comparteixen el centre, però aquest cop es demana que l'angle del les cantonades dels quadrats no formi 90 graus. Aquí teniu un parell d'exemples de com us hauria de quedar si feu que l’angle sigui de 85 i 91 graus respectivament. Pista: que l'enunciat no us enganyi, us serà més d'ajuda haver fet l'exercici 3 que no el 2.
+
+        <div style="margin: auto; text-align: center;">
+            <div class="inline-block">
+                    <img alt="Ventall de quadrats" src="../../Recursos/Imatges/Bucles_ex5_quadratsConcentricsDeformats_85graus.PNG" height="220px">
+            </div>
+        
+            <div class="inline-block">
+                    <img alt="Ventall de quadrats" src="../../Recursos/Imatges/Bucles_ex5_quadratsConcentricsDeformats_91graus.PNG" height="220px">
+            </div>
+        </div>
+        <br><button><a  target="_blank"  class="a_solucio_4" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT4/Window%20Add-on/T4_W05_quadratsConcentricsDeformats.cpp">Veure Solució</a></button><br><br>
+  </teoria>
+
+  <h2>Exercici 6</h2>
+  <teoria>
+        Polígons regulars. Escriu un programa que donat el nombre de costats i el radi de la circumferència que circumscriu aquest polígon, el dibuixi per pantalla. Si no us en sortiu amb el radi, proveu a dibuixar el polígon amb una mida de costat directament donada.
+	    <br><button><a  target="_blank"  class="a_solucio_4" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT4/Window%20Add-on/T4_W06_poligonsRegulars.cpp">Veure Solució</a></button><br><br>
+  </teoria>
+
+  <h2>Exercici 7</h2>
+  <teoria>
+        Interacció amb la finestra. Modifica el codi d'exemple per a fer que una tortuga es mogui per la pantalla usant les fletxes del teclat. Podeu afegir totes les funcionalitats que desitgeu. Us pot ser molt útil executar primer el codi d'exemple per entendre el funcionament d'aquest.
+        
+        <br><button><a  target="_blank" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT4/Window%20Add-on/T4_W07E_moureTortugaInteractiu_exemple.cpp">Exemple</a></button><br><br>
+        <br><button><a  target="_blank"  class="a_solucio_4" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT4/Window%20Add-on/T4_W07E_moureTortugaInteractiu.cpp">Veure Solució</a></button><br><br>
+  </teoria>
+
+</div>
+
+
+
+<p class = footer>
+  <a class="backward round" href="Bucles_Exercicis.html"></a>  
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
+ 

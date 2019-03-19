@@ -351,3 +351,7 @@ a.backward:hover {
 }
 
 codi { font-family: Consolas, monaco, monospace;}
+
+.inline-block {
+    display: inline-block;
+ }
