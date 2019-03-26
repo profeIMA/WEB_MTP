@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+<link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen"></link>
+<link rel="stylesheet" href="../../styles/vs.min.css">
+<meta charset="utf-8">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+    8.6 EXERCICIS AMB LA LLIBRERIA GRÀFICA WINDOW ADD-ON
+    </h1>
+  </center>
+
+  <h2>Exercici 1</h2>
+  <teoria>
+    Quadrats niats. Escriu un programa que donada la mida del costat d'un quadrat inicial, i el nombre n de subdivisions recursives, dibuixi els 4<sup><i>n</i></sup>  quadrats resultants de dividir de manera recursiva el quadrat inicial i els quadrats que es generen. A continuació teniu exemples de com s'hauria de veure amb valors de n = 0..3.
+    <br><br>
+    <div style="margin: auto; text-align: center;">
+        <div class="inline-block">
+                <img alt="Quadrats niats nivell 0" src="../../Recursos/Imatges/Recursivitat_ex1_quadratsNiats_nivell0.PNG" height="220px"> <codi> n = 0</codi> 
+        </div>
+    
+        <div class="inline-block">
+                <img alt="Quadrats niats nivell 1" src="../../Recursos/Imatges/Recursivitat_ex1_quadratsNiats_nivell1.PNG" height="220px"> <codi> n = 1</codi> 
+        </div>
+        
+        <div class="inline-block">
+                <img alt="Quadrats niats nivell 2" src="../../Recursos/Imatges/Recursivitat_ex1_quadratsNiats_nivell2.PNG" height="220px"> <codi> n = 2</codi> 
+        </div>
+        
+        <div class="inline-block">
+                <img alt="Quadrats niats nivell 3" src="../../Recursos/Imatges/Recursivitat_ex1_quadratsNiats_nivell3.PNG" height="220px"> <codi> n = 3</codi> 
+        </div>
+    </div>
+    
+    
+    <br><button><a  target="_blank"  class="a_solucio_8" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT8/Window%20Add-on/T8_W01_quadratsNiats.cpp">Veure Solució</a></button><br><br>
+  </teoria>
+
+
+  <h2>Exercici 2</h2>
+  <teoria>
+    Arbre binari recursiu. Escriu un programa que permeti dibuixar arbres binaris recursius donant la mida de la branca inicial i una reducció de mida de la branca per cada pas. Els paràmetres de la forma del arbre com són l’angle de les branques i el la longitud mínima d’aquestes es deixen triar. La solució proposada usa un angle de desviació de 20 graus i una mida mínima de branca de 5 unitats. Seguidament teniu un exemple amb mida de branca inicial 100 i reducció 20 seria el següent:
+    <br><button><a  target="_blank"  class="a_solucio_8" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT8/Window%20Add-on/T8_W02_arbreBinariRecursiu.cpp">Veure Solució</a></button><br><br>
+  </teoria>
+  
+  <h4>Fractals</h4>
+  <teoria>
+    A continuació trobareu 3 exercicis sobre figures fractals. Podeu usar com a referència <a href=" http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/recursivo/recursivo.htm#Fractales ">aquest lloc web</a>. Aquí trobareu tota la informació necessària per completar els exercicis.
+    <br>
+    <h2>Exercici 3</h2>
+    <teoria>
+        Arbre binari recursiu. Escriu un programa que permeti dibuixar arbres binaris recursius donant la mida de la branca inicial i una reducció de mida de la branca per cada pas. Els paràmetres de la forma del arbre com són l’angle de les branques i el la longitud mínima d’aquestes es deixen triar. La solució proposada usa un angle de desviació de 20 graus i una mida mínima de branca de 5 unitats. Seguidament teniu un exemple amb mida de branca inicial 100 i reducció 20 seria el següent:
+        <br><button><a  target="_blank"  class="a_solucio_8" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT8/Window%20Add-on/T8_W03_flocDeNeuDeKoch.cpp">Veure Solució</a></button><br><br>
+    </teoria>
+
+    <h2>Exercici 4</h2>
+    <teoria>
+        Corba de Peano. Escriu un programa que permeti dibuixar la corba de Peano donant l’ordre d’aquesta per teclat. S’ha de fer utilitzant el concepte de recursivitat. No us estranyeu si veieu que la figura queda completament deformada amb ordres majors que 4. Això és degut als errors d’arrodoniment del format del tipus basic <i>float</i> que la llibreria de la finestra usa.
+        <br><button><a  target="_blank"  class="a_solucio_8" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT8/Window%20Add-on/T8_W04_corbaDePeano.cpp">Veure Solució</a></button><br><br>
+    </teoria>
+
+    <h2>Exercici 5</h2>
+    <teoria>
+        Corba de Hilbert. Escriu un programa que permeti dibuixar la corba de Hilbert d’ordre n donada la n per teclat. S’ha de fer utilitzant el concepte de recursivitat.
+        <br><button><a  target="_blank"  class="a_solucio_8" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT8/Window%20Add-on/T8_W05_corbaDeHilbert.cpp">Veure Solució</a></button><br><br>
+    </teoria>
+  </teoria>
+
+</div>
+  <p class = footer>
+  
+  <a class="backward round" href="Recursivitat_Exercicis.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

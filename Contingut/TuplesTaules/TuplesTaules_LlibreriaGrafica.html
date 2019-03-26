@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script>
+    <script src="../../solEraser.js"></script>
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+
+</head>
+
+<body onload="checkMenuById('#collapse-input-0');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+      7.9 EXERCICIS AMB LA LLIBRERIA GRÀFICA WINDOW ADD-ON
+    </h1>
+  </center>
+  
+  <h2>Exercici 1</h2>
+  <teoria>
+    Dibuixar figures en funció de l'entrada (versió amb tuples). Escriu un programa que depenent de la entrada de l'usuari, permeti dibuixar figures diferents. El programa ha d'anar més enllà que els dels primers temes, i ha de permetre entrar les dades necessàries per dibuixar la figura de qualsevol manera (per exemple, s'ha de demanar al usuari el centre i el radi d'un cercle, no poden ser constants de codi). El programa ha de permetre, com a mínim, pintar rectangles, línies i cercles, però el pots enriquir amb tota mena de figures, si vols. Es deixa triar al programador la codificació de la entrada. Pot ser interessant que afegiu una opció per triar el color de la figura.
+    <br><button><a  target="_blank"  class="a_solucio_7" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT7/Window%20Add-on/T7_W01_triarFiguresTuples.cpp">Veure Solució</a></button>
+    <button><a  target="_blank"  class="a_solucio_7" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT7/Window%20Add-on/T7_W01_triarFiguresTuples_extes.cpp">Veure Solució Estesa</a></button>
+    <br><br>  
+  </teoria>
+
+  <h2>Exercici 2</h2>
+  <teoria>
+    Llegir figures des d'un fitxer (versió amb tuples). Com abans, tenim un fitxer que ens codifica les dades necessàries per dibuixar figures a la finestra, i volem pintar-les per pantalla. Escriu un programa que permeti interpretar aquest fitxer i pintar les figures codificades dins d'ell a una finestra. Com a mínim el programa ha de saber llegir cercles, rectangles i línies, ja que és el que apareixerà als jocs de proves, però el podeu enriquir amb tota mena de figures o inclús estructures més complexes amb més d'una figura, si voleu. Si ho feu, haureu de crear els vostres propis jocs de proves. Si heu fet l'exercici de seqüències que era igual que aquest, adaptar-lo per usar tuples no hauria de ser complicat. Veureu que us queda un codi molt més net. El format del fitxer és el següent (sense els comentaris): 
+    <pre><code class = "c++">r		//Caràcter 'r': la informació sota aquesta línia representa un rectangle, fins al següent caràcter
+250 200		//Coordenades X i Y de la cantonada superior esquerra del rectangle
+350 100		//Coordenades X i Y de la cantonada inferior dreta del rectangle, fi de les dades del rectangle
+c		//Caràcter 'c': la informació sota aquesta línia representa un cercle, fins al següent caràcter
+250 300		//Coordenades X i Y del centre del cercle
+50		//Radi del cercle, fi de les dades del cercle.
+r		//Caràcter 'r': la informació sota aquesta línia representa un Rectangle, fins al següent caràcter
+150 150		//Coordenades X i Y del primer punt del rectangle
+300 110		//Coordenades X i Y del segon punt del rectangle, fi de les dades del rectangle
+l		//Caràcter 'l': la informació sota aquesta línia representa una línia, fins al següent caràcter
+100 100		//Coordenades X i Y del primer punt de la línia
+500 400		//Coordenades X i Y del segon punt de la línia, fi de les dades de la línia i fi del fitxer</code></pre>
+    
+    <br><button><a  target="_blank" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT7/Window%20Add-on/T7_W02_fitxer1.txt">Fitxer sense comentar</a></button>
+    <button><a  target="_blank"  class="a_solucio_7" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT7/Window%20Add-on/T7_W02_llegirFiguresDeFitxerTuples.cpp">Veure Solució</a></button><br><br>
+  </teoria>
+
+  <h2>Exercici 3</h2>
+  <teoria>
+    Comptar vocals d'un fitxer. Escriu un programa que conti el nombre de vocals d’un fitxer i en faci un petit gràfic de pastís. El format del gràfic és lliure, però s'han de veure bé les diferents porcions d'aquest.
+    <br><button><a  target="_blank"  class="a_solucio_7" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT7/Window%20Add-on/T7_W03_comptarVocalsFitxer_disparition.txt">Fitxer 1</a></button>
+    <button><a  target="_blank"  class="a_solucio_7" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT7/Window%20Add-on/T7_W03_comptarVocalsFitxer_gadsby.txt">Fitxer 2</a></button>
+    <button><a  target="_blank"  class="a_solucio_7" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT7/Window%20Add-on/T7_W03_comptarVocalsFitxer_loremipsum.txt">Fitxer 3</a></button>
+
+    <br><button><a  target="_blank"  class="a_solucio_7" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT7/Window%20Add-on/T7_W03_comptarVocalsFitxer.cpp">Veure Solució</a></button><br><br>
+  </teoria>
+
+  <h2>Exercici 4</h2>
+  <teoria>
+    Comptar les lletres entrades per teclat. Escriu un programa que permeti de manera interactiva entrar línies per teclat i que mostri un gràfic de barres de la freqüència d'aparició de les lletres entrades. No s'especifica el funcionament exacte del programa, però la solució proposada funciona de la següent manera: cada cop que prems la tecla Return, s'actualitza l'histograma amb les noves lletres entrades, i el programa acaba quan s'entra una marca de fi. Recomanem fer-ho d'aquesta manera si voleu comparar el vostre codi amb el de la solució, però us deixem llibertat de disseny.
+	<br><button><a  target="_blank"  class="a_solucio_7" href= "https://github.com/sipwarriper/Exercicis-Programacio/blob/master/ExercicisT7/Window%20Add-on/T7_W04_comptarLletresTeclatInteractiu.cpp">Veure Solució</a></button><br><br>
+  </teoria>
+
+
+
+
+	
+ </div>
+<p class = footer>
+<a class="backward round" href="TuplesTaules_Exercicis.html"></a>
+  <center>
+      <p class = footer>
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
