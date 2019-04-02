@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+</head>
+
+<body onload="checkMenuById('#collapse-input-2');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+     1.2 DELS MÒDULS A LES CLASSES
+    </h1>
+  </center>
+
+  Un mòdul és una part d'un programa que té unitat funcional, coherència interna i independència de la resta del programa. En apartats anteriors l concepte de modularitat ha aparegut quan hem resolt de forma independent els subproblemes resultants de l'anàlisi i el disseny descendent; també hem usat diverses entitats o estructures de dades; per exemple, Data, Pacients, Equips, etc.  
+
+<br>
+  En POO, aquestes entitats donen peu a descompondre l’aplicació en mòduls anomenats classes, que poden ser programats independentment. Cada classe defineix les dades que li són pròpies i les operacions que es poden realitzar sobre aquestes dades:
+  <br><br><center>
+      <b>classe = dades + operacions</b>
+  </center>
+  Hi ha diverses formes de relació entre classes.
+
+  <br><h2>Exemple:</h2><br>
+  <table>
+    <tr>
+      <th>Exemple sense classes</th>
+      <th>Exemple amb classes</th>
+    </tr>
+    <tr>
+      <td><pre><code class = "c++">// Representaci&oacute; de les dades
+
+struct Data {
+  int dia,mes,any; //representaci&oacute; d&rsquo;una data correcta
+};
+
+// Operacions
+
+unsigned diferencia(Data d1, Data d2) {
+/* Pre: d2 &eacute;s posterior o igual a d1
+    Post: retorna la difer&egrave;ncia en dies entre d2 i d1 */
+...
+string diaSetmana(Data d) {
+/* Pre: cert
+    Post: retorna el dia de la setmana (dilluns..diumenge) 
+          corresponent a d */</code></pre></td>
+      <td><pre><code class = "c++">class Data {
+  private: 
+  // Representaci&oacute; de les dades
+    int dia,mes,any; // representaci&oacute; d&rsquo;una data correcta 
+  public: 
+  // Operacions
+    unsigned diferencia(Data d) const;
+    /* Pre: d &eacute;s posterior o igual a la data actual
+        Post: retorna la difer&egrave;ncia en dies entre d i la data actual */
+    string diaSetmana() const;
+    /* Pre: cert
+        Post: retorna el dia de la setmana (dilluns..diumenge) 
+              corresponent a la data actual */
+  ...
+  }; // fi classe</code></pre></td>
+    </tr>
+  </table>
+
+  
+
+</div>
+
+  <p class = footer>
+    <a class="backward round" href="POO_Abstraccio.html"></a>
+    <a class="forward round" href=""></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+</head>
+
+<body onload="checkMenuById('#collapse-input-2');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+     1.1 ABSTRACCIÓ
+    </h1>
+  </center>
+  
+  Ja hem vist en apartats anteriors l'abstracció procedimental (o funcional): en el procés de disseny descendent, 
+  considerem un grup d'operacions (instruccions) com a una sola operació que anomenem procediment o subprograma (acció, funció). L'abstracció procedimental implica:
+  <ul>
+      <li><b>Abstracció per especificació:</b> ens centrem en què ha de fer el procediment (descrit a l'especificació pre-post) i ens abstraiem de com ho ha de fer</li>
+      <li><b>Abstracció per parametrització:</b> ens abstraiem de les dades concretes sobre les que opera el procediment mitjançant l'ús de paràmetres</li>
+  </ul>
+
+  <h3>Abstracció de dades</h3>
+  <teoria>
+      Donat un tipus de dades, ens abstraiem de com estan representades (implementades) i ens centrem en les operacions sobre aquestes dades; l'especificació de les operacions ha de ser independent de la implementació de les dades sobre les que actuen.
+      <br>
+      <b>Exemple:</b> tipus Data amb les operacions:
+      <ul>
+          <li>distància: Data x Data -> enter  (distància en dies entre 2 dates)</li>
+          <li>següent: Data -> Data  (passa d'un dia al següent)</li>
+          <li>és_festiu: Data -> booleà  (esbrina si un dia és o no festiu)</li>
+      </ul>
+  </teoria>
+
+  Suposem que tenim un tipus de dades <b>Data</b> i que volem calcular la diferència en dies entre 2 dates. <br>
+  Usarem:
+  <ul>
+      <li><b>Abstracció procedimental:</b> construïm una acció/funció, de la qual ens importa què fa i ens abstraiem de com ho fa</li>
+      <li><b>Abstracció de dades:</b> considerem el tipus Data abstraient-nos de com està implementat (1 2 2018, 1 febrer 2018, 32è dia de 2018, ...)</li>
+  </ul>
+  Així, dissenyem una funció a la qual li passem 2 paràmetres Data i ens retorna la diferència:
+  <pre><code class="c++">unsigned distancia(Data d1, Data d2) 
+// Pre: d2 és posterior o igual a d1 
+// Post: retorna diferència en dies entre d2 i d1</code></pre>
+
+<h3>Precondició</h3>
+<teoria>
+    La precondició conté les restriccions sobre els paràmetres d'entrada
+    <pre><code class="c++">void divisio(int dividend, int divisor, int&amp; quo, int&amp; res) 
+// Pre: dividend&gt;=0 i divisor&gt;0 </code></pre>
+    <ul>
+        <li>
+            En cas de paràmetres d’e/s,  fem referència al seu valor inicial (normalment en majúscules):
+            <pre><code class="c++">void intercanvi(int&amp; a, int&amp; b) 
+// Pre: a=A i b=B </code></pre></li>
+        <li>
+            No hem de fer consideracions redundants sobre tipus, existència o correctesa dels paràmetres:
+            <pre><code class="c++">double arrelQuadrada(double x)
+// Pre: x &eacute;s un valor real no negatiu   (NO)
+// Pre: x&gt;=0                            (OK)
+double exponencial(int k) 
+// Pre: k existeix, k correcte, ...     (NO)
+// Pre: cert                            (OK)</code></pre>
+        </li>
+    </ul>
+
+</teoria>
+
+<h3>Postcondició</h3>
+<teoria>
+    La postcondició indica què fa la funció/acció: què retorna, què modifica,..
+    <pre><code class="c++">void intercanvi(int&amp; a, int&amp; b)
+// Pre: a=A i b=B
+// Post: a=B i b=A    
+double arrelQuadrada(double x)
+// Pre: x&gt;=0 
+// Post: retorna arrel quadrada de x</code></pre>
+
+    S'ha d'explicar què fa l'acció o funció en relació als paràmetres d'entrada, però no pas com ho fa:
+    <pre><code class = "c++">int mcm(int a, int b) 
+// Pre: a&gt;0 i b&gt;0
+// Post: retorna el m&iacute;nim com&uacute; m&uacute;ltiple de a i b a partir de la descomposici&oacute; de a i b en factors primers (NO)
+// Post: retorna el m&iacute;nim com&uacute; m&uacute;ltiple de a i b (OK)</code></pre>
+</teoria>
+
+</div>
+
+  <p class = footer>
+    <a class="forward round" href="POO_Classes.html"></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
