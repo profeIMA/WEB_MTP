@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+</head>
+
+<body onload="checkMenuById('#collapse-input-2');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+     1.4 DISSENY I ÚS D'UNA CLASSE
+    </h1>
+  </center>
+  Per a dissenyar una classe, caldrà tenir en compte:
+  <ul>
+      <li>
+          <b><font color = "green">estat</font></b>: dades (atributs)
+      </li>
+      <li>
+          <b><font color = "red">comportament</font></b>: operacions (mètodes)
+          <ul>
+            <li>
+                <b><font color = "red">Mètodes d'instància</font></b>: s'executen sobre un objecte (que anomenem objecte actual):
+                <ul>
+                    <li><b>Mètodes consultors</b>: consulten l'estat de l'objecte sense modificar-lo.</li>
+                    <li><b>Mètodes modificadors</b>: poden modificar l'estat de l'objecte.</li>
+                </ul>
+            </li>
+            <li><b><font color = "red">Mètodes de classe</font></b>: no s'executen sobre un objecte; es defineixen i s'usen com les accions i funcions que hem utilitzat fins ara; les utilitzarem en casos particulars (com veurem més endavant)</li>
+          </ul>
+      </li>
+  </ul>
+
+  Per introduir els conceptes de disseny i ús d'una classe, dissenyarem una classe que representi punts 2D i que ens permeti manipular-los.
+  <h3>Disseny de la classe Punt2D</h3>
+  <teoria>
+    <ul>
+            <li>
+                <b><font color = "green">Atributs</font></b>: coordenades cartesianes (o coordenades polars)
+            </li>
+            <li>
+                <b><font color = "red">Mètodes d'instància</font></b>: operen sobre objectes Punt2D
+                <ul>
+                    <li>
+                        <b>Mètodes consultors</b>:
+                        <ul>
+                            <li>obtenir les coordenades x i y </li>
+                            <li>obtenir distància a l'origen</li>
+                            <li>calcular la distància entre dos punts </li>
+                            <li>mostrar un punt per pantalla</li>
+                            <li>esbrinar si dos punts són iguals </li>
+                            <li>calcular el punt mig entre dos punts, etc.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Mètodes modificadors</b>:
+                        <ul>
+                                <li>moure un punt a partir d'un vector de desplaçament
+                                    <ul>
+                                        <li>a partir d'un valor sobre x i d'un valor sobre y</li>
+                                        <li>a partir d'un punt (que representa un vector des de l'origen)</li>
+                                    </ul>
+                                </li>
+                                <li>llegir punt des de teclat, etc. </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+    </ul>
+
+    L'<b>encapsulament</b> estableix, per a una classe, dos nivells ben diferenciats:
+    <ul>
+        <li>
+            <b>Interfície (part pública)</b>: capçaleres dels constructors i dels mètodes públics
+            <ul>
+                <li>Determina la funcionalitat de l'objecte</li>
+                <li>Cal fer abstracció de la representació dels atributs i de la implementació dels constructors i mètodes</li>
+                <li>L'especificació ha de ser independent dels atributs usats per representar la classe</li>
+            </ul>
+        </li>
+        <li>
+                <b>Implementació (part privada)</b>: atributs, constants i tipus, implementació dels constructors, mètodes públics i privats
+                <ul>
+                    <li><b>Mètodes privats</b>: apareixen en el disseny descendent d'altres mètodes de la classe; <b>només són visibles des de dins de la classe</b>, que és on es necessiten</li>
+                </ul>
+        </li>
+    </ul>
+    Per usar una classe només cal conèixer la seva interfície.
+    <br><br>
+    Dissenyar una classe implica:
+    <ol>
+        <li><b>Dissenyar la seva interfície</b>:
+            <ul>
+                    <li>Triar el nom de la classe i fer una descripció del que representen els objectes de la classe. </li>
+                    <li>Decidir els constructors (operacions per inicialitzar els objectes; capçalera i especificació). </li>
+                    <li>Decidir els mètodes (capçalera i especificació) d'instància (consultors i modificadors) i de classe.</li>
+            </ul>
+        </li>
+        <li><b>Realitzar la implementació</b>
+            <ul>
+                <li>Atributs (privats).</li>
+                <li>Mètodes públics i privats, constructors.</li>
+                <li>Constants i tipus.</li>
+            </ul>
+        </li>
+    </ol>
+
+    Per procedir, necessitem 2 fitxers:
+    <ul>
+        <li><codi>Punt2D.h</codi> (interfície, atributs, capçaleres mètodes privats, ...).</li>
+        <li><codi>Punt2D.cpp</codi> (implementació dels mètodes i constructors, ...).</li>
+    </ul>
+
+    <b>Fitxer Punt2D.h</b>: <button onclick="myFunction(PUNT2Dh)">Veure Codi</button><br>
+    <solucio id="PUNT2Dh"><pre><code class = "c++">class Punt2D { // guardat en en un fitxer Punt2D.h
+// Descripci&oacute;: un punt en el pla
+public:
+&nbsp; // Constructors
+&nbsp; Punt2D(); //Pre:--; Post: el punt &eacute;s (0,0)
+&nbsp; Punt2D(double x, double y); //Pre:--; Post: el punt &eacute;s (x,y)
+
+&nbsp; // M&egrave;todes consultors
+&nbsp; double coordenada_x() const;
+&nbsp; //Pre: --; Post: retorna la coordenada x del punt
+&nbsp; double coordenada_y() const;
+&nbsp; //Pre: --; Post: retorna la coordenada y del punt
+&nbsp; double distancia(Punt2D p) const;
+&nbsp; //Pre: --; Post: retorna la dist&agrave;ncia del punt a p
+&nbsp; void mostrar() const;
+&nbsp; //Pre: --; Post: mostra el punt en forma (x,y)
+&nbsp; bool es_igual(Punt2D p) const;
+&nbsp; //: --; Post: retorna cert si el punt i p s&oacute;n iguals
+&nbsp; Punt2D punt_mig(Punt2D p) const;
+&nbsp; //Pre:--; Post: retorna el punt mig entre el punt i p
+
+&nbsp; // M&egrave;todes modificadors
+&nbsp; void moure(double x, double y);
+&nbsp; //Pre:--; Post: punt despla&ccedil;at amb vector (x,y)
+&nbsp; void moure(Punt2D p);
+&nbsp; //Pre:--; Post: punt despla&ccedil;at amb vector (0,0)-&gt;p
+&nbsp; void llegir();
+&nbsp; //Pre:--; Post: el punt &eacute;s el llegit de teclat
+
+private: 
+&nbsp; double a_x, a_y; // atributs (usem coordenades cartesianes)
+};</code></pre></solucio>
+
+
+    <h4>Constructors</h4>
+    <teoria>
+        <pre><code class = "c++">// Constructors
+Punt2D(); 
+// Pre: -- 
+// Post: el punt &eacute;s (0,0)
+Punt2D(double x, double y); 
+// Pre: -- 
+// Post: el punt &eacute;s (x,y)</code></pre>
+
+        Els constructors inicialitzen els objectes en el moment de ser creats. Cada classe ha de tenir com a mínim un constructor, però n'hi pot haver varis (sobrecàrrega). Els constructors tenen el mateix nom que la classe.
+        <br>
+        <b>Exemple d'ús:</b>
+        <pre><code classe="c++">Punt2D p(1.5,2.0);
+Punt2D q; // constructor sense paràmetres</code></pre>
+    </teoria>
+    <h4>Mètodes</h4>
+    <teoria>
+        <pre><code class="c++">// M&egrave;todes consultors
+double coordenada_x() const;
+//Pre: --; Post: retorna la coordenada x del punt
+double distancia(Punt2D p) const;
+//Pre: --; Post: retorna la dist&agrave;ncia del punt a p
+...
+// M&egrave;todes modificadors
+void moure(Punt2D p);
+//Pre:--; Post: punt despla&ccedil;at amb vector (0,0)-&gt;p
+void llegir();
+//Pre:--; Post: el punt &eacute;s el llegit de teclat</code></pre>
+
+        <b>Ús des de fora de la classe:</b>
+        <teoria>
+            <pre><code class="c++">nom_objecte.nom_metode(parametres);</code></pre>
+        </teoria>
+        <b>Ús des dins de la classe:</b>
+        <teoria>
+            <pre><code class="c++">nom_metode(parametres);// (*this).nom_metode; Per enviar el missatge al mateix objecte actual
+nom_objecte.nom_metode(parametres); //Per enviar el missatge a un altre objecte que no és l'actual.</code></pre>
+        </teoria>
+    </teoria>
+
+    <h4>Cicle de vida d'un objecte</h4>
+    <teoria>
+        <ul>
+            <li>Creació i inicialització: <br><codi>Punt2D p(3.5, -1.5); <br>Punt2D q;</codi></li>
+            <li>Enviament de missatges: <codi>p.moure(2,3)</codi></li>
+            <li>Assignació entre objectes: <codi>q = p</codi></li>
+            <li>Com a paràmetre:
+                <ul>
+                    <li>per valor (paràmetre d'entrada, es fa còpia) <br><codi>double distancia(Punt2D p) const;</codi></li>
+                    <li>per referència (paràmetre e/s o s) <br><codi>void intercanvi(Punt2D & p, Punt2D & q);</codi></li>
+                    <li>també podem fer un pas per referència constant</li>
+                </ul>
+            </li>
+            <li>Retorn (es fa còpia): <codi>Punt2D puntMig(Punt2D p) const;</codi></li>
+            <li>Destrucció: l'objecte es destrueix quan s'acaba el bloc de codi en què ha estat creat.</li>
+        </ul>
+    </teoria>
+
+    <h4>Exemple d'ús</h4>
+    <teoria>
+            Llegeix un punt i un vector desplaçament (tots dos en 2D) i mostra el punt desplaçat i la distància fins al punt original:
+    <pre><code class="c++">int main() {
+    cout &lt;&lt; &quot;Entra x,y d&rsquo;un punt: &quot; &lt;&lt; endl;
+    double x,y; 
+    cin &gt;&gt; x &gt;&gt; y;
+    Punt2D punt(x,y); // declarem, creem i inicialitzem &nbsp; 
+    cout &lt;&lt; &quot;Entra x i y d&rsquo;un vector despla&ccedil;ament: &quot; &lt;&lt; endl;
+    cin &gt;&gt; x &gt;&gt; y;
+    Punt2D punt_copia = punt; // fem una c&ograve;pia del punt inicial 
+    punt_copia.moure(x,y); // desplacem la c&ograve;pia
+    cout &lt;&lt; &quot;Punt despla&ccedil;at: &quot;;
+    punt_copia.mostrar(); // mostrem punt despla&ccedil;at
+    cout &lt;&lt; &quot;Dist&agrave;ncia entre punt original i despla&ccedil;at= &quot;;
+    cout &lt;&lt; punt.distancia(punt_copia) &lt;&lt; endl;
+    return 0;
+}</code></pre>
+    </teoria>
+  </teoria>
+
+</div>
+
+  <p class = footer>
+    <a class="backward round" href="POO_Bases.html"></a>
+    <a class="forward round" href=""></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
