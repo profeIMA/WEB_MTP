@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+</head>
+
+<body onload="checkMenuById('#collapse-input-2');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+     1.5 IMPLEMENTACIÓ D'UNA CLASSE
+    </h1>
+  </center>
+
+  Un cop dissenyada la interfície d’una classe, cal implementar-la; això implica:
+  <ul>
+      <li><b>Implementació de les dades (atributs)</b> que representen l'estat dels objectes de la classe</li>
+      <li><b>Implementació dels mètodes i constructors</b> de la interfície
+        <ul>
+            <li>es poden cridar mètodes de la mateixa classe (o també pertanyents a altres classes)</li>
+            <li>es poden cridar mètodes privats de la classe no definits a la interfície i que caldrà especificar i implementar</li>
+            <li>quan s'executa un mètode, hem de tenir en compte que els atributs per defecte als quals fa referència la implementació són els de l'objecte actual (aquell sobre el qual s'executa el mètode)</li>
+            <li>ens podem referir a l'objecte actual com a (*this)</li>
+        </ul>
+    </li>
+  </ul>
+
+  <h4>Implementació de la classe Punt2D</h4>
+  <teoria>
+      <h3>Atributs</h3>
+      <teoria>
+          <pre><code class ="c++">private: // part privada
+  double a_x, a_y; // atributs (usem coordenades cartesianes)</code></pre>
+            
+            Els atributs es defineixen a la part privada de la classe (fitxer Punt2D.h); per tant només són visibles/accessibles des de dins de la classe.
+            <br>
+            Per accedir als atributs des de la implementació de la classe es faria de la següent forma:
+            <pre><code class = "c++">double Punt2D::coordenada_y() const {
+    return a_y; // return (*this).a_x [no &eacute;s necessari]
+}
+double Punt2D::distancia(Punt2D p) const {
+    double difX = a_x-p.a_x;
+    double difY = (*this).a_y-p.a_y; // no &eacute;s necessari
+    return sqrt(difX*difX+difY*difY);
+}</code></pre>
+        Un canvi en la representació dels atributs no ha de suposar cap canvi en la interfície però sí en la implementació dels mètodes. 
+      </teoria>
+
+      <h3>Constructors</h3>
+      <teoria>
+          <pre><code class = "c++">// Constructors
+Punt2D::Punt2D() {
+// Pre:--; Post: el punt &eacute;s (0,0)
+    a_x = 0;
+    a_y = 0;
+}
+Punt2D::Punt2D(double x, double y) {
+// Pre:--; Post: el punt &eacute;s (x,y)
+    a_x = x;
+    a_y = y;
+}</code></pre>
+        La implementació dels constructors i dels mètodes es guarda en un fitxer amb el nom de la classe i extensió .cpp, exemple: fitxer Punt2D.cpp. Per indicar la pertinença a la classe posem Punt2D:: davant del nom del constructor o mètode
+      </teoria>
+
+      <h3>Mètodes consultors</h3>
+      <teoria>
+          <pre><code class = "c++">// Consultors 
+double Punt2D::coordenada_x() const {
+    return a_x;
+}
+double Punt2D::coordenada_y() const {
+    return a_y;
+}
+double Punt2D::distancia(Punt2D p) const {
+    double difX = a_x-p.a_x; 
+    double difY = a_y-p.a_y;
+    return sqrt(difX*difX+difY*difY);
+}
+void Punt2D::mostrar() const {
+    cout &lt;&lt; &quot;(&quot; &lt;&lt; a_x &lt;&lt; &quot;,&quot; &lt;&lt; a_y &lt;&lt; &quot;)&quot; &lt;&lt; endl;
+}
+&nbsp; bool Punt2D::es_igual(Punt2D p) const {
+    return a_x == p.a_x and a_y == p.a_y;
+}
+&nbsp; Punt2D Punt2D::punt_mig(Punt2D p) const {
+    return Punt2D((a_x+p.a_x)/2, (a_y+p.a_y)/2);
+}</code></pre>
+      </teoria>
+
+      <h3>Mètodes modificadors</h3>
+      <teoria>
+          <pre><code class = "c++">// Modificadors
+void Punt2D::moure(double x, double y) {
+    a_x += x;
+    a_y += y;
+}
+void Punt2D::moure(Punt2D p) {
+    a_x += p.a_x;
+    a_y += p.a_y;
+}
+void Punt2D::llegir() {
+    cin &gt;&gt; a_x &gt;&gt; a_y;
+}</code></pre>
+      </teoria>
+
+      <h3>Programa que usa Punt2D</h3>
+      <teoria>
+          Exemple de programa que usa la classe Punt2D: <button onclick="myFunction(prog)">Veure Codi</button><br>
+          <solucio id="prog"><pre><code class = "c++">/* Donat un punt 2D inicial entrat per teclat i una seq. de vectors (no buida), cal mostrar tots els punts del trajecte 
+&nbsp;(des del punt inicial, passant per tots els punts intermedis, i tancant el trajecte amb el punt inicial) 
+&nbsp;i la dist&agrave;ncia recorreguda fins arribar al punt inicial
+&nbsp;*/
+#include &lt;iostream&gt;
+#include &quot;Punt2D.h&quot; // s'usa la classe Punt2D
+using namespace std;
+int main() {
+    cout &lt;&lt; &quot;Entra les coordenades x i y del punt inicial: &quot;;
+    double x,y;
+    cin &gt;&gt; x &gt;&gt; y; // llegim coord. del punt inicial
+    Punt2D punt_inicial(x,y);
+    Punt2D punt_anterior(punt_inicial); 
+    // duplicat, invoquem constructor c&ograve;pia (implementat per defecte)
+    Punt2D punt_seguent = punt_anterior; // fem un duplicat
+    double distancia = 0;
+    cout &lt;&lt; &quot;Vols entrar un nou punt?: &quot;;
+    char car;
+    cin &gt;&gt; car;
+    while (car=='s'){
+        cout &lt;&lt; &quot;Entra el vector (x,y): &quot;;
+        cin &gt;&gt; x &gt;&gt; y;&nbsp; // llegim coord. d'un vector
+        punt_seguent.moure(x,y);
+        cout &lt;&lt; &quot;Punt seg&uuml;ent: &quot;;
+        punt_seguent.mostrar();
+        distancia += punt_anterior.distancia(punt_seguent);
+        punt_anterior = punt_seguent;
+        cout &lt;&lt; &quot;Vols entrar un nou punt?: &quot;;
+        cin &gt;&gt; car;
+    }
+    distancia += punt_seguent.distancia(punt_inicial);
+    cout &lt;&lt; &quot;Punt final: &quot;;
+    punt_inicial.mostrar();
+    cout &lt;&lt; &quot;Dist&agrave;ncia trajecte= &quot; &lt;&lt; distancia &lt;&lt; endl;&nbsp;
+    return 0;
+}</code></pre></solucio>
+      </teoria>
+    <h3>Signatura i sobrecàrrega</h3>
+    <teoria>
+        <h2>Signatura</h2>: nom del mètode o constructor + tipus i ordre dels paràmetres (no inclou el retorn). Per exemple pel mètode de Punt2D que calcula la distància seria <codi>distancia(Punt2D)</codi><br><br>
+        <h2>Sobrecàrrega</h2>: dos o més mètodes o constructors d’una classe poden tenir igual nom però diferents paràmetres (nombre, tipus o ordre):
+        <ul>
+            <li>tenen igual nom, però la seva signatura és diferent</li>
+            <li>la sobrecàrrega és resolta pel compilador (el compilador diferencia els mètodes sobrecarregats)</li>
+            <li>exemples: els dos constructors de Punt2D, els dos mètodes moure</li>
+        </ul>
+    </teoria>
+  </teoria>
+
+
+
+</div>
+
+  <p class = footer>
+    <a class="backward round" href="POO_Disseny.html"></a>
+    <a class="forward round" href="POO_ExempleFraccio.html"></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

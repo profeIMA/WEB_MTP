@@ -29,10 +29,10 @@
   Per a dissenyar una classe, caldrà tenir en compte:
   <ul>
       <li>
-          <b><font color = "green">estat</font></b>: dades (atributs)
+          <b><font color = "green">Estat</font></b>: dades (atributs)
       </li>
       <li>
-          <b><font color = "red">comportament</font></b>: operacions (mètodes)
+          <b><font color = "red">Comportament</font></b>: operacions (mètodes)
           <ul>
             <li>
                 <b><font color = "red">Mètodes d'instància</font></b>: s'executen sobre un objecte (que anomenem objecte actual):
@@ -47,7 +47,7 @@
   </ul>
 
   Per introduir els conceptes de disseny i ús d'una classe, dissenyarem una classe que representi punts 2D i que ens permeti manipular-los.
-  <h3>Disseny de la classe Punt2D</h3>
+  <h4>Disseny de la classe Punt2D</h4>
   <teoria>
     <ul>
             <li>
@@ -161,7 +161,7 @@ private:
 };</code></pre></solucio>
 
 
-    <h4>Constructors</h4>
+    <h3>Constructors</h3>
     <teoria>
         <pre><code class = "c++">// Constructors
 Punt2D(); 
@@ -177,7 +177,7 @@ Punt2D(double x, double y);
         <pre><code classe="c++">Punt2D p(1.5,2.0);
 Punt2D q; // constructor sense paràmetres</code></pre>
     </teoria>
-    <h4>Mètodes</h4>
+    <h3>Mètodes</h3>
     <teoria>
         <pre><code class="c++">// M&egrave;todes consultors
 double coordenada_x() const;
@@ -202,7 +202,7 @@ nom_objecte.nom_metode(parametres); //Per enviar el missatge a un altre objecte 
         </teoria>
     </teoria>
 
-    <h4>Cicle de vida d'un objecte</h4>
+    <h3>Cicle de vida d'un objecte</h3>
     <teoria>
         <ul>
             <li>Creació i inicialització: <br><codi>Punt2D p(3.5, -1.5); <br>Punt2D q;</codi></li>
@@ -220,7 +220,7 @@ nom_objecte.nom_metode(parametres); //Per enviar el missatge a un altre objecte 
         </ul>
     </teoria>
 
-    <h4>Exemple d'ús</h4>
+    <h3>Exemple d'ús</h3>
     <teoria>
             Llegeix un punt i un vector desplaçament (tots dos en 2D) i mostra el punt desplaçat i la distància fins al punt original:
     <pre><code class="c++">int main() {
@@ -245,7 +245,7 @@ nom_objecte.nom_metode(parametres); //Per enviar el missatge a un altre objecte 
 
   <p class = footer>
     <a class="backward round" href="POO_Bases.html"></a>
-    <a class="forward round" href=""></a>
+    <a class="forward round" href="POO_Implementacio.html"></a>
   <center>
       <p class = footer>
       <!--<em>Last modified on February 19, 2018.</em><br><br>-->

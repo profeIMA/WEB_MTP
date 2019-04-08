@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+</head>
+
+<body onload="checkMenuById('#collapse-input-2');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+     1.6 EXEMPLE: DISSENY I IMPLEMENTACIÓ CLASSE FRACCIÓ
+    </h1>
+  </center>
+
+  Aquest exemple consistirà en el disseny i implementació d'una calculadora de fraccions, que operarà amb la classe Fracció. El programa farà el següent:
+  <ul>
+        <li>Es llegeixen dues fraccions.</li>
+        <li>S'escull l'operació a realitzar
+            <ul>
+                <li>+: suma</li>
+                <li>-: resta</li>
+                <li>*: multiplicació</li>
+                <li>/: divisió</li>
+            </ul>
+        </li>
+        <li>Les fraccions sempre es presenten en forma simplificada i denominador estrictament positiu</li>
+  </ul>
+
+  <h4>Fraccio.h</h4>
+  <teoria>
+      <h2>Nom de la classe:</h2> <codi>Fraccio</codi>
+      <br>
+      <h2>Descripció de la classe:</h2> denominador&gt;0 i simplificada.
+      <ul>
+            <li>ho compliran tots els objectes de la classe</li>
+            <li>no cal tornar-ho a indicar a les precondicions dels mètodes públics, ho han de complir tots els objectes de la classe</li>
+      </ul>
+      <h2>Interfície:</h2> inclou constructors, suma, resta, multiplicació, divisió i mostrar
+      <br>
+      <h2>Mètodes privats:</h2><ul>
+            <li>simplificar (m&egrave;tode d'inst&agrave;ncia)</li>
+            <li>calcular MCD (m&egrave;tode de classe --&gt; static) </li>
+            <li>calcular MCM (m&egrave;tode de classe --&gt; static) </li>
+      </ul>
+    
+    <h3>Mètodes de classe</h3>
+    <teoria>
+        Els mètodes qualificats com a static són mètodes de classe:
+        <ul>
+                <li>corresponen a les accions i funcions ja conegudes</li>
+                <li>no s’executen sobre cap objecte i s’utilitzen de manera restrictiva </li>
+                <li>es poden cridar des de
+                    <ul>
+                            <li>dins de la classe <codi>nom_mètode_classe(paràmetres);</codi></li>
+                            <li>fora de la classe (caldria que fos públic) <codi><font color = "blue">Nom_classe::</font>nom_mètode_classe(paràmetres);</codi></li>
+                    </ul>
+                </li>
+        </ul>
+        El mètode que calcula el MCD és de classe. És una funció que es pot usar per implementar mètodes de la classe Fraccio.
+    </teoria>
+
+    <h3>Fraccio.h resultant</h3>
+    <teoria>
+        <pre><code class = "c++">class Fraccio {
+// Descripci&oacute;: una fracci&oacute; amb denominador&gt;0 i simplificada
+public:
+&nbsp; &nbsp; // Constructors
+&nbsp; &nbsp; Fraccio(); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Pre: --; &nbsp; Post: ha creat fracci&oacute; 0/1
+&nbsp; &nbsp; Fraccio(int n, int d); // Pre: d!=0; Post: ha creat fracci&oacute; en format (-)n/d i simplificada
+&nbsp; &nbsp; // Consultors
+&nbsp; &nbsp; Fraccio suma(Fraccio f) const;
+&nbsp; &nbsp; // Pre:--; Post: retorna la suma simplificada entre fracci&oacute; actual i f
+&nbsp; &nbsp; Fraccio resta(Fraccio f) const;
+&nbsp; &nbsp; // Pre:--; Post: retorna la resta simplificada entre fracci&oacute; actual i f
+&nbsp; &nbsp; Fraccio producte(Fraccio f) const;
+&nbsp; &nbsp; // Pre:--; Post: retorna el producte simplificat entre fracci&oacute; actual i f
+&nbsp; &nbsp; Fraccio divisio(Fraccio f) const;
+&nbsp; &nbsp; // Pre: f no val zero; Post: retorna la divisi&oacute; simplificada entre fracci&oacute; actual i f
+&nbsp; &nbsp; void mostrar() const;
+&nbsp; &nbsp; // Pre:--; Post: mostra la fracci&oacute; actual en format (-)num/den o (-)num si denominador=1
+private:
+&nbsp; &nbsp; int a_num; // cont&eacute; el signe de la fracci&oacute;
+&nbsp; &nbsp; int a_den; // ser&agrave; major que zero
+&nbsp; &nbsp; void simplificar();
+&nbsp; &nbsp; // Pre: --; Post: ha simplificat la fracci&oacute; actual
+&nbsp; &nbsp; static int maxim_comu_divisor(int a, int b);
+&nbsp; &nbsp; // Pre: a,b &gt; 0; Post: retorna M.C.D.(a,b)
+&nbsp; &nbsp; static int minim_comu_multiple(int a, int b);
+&nbsp; &nbsp; // Pre: a,b &gt; 0; Post: retorna M.C.M.(a,b)
+};</code></pre>
+    </teoria>
+
+  </teoria>
+  <h4>Exemple Complet</h4>
+  <teoria>
+    L'exemple complet es pot veure en el següent enllaç al GitHub, que inclou els 3 fitxers: 
+    <br><button><a  target="_blank" href= "https://github.com/sipwarriper/Exercicis-Programacio/tree/master/Exercicis_POO/Exemple1_CalculadoraFraccions">Veure exemple complet</a></button><br><br>
+  </teoria>
+
+  
+
+
+
+</div>
+
+  <p class = footer>
+    <a class="backward round" href="POO_Implementacio.html"></a>
+    <a class="forward round" href=""></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
