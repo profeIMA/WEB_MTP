@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+</head>
+
+<body onload="checkMenuById('#collapse-input-2');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+     1.7 RELACIONS ENTRE CLASSES
+    </h1>
+  </center>
+
+  <h4>Ús i composició</h4>
+  <teoria>
+    La composició es produeix quan un objecte de la classe A conté un o varis objectes de la classe B, per exemple, una classe Rectangle que té un atribut de tipus Punt2D.
+    Direm que la classe A usa la classe B. En aquesta relació, l'objecte de la classe B no té entitat sense l'objecte de la classe A: l'objecte de la classe A és un tot, el de la classe B és una part i l'objecte B només és accessible a través de l'objecte A.
+    <br>
+    Poden existir objectes de la classe B que no estiguin sotmesos a la relació de composició.<br>
+    Hi ha altres relacions d'ús entre classes que no impliquen composició.
+  </teoria>
+  <h4>Exemple: Classe Rectangle</h4>
+  <teoria>
+    La classe Rectangle representa rectangles en el pla, alineats amb els eixos de coordenades.
+    <br><br><img alt="Representació de rectangles en el pla, alineats amb els eixos de coordenades" src="../../Recursos/Imatges/POO_ExempleRectangles.png" height="220px">  <br><br>
+    Operacions proposades per a la interfície: 
+    <ul>
+        <li>crear un rectangle a partir del seu vèrtex inferior esquerre, la seva base i la seva altura</li>
+        <li>obtenir la base, l'altura i l'origen (vèrtex inferior esquerre)</li>
+        <li>obtenir l'àrea</li>
+        <li>obtenir el perímetre</li>
+        <li>obtenir el centre </li>
+        <li>mostrar l'origen, la base i l'altura</li>
+        <li>mostrar els seus 4 vèrtexs</li>
+        <li>desplaçar el rectangle a partir d'un vector (x,y)</li>
+        <li>escalar un rectangle a partir d'un factor d'escala des de l'origen</li>
+        <li>escalar un rectangle a partir d'un factor d'escala des de l'origen</li>
+    </ul>
+    <h2>Rectangle.h:</h2>  <button onclick="myFunction(Rectangleh)">Veure Codi</button>
+    <solucio id="Rectangleh"><pre><code class = "c++">#include &quot;Punt2D.h&quot;
+class Rectangle {
+// Descripci&oacute;: un rectangle 2D, alineat amb els eixos de coordenades
+public:
+// Constructors
+&nbsp; &nbsp; Rectangle();
+&nbsp; &nbsp; // Pre:--; Post: rectangle (0,0),(1,0),(1,1),(0,1)
+&nbsp; &nbsp; Rectangle(Punt2D origen, double base, double altura);
+&nbsp; &nbsp; // Pre: base,altura&gt;0 ; Post: rectangle amb vertex_inferior_esquerre=origen i base i altura
+// Consultors
+&nbsp; &nbsp; double base() const;
+&nbsp; &nbsp; // Pre: --; Post: retorna base del rectangle
+&nbsp; &nbsp; double altura() const;
+&nbsp; &nbsp; // Pre: --; Post: retorna altura del rectangle
+&nbsp; &nbsp; Punt2D origen() const;
+&nbsp; &nbsp; // Pre: --; Post: retorna el punt origen del rectangle
+&nbsp; &nbsp; double area() const;
+&nbsp; &nbsp; // Pre: --; Post: retorna &agrave;rea del rectangle
+&nbsp; &nbsp; double perimetre() const;
+&nbsp; &nbsp; // Pre: --; Post: retorna per&iacute;metre del rectangle
+&nbsp; &nbsp; Punt2D centre() const;
+&nbsp; &nbsp; // Pre: --; Post: retorna centre del rectangle
+&nbsp; &nbsp; void mostrar() const;
+&nbsp; &nbsp; // Pre: --; Post: mostra origen (v&egrave;rtex inferior esquerre) i base i altura
+&nbsp; &nbsp; void mostrar_vertexs() const;
+&nbsp; &nbsp; // Pre: --; Post: mostra els 4 v&egrave;rtexs en sentit horari, comen&ccedil;ant per inferior-esquerre
+// Modificadors
+&nbsp; &nbsp; void moure(double x, double y);
+&nbsp; &nbsp; // Pre:--; Post: rectangle despla&ccedil;at segons vector (x,y)
+&nbsp; &nbsp; void escalar_origen(double factor);
+&nbsp; &nbsp; // Pre: factor&gt;0; Post: rectangle escalat segons factor, mantenint el seu origen
+&nbsp; &nbsp; void escalar_centre(double factor);
+&nbsp; &nbsp; // Pre: factor&gt;0; Post: rectangle escalat segons factor, mantenint el seu centre
+
+private:
+// Atributs
+&nbsp; &nbsp; Punt2D a_origen; &nbsp; &nbsp; // composici&oacute;, v&egrave;rtex inferior esquerra
+&nbsp; &nbsp; double a_base;
+&nbsp; &nbsp; double a_altura;
+
+// Definicions
+&nbsp; &nbsp; static const int NOMBRE_VERTEXS=4;
+&nbsp; &nbsp; typedef Punt2D Vector_punt2D_rectangle[NOMBRE_VERTEXS];
+
+// M&egrave;todes privats
+&nbsp; &nbsp; void vertexs(Vector_punt2D_rectangle v_rec) const;
+&nbsp; &nbsp; // Pre: --; Post: v_rec cont&eacute; els 4 v&egrave;rtexs en sentit horari comen&ccedil;ant per inferior-esquerre
+};</code></pre></solucio>
+<br>
+<h2>Rectangle.cpp:</h2>  <button onclick="myFunction(Rectanglecpp)">Veure Codi</button>
+<solucio id = "Rectanglecpp"><pre><code class = "c++">#include &quot;Rectangle.h&quot;
+// Constructors
+Rectangle::Rectangle() {
+&nbsp; &nbsp; a_origen = Punt2D(0,0); // ens el podr&iacute;em estalviar
+&nbsp; &nbsp; a_base = 1;
+&nbsp; &nbsp; a_altura = 1;
+}
+Rectangle::Rectangle(Punt2D origen, double base, double altura) {
+&nbsp; &nbsp; a_origen = origen;
+&nbsp; &nbsp; a_base = base;
+&nbsp; &nbsp; a_altura = altura;
+}
+
+// M&egrave;todes p&uacute;blics
+// M&egrave;todes d'inst&agrave;ncia
+double Rectangle::base() const {
+&nbsp; &nbsp; return a_base;
+}
+double Rectangle::altura() const {
+&nbsp; &nbsp; return a_altura;
+}
+Punt2D Rectangle::origen() const {
+&nbsp; &nbsp; return a_origen;
+}
+double Rectangle::area() const {
+&nbsp; &nbsp; return a_altura*a_base;
+}
+double Rectangle::perimetre() const {
+&nbsp; &nbsp; return 2*(a_base+a_altura);
+}
+Punt2D Rectangle::centre() const {
+&nbsp; &nbsp; return Punt2D(a_origen.coordenada_x()+a_base/2, a_origen.coordenada_y()+a_altura/2);
+}
+void Rectangle::mostrar() const {
+&nbsp; &nbsp; cout &lt;&lt; &quot;Origen: &quot;;
+&nbsp; &nbsp; a_origen.mostrar();
+&nbsp; &nbsp; cout &lt;&lt; &quot;Base: &quot; &lt;&lt; a_base &lt;&lt; &quot; , Altura: &quot; &lt;&lt; a_altura &lt;&lt; endl;
+}&nbsp;
+void Rectangle::mostrar_vertexs() const {
+&nbsp; &nbsp; Vector_punt2D_rectangle v_rec;
+&nbsp; &nbsp; vertexs(v_rec);&nbsp; // equival a (*this).vertexs(v_rec);
+&nbsp; &nbsp; cout &lt;&lt; &quot;V&egrave;rtexs: &quot; &lt;&lt; endl;
+&nbsp; &nbsp; for (int k = 0; k&lt;NOMBRE_VERTEXS; k++)
+&nbsp; &nbsp; &nbsp; &nbsp; v_rec[k].mostrar(); // usem m&egrave;tode mostrar de Punt2D
+}
+// M&egrave;todes modificadors
+void Rectangle::moure(double x, double y) {
+&nbsp; &nbsp; a_origen.moure(x,y); // invoquem m&egrave;tode de Punt2D
+}
+void Rectangle::escalar_centre(double factor) {
+&nbsp; &nbsp; Punt2D punt = centre(); &nbsp; // invoquem m&egrave;tode de Rectangle
+&nbsp; &nbsp; a_base *= factor;
+&nbsp; &nbsp; a_altura *= factor;
+&nbsp; &nbsp; a_origen = Punt2D(punt.coordenada_x()-a_base/2, punt.coordenada_y()-a_altura/2);
+}
+void Rectangle::escalar_origen(double factor) {
+&nbsp; &nbsp; a_base *= factor;
+&nbsp; &nbsp; a_altura *= factor;
+}
+
+// M&egrave;todes privats
+void Rectangle::vertexs(Vector_punt2D_rectangle v_rec) const {
+&nbsp; &nbsp; v_rec[0]= a_origen;
+&nbsp; &nbsp; v_rec[1]= Punt2D(a_origen.coordenada_x(), a_origen.coordenada_y()+a_altura);
+&nbsp; &nbsp; v_rec[2]= Punt2D(a_origen.coordenada_x()+a_base, a_origen.coordenada_y()+a_altura);
+&nbsp; &nbsp; v_rec[3]= Punt2D(a_origen.coordenada_x()+a_base, a_origen.coordenada_y());
+}</code></pre></solucio>
+<br><h2>Programa que usa la classe Rectangle:</h2>  <button onclick="myFunction(RectangleMain)">Veure Codi</button>
+<solucio id = "RectangleMain"><pre><code class = "c++">#include&quot;Rectangle.h&quot;
+Rectangle llegir_rectangle() {
+// Retorna un rectangle les dades del qual s'han entrat per teclat
+&nbsp;&nbsp; cout &lt;&lt; &quot;Entra components (x,y) del v&egrave;rtex inferior esquerre, separades per un espai: &quot;;
+&nbsp;&nbsp; double x,y; cin &gt;&gt; x &gt;&gt; y; Punt2D origen(x,y);
+&nbsp;&nbsp; cout &lt;&lt; &quot;Entra base i altura, separades per un espai: &quot;;
+&nbsp;&nbsp; double base, altura; cin &gt;&gt; base &gt;&gt; altura;
+&nbsp;&nbsp; return Rectangle(origen,base,altura);
+}
+int main() {
+&nbsp; &nbsp; Rectangle r1= llegir_rectangle();
+&nbsp; &nbsp; Rectangle r2= llegir_rectangle();
+&nbsp; &nbsp; cout &lt;&lt; endl; r1.mostrar(); r1.mostrar_vertexs(); cout &lt;&lt; endl; 
+&nbsp; &nbsp; r2.mostrar(); r2.mostrar_vertexs(); cout &lt;&lt; endl;
+&nbsp; &nbsp; Rectangle r3;
+&nbsp; &nbsp; Punt2D punt_mig = r1.origen().punt_mig(r2.origen());
+&nbsp; &nbsp; if (r1.area()&lt;r2.area()) r3 = Rectangle(punt_mig,r1.base(),r1.altura());
+&nbsp; &nbsp; else r3 = Rectangle(punt_mig,r2.base(),r2.altura());
+&nbsp; &nbsp; r3.mostrar(); r3.mostrar_vertexs(); cout &lt;&lt; endl;
+&nbsp; &nbsp; r3.escalar_origen(2); r3.mostrar(); r3.mostrar_vertexs(); cout &lt;&lt; endl;
+&nbsp; &nbsp; r3.escalar_centre(0.5); r3.mostrar(); r3.mostrar_vertexs(); cout &lt;&lt; endl;
+&nbsp; &nbsp; r3.moure(1,1); r3.mostrar(); r3.mostrar_vertexs(); cout &lt;&lt; endl;
+&nbsp; &nbsp; cout &lt;&lt; &quot;Per&iacute;metre: &quot; &lt;&lt; r3.perimetre(); cout &lt;&lt; endl; &nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; return 0;
+}</code></pre></solucio>
+  </teoria>
+
+</div>
+
+  <p class = footer>
+    <a class="backward round" href="POO_ExempleFraccio.html"></a>
+    <a class="forward round" href="POO_Recomanacions.html"></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

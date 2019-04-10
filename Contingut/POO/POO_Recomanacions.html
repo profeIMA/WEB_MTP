@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+</head>
+
+<body onload="checkMenuById('#collapse-input-2');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+     1.8 RECOMANACIONS BÀSIQUES PER AL DISSENY DE CLASSES
+    </h1>
+  </center>
+
+  No existeix un únic disseny vàlid. <br>Quins mètodes (públics) han de formar part de la interfície?
+  <ul>
+      <li>En el disseny d'una classe per a ús general incloem les operacions que considerem raonables</li>
+      <li>En el disseny d'una classe ad hoc, per usar en una aplicació concreta, disseny d'una classe per a ús general</li>
+  </ul>
+  Pel que fa els mètodes privats, sorgeixen a partir del disseny descendent d'altres mètodes (públics o privats).
+  <br>
+  Tots els mètodes han de respondre a una funcionalitat concreta, tenir un nom adequat i no ser massa llargs i l'especificació ha de ser independent dels atributs usats per representar la classe
+  <h4>A la interfície</h4>
+  <teoria>
+    Evitem mètodes corresponents a operacions alienes a la classe, per exemple: a la interfície de Fraccio, un mètode per calcular el mínim comú múltiple no és apropiat (sí com a privat, perquè s'usa en la implementació d'altres mètodes).
+    <br>
+    Evitem mètodes que no tinguin sentit fora de la classe, per exemple: a la interfície de Fraccio el següent mètode no té sentit (podria tenir sentit a la implementació de la classe).
+    <pre><code class="c++">int comuDenominador(Fraccio f) const; 
+// Pre:--; Post: retorna mcm dels denominadors de *this i de f</code></pre>
+    Evitem incloure de forma sistemàtica getters i setters, posat que son mètodes que depenen totalment dels atributs (un getter i un setter per a cada atribut); els atributs no han de "transparentar-se" fora de la classe. Per exemple: a la interfície de Fraccio no cal incloure get_numerador() ni set_numerador(int).
+    <br>
+    Una altra cosa és que un mètode que decidim incloure a la interfície acabi sent un getter (o fins i tot un setter) un cop s'hagin establert els atributs, per exemple: mètodes base() i altura() (no pas get_base()) a la classe Rectangle.
+  </teoria><br>
+
+  Allò que afecti a un objecte s'ha de fer des de la classe. Cal evitar demanar, des de fora de la classe, l'estat d'un objecte i modificar-lo o actuar segons el seu valor, per exemple: analitzem aquests codis per llegir una fracció i mostrar-la simplificada (suposem una classe Fraccio diferent de la que hem vist!).
+  <pre><code class = "c++">//<b>Exemple 1</b>
+Fraccio f; f.llegir_fraccio();
+int num= f.get_num();
+int den= f.get_den();
+int mcd= Fraccio::max_comu_div(num,den);
+f.set_num(num/mcd);
+f.set_den(den/mcd);
+cout &lt;&lt; &quot;FRACCI&Oacute; SIMPLIFICADA: &quot;; f.mostrar();
+
+//Aix&ograve; seria incorrecte, la forma correcte de fer-ho, seria la seg&uuml;ent:
+
+//<b>Exemple2</b>
+Fraccio f; f.llegir_fraccio();
+f.simplificar();
+cout &lt;&lt; &quot;FRACCI&Oacute; SIMPLIFICADA: &quot;;
+f.mostrar();</code></pre>
+
+    <b>En el exemple 1</b> demanem a la fracció que ens doni els seus numerador i denominador (getters); calculem el seu mcd; dividim numerador i denominador pel mcd;  un cop modificats els tornem a "entrar" a la fracció (setters).
+    <br><b>En el exemple 2</b> demanem a la fracció que se simplifiqui (molt més simple);  es fa tot a dins de la classe Fraccio (que ja coneix el seus numerador i denominador); estalviem desencapsular la classe i tenir certes operacions públiques a Fraccio
+    
+    
+
+</div>
+
+  <p class = footer>
+    <a class="backward round" href="POO_Relacions.html"></a>
+    <a class="forward round" href="POO_Algorismica.html"></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

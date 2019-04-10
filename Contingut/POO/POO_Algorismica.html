@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+</head>
+
+<body onload="checkMenuById('#collapse-input-2');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+     1.9 ALGORÍSMICA I DISSENY MODULAR
+    </h1>
+  </center>
+  L'encapsulament i la modularitat és d'on deriven, sobretot, els avantatges de la POO sobre la imperativa; faciliten el:
+  <ul>
+      <li>
+          <b>Desenvolupament:</b> facilita el desenvolupament en equip, les proves individuals de cada mòdul (classe), la detecció i correcció d'errors.
+      </li>
+      <li>
+          <b>Manteniment:</b> EL codi es més entenedor i facilita la modificació d'una classe<ul>
+                  <li>dotar de noves funcionalitats als objectes de la classe</li>
+                  <li>simplificar la interfície</li>
+                  <li>millorar i canviar la implementació; canvis d'atributs per eficiència o simplicitat de codi no ha de comportar canvis a la interfície</li>
+          </ul>
+      </li>
+      <li>
+          <b>Reutilització:</b> per l'ús de classes existents i herència.
+      </li>
+      <li>
+        <b>Col·leccions d'objectes: </b>
+        <ul>
+                <li>és freqüent treballar amb grups d'objectes del mateix tipus; es poden anomenar col·leccions d’objectes</li>
+                <li>es poden definir classes que siguin col·leccions d'objectes, amb operacions tals com
+                    <ul>
+                        <li>obtenir el nombre d'objectes de la col·lecció</li>
+                        <li>afegir un objecte</li>
+                        <li>cercar (i obtenir) un determinat objecte</li>
+                        <li>eliminar un objecte</li>
+                        <li>etc.</li>
+                    </ul>
+                </li>
+                <li>s'implementen, de moment, amb taules</li>
+                <li>poden tenir requeriments: amb o sense ordenació, amb o sense repeticions, etc.</li>
+        </ul>
+      </li>
+  </ul>
+
+</div>
+
+  <p class = footer>
+    <a class="backward round" href="POO_Recomanacions.html"></a>
+    <a class="forward round" href=""></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
