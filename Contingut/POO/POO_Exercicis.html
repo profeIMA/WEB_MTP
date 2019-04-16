@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+</head>
+
+<body onload="checkMenuById('#collapse-input-2');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+     1.10 EXERCICIS
+    </h1>
+  </center>
+
+  <h2>Exercici 1</h2>
+  <teoria>
+    Donat un punt inicial i una seqüència no buida de punts 2D (les coordenades de tots els punts s'entren per teclat), volem saber quin d'aquests punts es troba més a prop del punt inicial. Cal fer un programa que ho solucioni usant la classe Punt2D. 
+    <br><button><a  target="_blank"  class="a_solucio_POO1" href= "https://github.com/sipwarriper/Exercicis-Programacio/tree/master/Exercicis_POO/Exercici1_Punt2DReferencia">
+        Veure Solució</a></button><br><br>
+    </teoria>
+
+  <h2>Exercici 2</h2>
+  <teoria>
+    Usant la classe Punt2D, cal fer un programa que, definint les accions i/o funcions necessàries en el main,
+    <ul>
+        <li>ompli un vector de n punts 2D</li>
+        <li>calculi i mostri la distància mitjana a l'origen de tots els punts</li>
+        <li>ordeni i mostri el vector de menys a més distància a l'origen</li>
+        <li>calculi la distància recorreguda per, començant a l'origen de coordenades, visitar tots els punts (seguint l'ordre donat pel vector ordenat)</li>
+    </ul>
+    <b>Exemple d'execució</b><br>
+    <codi>
+        Entra el nombre de punts per a ser llegits (>0): 4<br>
+        Entra 4 punts (x,y): <br>
+        0 5<br>
+        2 3<br>
+        1 1<br>
+        0 1<br>
+        Distància mitjana a l'origen: 2.75494<br>
+        Vector de punts ordenat: <br>
+        (0,1)<br>
+        (1,1)<br>
+        (2,3)<br>
+        (0,5)<br>
+        Distància recorreguda des de l'origen: 7.0645<br>
+    </codi>
+    <br><button><a  target="_blank"  class="a_solucio_POO1" href= "https://github.com/sipwarriper/Exercicis-Programacio/tree/master/Exercicis_POO/Exercici2_Punt2DOrdenacio">
+            Veure Solució</a></button><br><br>
+  </teoria>
+  <h2>Exercici 3</h2>
+  <teoria>
+    Especificar i implementar un mètode de la classe Rectangle que calculi, donats 2 rectangles, si hi ha o no intersecció i el rectangle generat per la possible intersecció dels 2 rectangles.
+    <br><button><a  target="_blank"  class="a_solucio_POO1" href= "https://github.com/sipwarriper/Exercicis-Programacio/tree/master/Exercicis_POO/Exercici3_RectangleInterseccio">
+            Veure Solució</a></button><br><br>
+  </teoria>
+  <h2>Exercici 4</h2>
+  <teoria>
+    Modificar la implementació de la classe Rectangle usant com atribut un array de 4 punts de tipus Punt2D (els vèrtexs).
+    <br><button><a  target="_blank"  class="a_solucio_POO1" href= "https://github.com/sipwarriper/Exercicis-Programacio/tree/master/Exercicis_POO/Exercici4_Rectangle4Punts">
+            Veure Solució</a></button><br><br>
+  </teoria>
+  <h2>Exercici 5</h2>
+  <teoria>
+        Llegir de teclat les dades de dos rectangles r1 i r2 (punt origen, base i altura). Mostrar la informació (origen, base i altura, vèrtexs) del rectangle creat r3 amb origen al punt mig entre els  dos orígens dels rectangles r1 i r2 i la base i l'altura del més petit d'aquests dos 
+        (menys àrea). També es mostrarà successivament el resultat d'escalar r3 en un factor 2 a partir del seu origen, el resultat d'escalar-lo un factor 0.5 a partir del seu centre, el resultat de desplaçar-lo un vector (1,1) i, finalment, el seu 
+        perímetre. Cal fer un programa que ho solucioni usant la classe Rectangle presentada a classe.
+        <br><button><a  target="_blank"  class="a_solucio_POO1" href= "https://github.com/sipwarriper/Exercicis-Programacio/tree/master/Exercicis_POO/Exercici5_RectangleTest">
+                Veure Solució</a></button><br><br>
+  </teoria>
+  <h2>Exercici 6</h2>
+  <teoria>
+      <ol>
+          <li>
+                Crear la classe Vector_punt2D que representa una llista ordenada (implementada mitjançant un vector) de punts 2D, segons la seva distància a l'origen (de menor a major). Aquesta classe haurà de tenir a la seva interfície les següents operacions:
+                <ul>
+                    <li>inserir punt</li>
+                    <li>mostrar tots els punts </li>
+                    <li>esborrar un punt donada la posició</li>
+                    <li>nombre de punts</li>
+                    <li>distància mitjana a l'origen de tots els punts</li>
+                </ul> 
+          </li>
+          <li>Fer un programa que testegi aquesta classe.
+              <br><b>Exemple d'execució</b><br>
+              <codi>i: inserir un punt<br>
+                    m: mostrar vector de punts<br>
+                    e: esborrar un punt donada la posicio<br>
+                    n: nombre de punts<br>
+                    d: distancia mitjana a l'origen<br>
+                    f: fi<br>
+                     <br>
+                    Introdueix operacio [i,m,e,n,d,f]: i<br>
+                    Entra coordenades (x, y) d'un punt: 2 4<br>
+                    Introdueix operacio [i,m,e,n,d,f]: i<br>
+                    Entra coordenades (x, y) d'un punt: 5 3<br>
+                    Introdueix operacio [i,m,e,n,d,f]: i<br>
+                    Entra coordenades (x, y) d'un punt: 2 6<br>
+                    Introdueix operacio [i,m,e,n,d,f]: i<br>
+                    Entra coordenades (x, y) d'un punt: 1 1<br>
+                    Introdueix operacio [i,m,e,n,d,f]: i<br>
+                    Entra coordenades (x, y) d'un punt: 3 2<br>
+                    Introdueix operacio [i,m,e,n,d,f]: m<br>
+                    0 -- (1,1)<br>
+                    1 -- (3,2)<br>
+                    2 -- (2,4)<br>
+                    3 -- (5,3)<br>
+                    4 -- (2,6)<br>
+                    Introdueix operacio [i,m,e,n,d,f]: n<br>
+                    Nombre de punts = 5<br>
+                    Introdueix operacio [i,m,e,n,d,f]: d<br>
+                    Distancia mitjana a l'origen = 4.32948<br>
+                    Introdueix operacio [i,m,e,n,d,f]: e<br>
+                    Posicio a esborrar: 2<br>
+                    Introdueix operacio [i,m,e,n,d,f]: e<br>
+                    Posicio a esborrar: 2<br>
+                    Introdueix operacio [i,m,e,n,d,f]: m<br>
+                    0 -- (1,1)<br>
+                    1 -- (3,2)<br>
+                    2 -- (2,6) <br>
+                     <br>
+                    Introdueix operacio [i,m,e,n,d,f]: f<br>
+                </codi>
+          </li>
+      </ol>
+      <br><button><a  target="_blank"  class="a_solucio_POO1" href= "https://github.com/sipwarriper/Exercicis-Programacio/tree/master/Exercicis_POO/Exercici6_VectorPunt2D">
+              Veure Solució</a></button><br><br>
+  </teoria>
+  <h2>Exercici 7</h2>
+  <teoria>
+        Cal fer una aplicació que permeti mantenir actualitzats el llistat de pacients i el de metges d’un centre sanitari. Cal que l’aplicació controli el nombre de pacients que té assignat cada metge i que no permeti assignar més de 300 pacients a un metge. Cal guardar per a cada 
+        <ul>
+                <li><b>Pacient:</b> DNI, nom, número de col·legiat del metge que el porta, estat o gravetat donada per un natural entre 0 i 10 i si està o no hospitalitzat ('s' o 'n')</li>
+                <li><b>Metge:</b> número de col·legiat i nombre de pacients que té assignats</li>
+        </ul>
+        Ens facilitaran el fitxer pacients.txt amb les dades dels pacients actuals. Cada línia del fitxer contindrà la informació d’un pacient separada per espais: DNI  nom_pacient número_col·legiat gravetat  hospitalitzat. Ens  indicaran amb una 's' que està hospitalitzat i amb una 'n' que no. Ens donen els pacients per ordre de DNI creixent, cap metge té més de 300 pacients i totes les dades són correctes. Hi haurà com a màxim 5000 pacients i 50 metges. <br>
+        El programa ha de llegir les dades del fitxer i crear les taules corresponents.
+        <br><button><a  target="_blank"  class="a_solucio_POO1" href= "https://github.com/sipwarriper/Exercicis-Programacio/tree/master/Exercicis_POO/Exercici7_Pacients">
+                Veure Solució</a></button><br><br>
+  </teoria>
+
+</div>
+
+  <p class = footer>
+    <a class="backward round" href="POO_Algorismica.html"></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
