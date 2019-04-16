@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+</head>
+
+<body onload="checkMenuById('#collapse-input-2');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+     1.2 MANIPULACIÓ D'OBJECTES I PUNTERS 
+    </h1>
+  </center>
+  
+  Quan és treballa amb objectes i punters cal tenir clars alguns aspectes que els diferencien: 
+  <ul>
+      <li>
+            <b>Assignació, <codi>=</codi></b>, que copia el punter i no l'objecte apuntat, de manera que després d'aplicar-la existeixen dos punters a un únic objecte de memòria. Qualsevol manipulació de l'objecte feta a 
+            través d'un dels punters es visible des de l'altre, ja que ambdues variables es refereixen (apunten) al mateix objecte. Aquesta particularitat té per nom efectes laterals (aliasing) i té moltes 
+            aplicacions pràctiques, encara que pot donar lloc a sorpreses si no es té clar el seu funcionament. En cas de fer l'assignació entre objectes es fa un clonatge, duplicant la totalitat del contingut del mateix. 
+            <br>
+            Amb <codi>&</codi> s'accedeix a la posició de memòria que ocupa un objecte, per poder-la assignar a un punter, per exemple. 
+      </li>
+      <li>
+            <b>Comparació, <codi>==</codi> (<codi>!=</codi>)</b>, que retorna Cert (Fals) si els dos punters comparats apunten al mateix objecte de la memòria (atenció: el mateix objecte, no dos objectes amb el mateix contingut!). 
+            No es permet fer comparació d'objectes a través d'aquest operador: cal un mètode explícit. 
+      </li>
+      <li>
+            <b>Reserva de memòria, <codi>new</codi></b>, és la manera de crear nous objectes a partir de punters. En C++ es considera un operador (veure la bibliografia). Retorna un punter a una zona de memòria on pot 
+            guardar-se un objecte de la classe que s'ha instanciat. Els objectes declarats es creen immediatament sense posar new en el codi. Tant els objectes declarats com els creats 
+            s'inicialitzen a partir d'algun constructor de la classe, ja sigui el constructor per defecte o a partir d'algun altre si es poden els paràmetres adients. 
+      </li>
+      <li>
+          <b>Valor nul, <codi>NULL</codi></b>, aquest és el valor que pot tenir qualsevol punter que no apunti a cap objecte associat. Encara que sembla innecessari, és un valor de gran utilitat. Es pot usar per donar valors 
+          inicials als punters i és el valor que s'utilitza en C quan s'ha esgotat la memòria de la màquina i es volen crear nous objectes (en C++ s'utilitza una excepció anomenada <codi>bad alloc</codi>).  No es pot 
+          invocar cap mètode amb un punter que tingui el valor nul, només es pot comparar o assignar-li un nou valor (punter a un nou objecte). 
+      </li>
+      <li>
+            <b>Alliberament de memòria, <codi>delete</codi></b>, amb aquest operador s'allibera l'espai ocupat per un objecte creat en temps d'execució. Cal usar-lo quan ja no cal accedir a l'objecte per assegurar 
+            una correcta gestió de la memòria (no és pot usar amb objectes declarats). En invocar el <codi>delete</codi>, el sistema executa el destructor de la classe abans d'alliberar l'espai ocupat per l'objecte. 
+      </li>
+      <li>
+            <b>Accés a l'objecte, <codi>*p</codi></b>, que permet accedir a l'objecte apuntat pel punter, suposant que no tingui un valor NULL. Permet consultar i modificar el valor de l'objecte o invocar-ne els mètodes. 
+      </li>
+  </ul>
+  A més d'aquests conceptes bàsics ja coneguts de manipulació d'objectes i de punters, cal tenir en compte alguns aspectes addicionals: 
+  <ul>
+    <li>
+        <b>Duplicació d'objectes</b>: constructor de còpia, és un mètode que el C++ implementa a totes les classes duplicant tots els atributs i que cal sobrecarregar en aquelles classes que tenen punters a 
+        la seva representació. Per implementar-lo en les classes que ho necessiten cal fer còpia de tots els atributs no punters i fer un duplicat dels elements que s'accedeix a partir de punters, reservant i 
+        copiant tota la informació (mètodes privats <codi>reserva</codi> i <codi>copia</codi>). En la majoria dels llenguatges no existeix la duplicació explícita d'objectes i cal recórrer a mètodes com ara <codi>Duplicar</codi> o <codi>Copiar</codi> 
+        per fer aquesta feina (i cal implementar-los per poder-los invocar). 
+    </li>
+    <li>
+        <b>Igualtat d'objectes</b>: mètode <codi>EsIgual</codi> o operador d'igualtat en C++, <codi>==</codi>, és un mètode que no existeix a cap classe i que cal crear per poder-lo invocar. El seu funcionament és simple: retorna 
+        cert si dos objectes contenen la mateixa informació. Cal tenir en clar que la mateixa informació pot representar-se de diferents maneres a la memòria (per exemple: en un conjunt no importa 
+        l'ordre dels elements). La comparació entre tipus bàsics funciona d'aquesta manera. Pot definir-se el mètode contrari, <codi>NoIgual</codi> o operador <codi>!=</codi>, amb el significat contrari. No tots els llenguatges permeten definir operadors i cal usar mètodes per fer la comparació d'objectes. 
+    </li>
+    <li>
+        <b>Objectes i Punters</b>: el C++ permet treballar amb punters i amb objectes, aspecte que permet molta flexibilitat, però obliga al programador a tenir clara la diferencia de tractament en els dos 
+        casos. No és el mateix duplicar un objecte que duplicar un punter i no és el mateix comparar dos punters que comparar dos objectes. Encara que de vegades el compilador permet detectar els 
+        errors, no sempre és així i cal que el programador tingui clara la sintaxi del que vol expressar. Hi ha altres llenguatges (Modula, Pascal, Ada) que permeten treballar amb punters i objectes a la 
+        vegada, mentre que d'altres (Java, SmallTalk) només permeten usar punters, aspecte que simplifica alguns aspectes de la codificació, però en limita d'altres. Cal tenir clar el llenguatge 
+        que s'utilitza i les seves particularitats de funcionament. No hi ha llenguatges millors o pitjors (però sí programadors millors i pitjors). 
+    </li>
+  </ul>
+
+  Per tal de cridar els mètodes d'un objecte usant un punter que apunta a ell, podem usar la manera intuïtiva <codi>(*punter).metode</codi> o l'operador <codi>-></codi> de la següent manera: <codi>punter->metode</codi>
+
+</div>
+
+  <p class = footer>
+    <a class="forward round" href=""></a>
+    <a class="backward round" href="Punters_Concepte.html"></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+

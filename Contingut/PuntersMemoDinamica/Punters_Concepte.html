@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+</head>
+
+<body onload="checkMenuById('#collapse-input-2');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+     1.1 CONCEPTE DE PUNTER
+    </h1>
+  </center>
+
+  Bona part de la potència del C++ es basa en els punters. Un punter apunta a una variable d'un tipus concret; dit d'una altra manera, guarda la seva adreça de memòria. Doncs, els punters apunten a variables, però a través d'ells podem manipular-les.
+
+  <pre><code class = "c++">class ClasseBase { 
+public: // m&egrave;todes 
+    ... 
+private: // atributs i m&egrave;todes privats 
+    
+    ... 
+}; 
+void Exemple() { 
+
+    ClasseBase objecte; // es crea l'objecte autom&agrave;ticament 
+    
+    // codi de l'algoritme  
+    punter = new ClasseBase; // es crea l'objecte 
+    
+    ... 
+    
+    delete punter; // s'allibera expl&iacute;citament l'objecte apuntat 
+    
+    // &eacute;s un error accedir a l'objecte apuntat, punter-&gt;mostra(); 
+    
+    // ... per&ograve; pot no ser un error immediat i pot no manifestar-se  
+    
+    // l'objecte declarat encara existeix 
+    
+    objecte.mostra(); 
+} // s'allibera l'objecte declarat (i el punter, per&ograve; no l'objecte apuntat) </code></pre>
+
+Amb aquesta manera de treballar, la variable punter conté un punter a l'objecte que realment 
+interessa i que és una instància de ClasseBase. Per tant, per cada objecte, es guarden dos elements a 
+la memòria: el propi objecte i un punter que s'utilitza per accedir-hi. Des del punt de vista de baix 
+nivell es pot veure l'objecte guarda la informació que necessita el programa, mentre que el punter és 
+un espai de memòria que guarda la posició de memòria (adreça) a on es troba l'objecte. És el que 
+s'anomena accés indirecte en la bibliografia de programació en llenguatge màquina. Pel contrari, els 
+objectes declarats, es creen en fer la declaració i es destrueixen automàticament en finalitzar la 
+funció que els ha creat. <br>
+El treball amb referències o punters no implica cap mena de problema al programador si aquest es 
+conscient del seu funcionament i las particularitats que té. De fet, el pseudocodi definit  ha comportat 
+la convivència d'elements accessibles directament (els tipus bàsics) i elements accessibles a través de punters (tots els objectes creats).
+
+Alguns aspectes de C++ referents als punters:
+<ul>
+    <li>En C++ es poden declarar objectes i punters de qualsevol classe (fins i tot punters a tipus bàsics). </li>
+    <li>Un punter ha de apuntat a un objecte (ja sigui amb un <codi>new</codi> o a partir d'una assignació a un altre punter) </li>
+    <li>Cal alliberar explícitament (<codi>delete</codi>) tots els objectes que es creen. </li>
+    <li>El sistema gestiona automàticament tots els objectes que es declaren, ja que s'alliberen en finalitzar el bloc on s'ha declarat.  </li>
+    <li>Tan si un objecte s'allibera automàticament com si es fa de forma explícita en el codi, s'invoca el destructor de la classe. </li>
+</ul>
+Els llenguatges de programació existents poden tenir diverses variants pel que fa a la gestió dinàmica de la memòria:  
+<ul>
+    <li>El llenguatge <b>Java</b> disposa d'una manera de treballar dual, usant a la vegada elements accessibles directament (els tipus bàsics) amb elements accessibles a través de referències (la resta). </li>
+    <li>El llenguatge <b>C++</b> permet treballar de manera doble (amb punters o usar objectes directament), aspecte que permet un ventall més ampli de maneres de programar però que fa més complex el seu ús. </li>
+    <li>El llenguatge <b>SmallTalk</b> només treballa amb punters (fins i tot pels tipus bàsics) i es pot considerar un llenguatge orientat a objectes pur. </li>
+    <li>El llenguatge <b>Ada</b> disposa de possibilitats mixtes, ja que permet treballar amb objectes i punters com el C++, però a diferència seva, no cal destruir explícitament els objectes creats, ja que porta un mecanismes de recollida d'objectes no usats (<i>garbage collector</i>). </li>
+</ul>
+
+Finalment, cal dir que alguns llenguatges parlen de referències, mentre que d'altres parlen de punters. 
+Encara que el nom és diferent el concepte és el mateix: un accés indirecte a la informació. Alguns llenguatges, com el C++, defineixen els dos conceptes (punter i referència) i permeten treballar-hi de maneres diferents. 
+La raó d'aquest comportament és en part històrica (el C++ és una evolució/millora del C que només tenia punters) i en part per permetre diferents maneres de programar (programació imperativa, programació modular, abstracció de dades, programació orientada a objectes). 
+En qualsevol cas, sigui quin sigui el llenguatge, cal conèixer el mecanisme que proporciona i les diferents maneres de treballar que permet. 
+
+</div>
+
+  <p class = footer>
+    <a class="forward round" href="Punters_Manipulacio.html"></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
