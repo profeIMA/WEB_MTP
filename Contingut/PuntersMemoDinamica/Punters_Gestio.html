@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+    <link rel="stylesheet"  href="../../styles/Style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../styles/vs.min.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../../CustomScripts.js"></script> 
+    <!-- Pels blocks de codi -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- scale font size for MathJax -->
+    <title>UDG AJUTS DE PROGRAMACIÓ</title>
+</head>
+
+<body onload="checkMenuById('#collapse-input-2');">
+
+<div id = "menu"></div>
+
+<div id = "content">
+  <center>
+    <h1 class = "center">
+     1.3 GESTIÓ DE LA MEMÒRIA
+    </h1>
+  </center>
+
+  Pel fet de treballar amb punters, apareix una distinció entre les variables que utilitza un algoritme: 
+  <ul>
+      <li>
+        <b>Variables estàtiques</b>, que són les de tipus bàsics, els punters a objectes i els objectes declarats en les funcions. Aquestes variables es caracteritzen per ocupar una posició fixa durant l'execució 
+        d'un programa, tenir una mida determinada i la seva existència està associada a les declaracions que apareixen en el codi. Aquestes variables es guarden a la pila de la màquina, es reserva espai 
+        en començar qualsevol acció, funció, mètode o bloc de codi i s'elimina l'espai en acabar-se. En C++, a la declaració hi pot haver una inicialització (crida en el constructor) i en acabar l'àmbit de 
+        validesa s'invoca el destructor si la classe en disposa. 
+      </li>
+      <li>
+          <b>Variables dinàmiques</b>, que són els objectes que cal accedir a través d'un punter. Aquestes variables es creen amb l'operador new que reserva l'espai de memòria que ocuparà la variable i 
+            guarda en el punter l'inici de l'espai de memòria reservat. En fer la reserva es pot invocar al constructor de la classe per donar valor inicial a la variable dinàmica. A diferència de les 
+            variables estàtiques, les dinàmiques es poden crear i destruir diverses vegades durant l'execució del codi. El sistema disposa d'estructures molt complexes per gestionar-les en un espai de 
+            memòria anomenat monticle o piló. Associat a aquest espai de memòria pot existir un procés encarregar d'alliberar l'espai no requerit que rep el nom de garbage collector o recollidor 
+            d'escombraries. En C++ no existeix recollidor d'escombraries i cal alliberar explícitament la memòria quan ja no s'utilitza usant un delete i dotant de destructors (mètode allibera) a les 
+            classes que tinguin punters entre els seus atributs. 
+        </li>
+  </ul>
+  Cal destacar que no tots els llenguatges tracten de la mateixa manera ambdós tipus de variables: 
+  <ul>
+    <li>
+        en Java els objectes de tipus bàsic i les referències (nom que tenen els punters en Java) són variables estàtiques, mentre que els objectes són variables dinàmiques. No es poden declarar 
+        objectes com a variables estàtiques. 
+    </li>
+    <li>
+        en C++ es pot fer servir una forma semblant si totes les variables es defineixen a través de classes i quan es declaren es treballa amb punters per accedir-hi. Cal crear-les quan es necessiten 
+        i destruir-les explícitament en el moment que ja no són requerides.  
+    </li>
+    <li>
+        tanmateix, C++ també permet declarar objectes directament i tractar-los de la mateixa manera que la resta de variables estàtiques, amb totes les implicacions que comporta aquesta manera de 
+        treballar. A més, com a complement, també es possible treballar sempre amb punters als tipus bàsics, encara que es tracta més d’una particularitat per fer més ortogonal el llenguatge, que una necessitat real.  
+    </li>
+    <li>
+        els llenguatges clarament imperatius com el Modula, el Pascal o el C treballen sempre amb  objectes estàtics i cal fer explícit el treball amb punters i variables dinàmiques. El suport que tenen per treball amb classes és nul o, en el millor dels cassos, limitat. 
+    </li>
+  </ul>
+    Cal entendre com funcionen els llenguatges per poder expressar de la manera més adequada els  conceptes desenvolupats.
+    
+
+  
+</div>
+
+  <p class = footer>
+    <a class="forward round" href=""></a>
+    <a class="backward round" href="Punters_Manipulacio.html"></a>
+  <center>
+      <p class = footer>
+      <!--<em>Last modified on February 19, 2018.</em><br><br>-->
+      Copyright &copy; 2000&ndash;<span id="anyActual"></span>
+      <a href ="https://www.udg.edu/ca/" class = footer>Universitat de Girona</a>
+      Tots els drets reservats.
+  </center>
+
+
+
+</body>
+
+</html>
+
